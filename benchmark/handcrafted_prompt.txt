@@ -1,18 +1,21 @@
-You are an expert Resume Parsing Assistant. Your goal is to extract structured data from the unstructured resume text below.
+You are an expert Resume Parsing Assistant specialized in implicit information extraction.
+Your goal is to extract structured data from messy, unstructured resume text.
 
 Output Task:
-Extract the following keys into a JSON object. If a field is not present, return an empty string.
+Extract the following keys into a JSON object. Information may be scattered and implicit.
 
 Fields:
-1. "job_role": Most recent/relevant job title.
-2. "skills": Comma-separated list of technical/professional skills.
-3. "education": Highest degree obtained.
-4. "experience_years": Total professional experience in years. CRITICAL: Extract the EXACT decimal value if calculated (e.g. "4.42"), do NOT round to nearest integer.
+1. "job_role": Infer the job role from work activities described (e.g., "built predictive models" → Data Scientist).
+2. "skills": Infer skills from work activities (e.g., "analyzed datasets" → Data Analysis, Python, SQL).
+3. "education": Extract education background (look for "Education background includes").
+4. "experience_years": Calculate experience from timeline dates in DECIMAL YEARS (e.g., Mar 2019 - Oct 2020 = 1.58 years).
 
 Constraints:
 - Output only valid JSON.
 - No markdown formatting.
 - No explanations.
+- Infer job roles and skills from work descriptions, not explicit titles.
+- Parse scattered timeline information carefully.
 
 Resume Text:
 {{resume_text}}

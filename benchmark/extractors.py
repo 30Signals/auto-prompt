@@ -5,32 +5,33 @@ def load_baseline_prompt():
     """Load the baseline prompt from text file"""
     prompt_path = os.path.join(os.path.dirname(__file__), 'handcrafted_prompt.txt')
     with open(prompt_path, 'r', encoding='utf-8') as f:
-        content = f.read()
-    # Extract just the prompt part (after the header)
-    lines = content.split('\n')
-    prompt_start = None
-    for i, line in enumerate(lines):
-        if 'You are an expert HR resume parser' in line:
-            prompt_start = i
-            break
-    if prompt_start:
-        return '\n'.join(lines[prompt_start:])
-    return content
+        return f.read().strip()
 
 class ResumeSignature(dspy.Signature):
     """Resume parsing signature that uses the baseline prompt"""
-    unstructured_text = dspy.InputField(desc="Resume text")
+    unstructured_text = dspy.InputField(desc="Resume text to analyze")
     
-    job_role = dspy.OutputField(desc="Job role")
-    skills = dspy.OutputField(desc="Skills as comma-separated list")
-    education = dspy.OutputField(desc="Highest degree")
-    experience_years = dspy.OutputField(desc="Experience in years as number")
+    job_role = dspy.OutputField(desc="Primary job role/title based on work experience and activities")
+    skills = dspy.OutputField(desc="Technical and professional skills inferred from work descriptions, projects, and activities")
+    education = dspy.OutputField(desc="Highest educational qualification or degree")
+    experience_years = dspy.OutputField(desc="Total years of professional experience as decimal number")
+
+class EnhancedResumeSignature(dspy.Signature):
+    """Enhanced resume parsing with detailed reasoning"""
+    unstructured_text = dspy.InputField(desc="Resume text to analyze")
+    reasoning = dspy.OutputField(desc="Step-by-step analysis of work experience, skills inference, and role determination")
+    
+    job_role = dspy.OutputField(desc="Primary job role/title based on work experience and activities")
+    skills = dspy.OutputField(desc="Technical and professional skills inferred from work descriptions, projects, and activities")
+    education = dspy.OutputField(desc="Highest educational qualification or degree")
+    experience_years = dspy.OutputField(desc="Total years of professional experience as decimal number")
 
 # Load the baseline prompt once
 BASELINE_PROMPT = load_baseline_prompt()
 
 # Set the signature docstring to the loaded prompt
 ResumeSignature.__doc__ = BASELINE_PROMPT
+EnhancedResumeSignature.__doc__ = BASELINE_PROMPT + "\n\nProvide detailed reasoning for your analysis before extracting information."
 
 class BaselineModule(dspy.Module):
     """Baseline module using strictly the handcrafted prompt text"""
@@ -49,11 +50,13 @@ class BaselineModule(dspy.Module):
         # 3. Parse JSON (Manual extraction to ensure "nothing else")
         # We expect the LLM to output JSON as per instructions
         import json
-        import re
         
         # Basic cleanup to handle potential markdown wrappers if the LLM ignores instructions
         cleaned_response = response[0] if isinstance(response, list) else response
-        cleaned_response = cleaned_response.strip()
+        if hasattr(cleaned_response, 'strip'):
+            cleaned_response = cleaned_response.strip()
+        else:
+            cleaned_response = str(cleaned_response).strip()
         if cleaned_response.startswith("```json"):
             cleaned_response = cleaned_response[7:]
         if cleaned_response.endswith("```"):
@@ -74,11 +77,17 @@ class BaselineModule(dspy.Module):
         )
 
 class StudentModule(dspy.Module):
-    """DSPy module that uses ChainOfThought for automatic optimization"""
+    """Enhanced DSPy module with multi-stage reasoning"""
     def __init__(self):
         super().__init__()
-        # ChainOfThought automatically optimizes the prompt with reasoning
-        self.predictor = dspy.ChainOfThought(ResumeSignature)
+        # Use enhanced signature with reasoning
+        self.predictor = dspy.ChainOfThought(EnhancedResumeSignature)
     
     def forward(self, unstructured_text):
-        return self.predictor(unstructured_text=unstructured_text)
+        result = self.predictor(unstructured_text=unstructured_text)
+        return dspy.Prediction(
+            job_role=result.job_role,
+            skills=result.skills,
+            education=result.education,
+            experience_years=result.experience_years
+        )

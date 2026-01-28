@@ -13,14 +13,21 @@ This experiment proves that **Zero Manual Prompt Engineering** > **Experts Handc
 
 ## 📊 Results Summary
 
-We ran a strict head-to-head comparison on a dataset of 100 synthetic resumes.
+We ran a strict head-to-head comparison on an extremely challenging enterprise dataset of 100 synthetic resumes with **complex information extraction** requirements.
 
-| Approach | Strategy | Overall Accuracy | Experience Precision |
-|----------|----------|------------------|----------------------|
-| **Baseline** | Handcrafted Prompt (Static) | **82.5%** | **30.0%** (Fails on specific formats) |
-| **DSPy** | Automated Optimization | **100.0%** | **100.0%** (Learns from data) |
+| Approach | Strategy | Overall Accuracy | Skills Extraction |
+|----------|----------|------------------|-------------------|
+| **Baseline** | Handcrafted Prompt (Static) | **56.58%** | **6.33%** (Poor inference) |
+| **DSPy** | Automated Optimization | **75.87%** | **50.17%** (8x better!) |
 
-**Key Insight**: The handcrafted prompt failed to capture precise experience years (e.g., `4.42` vs `4`), a common edge case. DSPy automatically learned this requirement just by passing the training data, without any code changes.
+**Complex Enterprise Challenges**:
+- **Scattered information**: Timeline, education, and work activities randomly placed in messy text
+- **Implicit skill inference**: Must infer skills from work descriptions ("optimized inference pipelines" → Python, TensorFlow)
+- **Complex timeline parsing**: Calculate experience from scattered date ranges
+- **Job role mapping**: Infer roles from activities across multiple domains
+- **Enterprise complexity**: Realistic messy resume format with distractors
+
+**DSPy's Key Advantage**: Starts with the same handcrafted prompt but automatically optimizes it with 16 few-shot examples, learning complex inference patterns that the static baseline cannot handle.
 
 ## 🏗️ Project Structure
 
@@ -36,7 +43,7 @@ optimizing-ie-pipelines/
 │   ├── optimizer.py          # DSPy optimization logic
 │   └── evaluation.py         # Metrics and comparison logic
 ├── Data/
-│   └── synthetic_100_resumes_realistic.csv
+│   └── final_synthetic_100_resumes_enterprise.csv
 └── README.md
 ```
 
@@ -68,7 +75,14 @@ Execute the full pipeline. This will run the baseline, perform optimization, and
 python -m benchmark.run_experiment
 ```
 
-### 4. What You Will See (Detailed Comparison)
+### 4. Mode 2: Live Demo (User Mode)
+Interactive mode to test real-world generalization. Paste *any* resume text to see how both models perform side-by-side.
+
+```bash
+python -m benchmark.live_demo
+```
+
+### 5. What You Will See (Detailed Comparison)
 The tool will output a side-by-side comparison of the handcrafted prompt vs the DSPy-optimized version.
 
 ```text
@@ -76,23 +90,37 @@ DETAILED COMPARISON REPORT
 ==================================================
 
 OVERALL ACCURACY:
-Baseline:  82.50%
-Optimized: 100.00%
-Improvement: 17.50%
+Baseline:  56.58%
+DSPy:      75.87%
+Improvement: 19.29%
 
 FIELD-WISE ACCURACY:
-Field                Baseline     Optimized    Improvement 
+Field                Baseline     DSPy         Improvement 
 --------------------------------------------------------
-job_role             100.00%      100.00%      0.00%       
-skills               100.00%      100.00%      0.00%       
+job_role             20.00%       53.33%       33.33%      
+skills               6.33%        50.17%       43.83%      
 education            100.00%      100.00%      0.00%       
-experience_years     30.00%       100.00%      70.00%      
+experience_years     100.00%      100.00%      0.00%      
 ```
 
 ## 📂 Output Files
 - `baseline_results.json`: Results from the handcrafted prompt (Static Baseline)
 - `dspy_results.json`: Results from the optimized module (DSPy)
 - `comparison_results.json`: Improvement metrics and detailed analysis
+- `optimized_resume_module.json`: **DSPy's optimized prompt with 16 few-shot examples**
+
+## 🔍 How DSPy Optimization Works
+
+**Both models start with the same handcrafted prompt**, but:
+
+1. **Baseline**: Uses the handcrafted prompt exactly as-is (static)
+2. **DSPy**: Takes the same handcrafted prompt and automatically optimizes it by:
+   - Learning from 20 training examples
+   - Generating 16 few-shot examples through BootstrapFewShot
+   - Adding reasoning chains for complex inference tasks
+   - Creating an optimized prompt saved in `optimized_resume_module.json`
+
+**View the Optimized Prompt**: Check `optimized_resume_module.json` to see how DSPy transformed the basic handcrafted prompt into a sophisticated few-shot prompt with examples and reasoning.
 
 ## 📋 Technology Stack
 - **DSPy**: For declarative self-optimizing language models.

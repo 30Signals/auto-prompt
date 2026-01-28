@@ -7,7 +7,7 @@ from pathlib import Path
 
 # Data Paths
 BASE_DIR = Path(__file__).parent.parent
-DATA_PATH = BASE_DIR / "Data" / "synthetic_100_resumes_realistic.csv"
+DATA_PATH = BASE_DIR / "Data" / "Resume_long1.csv"
 
 # Data Split Config
 TRAIN_SIZE = 20
