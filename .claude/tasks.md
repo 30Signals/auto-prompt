@@ -1,8 +1,6 @@
-# Project Tasks
+## Current Status: Phase 2 Complete ✓
 
-## Current Status: Phase 1 Complete ✓
-
-PR #3 created with code reorganization and publication tools.
+Phase 2 statistical rigor infrastructure implemented and ready for use.
 
 ---
 
@@ -31,26 +29,43 @@ PR #3 created with code reorganization and publication tools.
 
 ---
 
-### Phase 2: Statistical Rigor 🔄 NEXT
-- [ ] Run multiple trials with seeds
-  - [ ] Modify experiment runner to support multiple runs
-  - [ ] Add seed tracking and logging
-  - [ ] Run each experiment 5-10 times
-- [ ] Add confidence intervals
-  - [ ] Calculate mean and std dev across runs
-  - [ ] Compute 95% confidence intervals
-  - [ ] Add error bars to visualizations
-- [ ] Statistical significance testing
-  - [ ] Implement paired t-test
-  - [ ] Add p-value calculations
-  - [ ] Document statistical methods
-- [ ] Ablation studies
-  - [ ] Test BootstrapFewShot only (no COPRO)
-  - [ ] Test different demo counts (4, 8, 16, 32)
-  - [ ] Test different optimizers (MIPROv2, SignatureOptimizer)
-  - [ ] Test temperature variations
+### Phase 2: Statistical Rigor ✅ COMPLETED
+- [x] Run multiple trials with seeds
+  - [x] `run_multiple_trials()` in `experiments/resume_extraction/run.py`
+  - [x] Seed tracking via `config.RANDOM_SEEDS` (5 seeds)
+  - [x] Trial-specific result directories (`trial_0/`, `trial_1/`, etc.)
+- [x] Add confidence intervals
+  - [x] `compute_confidence_interval()` in `shared/evaluation/statistics.py`
+  - [x] `aggregate_metrics()` with mean, std_dev, ci_lower, ci_upper
+  - [x] Error bar visualizations: `plot_field_comparison_with_ci()`, `plot_accuracy_bars_with_ci()`
+- [x] Statistical significance testing
+  - [x] `compute_significance()` with paired t-test
+  - [x] `compute_effect_size()` (Cohen's d)
+  - [x] Result aggregation in `aggregate_results.py`
+- [x] Ablation studies infrastructure
+  - [x] `ablation_runner.py` with demo count and optimizer ablations
+  - [x] Test BootstrapFewShot only (no COPRO)
+  - [x] Test different demo counts (4, 8, 16, 32)
+- [x] Prompt export
+  - [x] `save_baseline_prompt()` in `shared/evaluation/prompt_utils.py`
+  - [x] `extract_optimized_prompt()` for DSPy optimized prompts
+  - [x] `generate_prompt_comparison()` for side-by-side comparison
+
+**Usage:**
+```bash
+# Run multi-trial experiment
+python -m experiments.resume_extraction.run --multi-run 5
+
+# Aggregate results with statistics
+python -m experiments.resume_extraction.aggregate_results 5
+
+# Run ablation studies
+python -m experiments.resume_extraction.ablation_runner --demo-count
+python -m experiments.resume_extraction.ablation_runner --optimizer
+```
 
 ---
+
 
 ### Phase 3: New Experiments 📋 PLANNED
 - [ ] Experiment 2: Medical Entity Extraction

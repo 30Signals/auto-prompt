@@ -39,11 +39,15 @@ def extract_optimized_prompt(optimized_module, results_dir: Path) -> Optional[st
         Extracted prompt text, or None if extraction failed
     """
     try:
-        # Save module to get JSON representation
-        module_dict = optimized_module.save()
-
-        # Parse the module structure to extract prompt components
-        prompt_text = format_dspy_prompt(module_dict, optimized_module)
+        # First, load from the saved JSON file which has the full structure
+        module_json_path = results_dir / "optimized_module.json"
+        if module_json_path.exists():
+            with open(module_json_path, 'r') as f:
+                module_dict = json.load(f)
+            prompt_text = format_dspy_prompt_from_json(module_dict)
+        else:
+            # Fallback to extracting from module object
+            prompt_text = format_dspy_prompt_from_module(optimized_module)
 
         # Save to file
         dst = results_dir / "prompts" / "optimized_prompt.txt"
@@ -53,15 +57,119 @@ def extract_optimized_prompt(optimized_module, results_dir: Path) -> Optional[st
         return prompt_text
     except Exception as e:
         print(f"Warning: Could not extract optimized prompt: {e}")
+        import traceback
+        traceback.print_exc()
         return None
 
 
-def format_dspy_prompt(module_dict: Dict[str, Any], optimized_module) -> str:
+def format_dspy_prompt_from_json(module_dict: Dict[str, Any]) -> str:
     """
-    Format DSPy module dictionary into readable prompt text.
+    Format DSPy module from saved JSON structure into readable prompt text.
 
     Args:
-        module_dict: Module dictionary from save()
+        module_dict: Module dictionary loaded from JSON file
+
+    Returns:
+        Formatted prompt text
+    """
+    lines = []
+    lines.append("# Optimized DSPy Prompt")
+    lines.append("=" * 60)
+    lines.append("")
+
+    # Find the predictor key (usually "predictor.predict" or similar)
+    predictor_key = None
+    for key in module_dict.keys():
+        if key.startswith("predictor") or "predict" in key.lower():
+            predictor_key = key
+            break
+
+    if predictor_key and predictor_key in module_dict:
+        predictor_data = module_dict[predictor_key]
+
+        # Signature and Instructions
+        if 'signature' in predictor_data:
+            sig = predictor_data['signature']
+
+            # Instructions
+            if 'instructions' in sig and sig['instructions']:
+                lines.append("## Instructions")
+                lines.append("")
+                lines.append("```")
+                lines.append(sig['instructions'])
+                lines.append("```")
+                lines.append("")
+
+            # Fields
+            if 'fields' in sig and sig['fields']:
+                lines.append("## Field Definitions")
+                lines.append("")
+                for field in sig['fields']:
+                    prefix = field.get('prefix', 'Unknown')
+                    desc = field.get('description', '')
+                    lines.append(f"- **{prefix}** {desc}")
+                lines.append("")
+
+        # Few-shot demonstrations
+        if 'demos' in predictor_data and predictor_data['demos']:
+            demos = predictor_data['demos']
+            lines.append("## Few-Shot Examples")
+            lines.append(f"")
+            lines.append(f"Total examples: **{len(demos)}**")
+            lines.append("")
+
+            # Show first 3 examples
+            for i, demo in enumerate(demos[:3], 1):
+                lines.append(f"### Example {i}")
+                lines.append("")
+
+                # Input text
+                if 'unstructured_text' in demo:
+                    text = demo['unstructured_text']
+                    if len(text) > 200:
+                        text = text[:200] + "..."
+                    lines.append(f"**Input (truncated):**")
+                    lines.append(f"```")
+                    lines.append(text)
+                    lines.append(f"```")
+                    lines.append("")
+
+                # Reasoning (Chain-of-Thought)
+                if 'reasoning' in demo:
+                    reasoning = demo['reasoning']
+                    if len(reasoning) > 300:
+                        reasoning = reasoning[:300] + "..."
+                    lines.append(f"**Reasoning:**")
+                    lines.append(f"> {reasoning}")
+                    lines.append("")
+
+                # Output fields
+                lines.append("**Output:**")
+                output_fields = ['job_role', 'skills', 'education', 'experience_years']
+                for field in output_fields:
+                    if field in demo:
+                        lines.append(f"- {field}: `{demo[field]}`")
+                lines.append("")
+
+            if len(demos) > 3:
+                lines.append(f"... and **{len(demos) - 3}** more examples")
+                lines.append("")
+
+    # Reasoning strategy
+    lines.append("## Reasoning Strategy")
+    lines.append("")
+    lines.append("Uses **Chain-of-Thought** reasoning with intermediate rationale steps.")
+    lines.append("Each example includes explicit reasoning to guide the model's inference process.")
+    lines.append("")
+
+    return "\n".join(lines)
+
+
+def format_dspy_prompt_from_module(optimized_module) -> str:
+    """
+    Fallback: Format DSPy module directly from object attributes.
+
+    Args:
         optimized_module: The optimized module object
 
     Returns:
@@ -72,22 +180,32 @@ def format_dspy_prompt(module_dict: Dict[str, Any], optimized_module) -> str:
     lines.append("=" * 60)
     lines.append("")
 
-    # Extract predictor information
+    # Try to extract predictor information
+    predictor = None
     if hasattr(optimized_module, 'predictor'):
         predictor = optimized_module.predictor
+    elif hasattr(optimized_module, 'predict'):
+        predictor = optimized_module.predict
 
+    if predictor:
         # Signature
         if hasattr(predictor, 'signature'):
             sig = predictor.signature
             lines.append("## Signature")
-            lines.append(f"Input: {', '.join(sig.input_fields.keys())}")
-            lines.append(f"Output: {', '.join(sig.output_fields.keys())}")
+
+            if hasattr(sig, 'input_fields'):
+                lines.append(f"Input: {', '.join(sig.input_fields.keys())}")
+            if hasattr(sig, 'output_fields'):
+                lines.append(f"Output: {', '.join(sig.output_fields.keys())}")
             lines.append("")
 
             # Instructions
-            if hasattr(sig, 'instructions'):
+            if hasattr(sig, 'instructions') and sig.instructions:
                 lines.append("## Instructions")
+                lines.append("")
+                lines.append("```")
                 lines.append(sig.instructions)
+                lines.append("```")
                 lines.append("")
 
         # Few-shot demonstrations
@@ -96,7 +214,7 @@ def format_dspy_prompt(module_dict: Dict[str, Any], optimized_module) -> str:
             lines.append(f"Number of examples: {len(predictor.demos)}")
             lines.append("")
 
-            for i, demo in enumerate(predictor.demos[:3], 1):  # Show first 3 examples
+            for i, demo in enumerate(predictor.demos[:3], 1):
                 lines.append(f"### Example {i}")
                 if hasattr(demo, 'inputs'):
                     lines.append(f"Input: {demo.inputs()}")
@@ -108,7 +226,7 @@ def format_dspy_prompt(module_dict: Dict[str, Any], optimized_module) -> str:
                 lines.append(f"... and {len(predictor.demos) - 3} more examples")
                 lines.append("")
 
-    # Extended rationale (from ChainOfThought)
+    # Reasoning strategy
     lines.append("## Reasoning Strategy")
     lines.append("Uses Chain-of-Thought reasoning with intermediate rationale steps")
     lines.append("")
