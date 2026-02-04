@@ -2,15 +2,32 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.egg-info/
+dist/
+build/
 
 # Environment variables
 .env
 
-# Experiment Results/Artifacts
-*.json
+# Experiment Results (generated, not committed)
+experiments/*/results/*.json
+optimized_*.json
+*_results.json
 run_log.txt
 final_verify.txt
+live_demo_results.json
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Generated figures
+case_study/figures/*.png
+case_study/figures/*.pdf
 
 # Editor directories
 .vscode/
 .idea/
+
+# OS files
+.DS_Store
+Thumbs.db
