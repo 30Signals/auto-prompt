@@ -173,6 +173,14 @@ Experiments in this repo follow a structured approach:
 
 ---
 
+## Future Enhancements (TODO)
+
+- [ ] **MIPROv2 Optimizer Ablation** - Compare MIPROv2 vs BootstrapFewShot+COPRO for optimization quality
+- [ ] **Temperature Ablation** - Test impact of LLM temperature (0.0, 0.3, 0.7, 1.0) on optimization and inference
+- [ ] **Cross-domain Validation** - Train on resumes, test on cover letters to measure generalization
+
+---
+
 ## Contributing
 
 This is an experimental repository. Contributions can include:

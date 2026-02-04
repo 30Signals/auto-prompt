@@ -46,6 +46,8 @@ Phase 2 statistical rigor infrastructure implemented and ready for use.
   - [x] `ablation_runner.py` with demo count and optimizer ablations
   - [x] Test BootstrapFewShot only (no COPRO)
   - [x] Test different demo counts (4, 8, 16, 32)
+  - [ ] **TODO:** Add MIPROv2 optimizer comparison // DO IT LATER
+  - [ ] **TODO:** Add temperature variation ablation // DO IT LATER
 - [x] Prompt export
   - [x] `save_baseline_prompt()` in `shared/evaluation/prompt_utils.py`
   - [x] `extract_optimized_prompt()` for DSPy optimized prompts
