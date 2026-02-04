@@ -3,6 +3,10 @@ dspy-ai>=2.4.0
 pandas>=2.0.0
 python-dotenv>=1.0.0
 
+# Statistical analysis
+scipy>=1.11.0
+numpy>=1.24.0
+
 # Visualization (optional)
 matplotlib>=3.7.0
 

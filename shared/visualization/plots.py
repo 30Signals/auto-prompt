@@ -4,12 +4,13 @@ Visualization Utilities
 Generate publication-ready plots for experiment results.
 """
 
-from typing import Dict, List, Optional, Tuple
+from typing import Dict, List, Optional, Tuple, Any
 from pathlib import Path
 
 try:
     import matplotlib.pyplot as plt
     import matplotlib.patches as mpatches
+    import numpy as np
     MATPLOTLIB_AVAILABLE = True
 except ImportError:
     MATPLOTLIB_AVAILABLE = False
@@ -246,6 +247,163 @@ def plot_improvement_heatmap(
             mpatches.Patch(color=COLORS['neutral'], label=f"Unchanged ({comparison['summary']['total_unchanged']})")
         ]
         ax.legend(handles=legend_patches, loc='upper right')
+
+        plt.tight_layout()
+        return fig
+
+
+def plot_field_comparison_with_ci(
+    baseline_agg: Dict[str, Any],
+    optimized_agg: Dict[str, Any],
+    title: str = "Field-wise Accuracy with 95% CI",
+    figsize: Tuple[int, int] = (12, 6)
+) -> 'plt.Figure':
+    """
+    Create grouped bar chart with error bars showing confidence intervals.
+
+    Args:
+        baseline_agg: Aggregated baseline results with CI
+        optimized_agg: Aggregated optimized results with CI
+        title: Plot title
+        figsize: Figure size tuple
+
+    Returns:
+        matplotlib Figure
+    """
+    _check_matplotlib()
+
+    with plt.rc_context(STYLE_CONFIG):
+        fig, ax = plt.subplots(figsize=figsize)
+
+        # Extract field names
+        fields = list(baseline_agg['field_accuracies'].keys())
+        n_fields = len(fields)
+
+        bar_width = 0.35
+        x = np.arange(n_fields)
+
+        # Baseline data
+        baseline_means = [baseline_agg['field_accuracies'][f]['mean'] * 100 for f in fields]
+        baseline_errors = [
+            (baseline_agg['field_accuracies'][f]['mean'] - baseline_agg['field_accuracies'][f]['ci_lower']) * 100
+            for f in fields
+        ]
+
+        # Optimized data
+        optimized_means = [optimized_agg['field_accuracies'][f]['mean'] * 100 for f in fields]
+        optimized_errors = [
+            (optimized_agg['field_accuracies'][f]['mean'] - optimized_agg['field_accuracies'][f]['ci_lower']) * 100
+            for f in fields
+        ]
+
+        # Plot bars with error bars
+        bars1 = ax.bar(x - bar_width/2, baseline_means, bar_width, 
+                       label='Baseline', color=COLORS['baseline'],
+                       yerr=baseline_errors, capsize=4, error_kw={'linewidth': 1.5})
+        bars2 = ax.bar(x + bar_width/2, optimized_means, bar_width,
+                       label='DSPy Optimized', color=COLORS['optimized'],
+                       yerr=optimized_errors, capsize=4, error_kw={'linewidth': 1.5})
+
+        ax.set_xlabel('Fields')
+        ax.set_ylabel('Accuracy (%)')
+        ax.set_title(title)
+        ax.set_xticks(x)
+        ax.set_xticklabels(fields, rotation=45, ha='right')
+        ax.legend()
+        ax.set_ylim(0, 110)
+
+        # Add gridlines
+        ax.yaxis.grid(True, linestyle='--', alpha=0.7)
+        ax.set_axisbelow(True)
+
+        plt.tight_layout()
+        return fig
+
+
+def plot_accuracy_bars_with_ci(
+    baseline_agg: Dict[str, Any],
+    optimized_agg: Dict[str, Any],
+    title: str = "Overall Accuracy with 95% CI",
+    figsize: Tuple[int, int] = (8, 6),
+    show_significance: bool = True,
+    p_value: Optional[float] = None
+) -> 'plt.Figure':
+    """
+    Create bar chart comparing overall accuracies with confidence interval error bars.
+
+    Args:
+        baseline_agg: Aggregated baseline results with CI
+        optimized_agg: Aggregated optimized results with CI
+        title: Plot title
+        figsize: Figure size tuple
+        show_significance: Whether to show significance indicator
+        p_value: P-value from statistical test
+
+    Returns:
+        matplotlib Figure
+    """
+    _check_matplotlib()
+
+    with plt.rc_context(STYLE_CONFIG):
+        fig, ax = plt.subplots(figsize=figsize)
+
+        methods = ['Baseline', 'DSPy Optimized']
+        means = [
+            baseline_agg['overall_accuracy']['mean'] * 100,
+            optimized_agg['overall_accuracy']['mean'] * 100
+        ]
+        errors = [
+            (baseline_agg['overall_accuracy']['mean'] - baseline_agg['overall_accuracy']['ci_lower']) * 100,
+            (optimized_agg['overall_accuracy']['mean'] - optimized_agg['overall_accuracy']['ci_lower']) * 100
+        ]
+
+        colors = [COLORS['baseline'], COLORS['optimized']]
+
+        bars = ax.bar(methods, means, color=colors, edgecolor='black', linewidth=1,
+                      yerr=errors, capsize=8, error_kw={'linewidth': 2})
+
+        # Add value labels on bars
+        for bar, mean, err in zip(bars, means, errors):
+            height = bar.get_height()
+            ax.annotate(f'{mean:.1f}%\n±{err:.1f}%',
+                       xy=(bar.get_x() + bar.get_width() / 2, height + err),
+                       xytext=(0, 5),
+                       textcoords="offset points",
+                       ha='center', va='bottom', fontsize=11)
+
+        # Show improvement and significance
+        improvement = means[1] - means[0]
+        y_pos = max(means) + max(errors) + 10
+
+        if improvement > 0:
+            improvement_text = f'+{improvement:.1f}%'
+            color = COLORS['improvement']
+        else:
+            improvement_text = f'{improvement:.1f}%'
+            color = COLORS['degradation']
+
+        if show_significance and p_value is not None:
+            if p_value < 0.001:
+                sig_text = '***'
+            elif p_value < 0.01:
+                sig_text = '**'
+            elif p_value < 0.05:
+                sig_text = '*'
+            else:
+                sig_text = 'ns'
+            improvement_text += f' ({sig_text})'
+
+        ax.annotate(improvement_text,
+                   xy=(0.5, y_pos),
+                   ha='center', fontsize=14, fontweight='bold',
+                   color=color)
+
+        ax.set_ylabel('Accuracy (%)')
+        ax.set_title(title)
+        ax.set_ylim(0, max(means) + max(errors) + 20)
+
+        ax.yaxis.grid(True, linestyle='--', alpha=0.7)
+        ax.set_axisbelow(True)
 
         plt.tight_layout()
         return fig

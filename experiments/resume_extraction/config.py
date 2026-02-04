@@ -21,6 +21,12 @@ TEST_SIZE = 30
 # Fields to extract
 EXTRACTION_FIELDS = ['job_role', 'skills', 'education', 'experience_years']
 
+# Statistical rigor settings
+NUM_RUNS = 5  # Default number of trials
+RANDOM_SEEDS = [42, 123, 456, 789, 1011]  # Reproducible seeds
+CONFIDENCE_LEVEL = 0.95  # For confidence intervals
+STATISTICAL_TEST = 'ttest'  # Options: 'ttest', 'mann_whitney'
+
 # Ensure directories exist
 DATA_DIR.mkdir(parents=True, exist_ok=True)
 RESULTS_DIR.mkdir(parents=True, exist_ok=True)

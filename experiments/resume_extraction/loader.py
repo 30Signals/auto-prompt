@@ -8,7 +8,7 @@ from pathlib import Path
 from . import config
 
 
-def load_data(data_path=None, train_size=None, test_size=None):
+def load_data(data_path=None, train_size=None, test_size=None, seed=None):
     """
     Load resume data from CSV and return train/test splits as dspy.Example objects.
 
@@ -16,6 +16,7 @@ def load_data(data_path=None, train_size=None, test_size=None):
         data_path: Path to CSV file. Default: config.DEFAULT_DATA_PATH
         train_size: Number of training samples. Default: config.TRAIN_SIZE
         test_size: Number of test samples. Default: config.TEST_SIZE
+        seed: Random seed for shuffling. Default: None (deterministic order)
 
     Returns:
         Tuple of (trainset, testset) as lists of dspy.Example objects
@@ -34,6 +35,10 @@ def load_data(data_path=None, train_size=None, test_size=None):
     missing = [col for col in required_columns if col not in df.columns]
     if missing:
         raise ValueError(f"Missing required columns: {missing}")
+
+    # Shuffle data if seed is provided
+    if seed is not None:
+        df = df.sample(frac=1, random_state=seed).reset_index(drop=True)
 
     # Deterministic split
     train_df = df.iloc[:train_size]
