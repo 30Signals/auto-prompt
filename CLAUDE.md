@@ -40,22 +40,45 @@ auto-prompt/
 
 ## Environment Setup
 
-Configure LLM provider in `.env`:
+**Virtual Environment (Recommended):**
+
+Always use a virtual environment to isolate dependencies:
+
+```bash
+# Create virtual environment
+python -m venv .venv
+
+# Activate (Linux/Mac)
+source .venv/bin/activate
+
+# Activate (Windows)
+.venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+**LLM Provider Configuration:**
+
+Create `.env` file in project root:
 
 ```bash
 # Azure OpenAI (primary)
 AZURE_OPENAI_API_KEY=your_key
 AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
 AZURE_OPENAI_DEPLOYMENT=gpt-4o
+AZURE_OPENAI_API_VERSION=2024-02-15-preview  # optional, has default
 
 # OR Google Gemini (fallback)
 GEMINI_API_KEY=your_key
 ```
 
+The system auto-selects Azure if configured, otherwise falls back to Gemini.
+
 ## Core Commands
 
 ```bash
-# Install dependencies
+# Install dependencies (after activating .venv)
 pip install -r requirements.txt
 
 # Run specific experiment

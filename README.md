@@ -53,40 +53,95 @@ This repo exists to make that process explicit and testable.
 **Experiment Structure:**
 
 ```
-benchmark/
-├── run_experiment.py          # Main entry point
-├── handcrafted_prompt.txt     # Baseline prompt
-├── extractors.py              # Baseline and DSPy modules
+experiments/resume_extraction/
+├── config.py                  # Configuration and LLM setup
+├── modules.py                 # Baseline and DSPy modules
 ├── loader.py                  # Data loading (20 train, 30 test)
-├── optimizer.py               # BootstrapFewShot + COPRO optimization
-└── evaluation.py              # Metrics and comparison
+├── metrics.py                 # Validation metrics
+├── evaluation.py              # Detailed evaluation
+├── run.py                     # Main entry point
+└── prompts/baseline.txt       # Handcrafted prompt
 ```
 
-**Setup:**
+---
+
+## Quick Start
+
+### 1. Prerequisites
+
+- Python 3.9+
+- Azure OpenAI or Google Gemini API key
+
+### 2. Setup
+
+**Clone and create virtual environment:**
 
 ```bash
-# Install dependencies
-pip install dspy-ai pandas python-dotenv
+git clone https://github.com/30Signals/auto-prompt.git
+cd auto-prompt
 
-# Configure LLM provider in .env
-AZURE_OPENAI_API_KEY=...
-AZURE_OPENAI_ENDPOINT=...
-AZURE_OPENAI_DEPLOYMENT=...
-# OR
-GEMINI_API_KEY=...
+# Create and activate virtual environment
+python -m venv .venv
+source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 ```
 
-**Run the experiment:**
+**Install dependencies:**
 
 ```bash
-# Full pipeline: baseline → optimization → comparison
+pip install -r requirements.txt
+```
+
+**Configure API keys:**
+
+Create a `.env` file in the project root:
+
+```bash
+# Azure OpenAI (recommended)
+AZURE_OPENAI_API_KEY=your_api_key_here
+AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
+AZURE_OPENAI_DEPLOYMENT=gpt-4o
+
+# OR Google Gemini (alternative)
+GEMINI_API_KEY=your_gemini_key_here
+```
+
+### 3. Run Experiments
+
+**Run resume extraction experiment:**
+
+```bash
+# New modular structure (recommended)
+python -m experiments.resume_extraction.run
+
+# Legacy command (still works)
 python -m benchmark.run_experiment
+```
 
-# Interactive demo: test both models with custom input
+**Run all experiments:**
+
+```bash
+python scripts/run_all_experiments.py
+```
+
+**Interactive demo:**
+
+```bash
 python -m benchmark.live_demo
 ```
 
-**Output:** Side-by-side comparison with per-field accuracy, improvements, and saved results in JSON files.
+### 4. View Results
+
+Results are saved in `experiments/resume_extraction/results/`:
+- `baseline_results.json` - Static handcrafted prompt results
+- `dspy_results.json` - DSPy optimized results
+- `comparison_results.json` - Side-by-side comparison
+- `optimized_module.json` - Saved DSPy module with learned examples
+
+**Output includes:**
+- Per-field accuracy (job_role, skills, education, experience)
+- Overall accuracy comparison
+- Improvement analysis
+- Statistical metrics
 
 ---
 
