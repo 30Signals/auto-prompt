@@ -6,6 +6,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 A sandbox for experimenting with automatic prompt generation and optimization. The repository runs structured experiments comparing different prompt strategies (handcrafted vs automated optimization) across various tasks.
 
+**Current Status:** Phase 1 complete - code reorganized with publication tools. See `.claude/tasks.md` for detailed task tracking and roadmap.
+
 ## Repository Structure
 
 ```
@@ -153,3 +155,40 @@ The `case_study/` directory contains publication materials:
 - `writeup.md` - Case study template with methodology and results sections
 - `analysis.ipynb` - Jupyter notebook for generating figures and statistics
 - `figures/` - Generated visualizations (PNG + PDF)
+
+## Task Tracking
+
+The project uses `.claude/tasks.md` to track progress across phases:
+
+**Phase 1: Foundation** ✅ Complete (PR #3)
+- Code reorganization
+- Visualization tools
+- Publication templates
+
+**Phase 2: Statistical Rigor** 🔄 Next
+- Multiple runs with seeds
+- Confidence intervals
+- Ablation studies
+
+**Phase 3: New Experiments** 📋 Planned
+- Medical entity extraction
+- Product categorization
+- Legal contract analysis
+- Cross-domain validation
+
+**Phase 4: Publication** 📝 Planned
+- Complete writeup
+- Generate all figures
+- Statistical analysis
+- Reproducibility documentation
+
+Refer to `.claude/tasks.md` for detailed checklists and current status.
+
+## Development Workflow
+
+1. **Check tasks:** Review `.claude/tasks.md` for current priorities
+2. **Create branch:** Work on feature branches for PRs
+3. **Run experiments:** Use `python -m experiments.<name>.run`
+4. **Generate figures:** Use visualization utilities in `shared/`
+5. **Update tasks:** Mark items complete in `.claude/tasks.md`
+6. **Commit:** Include task references in commit messages
