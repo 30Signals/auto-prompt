@@ -1,66 +1,74 @@
-# Resume Information Extraction: Manual vs Automated Optimization
+# auto-prompt
 
-**A pure product demo comparing Handcrafted Prompts vs DSPy Automation.**
+**A sandbox for experimenting with automatic prompt generation and optimization.**
 
-## 🎯 The Business Story
+This repository is used to run structured experiments that test how different prompt-generation strategies affect LLM behavior. The focus is not on building a reusable library, but on learning what works, what breaks, and why.
 
-Companies spend countless hours writing and maintaining prompts for extracting structured data from unstructured documents.
-- **The Problem**: Humans write prompts. Data changes. Prompts break.
-- **The Reality**: Maintaining prompts manually is brittle and does not scale.
-- **The Solution**: **DSPy** automatically writes and optimizes prompts for you.
+---
 
-This experiment proves that **Zero Manual Prompt Engineering** > **Experts Handcrafting Prompts**.
+## Purpose
 
-## 📊 Results Summary
+Prompts tend to evolve through trial and error, intuition, and copy-paste.
+This repo exists to make that process explicit and testable.
 
-We ran a strict head-to-head comparison on an extremely challenging enterprise dataset of 100 synthetic resumes with **complex information extraction** requirements.
+`auto-prompt` is a place to:
 
-| Approach | Strategy | Overall Accuracy | Skills Extraction |
-|----------|----------|------------------|-------------------|
-| **Baseline** | Handcrafted Prompt (Static) | **56.58%** | **6.33%** (Poor inference) |
-| **DSPy** | Automated Optimization | **75.87%** | **50.17%** (8x better!) |
+- experiment with prompt assembly strategies
+- test prompt transformations and optimizations
+- measure impact across tasks and datasets
+- develop intuition backed by evidence
 
-**Complex Enterprise Challenges**:
-- **Scattered information**: Timeline, education, and work activities randomly placed in messy text
-- **Implicit skill inference**: Must infer skills from work descriptions ("optimized inference pipelines" → Python, TensorFlow)
-- **Complex timeline parsing**: Calculate experience from scattered date ranges
-- **Job role mapping**: Infer roles from activities across multiple domains
-- **Enterprise complexity**: Realistic messy resume format with distractors
+---
 
-**DSPy's Key Advantage**: Starts with the same handcrafted prompt but automatically optimizes it with 16 few-shot examples, learning complex inference patterns that the static baseline cannot handle.
+## What this repo is
 
-## 🏗️ Project Structure
+- an experimentation playground
+- a prompt R&D lab
+- a place to test hypotheses about prompt design
+- a source of learnings that may later inform production systems
 
-The project is simplified to focus on the core comparison logic.
+---
 
-```plain
-optimizing-ie-pipelines/
-├── benchmark/
-│   ├── run_experiment.py     # Main entry point
-│   ├── handcrafted_prompt.txt # The actual human-written prompt file
-│   ├── extractors.py         # Defines both Baseline and DSPy modules
-│   ├── loader.py             # Loads and splits data (20 train, 30 test)
-│   ├── optimizer.py          # DSPy optimization logic
-│   └── evaluation.py         # Metrics and comparison logic
-├── Data/
-│   └── final_synthetic_100_resumes_enterprise.csv
-└── README.md
+## Current Experiments
+
+### Experiment 1: DSPy-Based Resume Information Extraction
+
+**Goal:** Compare handcrafted prompts vs automated optimization for structured data extraction from unstructured text.
+
+**Hypothesis:** Automated prompt optimization (DSPy) outperforms static handcrafted prompts on complex inference tasks.
+
+**Results:**
+
+| Approach | Overall Accuracy | Skills Extraction |
+|----------|------------------|-------------------|
+| Handcrafted Prompt (Static) | 56.58% | 6.33% |
+| DSPy Automated Optimization | 75.87% | 50.17% |
+
+**Key Findings:**
+- Automated optimization achieved 19.29% improvement in overall accuracy
+- Skills extraction improved 8x through few-shot learning
+- DSPy's BootstrapFewShot automatically generated 16 demonstration examples
+- ChainOfThought reasoning improved implicit inference (role and skill detection)
+
+**Experiment Structure:**
+
+```
+benchmark/
+├── run_experiment.py          # Main entry point
+├── handcrafted_prompt.txt     # Baseline prompt
+├── extractors.py              # Baseline and DSPy modules
+├── loader.py                  # Data loading (20 train, 30 test)
+├── optimizer.py               # BootstrapFewShot + COPRO optimization
+└── evaluation.py              # Metrics and comparison
 ```
 
-## 🚀 Quick Start
+**Setup:**
 
-### 1. Prerequisites
-- Python 3.9+
-- Azure OpenAI or Google Gemini API Key.
-
-### 2. Setup
-Clone the repo and install dependencies:
 ```bash
+# Install dependencies
 pip install dspy-ai pandas python-dotenv
-```
 
-Configure your keys in `.env`:
-```bash
+# Configure LLM provider in .env
 AZURE_OPENAI_API_KEY=...
 AZURE_OPENAI_ENDPOINT=...
 AZURE_OPENAI_DEPLOYMENT=...
@@ -68,64 +76,54 @@ AZURE_OPENAI_DEPLOYMENT=...
 GEMINI_API_KEY=...
 ```
 
-### 3. Run the Experiment
-Execute the full pipeline. This will run the baseline, perform optimization, and show the comparison.
+**Run the experiment:**
 
 ```bash
+# Full pipeline: baseline → optimization → comparison
 python -m benchmark.run_experiment
-```
 
-### 4. Mode 2: Live Demo (User Mode)
-Interactive mode to test real-world generalization. Paste *any* resume text to see how both models perform side-by-side.
-
-```bash
+# Interactive demo: test both models with custom input
 python -m benchmark.live_demo
 ```
 
-### 5. What You Will See (Detailed Comparison)
-The tool will output a side-by-side comparison of the handcrafted prompt vs the DSPy-optimized version.
+**Output:** Side-by-side comparison with per-field accuracy, improvements, and saved results in JSON files.
 
-```text
-DETAILED COMPARISON REPORT
-==================================================
+---
 
-OVERALL ACCURACY:
-Baseline:  56.58%
-DSPy:      75.87%
-Improvement: 19.29%
+## Methodology
 
-FIELD-WISE ACCURACY:
-Field                Baseline     DSPy         Improvement 
---------------------------------------------------------
-job_role             20.00%       53.33%       33.33%      
-skills               6.33%        50.17%       43.83%      
-education            100.00%      100.00%      0.00%       
-experience_years     100.00%      100.00%      0.00%      
-```
+Experiments in this repo follow a structured approach:
 
-## 📂 Output Files
-- `baseline_results.json`: Results from the handcrafted prompt (Static Baseline)
-- `dspy_results.json`: Results from the optimized module (DSPy)
-- `comparison_results.json`: Improvement metrics and detailed analysis
-- `optimized_resume_module.json`: **DSPy's optimized prompt with 16 few-shot examples**
+1. **Define hypothesis** - What are we testing?
+2. **Create baseline** - Simple, handcrafted approach
+3. **Implement optimization** - Automated or systematic improvement
+4. **Measure impact** - Quantitative comparison
+5. **Document learnings** - What worked, what didn't, and why
 
-## 🔍 How DSPy Optimization Works
+---
 
-**Both models start with the same handcrafted prompt**, but:
+## Technical Details
 
-1. **Baseline**: Uses the handcrafted prompt exactly as-is (static)
-2. **DSPy**: Takes the same handcrafted prompt and automatically optimizes it by:
-   - Learning from 20 training examples
-   - Generating 16 few-shot examples through BootstrapFewShot
-   - Adding reasoning chains for complex inference tasks
-   - Creating an optimized prompt saved in `optimized_resume_module.json`
+**DSPy Optimization Pipeline:**
+- Stage 1: BootstrapFewShot (generates demonstration examples from training data)
+- Stage 2: COPRO (prompt instruction refinement)
+- Validation: Enhanced semantic matching with role/skill synonyms
 
-**View the Optimized Prompt**: Check `optimized_resume_module.json` to see how DSPy transformed the basic handcrafted prompt into a sophisticated few-shot prompt with examples and reasoning.
+**Evaluation:**
+- Per-field accuracy tracking (job_role, skills, education, experience)
+- Error analysis (improvements and degradations)
+- Output artifacts: `baseline_results.json`, `dspy_results.json`, `comparison_results.json`, `optimized_resume_module.json`
 
-## 📋 Technology Stack
-- **DSPy**: For declarative self-optimizing language models.
-- **Pandas**: For data handling.
-- **Python**: Core logic.
+**Key Implementation Detail:** The baseline uses raw LLM calls to ensure no DSPy optimizations leak in, while the optimized version uses ChainOfThought with the same seed prompt enhanced by learned examples.
 
-## 🤝 Contributing
-This is a demonstration project. Feel free to fork and test with your own datasets by replacing the file in `Data/`.
+---
+
+## Contributing
+
+This is an experimental repository. Contributions can include:
+- New prompt optimization experiments
+- Alternative datasets or tasks
+- Different optimization strategies
+- Analysis tools and visualizations
+
+See [CLAUDE.md](CLAUDE.md) for detailed architecture documentation.
