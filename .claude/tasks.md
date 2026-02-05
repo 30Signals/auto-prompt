@@ -69,26 +69,19 @@ python -m experiments.resume_extraction.ablation_runner --optimizer
 ---
 
 
-### Phase 3: New Experiments 📋 PLANNED
-- [ ] Experiment 2: Medical Entity Extraction
-  - [ ] Download NCBI Disease Corpus or i2b2 dataset
-  - [ ] Create experiment structure in `experiments/medical_ner/`
-  - [ ] Implement baseline and DSPy modules
+### Phase 3: New Experiments 🔄 IN PROGRESS
+- [x] Experiment: Medical Entity Extraction (NCBI Disease Corpus)
+  - [x] Download NCBI Disease Corpus (via HuggingFace)
+  - [x] Create experiment structure in `experiments/medical_ner/`
+  - [x] Implement baseline and DSPy modules
   - [ ] Run evaluation and comparison
-- [ ] Experiment 3: Product Categorization
-  - [ ] Source Amazon product dataset
-  - [ ] Create experiment structure
-  - [ ] Implement classification modules
-  - [ ] Evaluate multi-label performance
-- [ ] Experiment 4: Legal Contract Analysis
-  - [ ] Download CUAD dataset
-  - [ ] Create experiment structure
-  - [ ] Implement extraction modules
-  - [ ] Evaluate on legal text
-- [ ] Cross-domain validation
-  - [ ] Train on resumes, test on cover letters
-  - [ ] Measure transfer learning effectiveness
-  - [ ] Document generalization findings
+- [x] Experiment: Legal Contract Analysis (CUAD)
+  - [x] Download CUAD dataset (via HuggingFace)
+  - [x] Create experiment structure in `experiments/legal_contract/`
+  - [x] Implement extraction modules
+  - [ ] Run evaluation on legal text
+- [~] Product Categorization - SKIPPED (per user request)
+- [~] Cross-domain validation - SKIPPED (per user request)
 
 ---
 

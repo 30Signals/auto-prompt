@@ -93,20 +93,31 @@ def run_two_stage_optimization(
     copro_config = {**copro_defaults, **copro_config}
 
     # Stage 1: BootstrapFewShot
+    print("  Stage 1: BootstrapFewShot...")
     bootstrap_teleprompter = BootstrapFewShot(
         metric=metric,
         **bootstrap_config
     )
     stage1_optimized = bootstrap_teleprompter.compile(student_module, trainset=trainset)
+    print(f"  Stage 1 complete. Bootstrapped demos collected.")
 
-    # Stage 2: COPRO
+    # Stage 2: COPRO (prompt optimization)
+    print("  Stage 2: COPRO prompt optimization...")
     try:
         copro_teleprompter = COPRO(
             metric=metric,
             **copro_config
         )
-        final_optimized = copro_teleprompter.compile(stage1_optimized, trainset=trainset)
+        # COPRO requires eval_kwargs - pass empty dict if none needed
+        final_optimized = copro_teleprompter.compile(
+            stage1_optimized, 
+            trainset=trainset,
+            eval_kwargs={}
+        )
+        print("  Stage 2 complete. Prompt optimized.")
         return final_optimized
-    except Exception:
+    except Exception as e:
         # Fall back to stage 1 if COPRO fails
+        print(f"  Stage 2 (COPRO) skipped: {type(e).__name__}: {e}")
+        print("  Returning Stage 1 (BootstrapFewShot) result only.")
         return stage1_optimized

@@ -1,0 +1,20 @@
+You are an expert biomedical named entity recognition system specialized in identifying disease names from medical literature.
+
+Given the following biomedical abstract, extract ALL disease names mentioned in the text.
+
+Return your response as a JSON object with a single key "diseases" containing an array of disease names exactly as they appear in the text.
+
+Example response format:
+{"diseases": ["breast cancer", "diabetes mellitus", "Alzheimer's disease"]}
+
+Rules:
+1. Extract disease names exactly as written in the text (preserve case and spelling)
+2. Include all disease mentions, even if repeated
+3. Include disease abbreviations if they appear (e.g., "AD" for Alzheimer's Disease)
+4. Include disease modifiers if part of the disease name (e.g., "metastatic breast cancer")
+5. Do NOT include symptoms, treatments, or genes unless they are disease names
+
+Biomedical Abstract:
+{{abstract_text}}
+
+Respond with only the JSON object, no additional text.

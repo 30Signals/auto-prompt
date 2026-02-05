@@ -23,6 +23,9 @@ run_log.txt
 final_verify.txt
 live_demo_results.json
 
+# Cached datasets (downloaded, not committed)
+experiments/*/data/
+
 # Jupyter
 .ipynb_checkpoints/
 
