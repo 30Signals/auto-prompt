@@ -57,7 +57,7 @@ experiments/resume_extraction/
 
 ## Result table 
 
-# Results (5-Run Aggregate):
+Results (5-Run Aggregate):
 | Metric | Handcrafted Baseline | Auto-Optimized | Delta |
 |--------|---------------------|----------------|-------|
 | Overall Accuracy (Mean) | 56.80% | 83.19% | **+26.39 pts** |
