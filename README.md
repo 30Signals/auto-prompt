@@ -71,9 +71,9 @@ Results (5-Run Aggregate):
 ## Visualizations
 
 1. Overall Accuracy
-<img width="200" height="300" alt="Screenshot 2026-02-16 152825" src="https://github.com/user-attachments/assets/00078228-dd32-4f6f-9792-f31a059f9a16" />  |  2. Field-wise Performance
+| <img width="200" height="300" alt="Screenshot 2026-02-16 152825" src="https://github.com/user-attachments/assets/00078228-dd32-4f6f-9792-f31a059f9a16" />  |  2. Field-wise Performance
 <img width="200" height="300" alt="Screenshot 2026-02-16 152837" src="https://github.com/user-attachments/assets/0d18d3ab-f80e-4e5a-a580-c937ace921dd" /> | 3. Skills Micro Metrics
-<img width="200" height="300" alt="Screenshot 2026-02-16 152845" src="https://github.com/user-attachments/assets/292a3643-ab6f-44f7-bfee-a4be3f6992da" />
+<img width="200" height="300" alt="Screenshot 2026-02-16 152845" src="https://github.com/user-attachments/assets/292a3643-ab6f-44f7-bfee-a4be3f6992da" /> |
 
 
 
