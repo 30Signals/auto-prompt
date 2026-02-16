@@ -13,8 +13,7 @@ across 5 seeded runs with p < 0.0001.
 
 ## Purpose
 
-Prompts tend to evolve through trial and error, intuition, and copy-paste.
-This repo exists to make that process explicit and testable.
+Production prompts tend to evolve through trial and error. This repo makes prompt optimization explicit, measurable, and reproducible.
 
 `auto-prompt` is a place to:
 
@@ -69,6 +68,22 @@ Results (5-Run Aggregate):
 
 ---
 
+## Visualizations
+
+![Overall Accuracy](figures/overall_accuracy.png)
+![Field-wise Performance](figures/fieldwise_comparison.png)
+![Skills Micro Metrics](figures/skills_metrics.png)
+
+
+---
+## Key Findings:
+- Automated optimization achieved +26.39 point improvement in overall accuracy
+- Strongest gains were in `job_role` and `skills`
+- DSPy's BootstrapFewShot generated effective demonstrations for optimization
+- ChainOfThought reasoning improved implicit inference (role and skill detection)
+- Canonical skill normalization (alias mapping for "JS" -> "JavaScript", etc.) applied to both pipelines for fair comparison - see `experiments/resume_extraction/skill_utils.py`
+- Multi-run evaluation (5 seeded trials) with paired t-test and Cohen's d confirmed results are statistically significant, not single-seed artifacts
+  ---
 ## Quick Start
 
 ### 1. Prerequisites
@@ -135,9 +150,9 @@ python -m benchmark.live_demo
 
 Results are saved in `experiments/resume_extraction/results/`:
 - `baseline_results.json` - Static handcrafted prompt results
-- `dspy_results.json` - DSPy optimized results
+- `dspy_results.json` -  optimized results
 - `comparison_results.json` - Side-by-side comparison
-- `optimized_module.json` - Saved DSPy module with learned examples
+- `optimized_module.json` - Saved automatic prompt optimization module with learned examples
 
 **Output includes:**
 - Per-field accuracy (job_role, skills, education, experience)
@@ -180,6 +195,14 @@ Experiments in this repo follow a structured approach:
 - [ ] **MIPROv2 Optimizer Ablation** - Compare MIPROv2 vs BootstrapFewShot+COPRO for optimization quality
 - [ ] **Temperature Ablation** - Test impact of LLM temperature (0.0, 0.3, 0.7, 1.0) on optimization and inference
 - [ ] **Cross-domain Validation** - Train on resumes, test on cover letters to measure generalization
+
+---
+
+## Case Study
+
+For a detailed walkthrough of this experiment — including methodology decisions, production takeaways, and limitations — read the full case study on our Substack:
+
+**[We Stopped Writing Prompts. Accuracy Jumped 26 Points. →](SUBSTACK_LINK)**
 
 ---
 
