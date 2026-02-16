@@ -37,19 +37,6 @@ This repo exists to make that process explicit and testable.
 
 **Hypothesis:** Automated prompt optimization (DSPy) outperforms static handcrafted prompts on complex inference tasks.
 
-**Results:**
-
-| Approach | Overall Accuracy | Skills Extraction |
-|----------|------------------|-------------------|
-| Handcrafted Prompt (Static) | 56.58% | 6.33% |
-| DSPy Automated Optimization | 75.87% | 50.17% |
-
-**Key Findings:**
-- Automated optimization achieved 19.29% improvement in overall accuracy
-- Skills extraction improved 8x through few-shot learning
-- DSPy's BootstrapFewShot automatically generated 16 demonstration examples
-- ChainOfThought reasoning improved implicit inference (role and skill detection)
-
 **Experiment Structure:**
 
 ```
@@ -113,8 +100,6 @@ GEMINI_API_KEY=your_gemini_key_here
 # New modular structure (recommended)
 python -m experiments.resume_extraction.run
 
-# Legacy command (still works)
-python -m benchmark.run_experiment
 ```
 
 **Run all experiments:**
