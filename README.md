@@ -1,8 +1,13 @@
 # auto-prompt
 
-**A sandbox for experimenting with automatic prompt generation and optimization.**
+Automatic prompt optimization for structured extraction.
 
-This repository is used to run structured experiments that test how different prompt-generation strategies affect LLM behavior. The focus is not on building a reusable library, but on learning what works, what breaks, and why.
+This repository contains experiments testing whether automated prompt optimization 
+can outperform handcrafted prompts on real extraction tasks. Our first experiment 
+achieved a **+26.4 point accuracy improvement** on resume extraction — validated 
+across 5 seeded runs with p < 0.0001.
+
+> **Read the full case study:** [We Stopped Writing Prompts. Accuracy Jumped 26 Points.](SUBSTACK_LINK)
 
 ---
 
@@ -31,7 +36,7 @@ This repo exists to make that process explicit and testable.
 
 ## Current Experiments
 
-### Experiment 1: DSPy-Based Resume Information Extraction
+### Experiment 1: Automatic Prompt Optimization for Resume Extraction
 
 **Goal:** Compare handcrafted prompts vs automated optimization for structured data extraction from unstructured text.
 
@@ -49,6 +54,19 @@ experiments/resume_extraction/
 ├── run.py                     # Main entry point
 └── prompts/baseline.txt       # Handcrafted prompt
 ```
+
+## Result table 
+
+# Results (5-Run Aggregate):
+| Metric | Handcrafted Baseline | Auto-Optimized | Delta |
+|--------|---------------------|----------------|-------|
+| Overall Accuracy (Mean) | 56.80% | 83.19% | **+26.39 pts** |
+| 95% Confidence Interval | [54.01%, 59.58%] | [78.58%, 87.81%] | — |
+| Job Role Accuracy | 18.67% | 81.33% | +62.67 pts |
+| Skills F1 Score | 6.84% | 49.81% | +42.96 pts |
+| p-value | — | — | 0.0000 |
+| Cohen's d | — | — | 8.603 |
+
 
 ---
 
