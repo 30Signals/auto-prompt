@@ -70,9 +70,10 @@ Results (5-Run Aggregate):
 
 ## Visualizations
 
-![Overall Accuracy](figures/overall_accuracy.png)
-![Field-wise Performance](figures/fieldwise_comparison.png)
-![Skills Micro Metrics](figures/skills_metrics.png)
+<img width="759" height="510" alt="Screenshot 2026-02-16 152825" src="https://github.com/user-attachments/assets/00078228-dd32-4f6f-9792-f31a059f9a16" />
+<img width="795" height="409" alt="Screenshot 2026-02-16 152837" src="https://github.com/user-attachments/assets/0d18d3ab-f80e-4e5a-a580-c937ace921dd" />
+<img width="838" height="491" alt="Screenshot 2026-02-16 152845" src="https://github.com/user-attachments/assets/292a3643-ab6f-44f7-bfee-a4be3f6992da" />
+
 
 
 ---
