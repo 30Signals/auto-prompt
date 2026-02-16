@@ -54,7 +54,7 @@ experiments/resume_extraction/
 ├── run.py                     # Main entry point
 └── prompts/baseline.txt       # Handcrafted prompt
 ```
-
+---
 ## Result table 
 
 Results (5-Run Aggregate):
