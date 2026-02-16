@@ -91,7 +91,7 @@ Results (5-Run Aggregate):
 - Multi-run evaluation (5 seeded trials) with paired t-test and Cohen's d confirmed results are statistically significant, not single-seed artifacts
 
 
-  ---
+---
 ## Quick Start
 
 ### 1. Prerequisites
