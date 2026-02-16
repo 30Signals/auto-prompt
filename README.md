@@ -67,7 +67,6 @@ experiments/resume_extraction/
 | p-value | — | — | 0.0000 |
 | Cohen's d | — | — | 8.603 |
 
-
 ---
 
 ## Quick Start
