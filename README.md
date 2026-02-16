@@ -89,6 +89,8 @@ Results (5-Run Aggregate):
 - ChainOfThought reasoning improved implicit inference (role and skill detection)
 - Canonical skill normalization (alias mapping for "JS" -> "JavaScript", etc.) applied to both pipelines for fair comparison - see `experiments/resume_extraction/skill_utils.py`
 - Multi-run evaluation (5 seeded trials) with paired t-test and Cohen's d confirmed results are statistically significant, not single-seed artifacts
+
+
   ---
 ## Quick Start
 
