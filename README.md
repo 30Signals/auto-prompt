@@ -7,7 +7,7 @@ can outperform handcrafted prompts on real extraction tasks. Our first experimen
 achieved a **+26.4 point accuracy improvement** on resume extraction — validated 
 across 5 seeded runs with p < 0.0001.
 
-> **Read the full case study:** [We Stopped Writing Prompts. Accuracy Jumped 26 Points.](https://30signals.substack.com/p/from-prompt-engineering-to-prompt)
+> **Read the full case study:** [From Prompt Engineering to Prompt Compilation.](https://30signals.substack.com/p/from-prompt-engineering-to-prompt)
 
 ---
 
@@ -163,7 +163,7 @@ Experiments in this repo follow a structured approach:
 
 For a detailed walkthrough of this experiment — including methodology decisions, production takeaways, and limitations — read the full case study on our Substack:
 
-**[We Stopped Writing Prompts. Accuracy Jumped 26 Points. →](https://30signals.substack.com/p/from-prompt-engineering-to-prompt)**
+**[From Prompt Engineering to Prompt Compilation →](https://30signals.substack.com/p/from-prompt-engineering-to-prompt)**
 
 ---
 
