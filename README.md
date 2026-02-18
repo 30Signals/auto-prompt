@@ -24,15 +24,6 @@ Production prompts tend to evolve through trial and error. This repo makes promp
 
 ---
 
-## What this repo is
-
-- an experimentation playground
-- a prompt R&D lab
-- a place to test hypotheses about prompt design
-- a source of learnings that may later inform production systems
-
----
-
 ## Current Experiments
 
 ### Experiment 1: Automatic Prompt Optimization for Resume Extraction
@@ -53,37 +44,6 @@ experiments/resume_extraction/
 ├── run.py                     # Main entry point
 └── prompts/baseline.txt       # Handcrafted prompt
 ```
----
-## Result table 
-
-Results (5-Run Aggregate):
-| Metric | Handcrafted Baseline | Auto-Optimized | Delta |
-|--------|---------------------|----------------|-------|
-| Overall Accuracy (Mean) | 56.80% | 83.19% | **+26.39 pts** |
-| 95% Confidence Interval | [54.01%, 59.58%] | [78.58%, 87.81%] | — |
-| Job Role Accuracy | 18.67% | 81.33% | +62.67 pts |
-| Skills F1 Score | 6.84% | 49.81% | +42.96 pts |
-| p-value | — | — | 0.0000 |
-| Cohen's d | — | — | 8.603 |
-
----
-
-## Visualizations
-| Overall Accuracy | Field-wise Performance | Skills Micro Metrics |
-|---|---|---|
-| <img width="300" alt="Overall Accuracy" src="https://github.com/user-attachments/assets/00078228-dd32-4f6f-9792-f31a059f9a16" /> | <img width="350" alt="Field-wise Performance" src="https://github.com/user-attachments/assets/0d18d3ab-f80e-4e5a-a580-c937ace921dd" /> | <img width="350" alt="Skills Micro Metrics" src="https://github.com/user-attachments/assets/292a3643-ab6f-44f7-bfee-a4be3f6992da" /> |
-
-
----
-## Key Findings:
-- Automated optimization achieved +26.39 point improvement in overall accuracy
-- Strongest gains were in `job_role` and `skills`
-- DSPy's BootstrapFewShot generated effective demonstrations for optimization
-- ChainOfThought reasoning improved implicit inference (role and skill detection)
-- Canonical skill normalization (alias mapping for "JS" -> "JavaScript", etc.) applied to both pipelines for fair comparison - see `experiments/resume_extraction/skill_utils.py`
-- Multi-run evaluation (5 seeded trials) with paired t-test and Cohen's d confirmed results are statistically significant, not single-seed artifacts
-
-
 ---
 ## Quick Start
 
@@ -203,7 +163,7 @@ Experiments in this repo follow a structured approach:
 
 For a detailed walkthrough of this experiment — including methodology decisions, production takeaways, and limitations — read the full case study on our Substack:
 
-**[We Stopped Writing Prompts. Accuracy Jumped 26 Points. →](SUBSTACK_LINK)**
+**[We Stopped Writing Prompts. Accuracy Jumped 26 Points. →](https://30signals.substack.com/p/from-prompt-engineering-to-prompt)**
 
 ---
 
