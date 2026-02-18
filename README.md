@@ -7,7 +7,7 @@ can outperform handcrafted prompts on real extraction tasks. Our first experimen
 achieved a **+26.4 point accuracy improvement** on resume extraction — validated 
 across 5 seeded runs with p < 0.0001.
 
-> **Read the full case study:** [We Stopped Writing Prompts. Accuracy Jumped 26 Points.](SUBSTACK_LINK)
+> **Read the full case study:** [We Stopped Writing Prompts. Accuracy Jumped 26 Points.](https://30signals.substack.com/p/from-prompt-engineering-to-prompt)
 
 ---
 
