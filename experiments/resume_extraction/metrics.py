@@ -4,6 +4,7 @@ Resume Extraction Validation Metrics
 Custom metrics for evaluating resume extraction quality with semantic matching.
 """
 
+from .skill_utils import skills_match_score, normalize_skills
 
 # Role synonyms for flexible matching
 ROLE_SYNONYMS = {
@@ -13,18 +14,6 @@ ROLE_SYNONYMS = {
     'hr executive': ['hr manager', 'hr specialist', 'human resources'],
     'media analyst': ['marketing analyst', 'digital marketing analyst']
 }
-
-# Skill category mapping for semantic matching
-SKILL_CATEGORIES = {
-    'python': ['programming', 'coding', 'development'],
-    'sql': ['database', 'data querying', 'data management'],
-    'machine learning': ['ml', 'ai', 'predictive modeling', 'data science'],
-    'excel': ['spreadsheet', 'data analysis', 'financial modeling'],
-    'recruitment': ['hiring', 'talent acquisition', 'hr'],
-    'seo': ['search optimization', 'digital marketing'],
-    'java': ['programming', 'backend development', 'software development']
-}
-
 
 def validate_resume_output(example, pred, trace=None):
     """
@@ -74,33 +63,15 @@ def validate_resume_output(example, pred, trace=None):
     if pred.skills and pred.skills.strip():
         field_count += 1
         if hasattr(example, 'skills') and example.skills:
-            gt_skills = set(s.strip().lower() for s in str(example.skills).split(','))
-            pred_skills_list = [s.strip().lower() for s in str(pred.skills).split(',')]
-
-            matched_skills = 0
-            for gt_skill in gt_skills:
-                best_match = 0
-                for pred_skill in pred_skills_list:
-                    # Exact match
-                    if gt_skill == pred_skill:
-                        best_match = 1.0
-                        break
-                    # Containment match
-                    elif gt_skill in pred_skill or pred_skill in gt_skill:
-                        best_match = max(best_match, 0.8)
-                    # Category match
-                    else:
-                        for category, related in SKILL_CATEGORIES.items():
-                            if (category in gt_skill and any(r in pred_skill for r in related)) or \
-                               (category in pred_skill and any(r in gt_skill for r in related)):
-                                best_match = max(best_match, 0.7)
-
-                matched_skills += best_match
-
-            skills_score = matched_skills / len(gt_skills) if gt_skills else 0
+            skills_score = skills_match_score(pred.skills, example.skills)
+            # Penalize over-generation to discourage generic/verbose outputs.
+            pred_count = len(normalize_skills(pred.skills))
+            gt_count = len(normalize_skills(example.skills))
+            if pred_count > gt_count + 2:
+                skills_score *= 0.9
             total_score += skills_score
         else:
-            total_score += 0.2  # Minimal credit for inferring skills
+            total_score += 0.1
 
     # Education: Strict matching
     if pred.education and example.education:
