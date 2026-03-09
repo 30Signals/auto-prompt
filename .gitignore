@@ -40,3 +40,4 @@ case_study/figures/*.pdf
 # OS files
 .DS_Store
 Thumbs.db
+experiments/legal_contract/data/cache/
