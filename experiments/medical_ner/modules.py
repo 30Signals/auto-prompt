@@ -19,6 +19,59 @@ def load_baseline_prompt():
         return f.read().strip()
 
 
+def normalize_diseases_output(value):
+    """Normalize model output to a strict comma-separated disease list."""
+    if value is None:
+        return ""
+
+    # Already a list-like output
+    if isinstance(value, list):
+        items = [str(v).strip() for v in value]
+        return ", ".join([v for v in items if v])
+
+    text = str(value).strip()
+    if not text:
+        return ""
+
+    # Remove markdown fences
+    if text.startswith("```json"):
+        text = text[7:]
+    if text.startswith("```"):
+        text = text[3:]
+    if text.endswith("```"):
+        text = text[:-3]
+    text = text.strip()
+
+    # If model returned JSON, extract diseases field when present
+    try:
+        parsed = json.loads(text)
+        if isinstance(parsed, dict):
+            text = parsed.get("diseases", "")
+        else:
+            text = parsed
+    except (json.JSONDecodeError, TypeError):
+        pass
+
+    if isinstance(text, list):
+        items = [str(v).strip() for v in text]
+        return ", ".join([v for v in items if v])
+
+    text = str(text).strip()
+    if not text:
+        return ""
+
+    # Normalize common separators/labels from free-form outputs
+    text = text.replace("\n", ",")
+    text = text.replace(";", ",")
+    text = text.replace("|", ",")
+    text = text.replace("Diseases:", "")
+    text = text.replace("diseases:", "")
+
+    parts = [p.strip(" -*\t\r") for p in text.split(",")]
+    parts = [p for p in parts if p]
+    return ", ".join(parts)
+
+
 # DSPy Signatures
 class DiseaseExtractionSignature(dspy.Signature):
     """Extract disease entities from biomedical text."""
@@ -70,12 +123,9 @@ class BaselineModule(dspy.Module):
         try:
             data = json.loads(cleaned_response.strip())
             diseases_list = data.get('diseases', [])
-            if isinstance(diseases_list, list):
-                diseases = ", ".join(diseases_list)
-            else:
-                diseases = str(diseases_list)
+            diseases = normalize_diseases_output(diseases_list)
         except json.JSONDecodeError:
-            diseases = ""
+            diseases = normalize_diseases_output(cleaned_response)
 
         return dspy.Prediction(diseases=diseases)
 
@@ -89,4 +139,4 @@ class StudentModule(dspy.Module):
 
     def forward(self, abstract_text):
         result = self.predictor(abstract_text=abstract_text)
-        return dspy.Prediction(diseases=result.diseases)
+        return dspy.Prediction(diseases=normalize_diseases_output(result.diseases))

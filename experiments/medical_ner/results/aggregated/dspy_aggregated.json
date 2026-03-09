@@ -1,0 +1,60 @@
+{
+  "name": "DSPy Optimized",
+  "field_accuracies": {
+    "diseases": {
+      "mean": 0.8060176767676769,
+      "std_dev": 0.025567615602804114,
+      "ci_lower": 0.7742712889537622,
+      "ci_upper": 0.8377640645815916,
+      "runs": [
+        0.7862169312169314,
+        0.8343187830687833,
+        0.8083333333333335,
+        0.7745526695526695,
+        0.8266666666666668
+      ]
+    }
+  },
+  "overall_accuracy": {
+    "mean": 0.8060176767676769,
+    "std_dev": 0.025567615602804114,
+    "ci_lower": 0.7742712889537622,
+    "ci_upper": 0.8377640645815916,
+    "runs": [
+      0.7862169312169314,
+      0.8343187830687833,
+      0.8083333333333335,
+      0.7745526695526695,
+      0.8266666666666668
+    ]
+  },
+  "num_runs": 5,
+  "seeds": [
+    42,
+    123,
+    456,
+    789,
+    1011
+  ],
+  "metadata": {
+    "experiment": "medical_ner",
+    "aggregation_timestamp": "2026-02-27T10:36:35.381412",
+    "num_runs": 5,
+    "random_seeds": [
+      42,
+      123,
+      456,
+      789,
+      1011
+    ],
+    "train_size": 120,
+    "test_size": 120,
+    "dataset": "ncbi/ncbi_disease",
+    "extraction_fields": [
+      "diseases"
+    ],
+    "confidence_level": 0.95,
+    "statistical_test": "ttest",
+    "use_copro": false
+  }
+}

@@ -1,3 +1,8 @@
+# Prompt Comparison
+
+## Baseline Prompt (Handcrafted)
+
+```
 You are an expert biomedical named entity recognition system specialized in identifying disease names from medical literature.
 
 Given the following biomedical abstract, extract ALL disease names mentioned in the text.
@@ -20,3 +25,32 @@ Biomedical Abstract:
 {{abstract_text}}
 
 Respond with only the JSON object, no additional text.
+
+```
+
+## Optimized Prompt (DSPy)
+
+```
+# Optimized DSPy Prompt
+============================================================
+
+## Reasoning Strategy
+
+Uses **Chain-of-Thought** reasoning with intermediate rationale steps.
+Each example includes explicit reasoning to guide the model's inference process.
+
+```
+
+## Key Differences
+
+- **Few-shot examples**: 0 (baseline) vs 0 (optimized)
+- **Reasoning**: Implicit (baseline) vs Explicit Chain-of-Thought (optimized)
+- **Optimization**: Manual (baseline) vs Automatic via DSPy (optimized)
+
+## Notes
+
+The optimized prompt is generated through DSPy's two-stage optimization:
+1. BootstrapFewShot: Selects effective few-shot examples from training data
+2. COPRO: Refines instructions and example selection
+
+The baseline prompt is handcrafted based on domain knowledge and best practices.

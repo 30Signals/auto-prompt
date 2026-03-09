@@ -1,0 +1,7 @@
+# Optimized DSPy Prompt
+============================================================
+
+## Reasoning Strategy
+
+Uses **Chain-of-Thought** reasoning with intermediate rationale steps.
+Each example includes explicit reasoning to guide the model's inference process.
