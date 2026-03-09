@@ -36,12 +36,8 @@ def download_ncbi_corpus():
     # Ensure cache directory exists
     CACHE_DIR.mkdir(parents=True, exist_ok=True)
     
-    # Load parquet-converted dataset (compatible with modern datasets versions)
-    dataset = load_dataset(
-        "ncbi/ncbi_disease",
-        revision="refs/convert/parquet",
-        cache_dir=str(CACHE_DIR),
-    )
+    # Load with local cache
+    dataset = load_dataset("ncbi_disease", cache_dir=str(CACHE_DIR))
     return dataset
 
 

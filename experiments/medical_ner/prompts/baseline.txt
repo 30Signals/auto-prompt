@@ -9,12 +9,10 @@ Example response format:
 
 Rules:
 1. Extract disease names exactly as written in the text (preserve case and spelling)
-2. Return each disease name once (no duplicates)
+2. Include all disease mentions, even if repeated
 3. Include disease abbreviations if they appear (e.g., "AD" for Alzheimer's Disease)
 4. Include disease modifiers if part of the disease name (e.g., "metastatic breast cancer")
 5. Do NOT include symptoms, treatments, or genes unless they are disease names
-6. Do NOT infer diseases that are not explicitly present in the abstract
-7. Return ONLY the JSON object with key "diseases" as an array of strings
 
 Biomedical Abstract:
 {{abstract_text}}
