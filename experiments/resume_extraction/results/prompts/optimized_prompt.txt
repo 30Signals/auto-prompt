@@ -4,31 +4,29 @@
 ## Instructions
 
 ```
-You are an expert Resume Parsing Assistant specialized in implicit information extraction.
-Your goal is to extract structured data from messy, unstructured resume text.
+You are a highly skilled Resume Parsing AI Assistant with expertise in extracting and structuring implicit information from messy resumes. Your task is to transform unstructured resume text into a structured JSON object, effectively inferring job roles, technical skills, education background, and total years of work experience. Your responses must strictly conform to the following specifications:
 
-Output Task:
-Extract the following keys into a JSON object. Information may be scattered and implicit.
+1. **Inference and Normalization:**
+   - Use job tasks and descriptions to deduce the most relevant "job_role" (e.g., "developed software solutions" -> "Software Engineer").
+   - Extract "skills" from text as a comma-separated list of 4-8 canonical technical/professional terms. Normalize aliased terms (e.g., "tensorflow/pytorch" -> "deep learning") and avoid soft skills unless explicitly required.
+   - Include only explicit educational qualifications or mentions in the "education" section.
 
-Fields:
-1. "job_role": Infer the job role from work activities described (e.g., "built predictive models" → Data Scientist).
-2. "skills": Infer skills from work activities (e.g., "analyzed datasets" → Data Analysis, Python, SQL).
-3. "education": Extract education background (look for "Education background includes").
-4. "experience_years": Calculate experience from timeline dates in DECIMAL YEARS (e.g., Mar 2019 - Oct 2020 = 1.58 years).
+2. **Experience Calculations:**
+   - Accurately calculate "experience_years" based on explicit employment date ranges, displayed in decimal years. Exclude any assumptions about unspecified gaps or overlaps.
 
-Constraints:
-- Output only valid JSON.
-- No markdown formatting.
-- No explanations.
-- Infer job roles and skills from work descriptions, not explicit titles.
-- Parse scattered timeline information carefully.
+3. **Output Formatting:**
+   - Respond exclusively with valid JSON containing fields {"job_role", "skills", "education", "experience_years"}.
+   - Do not include additional explanations, reasoning, or markdown formatting in your response.
 
-Resume Text:
-{{resume_text}}
+4. **Parsing Guidance:**
+   - Carefully analyze unstructured text to derive accurate insights.
+   - Ensure output data is summarized, normalized, and precise, while adhering to constraints outlined.
 
-JSON Output:
+Input Example:
+You will receive messy resume text in the placeholder {{resume_text}}.
 
-Provide detailed reasoning for your analysis before extracting information.
+Output:
+Your response should directly output the JSON object with the relevant structured data.
 ```
 
 ## Field Definitions
@@ -38,7 +36,7 @@ Provide detailed reasoning for your analysis before extracting information.
 - **Job Role:** Primary job role/title based on work experience and activities
 - **Skills:** Technical and professional skills inferred from work descriptions, projects, and activities
 - **Education:** Highest educational qualification or degree
-- **Experience Years:** Total years of professional experience as decimal number
+- **JSON Output:** Total years of professional experience as decimal number
 
 ## Few-Shot Examples
 
@@ -48,20 +46,20 @@ Total examples: **20**
 
 **Input (truncated):**
 ```
-Background
-Started career with exposure to operational and analytical responsibilities.
-
-Professional Experience
-Between Jun 2018 and Dec 2019, responsibilities included:
-- screened profiles and coord...
+Background
+Started career with exposure to operational and analytical responsibilities.
+
+Professional Experience
+Between Jun 2018 and Dec 2019, responsibilities included:
+- screened profiles and ...
 ```
 
 **Reasoning:**
-> The professional experience focuses on activities like screening profiles, coordinating interview cycles, and managing hiring pipelines, which are indicative of a recruitment or HR-related role. The support of ad-hoc requests and management of multiple pipelines further shows an operational and orga...
+> The professional experience spans from June 2018 to December 2019, which is 1.5 years. The responsibilities include screening profiles, coordinating interview cycles, and managing hiring pipelines, which are typical tasks associated with HR roles. The education background of BA Psychology aligns wit...
 
 **Output:**
 - job_role: `HR Coordinator`
-- skills: `Recruitment, Interview Coordination, Pipeline Management, Communication, Organizational Skills`
+- skills: `Recruitment, Interview Coordination, Pipeline Management, Communication`
 - education: `BA Psychology`
 - experience_years: `1.5`
 
@@ -69,20 +67,20 @@ Between Jun 2018 and Dec 2019, responsibilities included:
 
 **Input (truncated):**
 ```
-Background
-Started career with exposure to operational and analytical responsibilities.
-
-Professional Experience
-Between Nov 2021 and Sep 2026, responsibilities included:
-- optimized application perfo...
+Background
+Started career with exposure to operational and analytical responsibilities.
+
+Professional Experience
+Between Nov 2021 and Sep 2026, responsibilities included:
+- optimized application ...
 ```
 
 **Reasoning:**
-> The resume describes responsibilities and tasks consistent with those of a Software Engineer, including optimizing application performance, implementing APIs, and handling cross-functional coordination. The timeline of professional experience spans from November 2021 to September 2026, resulting in ...
+> The professional experience spans from November 2021 to September 2026, which is approximately 4.83 years. The responsibilities described include optimizing application performance, implementing APIs, and working on backend services, which align with the role of a Software Engineer. The education ba...
 
 **Output:**
 - job_role: `Software Engineer`
-- skills: `Java, Python, C++, API Design, DBMS, Web Programming`
+- skills: `Java, Python, C++, DBMS, Web Programming`
 - education: `BTech CSE`
 - experience_years: `4.83`
 
@@ -90,20 +88,20 @@ Between Nov 2021 and Sep 2026, responsibilities included:
 
 **Input (truncated):**
 ```
-Background
-Started career with exposure to operational and analytical responsibilities.
-
-Professional Experience
-Between Jan 2021 and Jun 2024, responsibilities included:
-- handled onboarding document...
+Background
+Started career with exposure to operational and analytical responsibilities.
+
+Professional Experience
+Between Jan 2021 and Jun 2024, responsibilities included:
+- handled onboarding doc...
 ```
 
 **Reasoning:**
-> The professional experience duration from January 2021 to June 2024 totals 3.42 years. The responsibilities outlined indicate HR-related tasks such as managing onboarding documentation, handling compliance, managing hiring pipelines, and supporting human resource functions. These activities suggest ...
+> The professional experience spans from January 2021 to June 2024, which is 3.42 years. The responsibilities include handling onboarding documentation and compliance, managing hiring pipelines, and supporting ad-hoc requests, which align with HR-related roles. The education background of MBA HR furth...
 
 **Output:**
 - job_role: `HR Executive`
-- skills: `Recruitment, Onboarding, Compliance, Documentation, Coordination`
+- skills: `Recruitment, Onboarding, Compliance, Documentation`
 - education: `MBA HR`
 - experience_years: `3.42`
 

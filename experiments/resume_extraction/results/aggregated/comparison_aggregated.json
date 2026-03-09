@@ -1,0 +1,237 @@
+{
+  "baseline": {
+    "name": "Baseline",
+    "field_accuracies": {
+      "job_role": {
+        "mean": 0.18666666666666668,
+        "std_dev": 0.0649786289653931,
+        "ci_lower": 0.10598504242769761,
+        "ci_upper": 0.2673482909056357,
+        "runs": [
+          0.13333333333333333,
+          0.23333333333333334,
+          0.23333333333333334,
+          0.1,
+          0.23333333333333334
+        ]
+      },
+      "skills": {
+        "mean": 0.08523333333333333,
+        "std_dev": 0.03649766185644848,
+        "ci_lower": 0.0399155005875664,
+        "ci_upper": 0.13055116607910025,
+        "runs": [
+          0.05688888888888888,
+          0.13233333333333333,
+          0.11583333333333332,
+          0.06927777777777777,
+          0.05183333333333333
+        ]
+      },
+      "education": {
+        "mean": 1.0,
+        "std_dev": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "runs": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "experience_years": {
+        "mean": 1.0,
+        "std_dev": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "runs": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "overall_accuracy": {
+      "mean": 0.5679750000000001,
+      "std_dev": 0.022409857581452607,
+      "ci_lower": 0.5401494866362366,
+      "ci_upper": 0.5958005133637636,
+      "runs": [
+        0.5475555555555557,
+        0.5914166666666668,
+        0.5872916666666668,
+        0.5423194444444445,
+        0.5712916666666668
+      ]
+    },
+    "num_runs": 5,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1011
+    ],
+    "metadata": {}
+  },
+  "optimized": {
+    "name": "DSPy Optimized",
+    "field_accuracies": {
+      "job_role": {
+        "mean": 0.8133333333333332,
+        "std_dev": 0.09006170724070867,
+        "ci_lower": 0.7015069538357778,
+        "ci_upper": 0.9251597128308887,
+        "runs": [
+          0.6666666666666666,
+          0.9,
+          0.8,
+          0.8333333333333334,
+          0.8666666666666667
+        ]
+      },
+      "skills": {
+        "mean": 0.5143333333333333,
+        "std_dev": 0.06701987451679477,
+        "ci_lower": 0.4311171679816952,
+        "ci_upper": 0.5975494986849714,
+        "runs": [
+          0.4162777777777777,
+          0.5614444444444444,
+          0.5682777777777778,
+          0.47272222222222227,
+          0.5529444444444445
+        ]
+      },
+      "education": {
+        "mean": 1.0,
+        "std_dev": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "runs": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      },
+      "experience_years": {
+        "mean": 1.0,
+        "std_dev": 0.0,
+        "ci_lower": 1.0,
+        "ci_upper": 1.0,
+        "runs": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ]
+      }
+    },
+    "overall_accuracy": {
+      "mean": 0.8319166666666664,
+      "std_dev": 0.037155825420172324,
+      "ci_lower": 0.7857816159188941,
+      "ci_upper": 0.8780517174144388,
+      "runs": [
+        0.770736111111111,
+        0.8653611111111111,
+        0.8420694444444442,
+        0.8265138888888888,
+        0.8549027777777777
+      ]
+    },
+    "num_runs": 5,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1011
+    ],
+    "metadata": {}
+  },
+  "statistical_test": {
+    "test_type": "Paired t-test",
+    "statistic": 22.962031374992275,
+    "p_value": 2.1312707471506043e-05,
+    "significant": "True",
+    "significance_level": "***",
+    "interpretation": "highly significant",
+    "alpha": 0.05
+  },
+  "effect_size": 8.602522316199305,
+  "improvement": {
+    "mean": 0.2639416666666663,
+    "significant": "True"
+  },
+  "field_comparison": {
+    "job_role": {
+      "baseline_mean": 0.18666666666666668,
+      "baseline_ci": [
+        0.10598504242769761,
+        0.2673482909056357
+      ],
+      "optimized_mean": 0.8133333333333332,
+      "optimized_ci": [
+        0.7015069538357778,
+        0.9251597128308887
+      ],
+      "improvement": 0.6266666666666666
+    },
+    "skills": {
+      "baseline_mean": 0.08523333333333333,
+      "baseline_ci": [
+        0.0399155005875664,
+        0.13055116607910025
+      ],
+      "optimized_mean": 0.5143333333333333,
+      "optimized_ci": [
+        0.4311171679816952,
+        0.5975494986849714
+      ],
+      "improvement": 0.4291
+    },
+    "education": {
+      "baseline_mean": 1.0,
+      "baseline_ci": [
+        1.0,
+        1.0
+      ],
+      "optimized_mean": 1.0,
+      "optimized_ci": [
+        1.0,
+        1.0
+      ],
+      "improvement": 0.0
+    },
+    "experience_years": {
+      "baseline_mean": 1.0,
+      "baseline_ci": [
+        1.0,
+        1.0
+      ],
+      "optimized_mean": 1.0,
+      "optimized_ci": [
+        1.0,
+        1.0
+      ],
+      "improvement": 0.0
+    }
+  },
+  "skills_prf": {
+    "baseline_micro_precision_mean": 0.06959328083478614,
+    "baseline_micro_recall_mean": 0.0673319965902172,
+    "baseline_micro_f1_mean": 0.06842131179209832,
+    "optimized_micro_precision_mean": 0.49969848941359735,
+    "optimized_micro_recall_mean": 0.496627567351711,
+    "optimized_micro_f1_mean": 0.49805594407442316,
+    "micro_f1_improvement": 0.42963463228232485
+  }
+}
