@@ -18,37 +18,53 @@ def main():
     print("AUTO-PROMPT: Running All Experiments")
     print("=" * 70)
 
-    # Import and run each experiment
     experiments = []
 
-    # Experiment 1: Resume Extraction
     print("\n" + "-" * 70)
     print("Running Experiment 1: Resume Extraction")
     print("-" * 70)
     try:
         from experiments.resume_extraction.run import run_experiment
+
         results = run_experiment(save_results=True)
-        experiments.append({
-            'name': 'Resume Extraction',
-            'status': 'success',
-            'baseline_accuracy': results['baseline_results'].overall_accuracy,
-            'optimized_accuracy': results['optimized_results'].overall_accuracy,
-            'improvement': results['comparison']['summary']['overall_improvement']
-        })
+        experiments.append(
+            {
+                "name": "Resume Extraction",
+                "status": "success",
+                "baseline_accuracy": results["baseline_results"].overall_accuracy,
+                "optimized_accuracy": results["optimized_results"].overall_accuracy,
+                "improvement": results["comparison"]["summary"]["overall_improvement"],
+            }
+        )
     except Exception as e:
         print(f"Error running Resume Extraction experiment: {e}")
-        experiments.append({
-            'name': 'Resume Extraction',
-            'status': 'failed',
-            'error': str(e)
-        })
+        experiments.append({"name": "Resume Extraction", "status": "failed", "error": str(e)})
 
-    # Summary
+    print("\n" + "-" * 70)
+    print("Running Experiment 2: Company Legal Risk")
+    print("-" * 70)
+    try:
+        from experiments.company_legal_risk.run import run_experiment
+
+        results = run_experiment(save_results=True)
+        experiments.append(
+            {
+                "name": "Company Legal Risk",
+                "status": "success",
+                "baseline_accuracy": results["baseline_results"].overall_accuracy,
+                "optimized_accuracy": results["optimized_results"].overall_accuracy,
+                "improvement": results["comparison"]["summary"]["overall_improvement"],
+            }
+        )
+    except Exception as e:
+        print(f"Error running Company Legal Risk experiment: {e}")
+        experiments.append({"name": "Company Legal Risk", "status": "failed", "error": str(e)})
+
     print("\n" + "=" * 70)
     print("EXPERIMENT SUMMARY")
     print("=" * 70)
     for exp in experiments:
-        if exp['status'] == 'success':
+        if exp["status"] == "success":
             print(f"\n{exp['name']}:")
             print(f"  Baseline: {exp['baseline_accuracy']:.2%}")
             print(f"  Optimized: {exp['optimized_accuracy']:.2%}")

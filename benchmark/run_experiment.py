@@ -12,7 +12,7 @@ def main():
             model_name,
             api_key=llm_conf["api_key"],
             api_base=llm_conf["endpoint"],
-            api_version=llm_conf["api_version"],
+            api_version=llm_conf["api_version"]
         )
     else:
         lm = dspy.Google(

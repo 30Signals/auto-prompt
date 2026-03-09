@@ -325,18 +325,26 @@ def load_trial_results(results_dir: Path, num_trials: int) -> Dict[str, List[Eva
         # Load baseline results
         baseline_path = trial_dir / "baseline_results.json"
         if baseline_path.exists():
-            with open(baseline_path, 'r') as f:
-                data = json.load(f)
-                baseline_runs.append(EvaluationResult(**data))
+            data = _load_json_with_fallback(baseline_path)
+            baseline_runs.append(EvaluationResult(**data))
 
         # Load optimized results
         optimized_path = trial_dir / "dspy_results.json"
         if optimized_path.exists():
-            with open(optimized_path, 'r') as f:
-                data = json.load(f)
-                optimized_runs.append(EvaluationResult(**data))
+            data = _load_json_with_fallback(optimized_path)
+            optimized_runs.append(EvaluationResult(**data))
 
     return {
         'baseline': baseline_runs,
         'optimized': optimized_runs
     }
+
+
+def _load_json_with_fallback(path: Path) -> Dict[str, Any]:
+    raw = path.read_bytes()
+    for encoding in ("utf-8", "utf-8-sig", "cp1252", "latin-1"):
+        try:
+            return json.loads(raw.decode(encoding))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            continue
+    raise ValueError(f"Could not decode JSON file: {path}")

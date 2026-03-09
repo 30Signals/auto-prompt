@@ -1,51 +1,65 @@
-"""
+﻿"""
 LLM Provider Configuration
 
-Supports Azure OpenAI and Google Gemini. Auto-selects based on available environment variables.
+Supports:
+- Azure OpenAI deployment-style endpoints
+- OpenAI-compatible endpoints (including Azure AI Foundry /openai/v1)
+- Google Gemini (via LiteLLM-compatible dspy.LM route)
 """
 
 import os
 import dspy
 from dotenv import load_dotenv
 
-load_dotenv()
+load_dotenv(override=True)
 
-# Environment variables
-AZURE_OPENAI_API_KEY = os.getenv("AZURE_OPENAI_API_KEY")
-AZURE_OPENAI_ENDPOINT = os.getenv("AZURE_OPENAI_ENDPOINT")
-AZURE_OPENAI_DEPLOYMENT = os.getenv("AZURE_OPENAI_DEPLOYMENT")
-AZURE_OPENAI_API_VERSION = os.getenv("AZURE_OPENAI_API_VERSION", "2024-02-15-preview")
-GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+
+def _temperature():
+    return float(os.getenv("LLM_TEMPERATURE", "0.1"))
 
 
 def get_llm_config():
     """
     Get LLM configuration based on available environment variables.
 
-    Priority: Azure OpenAI > Google Gemini
+    Priority:
+    1) AZURE_OPENAI_* (deployment or openai-compatible endpoint)
+    2) GEMINI_API_KEY
 
     Returns:
-        dict: Configuration with provider, api_key, and provider-specific fields
+        dict: provider config
 
     Raises:
         ValueError: If no valid API keys found
     """
-    if AZURE_OPENAI_API_KEY and AZURE_OPENAI_ENDPOINT:
+    azure_key = os.getenv("AZURE_OPENAI_API_KEY")
+    azure_endpoint = os.getenv("AZURE_OPENAI_ENDPOINT")
+    azure_deployment = os.getenv("AZURE_OPENAI_DEPLOYMENT")
+    azure_api_version = os.getenv("AZURE_OPENAI_API_VERSION", "2024-02-15-preview")
+    gemini_key = os.getenv("GEMINI_API_KEY")
+
+    if azure_key and azure_endpoint and azure_deployment:
+        endpoint_norm = azure_endpoint.strip()
+        # OpenAI-compatible endpoints (e.g., .../openai/v1/) should use raw model name.
+        openai_compatible = endpoint_norm.rstrip("/").endswith("/openai/v1")
         return {
-            "provider": "azure",
-            "api_key": AZURE_OPENAI_API_KEY,
-            "endpoint": AZURE_OPENAI_ENDPOINT,
-            "deployment": AZURE_OPENAI_DEPLOYMENT,
-            "api_version": AZURE_OPENAI_API_VERSION
+            "provider": "azure_openai_compatible" if openai_compatible else "azure",
+            "api_key": azure_key,
+            "endpoint": endpoint_norm,
+            "deployment": azure_deployment,
+            "api_version": azure_api_version,
+            "temperature": _temperature(),
         }
-    elif GEMINI_API_KEY:
+
+    if gemini_key:
         return {
             "provider": "gemini",
-            "api_key": GEMINI_API_KEY,
-            "model": "gemini-1.5-flash"
+            "api_key": gemini_key,
+            "model": "gemini-1.5-flash",
+            "temperature": _temperature(),
         }
-    else:
-        raise ValueError("No valid LLM API keys found (Azure or Gemini). Please check .env file.")
+
+    raise ValueError("No valid LLM API keys found (Azure or Gemini). Please check .env file.")
 
 
 def setup_dspy_lm(config=None):
@@ -61,19 +75,34 @@ def setup_dspy_lm(config=None):
     if config is None:
         config = get_llm_config()
 
-    if config["provider"] == "azure":
+    provider = config["provider"]
+
+    if provider == "azure":
+        # Azure OpenAI deployment route (classic).
         model_name = "azure/" + config["deployment"]
         lm = dspy.LM(
             model_name,
             api_key=config["api_key"],
             api_base=config["endpoint"],
             api_version=config["api_version"],
+            temperature=config["temperature"],
+        )
+    elif provider == "azure_openai_compatible":
+        # OpenAI-compatible route (e.g., Azure AI Foundry .../openai/v1/)
+        lm = dspy.LM(
+            model="openai/" + config["deployment"],
+            api_key=config["api_key"],
+            api_base=config["endpoint"],
+            temperature=config["temperature"],
         )
     else:  # gemini
-        lm = dspy.Google(
-            model=config["model"],
-            api_key=config["api_key"]
+        # Use LiteLLM-compatible model routing through dspy.LM for DSPy compatibility.
+        lm = dspy.LM(
+            model="gemini/" + config["model"],
+            api_key=config["api_key"],
+            temperature=config["temperature"],
         )
 
     dspy.settings.configure(lm=lm)
     return lm
+

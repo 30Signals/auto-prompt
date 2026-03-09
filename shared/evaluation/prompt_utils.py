@@ -42,8 +42,7 @@ def extract_optimized_prompt(optimized_module, results_dir: Path) -> Optional[st
         # First, load from the saved JSON file which has the full structure
         module_json_path = results_dir / "optimized_module.json"
         if module_json_path.exists():
-            with open(module_json_path, 'r') as f:
-                module_dict = json.load(f)
+            module_dict = _load_json_with_fallback(module_json_path)
             prompt_text = format_dspy_prompt_from_json(module_dict)
         else:
             # Fallback to extracting from module object
@@ -52,7 +51,7 @@ def extract_optimized_prompt(optimized_module, results_dir: Path) -> Optional[st
         # Save to file
         dst = results_dir / "prompts" / "optimized_prompt.txt"
         dst.parent.mkdir(parents=True, exist_ok=True)
-        dst.write_text(prompt_text)
+        dst.write_text(prompt_text, encoding="utf-8", errors="replace")
 
         return prompt_text
     except Exception as e:
@@ -60,6 +59,19 @@ def extract_optimized_prompt(optimized_module, results_dir: Path) -> Optional[st
         import traceback
         traceback.print_exc()
         return None
+
+
+def _load_json_with_fallback(path: Path) -> Dict[str, Any]:
+    """
+    Load JSON with robust decoding for Windows/local code-page variability.
+    """
+    raw = path.read_bytes()
+    for encoding in ("utf-8", "utf-8-sig", "cp1252", "latin-1"):
+        try:
+            return json.loads(raw.decode(encoding))
+        except (UnicodeDecodeError, json.JSONDecodeError):
+            continue
+    raise ValueError(f"Could not decode JSON file: {path}")
 
 
 def format_dspy_prompt_from_json(module_dict: Dict[str, Any]) -> str:
@@ -261,12 +273,12 @@ def generate_prompt_comparison(results_dir: Path):
     optimized_text = ""
 
     if baseline_path.exists():
-        baseline_text = baseline_path.read_text()
+        baseline_text = baseline_path.read_text(encoding="utf-8", errors="replace")
     else:
         baseline_text = "Baseline prompt not found"
 
     if optimized_path.exists():
-        optimized_text = optimized_path.read_text()
+        optimized_text = optimized_path.read_text(encoding="utf-8", errors="replace")
         num_examples = count_examples(optimized_text)
     else:
         optimized_text = "Optimized prompt not found"
@@ -303,4 +315,4 @@ The baseline prompt is handcrafted based on domain knowledge and best practices.
 
     dst = results_dir / "prompts" / "prompt_comparison.md"
     dst.parent.mkdir(parents=True, exist_ok=True)
-    dst.write_text(comparison)
+    dst.write_text(comparison, encoding="utf-8", errors="replace")
