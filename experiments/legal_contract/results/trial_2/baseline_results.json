@@ -1,0 +1,1429 @@
+{
+  "name": "Baseline",
+  "results": [
+    {
+      "index": 0,
+      "clause_type": "Expiration Date",
+      "gold_clause": "Except as otherwise set forth in Sections 9.2 and 9.3 or Exhibit A hereof, the term of this Agreement shall be eighteen (18) months (\"Term\").",
+      "gold_clauses": [
+        "Except as otherwise set forth in Sections 9.2 and 9.3 or Exhibit A hereof, the term of this Agreement shall be eighteen (18) months (\"Term\")."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 1,
+      "clause_type": "Expiration Date",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 2,
+      "clause_type": "Agreement Date",
+      "gold_clause": "September 30, 2019",
+      "gold_clauses": [
+        "September 30, 2019"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Dated as of September 30, 2019",
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6666666666666666,
+      "overall_score": 0.6666666666666666
+    },
+    {
+      "index": 3,
+      "clause_type": "Termination For Convenience",
+      "gold_clause": "This Agreement may also be terminated by either party upon ninety (90) days written notice.",
+      "gold_clauses": [
+        "This Agreement may also be terminated by either party upon ninety (90) days written notice."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 4,
+      "clause_type": "Expiration Date",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 5,
+      "clause_type": "Confidentiality",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 6,
+      "clause_type": "Indemnification",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 7,
+      "clause_type": "Limitation Of Liability",
+      "gold_clause": "The foregoing Clauses 10.1 to 10.5 states the parties' entire liability and exclusive remedy with respect to infringement of a third party's  Intellectual Property Rights.",
+      "gold_clauses": [
+        "The foregoing Clauses 10.1 to 10.5 states the parties' entire liability and exclusive remedy with respect to infringement of a third party's  Intellectual Property Rights."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 8,
+      "clause_type": "Effective Date",
+      "gold_clause": "1st day of October, 2008",
+      "gold_clauses": [
+        "1st day of October, 2008"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "This Agreement is entered into and is effective as of the 1st day of October, 2008 (Commencement Date)",
+      "precision": 0.3125,
+      "recall": 1.0,
+      "f1": 0.47619047619047616,
+      "overall_score": 0.47619047619047616
+    },
+    {
+      "index": 9,
+      "clause_type": "Effective Date",
+      "gold_clause": "This letter agreement will be effective as of July 1, 2018.",
+      "gold_clauses": [
+        "This letter agreement will be effective as of July 1, 2018."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "July 20, 2018",
+      "precision": 0.3333333333333333,
+      "recall": 0.09090909090909091,
+      "f1": 0.14285714285714288,
+      "overall_score": 0.14285714285714288
+    },
+    {
+      "index": 10,
+      "clause_type": "Agreement Date",
+      "gold_clause": "April __, 2005",
+      "gold_clauses": [
+        "April __, 2005"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "SUPPORT AND MAINTENANCE AGREEMENT dated as of April __, 2005",
+      "precision": 0.3,
+      "recall": 1.0,
+      "f1": 0.4615384615384615,
+      "overall_score": 0.4615384615384615
+    },
+    {
+      "index": 11,
+      "clause_type": "Effective Date",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 12,
+      "clause_type": "Agreement Date",
+      "gold_clause": "30th day of November, 2017",
+      "gold_clauses": [
+        "30th day of November, 2017"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "This agreement is made and entered into this 30th day of November, 2017",
+      "precision": 0.4166666666666667,
+      "recall": 1.0,
+      "f1": 0.5882352941176471,
+      "overall_score": 0.5882352941176471
+    },
+    {
+      "index": 13,
+      "clause_type": "Parties",
+      "gold_clause": "between the Company                   and the Distributor                                      Page -3-                    is that of vendor and vendee.",
+      "gold_clauses": [
+        "between the Company                   and the Distributor                                      Page -3-                    is that of vendor and vendee."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Electric City Corp., a Delaware corporation (\"Company\") and Electric City of Illinois LLC (\"Distributor\")",
+      "precision": 0.16666666666666666,
+      "recall": 0.16666666666666666,
+      "f1": 0.16666666666666666,
+      "overall_score": 0.16666666666666666
+    },
+    {
+      "index": 14,
+      "clause_type": "Parties",
+      "gold_clause": "between the Company                   and the Distributor                                      Page -3-                    is that of vendor and vendee.",
+      "gold_clauses": [
+        "between the Company                   and the Distributor                                      Page -3-                    is that of vendor and vendee."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Electric City Corp., a Delaware corporation (\"Company\") and Electric City of Illinois LLC (\"Distributor\")",
+      "precision": 0.16666666666666666,
+      "recall": 0.16666666666666666,
+      "f1": 0.16666666666666666,
+      "overall_score": 0.16666666666666666
+    },
+    {
+      "index": 15,
+      "clause_type": "Termination For Convenience",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 16,
+      "clause_type": "Effective Date",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 17,
+      "clause_type": "Parties",
+      "gold_clause": "between the Company                   and the Distributor                                      Page -3-                    is that of vendor and vendee.",
+      "gold_clauses": [
+        "between the Company                   and the Distributor                                      Page -3-                    is that of vendor and vendee."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Electric City Corp., a Delaware corporation (\"Company\") and Electric City of Illinois LLC (\"Distributor\")",
+      "precision": 0.16666666666666666,
+      "recall": 0.16666666666666666,
+      "f1": 0.16666666666666666,
+      "overall_score": 0.16666666666666666
+    },
+    {
+      "index": 18,
+      "clause_type": "Termination For Convenience",
+      "gold_clause": "Company at its sole discretion may at any time alter or cease providing the Customer Service which it has agreed to provide to Client relating to Client Website pursuant to this Agreement without any liability to Company.",
+      "gold_clauses": [
+        "Company at its sole discretion may at any time alter or cease providing the Customer Service which it has agreed to provide to Client relating to Client Website pursuant to this Agreement without any liability to Company."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 19,
+      "clause_type": "Confidentiality",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 20,
+      "clause_type": "Confidentiality",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 21,
+      "clause_type": "Expiration Date",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 22,
+      "clause_type": "Indemnification",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 23,
+      "clause_type": "Effective Date",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "This Agency Agreement (\"Agreement\") is made as of April 18, 2018.",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 24,
+      "clause_type": "Non-Compete",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 25,
+      "clause_type": "Termination For Convenience",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 26,
+      "clause_type": "Confidentiality",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 27,
+      "clause_type": "Indemnification",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 28,
+      "clause_type": "Parties",
+      "gold_clause": "Shelby J. Butterfield",
+      "gold_clauses": [
+        "Shelby J. Butterfield"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Shelby J. Butterfield; BUTTERFIELD FAMILY TRUST",
+      "precision": 0.5,
+      "recall": 1.0,
+      "f1": 0.6666666666666666,
+      "overall_score": 0.6666666666666666
+    },
+    {
+      "index": 29,
+      "clause_type": "Limitation Of Liability",
+      "gold_clause": "Nothing in this Agreement shall exclude or limit either party's liability for:\n\n  (a) death or personal injury resulting from the negligence of either party or their servants, agents or employees;\n\n  (b) fraud or fraudulent misrepresentation;",
+      "gold_clauses": [
+        "Nothing in this Agreement shall exclude or limit either party's liability for:\n\n  (a) death or personal injury resulting from the negligence of either party or their servants, agents or employees;\n\n  (b) fraud or fraudulent misrepresentation;"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 30,
+      "clause_type": "Parties",
+      "gold_clause": "by and between Consultant and Company, and perform the services described on Exhibit A hereto (collectively, \"Services\").",
+      "gold_clauses": [
+        "by and between Consultant and Company, and perform the services described on Exhibit A hereto (collectively, \"Services\")."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities as described below on the following terms:",
+      "precision": 0.16666666666666666,
+      "recall": 0.3333333333333333,
+      "f1": 0.2222222222222222,
+      "overall_score": 0.2222222222222222
+    },
+    {
+      "index": 31,
+      "clause_type": "Expiration Date",
+      "gold_clause": "The initial term of this Agreement shall be five (5) years from the date of execution and may be extended subject to satisfactory  agreement on ongoing commercial terms, to be agreed two (2) months prior to the expiration of this Agreement.",
+      "gold_clauses": [
+        "The initial term of this Agreement shall be five (5) years from the date of execution and may be extended subject to satisfactory  agreement on ongoing commercial terms, to be agreed two (2) months prior to the expiration of this Agreement."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 32,
+      "clause_type": "Non-Compete",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 33,
+      "clause_type": "Confidentiality",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 34,
+      "clause_type": "Expiration Date",
+      "gold_clause": "This Agreement shall become effective as of the day and year first above written and shall govern the relations between the parties hereto thereafter, unless terminated as set forth in this Section 6.",
+      "gold_clauses": [
+        "This Agreement shall become effective as of the day and year first above written and shall govern the relations between the parties hereto thereafter, unless terminated as set forth in this Section 6."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 35,
+      "clause_type": "Parties",
+      "gold_clause": "between professional golfer, TOM WATSON, (hereinafter referred to as \"CONSULTANT\") and ADAMS GOLF, LTD.",
+      "gold_clauses": [
+        "between professional golfer, TOM WATSON, (hereinafter referred to as \"CONSULTANT\") and ADAMS GOLF, LTD."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "This Agreement is entered into on January 13, 2005 between professional golfer, TOM WATSON, (hereinafter referred to as \"CONSULTANT\") and ADAMS GOLF, LTD. (hereinafter referred to as \"ADAMS GOLF\").",
+      "precision": 0.56,
+      "recall": 1.0,
+      "f1": 0.717948717948718,
+      "overall_score": 0.717948717948718
+    },
+    {
+      "index": 36,
+      "clause_type": "Limitation Of Liability",
+      "gold_clause": "Subject to Clauses 9.1 and 9.2, neither party shall be liable under this Agreement (whether in contract, tort or otherwise) for any:\n\n  (a) loss of anticipated savings;\n\n  (b) loss of business opportunity (which for the avoidance of doubt shall not include loss of advertising revenue);\n\n  (c) loss of or corruption of data;\n\n  (d) loss or damage resulting from third party claims; or\n\n  (e) indirect or consequential losses;\n     suffered or incurred by the other party (whether or not such losses were within the contemplation of the parties at the date of this  Agreement).",
+      "gold_clauses": [
+        "Subject to Clauses 9.1 and 9.2, neither party shall be liable under this Agreement (whether in contract, tort or otherwise) for any:\n\n  (a) loss of anticipated savings;\n\n  (b) loss of business opportunity (which for the avoidance of doubt shall not include loss of advertising revenue);\n\n  (c) loss of or corruption of data;\n\n  (d) loss or damage resulting from third party claims; or\n\n  (e) indirect or consequential losses;\n     suffered or incurred by the other party (whether or not such losses were within the contemplation of the parties at the date of this  Agreement)."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 37,
+      "clause_type": "Termination For Convenience",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 38,
+      "clause_type": "Confidentiality",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 39,
+      "clause_type": "Parties",
+      "gold_clause": "between professional golfer, TOM WATSON, (hereinafter referred to as \"CONSULTANT\") and ADAMS GOLF, LTD.",
+      "gold_clauses": [
+        "between professional golfer, TOM WATSON, (hereinafter referred to as \"CONSULTANT\") and ADAMS GOLF, LTD."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "This Agreement is entered into on January 13, 2005 between professional golfer, TOM WATSON, (hereinafter referred to as \"CONSULTANT\") and ADAMS GOLF, LTD. (hereinafter referred to as \"ADAMS GOLF\").",
+      "precision": 0.56,
+      "recall": 1.0,
+      "f1": 0.717948717948718,
+      "overall_score": 0.717948717948718
+    },
+    {
+      "index": 40,
+      "clause_type": "Governing Law",
+      "gold_clause": "The construction, interpretation, and performance of this Agreement and all transactions under it shall be governed by the laws of the State of Texas, irrespective of its conflict of law principles.",
+      "gold_clauses": [
+        "The construction, interpretation, and performance of this Agreement and all transactions under it shall be governed by the laws of the State of Texas, irrespective of its conflict of law principles."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 41,
+      "clause_type": "Governing Law",
+      "gold_clause": "This Agreement is to be construed according to the laws          of the State of Illinois.",
+      "gold_clauses": [
+        "This Agreement is to be construed according to the laws          of the State of Illinois."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 42,
+      "clause_type": "Termination For Convenience",
+      "gold_clause": "After the Initial Term, this Agreement shall continue on a month to month basis until terminated by either party upon thirty (30) days prior written notice to the other setting forth the effective date of such termination.",
+      "gold_clauses": [
+        "After the Initial Term, this Agreement shall continue on a month to month basis until terminated by either party upon thirty (30) days prior written notice to the other setting forth the effective date of such termination."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 43,
+      "clause_type": "Agreement Date",
+      "gold_clause": "November 1, 2019",
+      "gold_clauses": [
+        "November 1, 2019"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 44,
+      "clause_type": "Termination For Convenience",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 45,
+      "clause_type": "Limitation Of Liability",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 46,
+      "clause_type": "Parties",
+      "gold_clause": "between the parties in relation to its subject matter and  supersedes all previous agreements between the parties relating to the same.",
+      "gold_clauses": [
+        "between the parties in relation to its subject matter and  supersedes all previous agreements between the parties relating to the same."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Whitesmoke Inc., with registered offices/principle place of business at 501 Silverside Road, Suite 105, Wilmington DE 19809, USA, (\"Distributor\"), and Google Inc whose principle place of business is at 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (\"Google\").",
+      "precision": 0.029411764705882353,
+      "recall": 0.0625,
+      "f1": 0.039999999999999994,
+      "overall_score": 0.039999999999999994
+    },
+    {
+      "index": 47,
+      "clause_type": "Indemnification",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 48,
+      "clause_type": "Limitation Of Liability",
+      "gold_clause": "Notwithstanding anything to the contrary, in no event shall the [ * ] paid or payable to Distributor by Google pursuant to Clause 4.1  (Payments) exceed the [ * ].",
+      "gold_clauses": [
+        "Notwithstanding anything to the contrary, in no event shall the [ * ] paid or payable to Distributor by Google pursuant to Clause 4.1  (Payments) exceed the [ * ]."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 49,
+      "clause_type": "Termination For Convenience",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 50,
+      "clause_type": "Parties",
+      "gold_clause": "by and between Consultant and Company, and perform the services described on Exhibit A hereto (collectively, \"Services\").",
+      "gold_clauses": [
+        "by and between Consultant and Company, and perform the services described on Exhibit A hereto (collectively, \"Services\")."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities as described below on the following terms:",
+      "precision": 0.16666666666666666,
+      "recall": 0.3333333333333333,
+      "f1": 0.2222222222222222,
+      "overall_score": 0.2222222222222222
+    },
+    {
+      "index": 51,
+      "clause_type": "Agreement Date",
+      "gold_clause": "7th day of September, 1999.",
+      "gold_clauses": [
+        "7th day of September, 1999."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "THIS DISTRIBUTOR AGREEMENT (the \"Agreement\") is made by and between Electric City Corp., a Delaware corporation (\"Company\") and Electric City of Illinois LLC (\"Distributor\") this 7th day of September, 1999.",
+      "precision": 0.2,
+      "recall": 1.0,
+      "f1": 0.33333333333333337,
+      "overall_score": 0.33333333333333337
+    },
+    {
+      "index": 52,
+      "clause_type": "Parties",
+      "gold_clause": "by and between Consultant and Company, and perform the services described on Exhibit A hereto (collectively, \"Services\").",
+      "gold_clauses": [
+        "by and between Consultant and Company, and perform the services described on Exhibit A hereto (collectively, \"Services\")."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities as described below on the following terms:",
+      "precision": 0.16666666666666666,
+      "recall": 0.3333333333333333,
+      "f1": 0.2222222222222222,
+      "overall_score": 0.2222222222222222
+    },
+    {
+      "index": 53,
+      "clause_type": "Agreement Date",
+      "gold_clause": "October 30, 2019",
+      "gold_clauses": [
+        "October 30, 2019"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 54,
+      "clause_type": "Termination For Convenience",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 55,
+      "clause_type": "Effective Date",
+      "gold_clause": "17t h day of February 2016",
+      "gold_clauses": [
+        "17t h day of February 2016"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 56,
+      "clause_type": "Limitation Of Liability",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 57,
+      "clause_type": "Confidentiality",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 58,
+      "clause_type": "Limitation Of Liability",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 59,
+      "clause_type": "Non-Compete",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 60,
+      "clause_type": "Expiration Date",
+      "gold_clause": "In addition, the",
+      "gold_clauses": [
+        "In addition, the"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 61,
+      "clause_type": "Indemnification",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 62,
+      "clause_type": "Indemnification",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Consultant will indemnify Company and hold it harmless from and against all claims, liabilities, damages and expenses, including reasonable attorneys' fees and costs of suit, arising out of or in connection with any violation or claimed violation by Company of such third party's rights resulting in whole or in part from Company's use of the work product of Consultant under this Agreement.",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 63,
+      "clause_type": "Expiration Date",
+      "gold_clause": "The term of this  Agreement  shall be ten (10)                            years (the \"Term\")  which shall  commence on the date                            upon which the Company  delivers to  Distributor  the                            last Sample, as defined  hereinafter.",
+      "gold_clauses": [
+        "The term of this  Agreement  shall be ten (10)                            years (the \"Term\")  which shall  commence on the date                            upon which the Company  delivers to  Distributor  the                            last Sample, as defined  hereinafter."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 64,
+      "clause_type": "Effective Date",
+      "gold_clause": "This Agreement may be executed in one or more counterparts, all of which counterparts shall be considered one and the same agreement, and shall become effective when one or more counterparts have been signed by each Party and delivered to the other Party.",
+      "gold_clauses": [
+        "This Agreement may be executed in one or more counterparts, all of which counterparts shall be considered one and the same agreement, and shall become effective when one or more counterparts have been signed by each Party and delivered to the other Party."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Dated as of September 30, 2019",
+      "precision": 0.16666666666666666,
+      "recall": 0.030303030303030304,
+      "f1": 0.05128205128205128,
+      "overall_score": 0.05128205128205128
+    },
+    {
+      "index": 65,
+      "clause_type": "Governing Law",
+      "gold_clause": "This Agreement and all claims or causes of action arising out of or related to this Agreement shall be governed in all respects, including as to validity, interpretation and effect, by the laws of the State of Illinois and the United States of America, without giving effect to its principles or rules of conflict of laws.",
+      "gold_clauses": [
+        "This Agreement and all claims or causes of action arising out of or related to this Agreement shall be governed in all respects, including as to validity, interpretation and effect, by the laws of the State of Illinois and the United States of America, without giving effect to its principles or rules of conflict of laws."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 66,
+      "clause_type": "Limitation Of Liability",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 67,
+      "clause_type": "Expiration Date",
+      "gold_clause": "This Agreement will commence on the Effective Date and will continue until termination as provided below.",
+      "gold_clauses": [
+        "This Agreement will commence on the Effective Date and will continue until termination as provided below."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 68,
+      "clause_type": "Indemnification",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 69,
+      "clause_type": "Indemnification",
+      "gold_clause": "SpinCo agrees that it will not (i) oppose, challenge, petition to cancel, contest or threaten in any way, or assist another party in opposing, challenging, petitioning to cancel, contesting or threatening in any way, any application or registration by Nuance or its Affiliates or their respective licensees for any Nuance IP, (ii) engage in any act, or purposefully omit to perform any act, that impairs or adversely affects the rights of Nuance or any member of the Nuance Group in and to any Nuance IP or (iii) apply for any registration (including federal, state and national registrations) with respect to the Nuance IP.",
+      "gold_clauses": [
+        "SpinCo agrees that it will not (i) oppose, challenge, petition to cancel, contest or threaten in any way, or assist another party in opposing, challenging, petitioning to cancel, contesting or threatening in any way, any application or registration by Nuance or its Affiliates or their respective licensees for any Nuance IP, (ii) engage in any act, or purposefully omit to perform any act, that impairs or adversely affects the rights of Nuance or any member of the Nuance Group in and to any Nuance IP or (iii) apply for any registration (including federal, state and national registrations) with respect to the Nuance IP."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 70,
+      "clause_type": "Termination For Convenience",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 71,
+      "clause_type": "Governing Law",
+      "gold_clause": "This Agreement is entered into in the State of Texas and shall be interpreted according to the laws of the State of Texas.",
+      "gold_clauses": [
+        "This Agreement is entered into in the State of Texas and shall be interpreted according to the laws of the State of Texas."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 72,
+      "clause_type": "Expiration Date",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 73,
+      "clause_type": "Agreement Date",
+      "gold_clause": "May 12, 2020",
+      "gold_clauses": [
+        "May 12, 2020"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 74,
+      "clause_type": "Indemnification",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 75,
+      "clause_type": "Indemnification",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 76,
+      "clause_type": "Agreement Date",
+      "gold_clause": "March 27, 2020.",
+      "gold_clauses": [
+        "March 27, 2020."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Dated: March 27, 2020.",
+      "precision": 0.75,
+      "recall": 1.0,
+      "f1": 0.8571428571428571,
+      "overall_score": 0.8571428571428571
+    },
+    {
+      "index": 77,
+      "clause_type": "Effective Date",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Dated: March 27, 2020.",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 78,
+      "clause_type": "Non-Compete",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 79,
+      "clause_type": "Limitation Of Liability",
+      "gold_clause": "Subject to Clauses 9.1 and 9.2, each party's total liability under or in connection with this Agreement (whether in contract, tort or  otherwise) arising in any Contract Year is limited to the greater of:\n\n  (a) [ * ] Euros ([ * ] Euros); and\n\n  (b) [ * ]% of the total payment due to the Distributor in the relevant Contract Year pursuant to Clause 4 (Payment Terms).",
+      "gold_clauses": [
+        "Subject to Clauses 9.1 and 9.2, each party's total liability under or in connection with this Agreement (whether in contract, tort or  otherwise) arising in any Contract Year is limited to the greater of:\n\n  (a) [ * ] Euros ([ * ] Euros); and\n\n  (b) [ * ]% of the total payment due to the Distributor in the relevant Contract Year pursuant to Clause 4 (Payment Terms)."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 80,
+      "clause_type": "Governing Law",
+      "gold_clause": "This Agreement shall be governed and construed according to the laws of the State of Kansas.",
+      "gold_clauses": [
+        "This Agreement shall be governed and construed according to the laws of the State of Kansas."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 81,
+      "clause_type": "Confidentiality",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 82,
+      "clause_type": "Governing Law",
+      "gold_clause": "This Agreement (and any question about its subsistence, effect or termination) is to be interpreted in accordance with the laws of India, save for that body of law which governs the conflict of laws.",
+      "gold_clauses": [
+        "This Agreement (and any question about its subsistence, effect or termination) is to be interpreted in accordance with the laws of India, save for that body of law which governs the conflict of laws."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 83,
+      "clause_type": "Agreement Date",
+      "gold_clause": "April 18, 2018,",
+      "gold_clauses": [
+        "April 18, 2018,"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "This Agency Agreement (\"Agreement\") is made as of April 18, 2018, by and between The Bon-Ton Stores, Inc. and its associated chapter 11 debtors in possession (collectively, \"Merchant\"),1 on the one hand, and (a) a contractual joint venture comprised of GA Retail, Inc. (\"GA\") and Tiger Capital Group, LLC (\"Tiger\" and collectively with GA, the \"Agent\") and (b) Wilmington Savings Fund Society, FSB, as the indenture agent and collateral trustee for the 8.00% second-lien senior secured notes due 2021 (the \"Second-Lien Notes\") issued by BTDS, on the other hand (in such capacities, the \"Notes Trustee\" and collectively with Agent, \"Purchaser\").",
+      "precision": 0.0375,
+      "recall": 1.0,
+      "f1": 0.07228915662650602,
+      "overall_score": 0.07228915662650602
+    },
+    {
+      "index": 84,
+      "clause_type": "Effective Date",
+      "gold_clause": "This Agreement shall become effective as of the day and year first above written and shall govern the relations between the parties hereto thereafter, unless terminated as set forth in this Section 6.",
+      "gold_clauses": [
+        "This Agreement shall become effective as of the day and year first above written and shall govern the relations between the parties hereto thereafter, unless terminated as set forth in this Section 6."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "SPONSORSHIP AGREEMENT, dated as of February 4, 2005, by and between Domini Advisor Trust, a Massachusetts business trust (the \"Trust\"), and Domini Social Investments LLC, a Massachusetts limited liability company (\"Domini\" or the \"Sponsor\").",
+      "precision": 0.16666666666666666,
+      "recall": 0.18518518518518517,
+      "f1": 0.17543859649122806,
+      "overall_score": 0.17543859649122806
+    },
+    {
+      "index": 85,
+      "clause_type": "Parties",
+      "gold_clause": "between the parties in relation to its subject matter and  supersedes all previous agreements between the parties relating to the same.",
+      "gold_clauses": [
+        "between the parties in relation to its subject matter and  supersedes all previous agreements between the parties relating to the same."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Whitesmoke Inc., with registered offices/principle place of business at 501 Silverside Road, Suite 105, Wilmington DE 19809, USA, (\"Distributor\"), and Google Inc whose principle place of business is at 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA (\"Google\").",
+      "precision": 0.029411764705882353,
+      "recall": 0.0625,
+      "f1": 0.039999999999999994,
+      "overall_score": 0.039999999999999994
+    },
+    {
+      "index": 86,
+      "clause_type": "Non-Compete",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 87,
+      "clause_type": "Confidentiality",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 88,
+      "clause_type": "Parties",
+      "gold_clause": "by and between Consultant and Company, and perform the services described on Exhibit A hereto (collectively, \"Services\").",
+      "gold_clauses": [
+        "by and between Consultant and Company, and perform the services described on Exhibit A hereto (collectively, \"Services\")."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "Kiromic, Inc, a Delaware corporation (the \"Company\"), is pleased to this offer to this Consulting Agreement (this \"Agreement\") to retain Gianluca Rotino (\"Consultant\") to perform certain consulting activities as described below on the following terms:",
+      "precision": 0.16666666666666666,
+      "recall": 0.3333333333333333,
+      "f1": 0.2222222222222222,
+      "overall_score": 0.2222222222222222
+    },
+    {
+      "index": 89,
+      "clause_type": "Non-Compete",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 90,
+      "clause_type": "Termination For Convenience",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 91,
+      "clause_type": "Governing Law",
+      "gold_clause": "This Agreement shall be governed by and construed in accordance with the laws of the State of New York, without giving effect to any choice of law or conflict of law provision or rule whether such provision or rule is that of the State of New York or any other jurisdiction.",
+      "gold_clauses": [
+        "This Agreement shall be governed by and construed in accordance with the laws of the State of New York, without giving effect to any choice of law or conflict of law provision or rule whether such provision or rule is that of the State of New York or any other jurisdiction."
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 92,
+      "clause_type": "Effective Date",
+      "gold_clause": "May 12, 2020",
+      "gold_clauses": [
+        "May 12, 2020"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 93,
+      "clause_type": "Non-Compete",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 94,
+      "clause_type": "Effective Date",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 95,
+      "clause_type": "Confidentiality",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 96,
+      "clause_type": "Limitation Of Liability",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 97,
+      "clause_type": "Indemnification",
+      "gold_clause": "NOT FOUND",
+      "gold_clauses": [
+        "NOT FOUND"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "NOT FOUND",
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 98,
+      "clause_type": "Expiration Date",
+      "gold_clause": "THIS STRATEGIC ALLIANCE AGREEMENT (the \"Agreement\"), made effective this 17t h day of February 2016, through February 16, 2019 (the \"Initial Term\") i",
+      "gold_clauses": [
+        "THIS STRATEGIC ALLIANCE AGREEMENT (the \"Agreement\"), made effective this 17t h day of February 2016, through February 16, 2019 (the \"Initial Term\") i"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "After the Initial Term, this Agreement shall continue on a month to month basis until terminated by either party upon thirty (30) days prior written notice to the other setting forth the effective date of such termination.",
+      "precision": 0.12121212121212122,
+      "recall": 0.2,
+      "f1": 0.15094339622641512,
+      "overall_score": 0.15094339622641512
+    },
+    {
+      "index": 99,
+      "clause_type": "Agreement Date",
+      "gold_clause": "January 11, 2018",
+      "gold_clauses": [
+        "January 11, 2018"
+      ],
+      "gold_clause_count": 1,
+      "pred_clause": "This Website Design, Development and Hosting Agreement the (\"Agreement\") is entered into on January 11, 2018 by and between Natalija Tunevic, director of FreeCook (hereinafter referred to as \"Client\") and Mitchell Vitalis, director of Mitchell's Web Advance, PLC (hereinafter referred to as \"Company\").",
+      "precision": 0.08571428571428572,
+      "recall": 1.0,
+      "f1": 0.15789473684210528,
+      "overall_score": 0.15789473684210528
+    }
+  ],
+  "field_accuracies": {
+    "clause_text": 0.5370526516076787
+  },
+  "overall_accuracy": 0.5370526516076787,
+  "total_samples": 100,
+  "metadata": {
+    "precision": 0.5223574993633817,
+    "recall": 0.5946473063973063,
+    "f1_score": 0.5370526516076787,
+    "exact_match_rate": 0.46,
+    "not_found_accuracy": 0.9387755102040817,
+    "per_clause_type": {
+      "Expiration Date": 0.3773584905660377,
+      "Agreement Date": 0.3137100506267577,
+      "Termination For Convenience": 0.7272727272727273,
+      "Confidentiality": 1.0,
+      "Indemnification": 0.8181818181818182,
+      "Limitation Of Liability": 0.5,
+      "Effective Date": 0.349615296983718,
+      "Parties": 0.29762108262108267,
+      "Non-Compete": 1.0,
+      "Governing Law": 0.0
+    }
+  }
+}

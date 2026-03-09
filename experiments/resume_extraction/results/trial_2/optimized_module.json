@@ -1,0 +1,225 @@
+{
+  "predictor.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Apr 2018 and Jan 2019, responsibilities included:\r\n- worked on audit and compliance reporting\r\n- worked on multiple short-term initiatives alongside core responsibilities\r\n- reviewed transactional data for inconsistencies\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nexperienced working in fast-paced and ambiguous environments\r\n\r\nEducation\r\nCompleted BCom from a recognized institution.\r\n\r\nAdditional Notes\r\nsupported ad-hoc requests during peak business cycles",
+        "reasoning": "The professional experience spans from April 2018 to January 2019, which is a total of 0.75 years. The responsibilities described, such as audit and compliance reporting, reviewing transactional data for inconsistencies, and contributing to reporting and analysis, align with the role of a Finance Analyst. The education background of BCom supports this role. The skills inferred from the responsibilities include Excel, Accounting, Financial Analysis, and Compliance.",
+        "job_role": "Finance Analyst",
+        "skills": "Excel, Accounting, Financial Analysis, Compliance",
+        "education": "BCom",
+        "experience_years": "0.75"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween May 2021 and Jul 2024, responsibilities included:\r\n- implemented APIs consumed by multiple internal tools\r\n- handled cross-functional coordination with different teams\r\n- developed backend services supporting high traffic applications\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nworked on multiple short-term initiatives alongside core responsibilities\r\n\r\nEducation\r\nCompleted MTech Software from a recognized institution.\r\n\r\nAdditional Notes\r\nexperienced working in fast-paced and ambiguous environments",
+        "reasoning": "The candidate's professional experience spans from May 2021 to July 2024, which totals 3.17 years. The responsibilities described include implementing APIs, developing backend services, and optimizing performance for high-traffic applications. These tasks align with the role of a Software Engineer. The skills inferred from the tasks include programming languages and tools commonly used in backend development and API implementation. The education qualification is an MTech in Software, which supports the technical expertise required for the role.",
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Web Programming",
+        "education": "MTech Software",
+        "experience_years": "3.17"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween May 2017 and May 2018, responsibilities included:\r\n- optimized application performance and stability\r\n- supported ad-hoc requests during peak business cycles\r\n- worked with databases and service orchestration\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nworked on multiple short-term initiatives alongside core responsibilities\r\n\r\nEducation\r\nCompleted MTech Software from a recognized institution.\r\n\r\nAdditional Notes\r\nworked on multiple short-term initiatives alongside core responsibilities",
+        "reasoning": "The professional experience spans from May 2017 to May 2018, which is a total of 1 year. The responsibilities include optimizing application performance, working with databases, and service orchestration, which are indicative of backend development and software engineering tasks. The education qualification is an MTech in Software, which aligns with a technical role. Based on the tasks described, the job role is inferred to be Software Engineer. The skills are derived from the tasks mentioned, such as working with databases and optimizing performance.",
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, DBMS, Web Programming",
+        "education": "MTech Software",
+        "experience_years": "1.0"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Feb 2020 and Apr 2021, responsibilities included:\r\n- worked on audit and compliance reporting\r\n- worked on multiple short-term initiatives alongside core responsibilities\r\n- reviewed transactional data for inconsistencies\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nexperienced working in fast-paced and ambiguous environments\r\n\r\nEducation\r\nCompleted BCom from a recognized institution.\r\n\r\nAdditional Notes\r\nworked on multiple short-term initiatives alongside core responsibilities",
+        "reasoning": "The professional experience spans from February 2020 to April 2021, which is 1.17 years. The responsibilities include audit and compliance reporting, reviewing transactional data for inconsistencies, and contributing to reporting and analysis improvements. These tasks align with the role of a Finance Analyst. The skills inferred from the responsibilities include Excel for data handling, Accounting for transactional data review, Financial Modeling for compliance reporting, and SQL for data analysis. The education qualification is a BCom, which supports the finance-related role.",
+        "job_role": "Finance Analyst",
+        "skills": "Excel, Accounting, Financial Modeling, SQL",
+        "education": "BCom",
+        "experience_years": "1.17"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Jul 2018 and Nov 2020, responsibilities included:\r\n- developed backend services supporting high traffic applications\r\n- handled cross-functional coordination with different teams\r\n- worked with databases and service orchestration\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nexperienced working in fast-paced and ambiguous environments\r\n\r\nEducation\r\nCompleted MTech Software from a recognized institution.\r\n\r\nAdditional Notes\r\nsupported ad-hoc requests during peak business cycles",
+        "reasoning": "The professional experience spans from July 2018 to November 2020, which is 2.33 years. The responsibilities include developing backend services, working with databases, and service orchestration, which are indicative of a software engineering role. The education qualification is MTech in Software, which aligns with the technical nature of the work. Skills such as backend development, database management, and service orchestration are inferred from the job responsibilities.",
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Backend Development",
+        "education": "MTech Software",
+        "experience_years": "2.33"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Dec 2019 and May 2021, responsibilities included:\r\n- worked with SEO and social media data\r\n- experienced working in fast-paced and ambiguous environments\r\n- tracked content performance metrics over time\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\ninvolved in documentation and internal knowledge sharing\r\n\r\nEducation\r\nCompleted BA Journalism from a recognized institution.\r\n\r\nAdditional Notes\r\nsupported ad-hoc requests during peak business cycles",
+        "reasoning": "The professional experience spans from December 2019 to May 2021, which is 1.42 years. The responsibilities include working with SEO and social media data, tracking content performance metrics, and contributing to reporting and analysis. These tasks align with the role of a Media Analyst, as they involve analyzing digital content performance and working with social media data. The skills inferred from the tasks include SEO, Social Media Analytics, Google Analytics, and Content Strategy. The education qualification is a BA in Journalism, which supports the media-related role.",
+        "job_role": "Media Analyst",
+        "skills": "SEO, Social Media Analytics, Google Analytics, Content Strategy",
+        "education": "BA Journalism",
+        "experience_years": "1.42"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Nov 2020 and Mar 2024, responsibilities included:\r\n- created dashboards for revenue tracking\r\n- worked on multiple short-term initiatives alongside core responsibilities\r\n- worked with CRM-generated reports\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nworked on multiple short-term initiatives alongside core responsibilities\r\n\r\nEducation\r\nCompleted MBA Sales from a recognized institution.\r\n\r\nAdditional Notes\r\nhandled cross-functional coordination with different teams",
+        "reasoning": "The professional experience spans from November 2020 to March 2024, which is 3.33 years. The responsibilities include creating dashboards for revenue tracking, working with CRM-generated reports, and contributing to reporting and analysis improvements. These tasks align with the role of a Sales Analyst. The skills inferred from the tasks include Excel for dashboards, CRM tools for report generation, Sales Analytics for revenue tracking, and SQL for data handling. The education qualification is an MBA in Sales.",
+        "job_role": "Sales Analyst",
+        "skills": "Excel, CRM, Sales Analytics, SQL",
+        "education": "MBA Sales",
+        "experience_years": "3.33"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Sep 2018 and Apr 2023, responsibilities included:\r\n- created dashboards for revenue tracking\r\n- involved in documentation and internal knowledge sharing\r\n- analyzed regional sales performance data\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nexperienced working in fast-paced and ambiguous environments\r\n\r\nEducation\r\nCompleted MBA Sales from a recognized institution.\r\n\r\nAdditional Notes\r\nexperienced working in fast-paced and ambiguous environments",
+        "reasoning": "The professional experience spans from September 2018 to April 2023, which totals 4.58 years. The responsibilities include creating dashboards for revenue tracking, analyzing regional sales performance data, and contributing to reporting and analysis improvements. These tasks align with the role of a Sales Analyst, as they involve sales performance analysis and reporting. The skills inferred from the tasks include Excel, Sales Analytics, CRM, and SQL, which are commonly used in sales analysis and dashboard creation. The education qualification mentioned is an MBA in Sales, which supports the role of a Sales Analyst.",
+        "job_role": "Sales Analyst",
+        "skills": "Excel, Sales Analytics, CRM, SQL",
+        "education": "MBA Sales",
+        "experience_years": "4.58"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Nov 2021 and Sep 2026, responsibilities included:\r\n- optimized application performance and stability\r\n- worked on multiple short-term initiatives alongside core responsibilities\r\n- implemented APIs consumed by multiple internal tools\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nexperienced working in fast-paced and ambiguous environments\r\n\r\nEducation\r\nCompleted BTech CSE from a recognized institution.\r\n\r\nAdditional Notes\r\nhandled cross-functional coordination with different teams",
+        "reasoning": "The professional experience spans from November 2021 to September 2026, which is approximately 4.83 years. The responsibilities described include optimizing application performance, implementing APIs, and handling cross-functional coordination, which align with the role of a Software Engineer. The skills inferred from the tasks include programming and backend development, as well as working with APIs and performance optimization. The education qualification is a BTech in Computer Science and Engineering (CSE).",
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, API Development, Performance Optimization, DBMS, Web Programming",
+        "education": "BTech CSE",
+        "experience_years": "4.83"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Jun 2019 and Aug 2021, responsibilities included:\r\n- managed hiring pipelines across multiple departments\r\n- handled cross-functional coordination with different teams\r\n- maintained employee lifecycle records\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nsupported ad-hoc requests during peak business cycles\r\n\r\nEducation\r\nCompleted BBA from a recognized institution.\r\n\r\nAdditional Notes\r\nhandled cross-functional coordination with different teams",
+        "reasoning": "The professional experience section indicates responsibilities related to managing hiring pipelines, coordinating across teams, and maintaining employee lifecycle records. These tasks align with the role of an HR Specialist or HR Coordinator. Skills inferred include recruitment, employee lifecycle management, and cross-functional coordination. The education section specifies a BBA degree, which supports a background in business and HR-related functions. The timeline from June 2019 to August 2021 provides a total of 2.17 years of professional experience.",
+        "job_role": "HR Specialist",
+        "skills": "Recruitment, Employee Lifecycle Management, Cross-Functional Coordination, HR Analytics",
+        "education": "BBA",
+        "experience_years": "2.17"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Feb 2017 and Oct 2020, responsibilities included:\r\n- worked on predictive systems to flag anomalies in large text collections\r\n- worked on multiple short-term initiatives alongside core responsibilities\r\n- built analytics workflows for business reporting\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nworked on multiple short-term initiatives alongside core responsibilities\r\n\r\nEducation\r\nCompleted MTech AI from a recognized institution.\r\n\r\nAdditional Notes\r\nexperienced working in fast-paced and ambiguous environments",
+        "reasoning": "The candidate's professional experience from February 2017 to October 2020 spans 3.67 years. Their responsibilities include working on predictive systems, building analytics workflows, and analyzing large text collections, which are indicative of a role in data science or analytics. The mention of predictive systems and analytics workflows suggests expertise in machine learning, data analysis, and related tools. The candidate's education in MTech AI further supports the inference of a data science-related role. Skills such as Python, SQL, machine learning, and NLP are inferred based on the described tasks and projects.",
+        "job_role": "Data Scientist",
+        "skills": "Python, SQL, Machine Learning, NLP, Data Analysis, Pandas, NumPy",
+        "education": "MTech AI",
+        "experience_years": "3.67"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Jul 2021 and Aug 2025, responsibilities included:\r\n- implemented APIs consumed by multiple internal tools\r\n- handled cross-functional coordination with different teams\r\n- optimized application performance and stability\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nsupported ad-hoc requests during peak business cycles\r\n\r\nEducation\r\nCompleted MTech Software from a recognized institution.\r\n\r\nAdditional Notes\r\ninvolved in documentation and internal knowledge sharing",
+        "reasoning": "The professional experience spans from July 2021 to August 2025, which is 4.08 years. The responsibilities include implementing APIs, optimizing application performance, and handling cross-functional coordination, which are typical tasks for a Software Engineer. The education background of MTech in Software aligns with this role. The skills inferred from the tasks include programming languages, database management, and web programming, which are essential for backend and API development.",
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Web Programming",
+        "education": "MTech Software",
+        "experience_years": "4.08"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Jan 2022 and Feb 2024, responsibilities included:\r\n- worked on predictive systems to flag anomalies in large text collections\r\n- worked on multiple short-term initiatives alongside core responsibilities\r\n- built analytics workflows for business reporting\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nworked on multiple short-term initiatives alongside core responsibilities\r\n\r\nEducation\r\nCompleted BTech CSE from a recognized institution.\r\n\r\nAdditional Notes\r\nhandled cross-functional coordination with different teams",
+        "reasoning": "The professional experience spans from January 2022 to February 2024, which is 2.08 years. The responsibilities include working on predictive systems, building analytics workflows, and handling large text collections, which align with tasks typically performed by a Data Scientist. The education background of BTech in Computer Science and Engineering supports this role. Skills inferred from the tasks include Python, SQL, Machine Learning, NLP, Pandas, and NumPy, as these are commonly used in predictive systems and analytics workflows.",
+        "job_role": "Data Scientist",
+        "skills": "Python, SQL, Machine Learning, NLP, Pandas, NumPy",
+        "education": "BTech CSE",
+        "experience_years": "2.08"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Dec 2017 and Jul 2020, responsibilities included:\r\n- worked on audit and compliance reporting\r\n- worked on multiple short-term initiatives alongside core responsibilities\r\n- prepared management-level financial summaries\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nexperienced working in fast-paced and ambiguous environments\r\n\r\nEducation\r\nCompleted BCom from a recognized institution.\r\n\r\nAdditional Notes\r\nexperienced working in fast-paced and ambiguous environments",
+        "reasoning": "The candidate's professional experience spans from December 2017 to July 2020, which totals 2.58 years. The responsibilities include audit and compliance reporting, preparing management-level financial summaries, and contributing to reporting and analysis improvements. These tasks align with the role of a Finance Analyst. The skills inferred from the responsibilities include Excel, Accounting, Financial Reporting, and Compliance. The education qualification mentioned is a BCom degree.",
+        "job_role": "Finance Analyst",
+        "skills": "Excel, Accounting, Financial Reporting, Compliance",
+        "education": "BCom",
+        "experience_years": "2.58"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Jul 2020 and Oct 2023, responsibilities included:\r\n- implemented APIs consumed by multiple internal tools\r\n- supported ad-hoc requests during peak business cycles\r\n- optimized application performance and stability\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nexperienced working in fast-paced and ambiguous environments\r\n\r\nEducation\r\nCompleted MCA from a recognized institution.\r\n\r\nAdditional Notes\r\nsupported ad-hoc requests during peak business cycles",
+        "reasoning": "The professional experience spans from July 2020 to October 2023, which is 3.25 years. The responsibilities include implementing APIs, optimizing application performance, and supporting ad-hoc requests, which are indicative of backend development and software engineering tasks. The education qualification is MCA, which aligns with a technical background. The skills inferred from the responsibilities include programming, database management, and performance optimization.",
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, APIs, DBMS, Performance Optimization",
+        "education": "MCA",
+        "experience_years": "3.25"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Apr 2016 and Jan 2020, responsibilities included:\r\n- worked with databases and service orchestration\r\n- worked on multiple short-term initiatives alongside core responsibilities\r\n- developed backend services supporting high traffic applications\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nworked on multiple short-term initiatives alongside core responsibilities\r\n\r\nEducation\r\nCompleted MCA from a recognized institution.\r\n\r\nAdditional Notes\r\nworked on multiple short-term initiatives alongside core responsibilities",
+        "reasoning": "The professional experience spans from April 2016 to January 2020, which totals 3.75 years. The responsibilities include working with databases, service orchestration, and developing backend services for high-traffic applications, which align with the role of a Software Engineer. The education qualification is MCA, which supports a technical background. Skills inferred from the responsibilities include Java, Python, C++, DBMS, and Web Programming.",
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Web Programming",
+        "education": "MCA",
+        "experience_years": "3.75"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Aug 2020 and Jan 2024, responsibilities included:\r\n- optimized application performance and stability\r\n- handled cross-functional coordination with different teams\r\n- developed backend services supporting high traffic applications\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nsupported ad-hoc requests during peak business cycles\r\n\r\nEducation\r\nCompleted MTech Software from a recognized institution.\r\n\r\nAdditional Notes\r\nexperienced working in fast-paced and ambiguous environments",
+        "reasoning": "The professional experience spans from August 2020 to January 2024, which totals 3.42 years. The responsibilities described include optimizing application performance, developing backend services, and handling cross-functional coordination, which align with the role of a Software Engineer. The education qualification is MTech in Software, which supports a technical background. Skills inferred from the tasks include programming languages and backend development tools.",
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Web Programming",
+        "education": "MTech Software",
+        "experience_years": "3.42"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Jan 2016 and Aug 2017, responsibilities included:\r\n- supported campaign optimization using analytics\r\n- experienced working in fast-paced and ambiguous environments\r\n- analyzed audience engagement across digital platforms\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nexperienced working in fast-paced and ambiguous environments\r\n\r\nEducation\r\nCompleted BMM from a recognized institution.\r\n\r\nAdditional Notes\r\ninvolved in documentation and internal knowledge sharing",
+        "reasoning": "The professional experience spans from January 2016 to August 2017, which is 1.67 years. The responsibilities include campaign optimization, audience engagement analysis, and working with digital platforms, which align with the role of a Digital Marketing Analyst. Skills inferred from the tasks include campaign optimization, digital analytics, audience engagement, and reporting. The education qualification is a Bachelor of Mass Media (BMM).",
+        "job_role": "Digital Marketing Analyst",
+        "skills": "Campaign Optimization, Digital Analytics, Audience Engagement, Reporting",
+        "education": "BMM",
+        "experience_years": "1.67"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Jan 2018 and Mar 2020, responsibilities included:\r\n- supported sales forecasting exercises\r\n- experienced working in fast-paced and ambiguous environments\r\n- analyzed regional sales performance data\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nhandled cross-functional coordination with different teams\r\n\r\nEducation\r\nCompleted MBA Sales from a recognized institution.\r\n\r\nAdditional Notes\r\nsupported ad-hoc requests during peak business cycles",
+        "reasoning": "The candidate's professional experience spans from January 2018 to March 2020, which totals 2.17 years. Their responsibilities include supporting sales forecasting, analyzing regional sales performance data, and handling cross-functional coordination. These tasks align with the role of a Sales Analyst. The skills inferred from the responsibilities include Excel for data analysis, Sales Analytics for forecasting and performance analysis, CRM for managing customer relationships, and SQL for querying and analyzing data. The candidate has completed an MBA in Sales, which supports their expertise in this domain.",
+        "job_role": "Sales Analyst",
+        "skills": "Excel, Sales Analytics, CRM, SQL",
+        "education": "MBA Sales",
+        "experience_years": "2.17"
+      },
+      {
+        "augmented": true,
+        "unstructured_text": "Background\r\nStarted career with exposure to operational and analytical responsibilities.\r\n\r\nProfessional Experience\r\nBetween Feb 2021 and Feb 2023, responsibilities included:\r\n- performed experimentation with classification and clustering approaches on unstructured data\r\n- worked on multiple short-term initiatives alongside core responsibilities\r\n- analyzed model precision trends and iterated on features\r\n\r\nProject & Work Highlights\r\nContributed to initiatives involving reporting, analysis, and system improvements.\r\nworked on multiple short-term initiatives alongside core responsibilities\r\n\r\nEducation\r\nCompleted MTech AI from a recognized institution.\r\n\r\nAdditional Notes\r\nsupported ad-hoc requests during peak business cycles",
+        "reasoning": "The professional experience spans from February 2021 to February 2023, which is a total of 2.0 years. The responsibilities include working on classification and clustering approaches, analyzing model precision trends, and iterating on features, which are indicative of data science and machine learning tasks. The education background of MTech in AI further supports a role in data science or machine learning. Skills such as Python, machine learning, clustering, and data analysis are inferred from the described tasks.",
+        "job_role": "Data Scientist",
+        "skills": "Python, Machine Learning, Data Analysis, Clustering, Classification, Model Evaluation",
+        "education": "MTech AI",
+        "experience_years": "2.0"
+      }
+    ],
+    "signature": {
+      "instructions": "You are a state-of-the-art Resume Parsing Assistant specializing in extracting, normalizing, and organizing structured data from unstructured resume text. Your task is to thoroughly parse the input, interpret both explicit and implicit information, and output a well-structured JSON format as per the following detailed requirements:\n\n1. **Job Role (\"job_role\")**: Accurately infer the main job role(s) based solely on the professional activities and responsibilities described in the resume. Avoid relying strictly on stated titles, and instead deduce roles logically from context (e.g., \"optimized supply chain processes\" -> \"Supply Chain Manager\"). Strive for precision and avoid vague or overly generic titles.\n\n2. **Skills (\"skills\")**: Identify a list of 4-8 highly relevant technical and professional skills mentioned or implied in the resume text. Normalize all extracted terms to canonical industry-standard names (e.g., \"nlp\" -> \"natural language processing\", \"sql server\" -> \"sql\"). Prioritize domain-specific skills over soft or subjective skills unless the latter are explicitly described as critical. Ensure there are no duplicates in the list.\n\n3. **Education (\"education\")**: Extract and summarize the candidate’s educational qualifications. Focus on explicit mentions of degrees, certifications, or institutions, and aim to identify meaningful components clearly tied to academic or technical expertise. Use context to extract this data only where it is clearly stated.\n\n4. **Experience Years (\"experience_years\")**: Compute the total work experience based strictly on explicitly stated employment date ranges or durations present in the text. Represent this in decimal years (e.g., 3.5). Avoid considering education periods or non-professional activities, and do not infer any durations that are unstated or ambiguous.\n\n### Additional Constraints:\n- Present the output exclusively as a compliant JSON object. Avoid providing any additional commentary, explanation, markdown, or formatting outside of the JSON output.\n- Ensure the extracted data is concise, accurate, and thoroughly normalized, maintaining logical consistency across all fields.\n- Deduplicate and align technical terms to standard nomenclature for professional clarity while respecting the resume's original context.\n- Parse scattered or fragmented data carefully, ensuring logical consolidation where necessary. Do not over-interpret or include speculative inputs.\n\n### Input:\nThe unstructured resume text will be provided in the placeholder variable `{{resume_text}}`.\n\n### Output:\nGenerate a valid JSON object containing the fields: `\"job_role\"`, `\"skills\"`, `\"education\"`, and `\"experience_years\"`. Validate the output for correctness and strict adherence to JSON format before providing the results.",
+      "fields": [
+        {
+          "prefix": "Unstructured Text:",
+          "description": "Resume text to analyze"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "Step-by-step analysis of work experience, skills inference, and role determination"
+        },
+        {
+          "prefix": "Job Role:",
+          "description": "Primary job role/title based on work experience and activities"
+        },
+        {
+          "prefix": "Skills:",
+          "description": "Technical and professional skills inferred from work descriptions, projects, and activities"
+        },
+        {
+          "prefix": "Education:",
+          "description": "Highest educational qualification or degree"
+        },
+        {
+          "prefix": "JSON Object:",
+          "description": "Total years of professional experience as decimal number"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.1.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}

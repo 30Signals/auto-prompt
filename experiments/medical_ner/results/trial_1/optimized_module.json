@@ -1,0 +1,81 @@
+{
+  "predictor.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "abstract_text": "A genetic etiology for DiGeorge syndrome : consistent deletions and microdeletions of 22q11 .",
+        "reasoning": "The abstract mentions \"DiGeorge syndrome,\" which is explicitly stated as a disease name. No other diseases are mentioned in the text. The context indicates a genetic etiology for this syndrome, but no additional disease names or abbreviations are provided.",
+        "diseases": "DiGeorge syndrome"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "No deletions were found with probes that lie 3 of the green pigment genes .",
+        "reasoning": "The abstract discusses genetic probes and pigment genes but does not explicitly mention any disease names. Terms like \"green pigment genes\" refer to genetic or biological components rather than diseases. Therefore, no disease entities are identified in this text.",
+        "diseases": ""
+      },
+      {
+        "augmented": true,
+        "abstract_text": "Very - long - chain acyl - CoA dehydrogenase [ VLCAD ; very - long - chain - acyl - CoA ( acceptor ) 2 , 3 - oxidoreductase , EC 1 . 3 3 . 99 99 . 13 ] catalyzes the first step in beta - oxidation .",
+        "reasoning": "The abstract describes the enzymatic function of very-long-chain acyl-CoA dehydrogenase (VLCAD) in beta-oxidation but does not explicitly mention any disease names. While VLCAD deficiency is a known metabolic disorder, it is not explicitly stated in the text, and therefore cannot be inferred as per the rules.",
+        "diseases": ""
+      },
+      {
+        "augmented": true,
+        "abstract_text": "We have studied the genetic linkage of two markers , the apolipoprotein C1 ( APOC1 ) gene and a cytochrome P450 ( CYP2A ) gene , in relation to the gene for myotonic dystrophy ( DM ) .",
+        "reasoning": "The abstract mentions \"myotonic dystrophy (DM)\" explicitly as a disease name. \"DM\" is an abbreviation for myotonic dystrophy, and both the full name and abbreviation are considered disease mentions. No other diseases are mentioned in the text.",
+        "diseases": "myotonic dystrophy, DM"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "Preferential germline mutation of the paternal allele in retinoblastoma .",
+        "reasoning": "The abstract mentions \"retinoblastoma,\" which is a specific disease name. It is explicitly stated and does not require inference. No other diseases are mentioned in the text.",
+        "diseases": "retinoblastoma"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "These observations confirm our earlier impression that the frequency of abnormal color vision is increased in these kindreds , and it supports our contentions that ( 1 ) AMN ( and its companion , adrenoleukodystrophy ) are very closely linked to the visual pigment loci at Xq28 and ( 2 ) this proximity might provide the opportunity to observe contiguous gene defects . .",
+        "reasoning": "The abstract mentions two diseases explicitly: \"AMN\" and \"adrenoleukodystrophy.\" AMN is an abbreviation for adrenomyeloneuropathy, which is a distinct disease entity often discussed alongside adrenoleukodystrophy due to their genetic and clinical connections. Both diseases are named directly in the text, and no other disease names are mentioned. Terms like \"abnormal color vision\" and \"visual pigment loci\" are not diseases but rather symptoms or genetic loci.",
+        "diseases": "AMN, adrenoleukodystrophy"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "The additional effects of nonallelic variation and other constitutional factors on phenotypic variability remain to be elucidated . .",
+        "reasoning": "The abstract does not explicitly mention any disease names. It discusses phenotypic variability and constitutional factors but does not provide specific disease entities. Therefore, no diseases can be extracted from this text.",
+        "diseases": ""
+      },
+      {
+        "augmented": true,
+        "abstract_text": "GCH1 mutation in a patient with adult - onset oromandibular dystonia .",
+        "reasoning": "The abstract mentions \"oromandibular dystonia,\" which is explicitly a disease name. The context involves a patient with adult onset of this condition. Additionally, \"GCH1 mutation\" is genetic information but does not refer to a disease itself, so it is not included.",
+        "diseases": "oromandibular dystonia"
+      }
+    ],
+    "signature": {
+      "instructions": "You are an expert biomedical named entity recognition system specialized in identifying disease names from medical literature.\n\nGiven the following biomedical abstract, extract ALL disease names mentioned in the text.\n\nReturn your response as a JSON object with a single key \"diseases\" containing an array of disease names exactly as they appear in the text.\n\nExample response format:\n{\"diseases\": [\"breast cancer\", \"diabetes mellitus\", \"Alzheimer's disease\"]}\n\nRules:\n1. Extract disease names exactly as written in the text (preserve case and spelling)\n2. Return each disease name once (no duplicates)\n3. Include disease abbreviations if they appear (e.g., \"AD\" for Alzheimer's Disease)\n4. Include disease modifiers if part of the disease name (e.g., \"metastatic breast cancer\")\n5. Do NOT include symptoms, treatments, or genes unless they are disease names\n6. Do NOT infer diseases that are not explicitly present in the abstract\n7. Return ONLY the JSON object with key \"diseases\" as an array of strings\n\nBiomedical Abstract:\n{{abstract_text}}\n\nRespond with only the JSON object, no additional text.\n\nProvide detailed reasoning for your entity identification.",
+      "fields": [
+        {
+          "prefix": "Abstract Text:",
+          "description": "Biomedical abstract text to analyze"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "Step-by-step analysis identifying disease mentions and their context"
+        },
+        {
+          "prefix": "Diseases:",
+          "description": "Comma-separated list of disease names found in the text"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.1.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}

@@ -1,0 +1,742 @@
+{
+  "improvements": [],
+  "degradations": [],
+  "unchanged": [
+    {
+      "sample_id": 1,
+      "baseline_score": 0.6666666666666666,
+      "optimized_score": 0.6666666666666666,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 2,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 3,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 4,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 5,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 6,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 7,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 8,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 9,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 10,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 11,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 12,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 13,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 14,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 15,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 16,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 17,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 18,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 19,
+      "baseline_score": 0.6666666666666666,
+      "optimized_score": 0.6666666666666666,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 20,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 21,
+      "baseline_score": 0.4,
+      "optimized_score": 0.4,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 22,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 23,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 24,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 25,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 26,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 27,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 28,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 29,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 30,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 31,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 32,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 33,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 34,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 35,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 36,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 37,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 38,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 39,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 40,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 41,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 42,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 43,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 44,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 45,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 46,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 47,
+      "baseline_score": 0.6666666666666666,
+      "optimized_score": 0.6666666666666666,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 48,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 49,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 50,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 51,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 52,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 53,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 54,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 55,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 56,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 57,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 58,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 59,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 60,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 61,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 62,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 63,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 64,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 65,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 66,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 67,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 68,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 69,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 70,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 71,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 72,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 73,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 74,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 75,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 76,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 77,
+      "baseline_score": 0.6666666666666666,
+      "optimized_score": 0.6666666666666666,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 78,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 79,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 80,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 81,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 82,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 83,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 84,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 85,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 86,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 87,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 88,
+      "baseline_score": 0.5,
+      "optimized_score": 0.5,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 89,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 90,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 91,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 92,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 93,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 94,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 95,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 96,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 97,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 98,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 99,
+      "baseline_score": 0.5,
+      "optimized_score": 0.5,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 100,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 101,
+      "baseline_score": 0.6666666666666666,
+      "optimized_score": 0.6666666666666666,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 102,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 103,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 104,
+      "baseline_score": 0.6666666666666666,
+      "optimized_score": 0.6666666666666666,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 105,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 106,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 107,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 108,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 109,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 110,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 111,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 112,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 113,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 114,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 115,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 116,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 117,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 118,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 119,
+      "baseline_score": 0.0,
+      "optimized_score": 0.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 120,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    }
+  ],
+  "field_comparison": {
+    "diseases": {
+      "baseline": 0.8266666666666668,
+      "optimized": 0.8266666666666668,
+      "improvement": 0.0
+    }
+  },
+  "summary": {
+    "total_samples": 120,
+    "total_improvements": 0,
+    "total_degradations": 0,
+    "total_unchanged": 120,
+    "overall_improvement": 0.0,
+    "baseline_accuracy": 0.8266666666666668,
+    "optimized_accuracy": 0.8266666666666668
+  }
+}

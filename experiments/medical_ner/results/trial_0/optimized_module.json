@@ -1,0 +1,81 @@
+{
+  "predictor.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "abstract_text": "The unexplained phenotype of these mutations includes degeneration and premature cell death of oligodendrocytes with associated hypomyelination .",
+        "reasoning": "The abstract mentions \"hypomyelination,\" which is a condition characterized by insufficient formation of myelin in the nervous system. While it is a pathological condition, it is considered a disease entity in certain contexts, particularly in biomedical literature. No other explicit disease names are mentioned in the text.",
+        "diseases": "hypomyelination"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "A chromosome 15 anomaly was observed in 12 of 20 patients , 17 of whom were clinically suspected of having Prader - Willi syndrome ( PWS ) .",
+        "reasoning": "The abstract mentions \"Prader - Willi syndrome (PWS)\" explicitly as a disease. The acronym \"PWS\" is also included in parentheses, indicating it is a recognized abbreviation for the disease. No other diseases are mentioned in the text.",
+        "diseases": "Prader - Willi syndrome, PWS"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "Patients homozygous for a single truncating mutation , typically near the N - terminal end of the gene , or heterozygous for the in - frame deletion 2546 3 , were shorter and had significantly shorter survival than those heterozygous for a splice site or missense mutation , or heterozygous for two truncating mutations .",
+        "reasoning": "The abstract discusses genetic mutations and their impact on survival and physical characteristics, but it does not explicitly mention any disease names. It focuses on mutation types (e.g., truncating mutation, splice site mutation) and their effects rather than naming specific diseases. Therefore, no disease names can be extracted from this text.",
+        "diseases": ""
+      },
+      {
+        "augmented": true,
+        "abstract_text": "The mutation causing juvenile Tay - Sachs disease ( TSD ) in two sibs of Lebanese - Maronite origin is described .",
+        "reasoning": "The abstract mentions \"juvenile Tay-Sachs disease (TSD)\" explicitly, which is a specific disease name. Both the full name \"juvenile Tay-Sachs disease\" and its abbreviation \"TSD\" are included as they are directly stated in the text. No other diseases are mentioned.",
+        "diseases": "juvenile Tay-Sachs disease, TSD"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "A total of 84 different mutations were detected , and complete genotype was obtained in 199 individuals .",
+        "reasoning": "The abstract mentions mutations and genotypes but does not explicitly name any diseases. Without specific disease names mentioned, no diseases can be extracted from the text.",
+        "diseases": ""
+      },
+      {
+        "augmented": true,
+        "abstract_text": "Thus , the consequence of the splice donor site mutation in the human liver is the skipping of the preceding exon during RNA splicing . .",
+        "reasoning": "The abstract discusses a splice donor site mutation and its effect on RNA splicing in the human liver. However, it does not explicitly mention any disease names or conditions associated with this mutation. Without a direct mention of a disease, no disease entities can be extracted from the text.",
+        "diseases": ""
+      },
+      {
+        "augmented": true,
+        "abstract_text": "All families showed positive LOD scores without any recombination in the candidate region .",
+        "reasoning": "The abstract does not explicitly mention any disease names. It discusses genetic linkage analysis and candidate regions but does not provide specific disease-related terms or names.",
+        "diseases": ""
+      },
+      {
+        "augmented": true,
+        "abstract_text": "Consequently , sporadic and VHL - associated forms of renal cell carcinoma might both result from alterations causing loss of function of the same tumour suppressor gene on this chromosome . .",
+        "reasoning": "The abstract mentions \"renal cell carcinoma\" explicitly as a disease. It also refers to \"VHL-associated forms,\" which is a modifier indicating a specific type of renal cell carcinoma. Both terms are disease names and should be included in the output.",
+        "diseases": "renal cell carcinoma, VHL-associated renal cell carcinoma"
+      }
+    ],
+    "signature": {
+      "instructions": "You are an expert biomedical named entity recognition system specialized in identifying disease names from medical literature.\n\nGiven the following biomedical abstract, extract ALL disease names mentioned in the text.\n\nReturn your response as a JSON object with a single key \"diseases\" containing an array of disease names exactly as they appear in the text.\n\nExample response format:\n{\"diseases\": [\"breast cancer\", \"diabetes mellitus\", \"Alzheimer's disease\"]}\n\nRules:\n1. Extract disease names exactly as written in the text (preserve case and spelling)\n2. Return each disease name once (no duplicates)\n3. Include disease abbreviations if they appear (e.g., \"AD\" for Alzheimer's Disease)\n4. Include disease modifiers if part of the disease name (e.g., \"metastatic breast cancer\")\n5. Do NOT include symptoms, treatments, or genes unless they are disease names\n6. Do NOT infer diseases that are not explicitly present in the abstract\n7. Return ONLY the JSON object with key \"diseases\" as an array of strings\n\nBiomedical Abstract:\n{{abstract_text}}\n\nRespond with only the JSON object, no additional text.\n\nProvide detailed reasoning for your entity identification.",
+      "fields": [
+        {
+          "prefix": "Abstract Text:",
+          "description": "Biomedical abstract text to analyze"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "Step-by-step analysis identifying disease mentions and their context"
+        },
+        {
+          "prefix": "Diseases:",
+          "description": "Comma-separated list of disease names found in the text"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.1.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}

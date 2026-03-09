@@ -1,0 +1,82 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Company Legal Risk Replay Labeling Schema",
+  "type": "object",
+  "required": ["cases"],
+  "properties": {
+    "cases": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "company_name",
+          "timestamp",
+          "query_log",
+          "retrieved_results",
+          "model_output",
+          "labels"
+        ],
+        "properties": {
+          "company_name": {"type": "string"},
+          "timestamp": {"type": "string"},
+          "query_log": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["query", "status", "hits"],
+              "properties": {
+                "query": {"type": "string"},
+                "status": {"type": "string"},
+                "hits": {"type": "number"},
+                "error": {"type": "string"}
+              }
+            }
+          },
+          "retrieved_results": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "required": ["title", "content", "source", "url"],
+              "properties": {
+                "title": {"type": "string"},
+                "content": {"type": "string"},
+                "source": {"type": "string"},
+                "url": {"type": "string"}
+              }
+            }
+          },
+          "model_output": {
+            "type": "object",
+            "required": ["risk_level", "should_work_with_company", "summary", "key_findings"],
+            "properties": {
+              "risk_level": {"type": "string"},
+              "should_work_with_company": {"type": "string"},
+              "summary": {"type": "string"},
+              "key_findings": {"type": "string"}
+            }
+          },
+          "labels": {
+            "type": "object",
+            "required": ["risk_level", "should_work_with_company", "key_findings"],
+            "properties": {
+              "risk_level": {
+                "type": "string",
+                "enum": ["LOW", "MEDIUM", "HIGH", "CRITICAL", ""]
+              },
+              "should_work_with_company": {
+                "type": "string",
+                "enum": ["YES", "NO", ""]
+              },
+              "key_findings": {
+                "type": "array",
+                "minItems": 0,
+                "maxItems": 5,
+                "items": {"type": "string"}
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

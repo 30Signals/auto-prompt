@@ -1,0 +1,1550 @@
+{
+  "name": "DSPy (baseline_fallback)",
+  "results": [
+    {
+      "index": 0,
+      "abstract_text": "Genetic heterogeneity and penetrance analysis of the BRCA1 and BRCA2 genes in breast cancer families ....",
+      "gold_diseases": [
+        "breast cancer"
+      ],
+      "pred_diseases": [
+        "breast cancer"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 1,
+      "abstract_text": "Molecular genetic analysis of her VLCAD gene revealed a T1372C ( F458L ) missense mutation and a 1668 ACAG 1669 splice site mutation ....",
+      "gold_diseases": [],
+      "pred_diseases": [
+        "vlcad"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 2,
+      "abstract_text": "While very few patients with AGU have been reported from non - Finnish origin , we diagnosed the disorder in 8 patients originating from 3 unrelated families , all Palestinian Arabs from the region of...",
+      "gold_diseases": [
+        "agu"
+      ],
+      "pred_diseases": [
+        "agu"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 3,
+      "abstract_text": "Stable interaction between the products of the BRCA1 and BRCA2 tumor suppressor genes in mitotic and meiotic cells ....",
+      "gold_diseases": [
+        "tumor"
+      ],
+      "pred_diseases": [],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 4,
+      "abstract_text": "Previous family studies suggested that these individuals may be compound heterozygotes for the common mutant TSD gene and a rare ( allelic ) mutant gene ....",
+      "gold_diseases": [
+        "tsd"
+      ],
+      "pred_diseases": [
+        "tay-sachs disease"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 5,
+      "abstract_text": "An allele - specific polymerase chain reaction system designed to detect exclusively only one of the normal and mutant alleles indicated that all the four patients were homozygous for the mutation in ...",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 6,
+      "abstract_text": "In addition , we found seven individuals with hypohaptoglobinemia in three families , and the genotypes of six of the seven individuals were found to be Hp2 / Hpdel ....",
+      "gold_diseases": [
+        "hypohaptoglobinemia"
+      ],
+      "pred_diseases": [
+        "hypohaptoglobinemia"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 7,
+      "abstract_text": "Linkage to markers on chromosome 4p was confirmed in five families ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 8,
+      "abstract_text": "Lorenzos Oil should be given in the early stage . ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 9,
+      "abstract_text": "These assays should facilitate screening for A - T heterozygotes in the populations studied . ....",
+      "gold_diseases": [
+        "a-t"
+      ],
+      "pred_diseases": [
+        "a-t"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 10,
+      "abstract_text": "Major instability , with very large expansions between generations and high levels of somatic mosaicism , is observed in patients ....",
+      "gold_diseases": [],
+      "pred_diseases": [
+        "somatic mosaicism"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 11,
+      "abstract_text": "Allele - specific PCR indicated that the probands two brothers also inherited the 1195delC mutation from their heterozygous mother and the 1936delG mutation from their homozygous father . ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 12,
+      "abstract_text": "METHODS DNA samples from 500 unrelated Jews of European or non - European origin , with or without a personal and / or family history of neoplasia , were examined for the I1307K variant by the allele ...",
+      "gold_diseases": [
+        "neoplasia"
+      ],
+      "pred_diseases": [
+        "neoplasia"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 13,
+      "abstract_text": "Nonsense mutation in exon 4 of human complement C9 gene is the major cause of Japanese complement C9 deficiency ....",
+      "gold_diseases": [
+        "complement c9 deficiency"
+      ],
+      "pred_diseases": [
+        "japanese complement c9 deficiency"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 14,
+      "abstract_text": "Frequent inactivation of PTEN / MMAC1 in primary prostate cancer ....",
+      "gold_diseases": [
+        "prostate cancer"
+      ],
+      "pred_diseases": [
+        "primary prostate cancer"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 15,
+      "abstract_text": "In SCA3 , gaze - evoked nystagmus was often present as was saccade hypometria and smooth pursuit gain was markedly decreased ....",
+      "gold_diseases": [
+        "sca3",
+        "gaze-evoked nystagmus"
+      ],
+      "pred_diseases": [
+        "sca3"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "overall_score": 0.6666666666666666
+    },
+    {
+      "index": 16,
+      "abstract_text": "Nevertheless , BARD1 polypeptides are found exclusively in the nuclear fractions of both G1 - and S - phase cells ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 17,
+      "abstract_text": "Of clinical interest are ( a ) the documentation of membranous glomerulonephritis , vasculitis , and arthritis in an individual lacking C5 ( and its biologic functions ) , and ( b ) a remarkable prope...",
+      "gold_diseases": [
+        "bacterial infections",
+        "arthritis",
+        "glomerulonephritis",
+        "vasculitis"
+      ],
+      "pred_diseases": [
+        "arthritis",
+        "membranous glomerulonephritis",
+        "vasculitis"
+      ],
+      "precision": 0.6666666666666666,
+      "recall": 0.5,
+      "f1": 0.5714285714285715,
+      "overall_score": 0.5714285714285715
+    },
+    {
+      "index": 18,
+      "abstract_text": "Five of the cases were observed in children presenting with idiopathic hemolytic uremic syndrome ( HUS ) ....",
+      "gold_diseases": [
+        "hemolytic uremic syndrome",
+        "hus"
+      ],
+      "pred_diseases": [
+        "idiopathic hemolytic uremic syndrome",
+        "hus"
+      ],
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "overall_score": 0.5
+    },
+    {
+      "index": 19,
+      "abstract_text": "Assays requiring minimal amounts of genomic DNA were designed to allow rapid screening for common ethnic mutations ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 20,
+      "abstract_text": "On the basis of meiotic recombinants and disease - associated haplotypes , the WFS gene was localized to a BAC / P1 contig of less than 250 kb ....",
+      "gold_diseases": [
+        "wfs"
+      ],
+      "pred_diseases": [
+        "wfs"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 21,
+      "abstract_text": "The I1307K polymorphism has previously only been identified in individuals of self - reported Ashkenazi Jewish origins ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 22,
+      "abstract_text": "Truncation mutations in the transactivation region of PAX6 result in dominant - negative mutants ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 23,
+      "abstract_text": "Large - scale RNA differential display technology applied to these cell lines identified several differentially expressed genes , including an alpha carbonic anhydrase gene , termed CA12 ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 24,
+      "abstract_text": "Four were deletions involving a loss of a single exon exon 7 , exon 16 , exon 33 or exon 35 ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 25,
+      "abstract_text": "Crystal structure of the hemochromatosis protein HFE and characterization of its interaction with transferrin receptor ....",
+      "gold_diseases": [
+        "hemochromatosis"
+      ],
+      "pred_diseases": [
+        "hemochromatosis"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 26,
+      "abstract_text": "Three major criteria , saccade amplitude , saccade velocity , and presence of gaze - evoked nystagmus , permitted the correct assignment of 90 % of the SCA1 , 90 % of the SCA2 , and 93 % of the patien...",
+      "gold_diseases": [
+        "sca2",
+        "sca3",
+        "gaze-evoked nystagmus",
+        "sca1"
+      ],
+      "pred_diseases": [
+        "sca2",
+        "sca3",
+        "sca1"
+      ],
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571428571428571,
+      "overall_score": 0.8571428571428571
+    },
+    {
+      "index": 27,
+      "abstract_text": "The premature termination eliminates part of the C - terminal domain of NPII , including a cysteine residue in position 85 , which could be involved in the correct folding of the prohormone ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 28,
+      "abstract_text": "The APC variants I1307K and E1317Q are associated with colorectal tumors , but not always with a family history ....",
+      "gold_diseases": [
+        "apc",
+        "colorectal tumors"
+      ],
+      "pred_diseases": [
+        "colorectal tumors"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "overall_score": 0.6666666666666666
+    },
+    {
+      "index": 29,
+      "abstract_text": "PAX6 mutations reviewed ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 30,
+      "abstract_text": "The estimated relative risk for carriers may justify specific clinical screening for the 360 , 000 Americans expected to harbor this allele , and genetic testing in the setting of long - term - outcom...",
+      "gold_diseases": [
+        "colorectal cancer"
+      ],
+      "pred_diseases": [
+        "colorectal cancer"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 31,
+      "abstract_text": "These mutations resulted in the absence or a dramatic decrease of CPO activity ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 32,
+      "abstract_text": "A hot spot for PTEN mutation in CD was identified in exon 5 that contains the PTPase core motif , with 13 of 30 ( 43 % ) CD mutations identified in this exon ....",
+      "gold_diseases": [
+        "cd"
+      ],
+      "pred_diseases": [
+        "cd"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 33,
+      "abstract_text": "Constitutional mutations of the WT1 gene , encoding a zinc - finger transcription factor involved in renal and gonadal development , are found in most patients with Denys - Drash syndrome ( DDS ) , or...",
+      "gold_diseases": [
+        "dms",
+        "pseudohermaphroditism",
+        "dds",
+        "denys-drash syndrome",
+        "diffuse mesangial sclerosis",
+        "wilms tumor",
+        "wt"
+      ],
+      "pred_diseases": [
+        "pseudohermaphroditism",
+        "denys-drash syndrome",
+        "wilms tumor",
+        "diffuse mesangial sclerosis"
+      ],
+      "precision": 1.0,
+      "recall": 0.5714285714285714,
+      "f1": 0.7272727272727273,
+      "overall_score": 0.7272727272727273
+    },
+    {
+      "index": 34,
+      "abstract_text": "The risk decreased with increasing duration of use ( P for trend , < 0 . 001 ) ; use for six or more years was associated with a 60 percent reduction in risk ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 35,
+      "abstract_text": "In the second family , a G279A substitution at position - 1 of the signal peptide was observed in all affected individuals ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 36,
+      "abstract_text": "The contribution of BRCA1 and BRCA2 to inherited breast cancer was assessed by linkage and mutation analysis in 237 families , each with at least four cases of breast cancer , collected by the Breast ...",
+      "gold_diseases": [
+        "inherited breast cancer",
+        "breast cancer"
+      ],
+      "pred_diseases": [
+        "breast cancer"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "overall_score": 0.6666666666666666
+    },
+    {
+      "index": 37,
+      "abstract_text": "The patients father and two brothers also had C6D , but gave no history of meningitis or other neisserial infection ....",
+      "gold_diseases": [
+        "meningitis",
+        "c6d",
+        "neisserial infection"
+      ],
+      "pred_diseases": [
+        "meningitis",
+        "c6d",
+        "neisserial infection"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 38,
+      "abstract_text": "Our data indicate that the PAH - mutation genotype is the main determinant of metabolic phenotype in most patients with PAH deficiency ....",
+      "gold_diseases": [
+        "pah deficiency"
+      ],
+      "pred_diseases": [
+        "pah deficiency"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 39,
+      "abstract_text": "This demonstrated ( 1 ) the association between mutations in exons 8 and 9 and DMS ; ( 2 ) among patients with DMS , a higher frequency of exon 8 mutations among 46 , XY patients with female phenotype...",
+      "gold_diseases": [
+        "dms"
+      ],
+      "pred_diseases": [
+        "dms"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 40,
+      "abstract_text": "The two clinically unaffected siblings carried the maternal mutation 459 + 1G > A and , on their paternal allele , a novel cytosine to thymidine transition at nucleotide 2435 in exon 8 , resulting in ...",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 41,
+      "abstract_text": "In ataxia - telangiectasia ( A - T ) patients , mutations in a single gene , ATM , result in an autosomal recessive syndrome that embraces a variety of clinical features and manifests extreme radiosen...",
+      "gold_diseases": [
+        "ataxia-telangiectasia",
+        "a-t",
+        "malignancy",
+        "autosomal recessive syndrome"
+      ],
+      "pred_diseases": [
+        "ataxia-telangiectasia",
+        "a-t",
+        "autosomal recessive syndrome"
+      ],
+      "precision": 1.0,
+      "recall": 0.75,
+      "f1": 0.8571428571428571,
+      "overall_score": 0.8571428571428571
+    },
+    {
+      "index": 42,
+      "abstract_text": "Investigation of the genetic background by means of mtDNA lineages indicate that all our patients are probably of native American descent...",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 43,
+      "abstract_text": "In most patients with isolated unilateral retinoblastoma , tumor development is initiated by somatic inactivation of both alleles of the RB1 gene ....",
+      "gold_diseases": [
+        "unilateral retinoblastoma",
+        "tumor"
+      ],
+      "pred_diseases": [
+        "isolated unilateral retinoblastoma"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 44,
+      "abstract_text": "We have examined the sperm DNA of a premutation carrier ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 45,
+      "abstract_text": "These results will form the basis for studies of mutation and imprinting of UBE3A ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 46,
+      "abstract_text": "Although hemochromatosis is common in Caucasians , affecting > = 1 / 300 individuals of northern European origin , it has not been recognized in other populations ....",
+      "gold_diseases": [
+        "hemochromatosis"
+      ],
+      "pred_diseases": [
+        "hemochromatosis"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 47,
+      "abstract_text": "A century after its recognition as a syndrome by Vaughan Pendred , the disease gene ( PDS ) was mapped to chromosome 7q22 - q31 ....",
+      "gold_diseases": [],
+      "pred_diseases": [
+        "pendred syndrome"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 48,
+      "abstract_text": "The Hp2 / Hpdel individuals had an extremely low level of Hp ( mean + / - SD = 0 . 049 + / - 0 . 043 mg / ml ; n = 6 ) , compared with the level ( 1 . 64 + / - 1 . 07 mg / ml ) obtained from 52 health...",
+      "gold_diseases": [],
+      "pred_diseases": [
+        "phenotype hp2"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 49,
+      "abstract_text": "The present study used PCR and restriction - enzyme digestion to analyze the frequency of the 845 G - - > A and 187 C - - > G mutations in HLA - typed samples from non - Caucasian populations , compri...",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 50,
+      "abstract_text": "Dysfunction of this pathway may be a general phenomenon in the majority of cases of hereditary breast and / or ovarian cancer . ....",
+      "gold_diseases": [
+        "hereditary breast and / or ovarian cancer"
+      ],
+      "pred_diseases": [
+        "hereditary breast and / or ovarian cancer"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 51,
+      "abstract_text": "Another nephew ( patient 4 ) of patient 1 was classified as having an adolescent form ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 52,
+      "abstract_text": "The same mutation was present heterozygously in the DNA from the constitutional cells of the patient , proving it to be of germline origin ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 53,
+      "abstract_text": "Although both domains of the VHL protein contribute to regulation of CA12 expression , the elongin binding domain alone could effectively regulate CA9 expression ....",
+      "gold_diseases": [
+        "vhl"
+      ],
+      "pred_diseases": [],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 54,
+      "abstract_text": "Founder BRCA1 and BRCA2 mutations in French Canadian breast and ovarian cancer families ....",
+      "gold_diseases": [
+        "breast and ovarian cancer"
+      ],
+      "pred_diseases": [
+        "breast cancer",
+        "ovarian cancer"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 55,
+      "abstract_text": "A niece ( B . B . ) with 45 chromosomes and the derivative 3 but without the der ( 15 ) demonstrated a phenotype consistent with that reported for haploinsufficiency of distal 3 p ....",
+      "gold_diseases": [],
+      "pred_diseases": [
+        "haploinsufficiency of distal 3p"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 56,
+      "abstract_text": "Mice harbouring an intragenic deletion in Snrpn are phenotypically normal , suggesting that mutations of SNRPN are not sufficient to induce PWS ....",
+      "gold_diseases": [
+        "pws"
+      ],
+      "pred_diseases": [
+        "pws"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 57,
+      "abstract_text": "The haptoglobin - gene deletion responsible for anhaptoglobinemia ....",
+      "gold_diseases": [
+        "anhaptoglobinemia"
+      ],
+      "pred_diseases": [
+        "anhaptoglobinemia"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 58,
+      "abstract_text": "By analysing tumour DNA from patients with sporadic T - cell prolymphocytic leukaemia ( T - PLL ) , a rare clonal malignancy with similarities to a mature T - cell leukaemia seen in A - T , we demonst...",
+      "gold_diseases": [
+        "a-t",
+        "mature t-cell leukaemia",
+        "sporadic t-cell prolymphocytic leukaemia",
+        "t-pll",
+        "clonal malignancy",
+        "tumour"
+      ],
+      "pred_diseases": [
+        "sporadic t-cell prolymphocytic leukaemia",
+        "t-pll",
+        "a-t",
+        "mature t-cell leukaemia"
+      ],
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "overall_score": 0.8
+    },
+    {
+      "index": 59,
+      "abstract_text": "HLA - B27 and B60 were associated with the disease in probands , and the rate of disease concordance was significantly increased among DZ twin pairs in which the co - twin was positive for both B27 an...",
+      "gold_diseases": [],
+      "pred_diseases": [
+        "disease concordance"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 60,
+      "abstract_text": "In order to further characterize the dynamics of DM CTG repeat somatic instability , we have studied repeat length changes over time in 111 myotonic dystrophy patients with varying clinical severity a...",
+      "gold_diseases": [
+        "dm",
+        "myotonic dystrophy"
+      ],
+      "pred_diseases": [
+        "dm",
+        "myotonic dystrophy"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 61,
+      "abstract_text": "3 % of the offspring were affected , and in the case of a female transmitting parent , 68 ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 62,
+      "abstract_text": "We speculate that this insertion of an L1 sequence in DMD is responsible for some of the population of Japanese patients with XLDCM . ....",
+      "gold_diseases": [
+        "xldcm"
+      ],
+      "pred_diseases": [
+        "xldcm"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 63,
+      "abstract_text": "Nine novel and three recurrent TWIST mutations were found in 12 families ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 64,
+      "abstract_text": "We studied mutations in the GALNS gene from 23 additional MPS IVA patients ( 15 from Australia , 8 from Northern Ireland ) , with various clinical phenotypes ( severe , 16 cases ; intermediate , 4 cas...",
+      "gold_diseases": [
+        "mps iva"
+      ],
+      "pred_diseases": [
+        "mps iva"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 65,
+      "abstract_text": "The two other siblings , apparently healthy at 12 ( 1 / 2 ) and 15 years , respectively , and their father , apparently healthy as well , presented ARSA and GS values within the range of MLD patients ...",
+      "gold_diseases": [
+        "mld"
+      ],
+      "pred_diseases": [
+        "mld"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 66,
+      "abstract_text": "The breast and ovarian cancer susceptibility gene BRCA1 encodes a zinc finger protein of unknown function ....",
+      "gold_diseases": [
+        "breast and ovarian cancer"
+      ],
+      "pred_diseases": [
+        "breast cancer",
+        "ovarian cancer"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 67,
+      "abstract_text": "Therefore , progression to S phase is accompanied by the aggregation of nuclear BARD1 polypeptides into BRCA1 nuclear dots ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 68,
+      "abstract_text": "A nonsense mutation in exon 17 ( codon 556 ) of the RB1 gene was found to be present homozygously in both the retinal and the pineal tumours ....",
+      "gold_diseases": [
+        "retinal and the pineal tumours"
+      ],
+      "pred_diseases": [
+        "retinal tumour",
+        "pineal tumour"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 69,
+      "abstract_text": "Biochemical studies indicated VLCAD deficiency caused by a stable yet inactive enzyme ....",
+      "gold_diseases": [
+        "vlcad deficiency"
+      ],
+      "pred_diseases": [
+        "vlcad deficiency"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 70,
+      "abstract_text": "We found that the dominant - negative effects result from the enhanced DNA binding ability of these mutants ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 71,
+      "abstract_text": "Mutation spectrum and genotype - phenotype analyses in Cowden disease and Bannayan - Zonana syndrome , two hamartoma syndromes with germline PTEN mutation ....",
+      "gold_diseases": [
+        "bannayan-zonana syndrome",
+        "cowden disease",
+        "hamartoma syndromes"
+      ],
+      "pred_diseases": [
+        "bannayan-zonana syndrome",
+        "cowden disease"
+      ],
+      "precision": 1.0,
+      "recall": 0.6666666666666666,
+      "f1": 0.8,
+      "overall_score": 0.8
+    },
+    {
+      "index": 72,
+      "abstract_text": "His affected son has repeat sizes of 1040 and 540 ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 73,
+      "abstract_text": "In addition , PTEN was identified as the susceptibility gene for two hamartoma syndromes Cowden disease ( CD ; MIM 158350 ) and Bannayan - Zonana ( BZS ) or Ruvalcaba - Riley - Smith syndrome ( MIM 15...",
+      "gold_diseases": [
+        "cd",
+        "bannayan-zonana ( bzs ) or ruvalcaba-riley-smith syndrome",
+        "cowden disease",
+        "hamartoma syndromes"
+      ],
+      "pred_diseases": [
+        "ruvalcaba-riley-smith syndrome",
+        "cd",
+        "bannayan-zonana",
+        "cowden disease"
+      ],
+      "precision": 0.5,
+      "recall": 0.5,
+      "f1": 0.5,
+      "overall_score": 0.5
+    },
+    {
+      "index": 74,
+      "abstract_text": "HFE binds to transferrin receptor ( TfR ) and reduces its affinity for iron - loaded transferrin , implicating HFE in iron metabolism ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 75,
+      "abstract_text": "Among these mutations two are missense ( G197W , W427R ) , two are nonsense ( Q306X , Q385X ) , two are small deletions ( 662de14bp ; 1168del3bp removing a glycine at position 390 ) , and one is a spl...",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 76,
+      "abstract_text": "Friedreich ataxia is usually caused by an expansion of a GAA trinucleotide repeat in intron 1 of the FRDA gene ....",
+      "gold_diseases": [
+        "friedreich ataxia",
+        "frda"
+      ],
+      "pred_diseases": [
+        "friedreich ataxia"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "overall_score": 0.6666666666666666
+    },
+    {
+      "index": 77,
+      "abstract_text": "Additional mutations were observed in Japanese , Utah Mormon , and African American patients ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 78,
+      "abstract_text": "vWf - deficient mice appeared normal at birth ; they were viable and fertile ....",
+      "gold_diseases": [
+        "vwf-deficient"
+      ],
+      "pred_diseases": [],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 79,
+      "abstract_text": "Both the protein truncation test ( PTT ) and the restriction endonuclease fingerprinting ( REF ) method were used and compared for their detection efficiency , identifying 76 % and 60 % of the mutatio...",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 80,
+      "abstract_text": "A novel C to A mutation in the sterol 27 - hydroxylase gene ( CYP27 ) was identified by sequencing amplified CYP27 gene products from a patient with cerebrotendinous xanthomatosis ( CTX ) ....",
+      "gold_diseases": [
+        "cerebrotendinous xanthomatosis",
+        "ctx"
+      ],
+      "pred_diseases": [
+        "cerebrotendinous xanthomatosis",
+        "ctx"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 81,
+      "abstract_text": "Patients with generalized atrophic benign epidermolysis bullosa , a usually nonlethal form of junctional epidermolysis bullosa , have generalized blistering , nail dystrophy , patchy alopecia , and de...",
+      "gold_diseases": [
+        "blistering",
+        "nail dystrophy",
+        "dental abnormalities",
+        "junctional epidermolysis bullosa",
+        "atrophic benign epidermolysis bullosa",
+        "patchy alopecia"
+      ],
+      "pred_diseases": [
+        "junctional epidermolysis bullosa",
+        "generalized atrophic benign epidermolysis bullosa"
+      ],
+      "precision": 0.5,
+      "recall": 0.16666666666666666,
+      "f1": 0.25,
+      "overall_score": 0.25
+    },
+    {
+      "index": 82,
+      "abstract_text": "APC is a tumour - suppressor gene , and somatic loss occurs in tumours ....",
+      "gold_diseases": [
+        "tumours",
+        "apc"
+      ],
+      "pred_diseases": [
+        "tumours"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "overall_score": 0.6666666666666666
+    },
+    {
+      "index": 83,
+      "abstract_text": "We report another mutation in a Japanese family ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 84,
+      "abstract_text": "This study provides further evidence that the DM expansion tends to be transmitted preferentially ....",
+      "gold_diseases": [
+        "dm"
+      ],
+      "pred_diseases": [
+        "dm expansion"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 85,
+      "abstract_text": "Imprinting in the 15q11 - q13 region involves an imprinting centre ( IC ) , mapping in part to the promoter and first exon of SNRPN ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 86,
+      "abstract_text": "Scatchard plots of these data indicate that the added heterodimer substantially reduced the affinity of TfR for transferrin ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 87,
+      "abstract_text": "We recently reported the positional cloning of a candidate gene for hereditary hemochromatosis called HFE ....",
+      "gold_diseases": [
+        "hereditary hemochromatosis"
+      ],
+      "pred_diseases": [
+        "hereditary hemochromatosis"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 88,
+      "abstract_text": "In males , SF - 1 participates in sexual development by regulating expression of the polypeptide hormone Mullerian inhibiting substance ( MIS ) ....",
+      "gold_diseases": [],
+      "pred_diseases": [
+        "mullerian inhibiting substance"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 89,
+      "abstract_text": "The other 9 novel mutations identified in these 23 patients were each limited to a single family ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 90,
+      "abstract_text": "2 % of the alleles in this study ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 91,
+      "abstract_text": "5 % of mutations , respectively , whereas the remaining F69V is limited to a single allele ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 92,
+      "abstract_text": "Three other splice variants , including one derived from the skipping of exon 32 , were also identified ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 93,
+      "abstract_text": "However , the different allelic pattern at the BRCA1 locus even in some Jewish mutation carriers , might suggest that the mutation arose independently . ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 94,
+      "abstract_text": "The observed genetic heterogeneity including the relative high percentage of splice - site mutations had no reflection on the phenotype ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 95,
+      "abstract_text": "We also show that in all informative carrier father to affected child transmissions , with the notable exception of the premutation carrier , the expansion size decreases . ....",
+      "gold_diseases": [],
+      "pred_diseases": [
+        "premutation carrier"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 96,
+      "abstract_text": "Addition of soluble wild - type HFE / beta2m heterodimers to cultured cells also decreased the apparent affinity of the TfR for its ligand under steady - state conditions , both in 293 cells and in He...",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 97,
+      "abstract_text": "In addition , we have studied 18 A - T patients , in 15 families , who developed leukemia , lymphoma , preleukemic T - cell proliferation , or Hodgkin lymphoma , mostly in childhood ....",
+      "gold_diseases": [
+        "lymphoma",
+        "hodgkin lymphoma",
+        "a-t",
+        "leukemia"
+      ],
+      "pred_diseases": [
+        "lymphoma",
+        "preleukemic t-cell proliferation",
+        "leukemia",
+        "hodgkin lymphoma"
+      ],
+      "precision": 0.75,
+      "recall": 0.75,
+      "f1": 0.75,
+      "overall_score": 0.75
+    },
+    {
+      "index": 98,
+      "abstract_text": "We also demonstrate that soluble TfR and HFE bind tightly at the basic pH of the cell surface , but not at the acidic pH of intracellular vesicles ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 99,
+      "abstract_text": "von Willebrand factor ( vWf ) deficiency causes severe von Willebrand disease in humans ....",
+      "gold_diseases": [
+        "von willebrand disease",
+        "von willebrand factor ( vwf ) deficiency"
+      ],
+      "pred_diseases": [
+        "von willebrand disease"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "overall_score": 0.6666666666666666
+    },
+    {
+      "index": 100,
+      "abstract_text": "Our previous study showed that this Ashkenazi mutation also occurs in Iraqi Jews with a similar allelic pattern ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 101,
+      "abstract_text": "Mutation analysis of UBE3A in Angelman syndrome patients ....",
+      "gold_diseases": [
+        "angelman syndrome"
+      ],
+      "pred_diseases": [
+        "angelman syndrome"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 102,
+      "abstract_text": "To assess the risk of this common APC allelic variant in colorectal carcinogenesis , we have analyzed a large cohort of unselected Ashkenazi Jewish subjects with adenomatous polyps and . or colorectal...",
+      "gold_diseases": [
+        "colorectal cancer",
+        "apc",
+        "adenomatous polyps"
+      ],
+      "pred_diseases": [
+        "colorectal carcinogenesis",
+        "colorectal cancer",
+        "adenomatous polyps"
+      ],
+      "precision": 0.6666666666666666,
+      "recall": 0.6666666666666666,
+      "f1": 0.6666666666666666,
+      "overall_score": 0.6666666666666666
+    },
+    {
+      "index": 103,
+      "abstract_text": "\" BRCA1 associates in vivo with a structurally related protein termed BARD1 ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 104,
+      "abstract_text": "Mucopolysaccharidosis IVA ( MPS IVA ) is an autosomal recessive lysosomal storage disorder caused by a genetic defect in N - acetylgalactosamine - 6 - sulfate sulfatase ( GALNS ) ....",
+      "gold_diseases": [
+        "mps iva",
+        "genetic defect",
+        "autosomal recessive lysosomal storage disorder",
+        "mucopolysaccharidosis iva"
+      ],
+      "pred_diseases": [
+        "mps iva",
+        "mucopolysaccharidosis iva"
+      ],
+      "precision": 1.0,
+      "recall": 0.5,
+      "f1": 0.6666666666666666,
+      "overall_score": 0.6666666666666666
+    },
+    {
+      "index": 105,
+      "abstract_text": "The late infantile patient inherited from his mother the frequent 0 - type mutation 459 + 1G > A , and from his father a novel , single basepair microdeletion of guanine at nucleotide 7 in exon 1 ( 7d...",
+      "gold_diseases": [],
+      "pred_diseases": [
+        "late infantile"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 106,
+      "abstract_text": "Cell cycle - dependent colocalization of BARD1 and BRCA1 proteins in discrete nuclear domains ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 107,
+      "abstract_text": "Six non - Ashkenazi individuals shared the common Ashkenazi haplotype , four had a closely related pattern , and the rest ( n = 6 ) displayed a distinct BRCA1 allelic pattern ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 108,
+      "abstract_text": "Carriers of the same mutation , from different families , shared similar haplotypes , indicating that the mutant alleles were likely to be identical by descent for a mutation in the founder population...",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 109,
+      "abstract_text": "Only 11 mutations of the gene have been reported in HCP patients ....",
+      "gold_diseases": [
+        "hcp"
+      ],
+      "pred_diseases": [
+        "hcp"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 110,
+      "abstract_text": "Diagnosis of hemochromatosis ....",
+      "gold_diseases": [
+        "hemochromatosis"
+      ],
+      "pred_diseases": [
+        "hemochromatosis"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 111,
+      "abstract_text": "A second mutation that has no effect on beta2m association , H63D , was found in eight out of nine patients heterozygous for the C282Y mutant ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 112,
+      "abstract_text": "These results indicate that 4003delTC occurs on a single ancestral allele . ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 113,
+      "abstract_text": "The Hp gene cluster consists of coding regions of the alpha chain and beta chain of the haptoglobin gene ( Hp ) and of the alpha chain and beta chain of the haptoglobin - related gene ( Hpr ) , in tan...",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 114,
+      "abstract_text": "The G301C and S162F mutations account for 68 ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 115,
+      "abstract_text": "187 C - - > G was present at an allele frequency of 2 ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 116,
+      "abstract_text": "Data presented here indicate that the conserved heterogeneous nuclear ribonucleoprotein , CUG - binding protein ( CUG - BP ) , may mediate the trans - dominant effect of the RNA ....",
+      "gold_diseases": [],
+      "pred_diseases": [],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 117,
+      "abstract_text": "In this family affected individuals developed unilateral tumors and , as a result of linkage analysis , unaffected mutation carriers were also identified within the pedigree ....",
+      "gold_diseases": [
+        "unilateral tumors"
+      ],
+      "pred_diseases": [
+        "unilateral tumors"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    },
+    {
+      "index": 118,
+      "abstract_text": "Southern blot and PCR analysis of DNA of one patient with homozygous deficiency ruled out the presence of a large deletion of the FH gene as the underlying defect for the deficiency ....",
+      "gold_diseases": [],
+      "pred_diseases": [
+        "homozygous deficiency"
+      ],
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0,
+      "overall_score": 0.0
+    },
+    {
+      "index": 119,
+      "abstract_text": "On the basis of the present study , the mechanism of anhaptoglobinemia and the mechanism of anomalous inheritance of Hp phenotypes were well explained ....",
+      "gold_diseases": [
+        "anhaptoglobinemia"
+      ],
+      "pred_diseases": [
+        "anhaptoglobinemia"
+      ],
+      "precision": 1.0,
+      "recall": 1.0,
+      "f1": 1.0,
+      "overall_score": 1.0
+    }
+  ],
+  "field_accuracies": {
+    "diseases": 0.7745526695526695
+  },
+  "overall_accuracy": 0.7745526695526695,
+  "total_samples": 120,
+  "metadata": {
+    "precision": 0.804861111111111,
+    "recall": 0.7582341269841268,
+    "f1_score": 0.7745526695526695,
+    "macro_precision": 0.804861111111111,
+    "macro_recall": 0.7582341269841268,
+    "macro_f1": 0.7745526695526695,
+    "micro_precision": 0.7052631578947368,
+    "micro_recall": 0.6261682242990654,
+    "micro_f1": 0.6633663366336633,
+    "total_gold_entities": 107,
+    "total_pred_entities": 95,
+    "total_correct": 67,
+    "selected_strategy": "baseline_fallback",
+    "validation_micro_f1": 0.5217391304347826,
+    "validation_macro_f1": 0.7182539682539683
+  }
+}

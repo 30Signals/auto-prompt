@@ -1,0 +1,81 @@
+{
+  "predictor.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [
+      {
+        "augmented": true,
+        "abstract_text": "Classical galactosemia and mutations at the galactose - 1 - phosphate uridyl transferase ( GALT ) gene .",
+        "reasoning": "The abstract mentions \"Classical galactosemia,\" which is a well-known metabolic disorder. It is explicitly stated as a disease name in the text. Additionally, while the GALT gene is mentioned, it is not a disease name but rather a gene associated with the condition. Therefore, only \"Classical galactosemia\" is extracted as a disease name.",
+        "diseases": "Classical galactosemia"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "There were 59 deaths from malignant neoplasms in relatives dying before age 75 , compared to 42 .",
+        "reasoning": "The abstract mentions \"malignant neoplasms,\" which is a term used to describe cancerous growths or tumors. This term is explicitly stated and refers to a disease category.",
+        "diseases": "malignant neoplasms"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "Using a newly developed method for the study of purine metabolism in intact cultured cells , this patient was found to metabolize some 9 % of 8 - 14C - hypoxanthine , and 90 % of the isotope utilized was converted to adenine and guanine nucleotides .",
+        "reasoning": "The abstract discusses purine metabolism and mentions hypoxanthine, adenine, and guanine nucleotides, which are biochemical compounds. However, no explicit disease names are mentioned in the text. The focus is on metabolic processes rather than specific diseases.",
+        "diseases": "[]"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "To facilitate the detection of mutations in ALD patients , we have determined the intronic sequences flanking the exons as well as the sequence of the 3 untranslated region and of the immediate 5 promoter region .",
+        "reasoning": "The abstract mentions \"ALD patients,\" which refers to a disease. ALD is an abbreviation for adrenoleukodystrophy, a well-known genetic disorder. The context of the abstract is focused on detecting mutations in patients with this condition, confirming that ALD is explicitly mentioned as a disease.",
+        "diseases": "ALD"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "A diagnosis of Pelizaeus - Merzbacher disease ( MIM 312080 ) was made in a young boy .",
+        "reasoning": "The abstract explicitly mentions \"Pelizaeus - Merzbacher disease\" as the diagnosis made in a young boy. This is a named disease and is clearly stated in the text. The disease name includes modifiers and is written in its full form, which should be preserved exactly as it appears.",
+        "diseases": "Pelizaeus - Merzbacher disease"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "We describe three novel mutations ( R58fs , R330S , and H371R ) and one common AKU mutation ( M368V ) , detected by mutational and polymorphism analysis of the HGO gene in five Finnish AKU pedigrees .",
+        "reasoning": "The abstract mentions \"AKU,\" which is an abbreviation for alkaptonuria, a known genetic disease. The context of the text discusses mutations and polymorphism analysis related to the HGO gene, which is associated with alkaptonuria. Therefore, \"AKU\" and \"alkaptonuria\" are identified as disease mentions.",
+        "diseases": "alkaptonuria, AKU"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "Resequencing of the GK gene in family members led to the discovery of a N288D missense mutation in exon 10 , which resulted in the substitution of a highly conserved asparagine residue by a negatively charged aspartic acid .",
+        "reasoning": "The abstract describes a genetic mutation in the GK gene but does not explicitly mention any disease or condition associated with this mutation. While genetic mutations can be linked to diseases, the text does not provide any direct reference to a disease name. Therefore, no disease names can be extracted from this abstract.",
+        "diseases": "[]"
+      },
+      {
+        "augmented": true,
+        "abstract_text": "Penetrances of BRCA1 1675delA and 1135insA with respect to breast cancer and ovarian cancer .",
+        "reasoning": "The abstract mentions \"breast cancer\" and \"ovarian cancer,\" which are explicit disease names. Both are commonly studied in relation to BRCA1 mutations. These terms are clearly diseases and not symptoms, treatments, or genes, so they are included in the output.",
+        "diseases": "breast cancer, ovarian cancer"
+      }
+    ],
+    "signature": {
+      "instructions": "You are an expert biomedical named entity recognition system specialized in identifying disease names from medical literature.\n\nGiven the following biomedical abstract, extract ALL disease names mentioned in the text.\n\nReturn your response as a JSON object with a single key \"diseases\" containing an array of disease names exactly as they appear in the text.\n\nExample response format:\n{\"diseases\": [\"breast cancer\", \"diabetes mellitus\", \"Alzheimer's disease\"]}\n\nRules:\n1. Extract disease names exactly as written in the text (preserve case and spelling)\n2. Return each disease name once (no duplicates)\n3. Include disease abbreviations if they appear (e.g., \"AD\" for Alzheimer's Disease)\n4. Include disease modifiers if part of the disease name (e.g., \"metastatic breast cancer\")\n5. Do NOT include symptoms, treatments, or genes unless they are disease names\n6. Do NOT infer diseases that are not explicitly present in the abstract\n7. Return ONLY the JSON object with key \"diseases\" as an array of strings\n\nBiomedical Abstract:\n{{abstract_text}}\n\nRespond with only the JSON object, no additional text.\n\nProvide detailed reasoning for your entity identification.",
+      "fields": [
+        {
+          "prefix": "Abstract Text:",
+          "description": "Biomedical abstract text to analyze"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "Step-by-step analysis identifying disease mentions and their context"
+        },
+        {
+          "prefix": "Diseases:",
+          "description": "Comma-separated list of disease names found in the text"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.11",
+      "dspy": "3.1.3",
+      "cloudpickle": "3.1"
+    }
+  }
+}

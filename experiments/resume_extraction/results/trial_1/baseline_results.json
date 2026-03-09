@@ -1,0 +1,776 @@
+{
+  "name": "Baseline",
+  "results": [
+    {
+      "sample_id": 1,
+      "ground_truth": {
+        "job_role": "Finance Analyst",
+        "skills": "Excel, Accounting, Financial Modeling, SQL",
+        "education": "BCom",
+        "experience_years": "3.67"
+      },
+      "predicted": {
+        "job_role": "Financial Analyst",
+        "skills": "budgeting, forecasting, financial analysis, cross functional coordination",
+        "education": "BCom",
+        "experience_years": "3.7"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 2,
+      "ground_truth": {
+        "job_role": "Finance Analyst",
+        "skills": "Excel, Accounting, Financial Modeling, SQL",
+        "education": "CA Inter",
+        "experience_years": "1.83"
+      },
+      "predicted": {
+        "job_role": "Financial Analyst",
+        "skills": "budgeting, forecasting, data analysis, system improvements",
+        "education": "CA Inter",
+        "experience_years": "1.83"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 3,
+      "ground_truth": {
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Web Programming",
+        "education": "MCA",
+        "experience_years": "3.75"
+      },
+      "predicted": {
+        "job_role": "Backend Developer",
+        "skills": "sql, service orchestration, backend engineering, analysis, system improvements",
+        "education": "MCA",
+        "experience_years": "3.8"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.19999999999999998,
+        "skills_precision": 0.2,
+        "skills_recall": 0.2,
+        "skills_f1": 0.20000000000000004,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.55
+    },
+    {
+      "sample_id": 4,
+      "ground_truth": {
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Web Programming",
+        "education": "MCA",
+        "experience_years": "3.25"
+      },
+      "predicted": {
+        "job_role": "Software Engineer",
+        "skills": "api development, application optimization, performance tuning, system analysis",
+        "education": "MCA",
+        "experience_years": "3.3"
+      },
+      "scores": {
+        "job_role": 1,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.75
+    },
+    {
+      "sample_id": 5,
+      "ground_truth": {
+        "job_role": "Media Analyst",
+        "skills": "SEO, Google Analytics, Content Strategy, Social Media",
+        "education": "BMM",
+        "experience_years": "2.92"
+      },
+      "predicted": {
+        "job_role": "Digital Marketing Analyst",
+        "skills": "seo, social media analytics, audience engagement analysis",
+        "education": "BMM from a recognized institution",
+        "experience_years": "2.9"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.495,
+        "skills_precision": 0.3333333333333333,
+        "skills_recall": 0.25,
+        "skills_f1": 0.28571428571428575,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.62375
+    },
+    {
+      "sample_id": 6,
+      "ground_truth": {
+        "job_role": "Media Analyst",
+        "skills": "SEO, Google Analytics, Content Strategy, Social Media",
+        "education": "MA Media Studies",
+        "experience_years": "2.25"
+      },
+      "predicted": {
+        "job_role": "Data Analyst",
+        "skills": "analytics, seo, social media, system improvements",
+        "education": "MA Media Studies",
+        "experience_years": "2.3"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.7,
+        "skills_precision": 0.5,
+        "skills_recall": 0.5,
+        "skills_f1": 0.5,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.675
+    },
+    {
+      "sample_id": 7,
+      "ground_truth": {
+        "job_role": "HR Executive",
+        "skills": "Recruitment, Communication, Onboarding, Excel",
+        "education": "BBA",
+        "experience_years": "2.17"
+      },
+      "predicted": {
+        "job_role": "HR Specialist",
+        "skills": "employee lifecycle management, cross functional coordination, analysis, system improvements",
+        "education": "BBA",
+        "experience_years": "2.17"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 8,
+      "ground_truth": {
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Web Programming",
+        "education": "MTech Software",
+        "experience_years": "4.25"
+      },
+      "predicted": {
+        "job_role": "Backend Developer",
+        "skills": "backend engineering, application optimization, performance tuning, system analysis, software development",
+        "education": "MTech Software",
+        "experience_years": "4.3"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 9,
+      "ground_truth": {
+        "job_role": "Data Scientist",
+        "skills": "Python, SQL, Machine Learning, NLP, Pandas, NumPy",
+        "education": "MTech AI",
+        "experience_years": "2.08"
+      },
+      "predicted": {
+        "job_role": "Data Scientist",
+        "skills": "machine learning, data analysis, classification, clustering, business reporting",
+        "education": "MTech AI",
+        "experience_years": "2.1"
+      },
+      "scores": {
+        "job_role": 1,
+        "skills": 0.17666666666666664,
+        "skills_precision": 0.2,
+        "skills_recall": 0.16666666666666666,
+        "skills_f1": 0.1818181818181818,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.7941666666666667
+    },
+    {
+      "sample_id": 10,
+      "ground_truth": {
+        "job_role": "Finance Analyst",
+        "skills": "Excel, Accounting, Financial Modeling, SQL",
+        "education": "CA Inter",
+        "experience_years": "2.33"
+      },
+      "predicted": {
+        "job_role": "Financial Analyst",
+        "skills": "budgeting, forecasting, audit, compliance reporting, analysis, system improvements",
+        "education": "CA Inter",
+        "experience_years": "2.33"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 11,
+      "ground_truth": {
+        "job_role": "HR Executive",
+        "skills": "Recruitment, Communication, Onboarding, Excel",
+        "education": "BBA",
+        "experience_years": "4.08"
+      },
+      "predicted": {
+        "job_role": "HR Analyst",
+        "skills": "employee lifecycle management, analysis, system improvements, interview coordination",
+        "education": "BBA",
+        "experience_years": "4.1"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 12,
+      "ground_truth": {
+        "job_role": "Sales Analyst",
+        "skills": "Excel, Sales Analytics, CRM, SQL",
+        "education": "BBA",
+        "experience_years": "2.25"
+      },
+      "predicted": {
+        "job_role": "Business Analyst",
+        "skills": "data analysis, dashboard creation, crm, revenue tracking, system improvements",
+        "education": "BBA",
+        "experience_years": "2.3"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.235,
+        "skills_precision": 0.2,
+        "skills_recall": 0.25,
+        "skills_f1": 0.22222222222222224,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.55875
+    },
+    {
+      "sample_id": 13,
+      "ground_truth": {
+        "job_role": "Data Scientist",
+        "skills": "Python, SQL, Machine Learning, NLP, Pandas, NumPy",
+        "education": "BTech CSE",
+        "experience_years": "1.33"
+      },
+      "predicted": {
+        "job_role": "Data Analyst",
+        "skills": "analytics, business reporting, predictive systems, anomaly detection, system improvements, text analysis",
+        "education": "BTech CSE",
+        "experience_years": "1.4"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 14,
+      "ground_truth": {
+        "job_role": "HR Executive",
+        "skills": "Recruitment, Communication, Onboarding, Excel",
+        "education": "MBA HR",
+        "experience_years": "4.5"
+      },
+      "predicted": {
+        "job_role": "HR Specialist",
+        "skills": "onboarding, compliance, hiring, analysis",
+        "education": "MBA HR",
+        "experience_years": "4.5"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.3083333333333333,
+        "skills_precision": 0.25,
+        "skills_recall": 0.3333333333333333,
+        "skills_f1": 0.28571428571428575,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5770833333333334
+    },
+    {
+      "sample_id": 15,
+      "ground_truth": {
+        "job_role": "HR Executive",
+        "skills": "Recruitment, Communication, Onboarding, Excel",
+        "education": "BA Psychology",
+        "experience_years": "3.58"
+      },
+      "predicted": {
+        "job_role": "HR Analyst",
+        "skills": "analysis, employee lifecycle management, system improvements",
+        "education": "BA Psychology",
+        "experience_years": "3.6"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 16,
+      "ground_truth": {
+        "job_role": "Sales Analyst",
+        "skills": "Excel, Sales Analytics, CRM, SQL",
+        "education": "MBA Sales",
+        "experience_years": "4.58"
+      },
+      "predicted": {
+        "job_role": "Data Analyst",
+        "skills": "data analysis, dashboard creation, revenue tracking, sales performance analysis, system improvements",
+        "education": "MBA Sales",
+        "experience_years": "4.6"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 17,
+      "ground_truth": {
+        "job_role": "Sales Analyst",
+        "skills": "Excel, Sales Analytics, CRM, SQL",
+        "education": "BCom",
+        "experience_years": "3.75"
+      },
+      "predicted": {
+        "job_role": "Data Analyst",
+        "skills": "data analysis, sales forecasting, system improvements",
+        "education": "BCom",
+        "experience_years": "3.8"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 18,
+      "ground_truth": {
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Web Programming",
+        "education": "MTech Software",
+        "experience_years": "4.92"
+      },
+      "predicted": {
+        "job_role": "Software Engineer",
+        "skills": "application optimization, database management, service orchestration, analysis, system improvements",
+        "education": "MTech Software",
+        "experience_years": "4.9"
+      },
+      "scores": {
+        "job_role": 1,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.75
+    },
+    {
+      "sample_id": 19,
+      "ground_truth": {
+        "job_role": "Finance Analyst",
+        "skills": "Excel, Accounting, Financial Modeling, SQL",
+        "education": "MBA Finance",
+        "experience_years": "2.17"
+      },
+      "predicted": {
+        "job_role": "Financial Analyst",
+        "skills": "financial analysis, data review, system improvements",
+        "education": "MBA Finance",
+        "experience_years": "2.17"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 20,
+      "ground_truth": {
+        "job_role": "HR Executive",
+        "skills": "Recruitment, Communication, Onboarding, Excel",
+        "education": "MBA HR",
+        "experience_years": "1.0"
+      },
+      "predicted": {
+        "job_role": "HR Analyst",
+        "skills": "employee lifecycle management, onboarding, compliance, analysis, system improvements",
+        "education": "MBA HR",
+        "experience_years": "1.0"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.29333333333333333,
+        "skills_precision": 0.2,
+        "skills_recall": 0.3333333333333333,
+        "skills_f1": 0.25,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5733333333333334
+    },
+    {
+      "sample_id": 21,
+      "ground_truth": {
+        "job_role": "HR Executive",
+        "skills": "Recruitment, Communication, Onboarding, Excel",
+        "education": "MBA HR",
+        "experience_years": "4.42"
+      },
+      "predicted": {
+        "job_role": "HR Specialist",
+        "skills": "hiring, onboarding, compliance, analysis, system improvements",
+        "education": "MBA HR",
+        "experience_years": "4.42"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.29333333333333333,
+        "skills_precision": 0.2,
+        "skills_recall": 0.3333333333333333,
+        "skills_f1": 0.25,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5733333333333334
+    },
+    {
+      "sample_id": 22,
+      "ground_truth": {
+        "job_role": "Finance Analyst",
+        "skills": "Excel, Accounting, Financial Modeling, SQL",
+        "education": "MBA Finance",
+        "experience_years": "2.67"
+      },
+      "predicted": {
+        "job_role": "Financial Analyst",
+        "skills": "data analysis, budgeting, forecasting, system improvements",
+        "education": "MBA Finance",
+        "experience_years": "2.7"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 23,
+      "ground_truth": {
+        "job_role": "Data Scientist",
+        "skills": "Python, SQL, Machine Learning, NLP, Pandas, NumPy",
+        "education": "BTech CSE",
+        "experience_years": "2.5"
+      },
+      "predicted": {
+        "job_role": "Data Scientist",
+        "skills": "machine learning, classification, clustering, data analysis, feature engineering",
+        "education": "BTech CSE",
+        "experience_years": "2.5"
+      },
+      "scores": {
+        "job_role": 1,
+        "skills": 0.17666666666666664,
+        "skills_precision": 0.2,
+        "skills_recall": 0.16666666666666666,
+        "skills_f1": 0.1818181818181818,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.7941666666666667
+    },
+    {
+      "sample_id": 24,
+      "ground_truth": {
+        "job_role": "Data Scientist",
+        "skills": "Python, SQL, Machine Learning, NLP, Pandas, NumPy",
+        "education": "MSc Analytics",
+        "experience_years": "1.5"
+      },
+      "predicted": {
+        "job_role": "Data Scientist",
+        "skills": "machine learning, predictive modeling, anomaly detection, data analysis, system improvement",
+        "education": "MSc Analytics",
+        "experience_years": "1.5"
+      },
+      "scores": {
+        "job_role": 1,
+        "skills": 0.17666666666666664,
+        "skills_precision": 0.2,
+        "skills_recall": 0.16666666666666666,
+        "skills_f1": 0.1818181818181818,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.7941666666666667
+    },
+    {
+      "sample_id": 25,
+      "ground_truth": {
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Web Programming",
+        "education": "BTech CSE",
+        "experience_years": "4.83"
+      },
+      "predicted": {
+        "job_role": "Software Engineer",
+        "skills": "application performance optimization, api development, system analysis, cross functional coordination",
+        "education": "BTech CSE",
+        "experience_years": "4.83"
+      },
+      "scores": {
+        "job_role": 1,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.75
+    },
+    {
+      "sample_id": 26,
+      "ground_truth": {
+        "job_role": "Sales Analyst",
+        "skills": "Excel, Sales Analytics, CRM, SQL",
+        "education": "MBA Sales",
+        "experience_years": "2.58"
+      },
+      "predicted": {
+        "job_role": "Business Analyst",
+        "skills": "dashboard creation, revenue analysis, crm, system improvements",
+        "education": "MBA Sales",
+        "experience_years": "2.6"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.25,
+        "skills_precision": 0.25,
+        "skills_recall": 0.25,
+        "skills_f1": 0.25,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5625
+    },
+    {
+      "sample_id": 27,
+      "ground_truth": {
+        "job_role": "Sales Analyst",
+        "skills": "Excel, Sales Analytics, CRM, SQL",
+        "education": "BCom",
+        "experience_years": "4.33"
+      },
+      "predicted": {
+        "job_role": "Data Analyst",
+        "skills": "sales forecasting, dashboard creation, revenue tracking, analysis, system improvements",
+        "education": "BCom",
+        "experience_years": "4.33"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.5
+    },
+    {
+      "sample_id": 28,
+      "ground_truth": {
+        "job_role": "Media Analyst",
+        "skills": "SEO, Google Analytics, Content Strategy, Social Media",
+        "education": "MA Media Studies",
+        "experience_years": "1.67"
+      },
+      "predicted": {
+        "job_role": "Data Analyst",
+        "skills": "seo, social media analytics, data analysis, content performance tracking",
+        "education": "MA Media Studies",
+        "experience_years": "1.7"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.45,
+        "skills_precision": 0.25,
+        "skills_recall": 0.25,
+        "skills_f1": 0.25,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.6125
+    },
+    {
+      "sample_id": 29,
+      "ground_truth": {
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Web Programming",
+        "education": "BTech CSE",
+        "experience_years": "1.5"
+      },
+      "predicted": {
+        "job_role": "Software Engineer",
+        "skills": "application optimization, api development, system analysis, cross functional coordination",
+        "education": "BTech CSE",
+        "experience_years": "1.5"
+      },
+      "scores": {
+        "job_role": 1,
+        "skills": 0.0,
+        "skills_precision": 0.0,
+        "skills_recall": 0.0,
+        "skills_f1": 0.0,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.75
+    },
+    {
+      "sample_id": 30,
+      "ground_truth": {
+        "job_role": "Software Engineer",
+        "skills": "Java, Python, C++, DBMS, Web Programming",
+        "education": "MTech Software",
+        "experience_years": "4.58"
+      },
+      "predicted": {
+        "job_role": "Backend Developer",
+        "skills": "sql, service orchestration, backend engineering, system analysis",
+        "education": "MTech Software",
+        "experience_years": "4.6"
+      },
+      "scores": {
+        "job_role": 0,
+        "skills": 0.21499999999999997,
+        "skills_precision": 0.25,
+        "skills_recall": 0.2,
+        "skills_f1": 0.22222222222222224,
+        "education": 1,
+        "experience_years": 1
+      },
+      "overall_score": 0.55375
+    }
+  ],
+  "field_accuracies": {
+    "job_role": 0.23333333333333334,
+    "skills": 0.13233333333333333,
+    "education": 1.0,
+    "experience_years": 1.0
+  },
+  "overall_accuracy": 0.5914166666666668,
+  "total_samples": 30,
+  "metadata": {
+    "skills_metrics": {
+      "micro_precision": 0.10687022900763359,
+      "micro_recall": 0.10852713178294573,
+      "micro_f1": 0.1076923076923077,
+      "macro_precision": 0.10777777777777778,
+      "macro_recall": 0.11333333333333333,
+      "macro_f1": 0.10871091871091872,
+      "tp_total": 14,
+      "fp_total": 117,
+      "fn_total": 115
+    }
+  }
+}

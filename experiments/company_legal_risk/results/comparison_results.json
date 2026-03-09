@@ -1,0 +1,412 @@
+{
+  "improvements": [
+    {
+      "sample_id": 7,
+      "baseline_score": 0.24,
+      "optimized_score": 0.30666666666666664,
+      "difference": 0.06666666666666665
+    },
+    {
+      "sample_id": 8,
+      "baseline_score": 0.1,
+      "optimized_score": 0.8,
+      "difference": 0.7000000000000001
+    },
+    {
+      "sample_id": 10,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8666666666666667,
+      "difference": 0.06666666666666665
+    },
+    {
+      "sample_id": 14,
+      "baseline_score": 0.6900000000000001,
+      "optimized_score": 0.8500000000000001,
+      "difference": 0.16000000000000003
+    },
+    {
+      "sample_id": 19,
+      "baseline_score": 0.24,
+      "optimized_score": 0.8,
+      "difference": 0.56
+    },
+    {
+      "sample_id": 26,
+      "baseline_score": 0.8,
+      "optimized_score": 0.9,
+      "difference": 0.09999999999999998
+    },
+    {
+      "sample_id": 31,
+      "baseline_score": 0.64,
+      "optimized_score": 0.8,
+      "difference": 0.16000000000000003
+    },
+    {
+      "sample_id": 44,
+      "baseline_score": 0.24,
+      "optimized_score": 0.30666666666666664,
+      "difference": 0.06666666666666665
+    },
+    {
+      "sample_id": 56,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8500000000000001,
+      "difference": 0.050000000000000044
+    }
+  ],
+  "degradations": [
+    {
+      "sample_id": 1,
+      "baseline_score": 0.8,
+      "optimized_score": 0.29,
+      "difference": 0.51
+    },
+    {
+      "sample_id": 2,
+      "baseline_score": 0.8,
+      "optimized_score": 0.64,
+      "difference": 0.16000000000000003
+    },
+    {
+      "sample_id": 18,
+      "baseline_score": 0.8,
+      "optimized_score": 0.64,
+      "difference": 0.16000000000000003
+    },
+    {
+      "sample_id": 21,
+      "baseline_score": 0.8,
+      "optimized_score": 0.64,
+      "difference": 0.16000000000000003
+    },
+    {
+      "sample_id": 22,
+      "baseline_score": 0.8,
+      "optimized_score": 0.64,
+      "difference": 0.16000000000000003
+    },
+    {
+      "sample_id": 30,
+      "baseline_score": 0.8,
+      "optimized_score": 0.64,
+      "difference": 0.16000000000000003
+    },
+    {
+      "sample_id": 38,
+      "baseline_score": 0.8,
+      "optimized_score": 0.68,
+      "difference": 0.12
+    },
+    {
+      "sample_id": 41,
+      "baseline_score": 1.0,
+      "optimized_score": 0.8,
+      "difference": 0.19999999999999996
+    },
+    {
+      "sample_id": 45,
+      "baseline_score": 0.8,
+      "optimized_score": 0.64,
+      "difference": 0.16000000000000003
+    },
+    {
+      "sample_id": 50,
+      "baseline_score": 0.8,
+      "optimized_score": 0.68,
+      "difference": 0.12
+    },
+    {
+      "sample_id": 57,
+      "baseline_score": 0.8,
+      "optimized_score": 0.64,
+      "difference": 0.16000000000000003
+    },
+    {
+      "sample_id": 58,
+      "baseline_score": 0.8400000000000001,
+      "optimized_score": 0.8,
+      "difference": 0.040000000000000036
+    }
+  ],
+  "unchanged": [
+    {
+      "sample_id": 3,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 4,
+      "baseline_score": 0.8800000000000001,
+      "optimized_score": 0.8800000000000001,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 5,
+      "baseline_score": 0.8400000000000001,
+      "optimized_score": 0.8400000000000001,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 6,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 9,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 11,
+      "baseline_score": 0.29,
+      "optimized_score": 0.29,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 12,
+      "baseline_score": 0.8666666666666667,
+      "optimized_score": 0.8666666666666667,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 13,
+      "baseline_score": 0.64,
+      "optimized_score": 0.64,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 15,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 16,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 17,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 20,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 23,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 24,
+      "baseline_score": 0.72,
+      "optimized_score": 0.72,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 25,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 27,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 28,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 29,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 32,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 33,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 34,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 35,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 36,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 37,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 39,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 40,
+      "baseline_score": 0.1,
+      "optimized_score": 0.1,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 42,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 43,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 46,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 47,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 48,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 49,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 51,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 52,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 53,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 54,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 55,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 59,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 60,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 61,
+      "baseline_score": 0.8,
+      "optimized_score": 0.8,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 62,
+      "baseline_score": 0.24,
+      "optimized_score": 0.24,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 63,
+      "baseline_score": 0.1,
+      "optimized_score": 0.1,
+      "difference": 0.0
+    }
+  ],
+  "field_comparison": {
+    "risk_distance": {
+      "baseline": 0.830952380952381,
+      "optimized": 0.7984126984126984,
+      "improvement": -0.032539682539682646
+    },
+    "decision_accuracy": {
+      "baseline": 0.6825396825396826,
+      "optimized": 0.6984126984126984,
+      "improvement": 0.015873015873015817
+    },
+    "evidence_recall": {
+      "baseline": 0.06402116402116402,
+      "optimized": 0.08306878306878307,
+      "improvement": 0.01904761904761905
+    }
+  },
+  "summary": {
+    "total_samples": 63,
+    "total_improvements": 9,
+    "total_degradations": 12,
+    "total_unchanged": 42,
+    "overall_improvement": -0.0028571428571428914,
+    "baseline_accuracy": 0.6182010582010583,
+    "optimized_accuracy": 0.6153439153439154
+  }
+}
