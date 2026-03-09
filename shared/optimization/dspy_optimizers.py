@@ -78,15 +78,15 @@ def run_two_stage_optimization(
         copro_config = {}
 
     bootstrap_defaults = {
-        'max_bootstrapped_demos': 8,
-        'max_labeled_demos': 8,
-        'max_rounds': 3,
-        'max_errors': 5
+        'max_bootstrapped_demos': 20,
+        'max_labeled_demos': 20,
+        'max_rounds': 6,
+        'max_errors': 10
     }
     copro_defaults = {
-        'breadth': 4,
-        'depth': 2,
-        'init_temperature': 0.3
+        'breadth': 10,
+        'depth': 3,
+        'init_temperature': 1.4
     }
 
     bootstrap_config = {**bootstrap_defaults, **bootstrap_config}
