@@ -7,6 +7,7 @@ Detailed evaluation with per-field accuracy for resume extraction.
 from typing import List
 import dspy
 from shared.evaluation import EvaluationResult
+from .skill_utils import skills_match_score, normalize_skills
 
 
 def detailed_evaluation(module: dspy.Module, dataset: List, name: str = "Model") -> EvaluationResult:
@@ -28,6 +29,12 @@ def detailed_evaluation(module: dspy.Module, dataset: List, name: str = "Model")
         'education': [],
         'experience_years': []
     }
+    skill_tp_total = 0
+    skill_fp_total = 0
+    skill_fn_total = 0
+    skill_precision_scores = []
+    skill_recall_scores = []
+    skill_f1_scores = []
 
     for i, example in enumerate(dataset):
         try:
@@ -42,37 +49,35 @@ def detailed_evaluation(module: dspy.Module, dataset: List, name: str = "Model")
                 if str(pred_job_role).strip().lower() == str(example.job_role).strip().lower():
                     job_role_score = 1
 
-            # Skills score (with semantic matching)
+            # Skills score (aligned with optimization metric)
             skills_score = 0
+            skill_precision = 0.0
+            skill_recall = 0.0
+            skill_f1 = 0.0
             pred_skills = pred.skills
             if isinstance(pred_skills, list):
                 pred_skills = pred_skills[0] if pred_skills else ''
             if pred_skills and hasattr(example, 'skills') and example.skills:
-                gt_skills = set(s.strip().lower() for s in str(example.skills).split(','))
-                pred_skills_list = set(s.strip().lower() for s in str(pred_skills).split(','))
-
-                intersection = gt_skills.intersection(pred_skills_list)
-
-                # Semantic matching
-                semantic_matches = 0
-                for gt_skill in gt_skills:
-                    for pred_skill in pred_skills_list:
-                        if (gt_skill in pred_skill or pred_skill in gt_skill or
-                            (gt_skill == 'python' and 'python' in pred_skill) or
-                            (gt_skill == 'sql' and 'sql' in pred_skill) or
-                            (gt_skill == 'excel' and 'excel' in pred_skill) or
-                            (gt_skill == 'tensorflow' and 'tensorflow' in pred_skill) or
-                            (gt_skill == 'pytorch' and 'pytorch' in pred_skill) or
-                            ('financial' in gt_skill and 'financial' in pred_skill) or
-                            ('machine learning' in gt_skill and 'machine learning' in pred_skill)):
-                            semantic_matches += 1
-                            break
-
-                union = gt_skills.union(pred_skills_list)
-                if union:
-                    skills_score = max(len(intersection) / len(union), semantic_matches / len(gt_skills))
+                skills_score = skills_match_score(pred_skills, example.skills)
+                gt_set = set(normalize_skills(example.skills))
+                pred_set = set(normalize_skills(pred_skills))
+                tp = len(gt_set.intersection(pred_set))
+                fp = len(pred_set - gt_set)
+                fn = len(gt_set - pred_set)
+                skill_tp_total += tp
+                skill_fp_total += fp
+                skill_fn_total += fn
+                skill_precision = tp / len(pred_set) if pred_set else 0.0
+                skill_recall = tp / len(gt_set) if gt_set else 0.0
+                if skill_precision + skill_recall > 0:
+                    skill_f1 = 2 * skill_precision * skill_recall / (skill_precision + skill_recall)
+                else:
+                    skill_f1 = 0.0
+                skill_precision_scores.append(skill_precision)
+                skill_recall_scores.append(skill_recall)
+                skill_f1_scores.append(skill_f1)
             elif pred_skills and str(pred_skills).strip():
-                skills_score = 0.3
+                skills_score = 0.1
 
             # Education score
             education_score = 0
@@ -122,6 +127,9 @@ def detailed_evaluation(module: dspy.Module, dataset: List, name: str = "Model")
                 'scores': {
                     'job_role': job_role_score,
                     'skills': skills_score,
+                    'skills_precision': skill_precision,
+                    'skills_recall': skill_recall,
+                    'skills_f1': skill_f1,
                     'education': education_score,
                     'experience_years': exp_score
                 },
@@ -140,10 +148,32 @@ def detailed_evaluation(module: dspy.Module, dataset: List, name: str = "Model")
 
     overall_accuracy = sum(r['overall_score'] for r in results) / len(results) if results else 0
 
+    micro_precision = skill_tp_total / (skill_tp_total + skill_fp_total) if (skill_tp_total + skill_fp_total) > 0 else 0.0
+    micro_recall = skill_tp_total / (skill_tp_total + skill_fn_total) if (skill_tp_total + skill_fn_total) > 0 else 0.0
+    if micro_precision + micro_recall > 0:
+        micro_f1 = 2 * micro_precision * micro_recall / (micro_precision + micro_recall)
+    else:
+        micro_f1 = 0.0
+
+    metadata = {
+        'skills_metrics': {
+            'micro_precision': micro_precision,
+            'micro_recall': micro_recall,
+            'micro_f1': micro_f1,
+            'macro_precision': sum(skill_precision_scores) / len(skill_precision_scores) if skill_precision_scores else 0.0,
+            'macro_recall': sum(skill_recall_scores) / len(skill_recall_scores) if skill_recall_scores else 0.0,
+            'macro_f1': sum(skill_f1_scores) / len(skill_f1_scores) if skill_f1_scores else 0.0,
+            'tp_total': skill_tp_total,
+            'fp_total': skill_fp_total,
+            'fn_total': skill_fn_total
+        }
+    }
+
     return EvaluationResult(
         name=name,
         results=results,
         field_accuracies=field_accuracies,
         overall_accuracy=overall_accuracy,
-        total_samples=len(results)
+        total_samples=len(results),
+        metadata=metadata
     )
