@@ -92,19 +92,19 @@ Started career with exposure to operational and analytical responsibilities.
 
 Professional Experience
 
-Between Jun 2018 and Dec 2019, responsibilities included:
+Between Jan 2022 and Feb 2024, responsibilities included:
 
-- screened profiles and ...
+- worked on predictive s...
 ```
 
 **Reasoning:**
-> The professional experience spans from June 2018 to December 2019, which is 1.5 years. The responsibilities include screening profiles, coordinating interview cycles, and managing hiring pipelines, which are typical tasks associated with HR roles. The education background of BA Psychology aligns wit...
+> The professional experience spans from January 2022 to February 2024, which is 2.08 years. The responsibilities include building predictive systems, analytics workflows, and reporting, which align with the role of a Data Scientist. The tasks suggest skills in machine learning, data analysis, and pro...
 
 **Output:**
-- job_role: `HR Coordinator`
-- skills: `Recruitment, Interview Coordination, Pipeline Management, Communication`
-- education: `BA Psychology`
-- experience_years: `1.5`
+- job_role: `Data Scientist`
+- skills: `Python, SQL, Machine Learning, NLP, Pandas, NumPy`
+- education: `BTech CSE`
+- experience_years: `2.08`
 
 ### Example 2
 
@@ -118,19 +118,19 @@ Started career with exposure to operational and analytical responsibilities.
 
 Professional Experience
 
-Between Nov 2021 and Sep 2026, responsibilities included:
+Between Oct 2021 and Nov 2023, responsibilities included:
 
-- optimized application ...
+- performed experimentat...
 ```
 
 **Reasoning:**
-> The professional experience spans from November 2021 to September 2026, which is approximately 4.83 years. The responsibilities described include optimizing application performance, implementing APIs, and working on backend services, which align with the role of a Software Engineer. The education ba...
+> The professional experience spans from October 2021 to November 2023, which is 2.08 years. The responsibilities include experimentation with classification and clustering approaches on unstructured data, building analytics workflows, and contributing to reporting and analysis. These tasks align with...
 
 **Output:**
-- job_role: `Software Engineer`
-- skills: `Java, Python, C++, DBMS, Web Programming`
-- education: `BTech CSE`
-- experience_years: `4.83`
+- job_role: `Data Scientist`
+- skills: `Python, Machine Learning, Data Analysis, Clustering, Classification, SQL`
+- education: `MTech AI`
+- experience_years: `2.08`
 
 ### Example 3
 
@@ -144,19 +144,19 @@ Started career with exposure to operational and analytical responsibilities.
 
 Professional Experience
 
-Between Jan 2021 and Jun 2024, responsibilities included:
+Between Aug 2016 and Jul 2019, responsibilities included:
 
-- handled onboarding doc...
+- optimized application ...
 ```
 
 **Reasoning:**
-> The professional experience spans from January 2021 to June 2024, which is 3.42 years. The responsibilities include handling onboarding documentation and compliance, managing hiring pipelines, and supporting ad-hoc requests, which align with HR-related roles. The education background of MBA HR furth...
+> The professional experience spans from August 2016 to July 2019, which is a total of 2.92 years. The responsibilities include optimizing application performance, working with databases, and service orchestration, which are indicative of a software engineering role. The education background in BTech ...
 
 **Output:**
-- job_role: `HR Executive`
-- skills: `Recruitment, Onboarding, Compliance, Documentation`
-- education: `MBA HR`
-- experience_years: `3.42`
+- job_role: `Software Engineer`
+- skills: `Java, Python, DBMS, System Optimization, Service Orchestration`
+- education: `BTech CSE`
+- experience_years: `2.92`
 
 ... and **17** more examples
 

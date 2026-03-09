@@ -7,6 +7,7 @@ Defines the baseline and optimized modules for resume information extraction.
 import dspy
 import json
 from pathlib import Path
+from .skill_utils import format_skills
 
 # Load baseline prompt
 PROMPTS_DIR = Path(__file__).parent / "prompts"
@@ -82,7 +83,7 @@ class BaselineModule(dspy.Module):
 
         return dspy.Prediction(
             job_role=data.get('job_role', ''),
-            skills=data.get('skills', ''),
+            skills=format_skills(data.get('skills', '')),
             education=data.get('education', ''),
             experience_years=str(data.get('experience_years', ''))
         )
@@ -99,7 +100,7 @@ class StudentModule(dspy.Module):
         result = self.predictor(unstructured_text=unstructured_text)
         return dspy.Prediction(
             job_role=result.job_role,
-            skills=result.skills,
+            skills=format_skills(result.skills),
             education=result.education,
             experience_years=result.experience_years
         )
