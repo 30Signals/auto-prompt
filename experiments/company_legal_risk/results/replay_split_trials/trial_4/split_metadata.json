@@ -1,9 +1,0 @@
-{
-  "replay_file": "C:\\Users\\eshaa\\auto-prompt\\experiments\\company_legal_risk\\data\\v1\\retrieval_replay_labeling_queue_v1.json",
-  "seed": 1011,
-  "train_ratio": 0.7,
-  "test_ratio": 0.30000000000000004,
-  "total_examples": 210,
-  "train_size": 147,
-  "test_size": 63
-}

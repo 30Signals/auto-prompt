@@ -1,9 +1,0 @@
-{
-  "replay_file": "experiments\\company_legal_risk\\data\\v2\\retrieval_replay_labeling_queue_v2.json",
-  "seed": 42,
-  "train_ratio": 0.7,
-  "test_ratio": 0.30000000000000004,
-  "total_examples": 193,
-  "train_size": 135,
-  "test_size": 58
-}
