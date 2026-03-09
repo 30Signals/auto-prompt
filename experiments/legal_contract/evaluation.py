@@ -10,8 +10,7 @@ from shared.evaluation import EvaluationResult
 from .metrics import (
     compute_word_overlap_f1,
     compute_exact_match,
-    normalize_text,
-    llm_semantic_match_score,
+    normalize_text
 )
 
 
@@ -27,7 +26,7 @@ class LegalEvaluationMetrics:
     per_clause_type: Dict[str, float] = field(default_factory=dict)
 
 
-def detailed_evaluation(module, testset, model_name="Model", use_llm_judge=True):
+def detailed_evaluation(module, testset, model_name="Model"):
     """
     Run detailed evaluation on test set.
     
@@ -49,30 +48,6 @@ def detailed_evaluation(module, testset, model_name="Model", use_llm_judge=True)
     not_found_total = 0
     
     per_clause_type = {}
-
-    def _gold_candidates(example):
-        candidates = getattr(example, "gold_clauses", None)
-        if isinstance(candidates, list):
-            cleaned = [str(x).strip() for x in candidates if str(x).strip()]
-            if cleaned:
-                return cleaned
-        single = str(getattr(example, "clause_text", "")).strip()
-        return [single] if single else ["NOT FOUND"]
-
-    def _compose_gold_clause(candidates):
-        if not candidates:
-            return "NOT FOUND"
-        if all(normalize_text(x) == "not found" for x in candidates):
-            return "NOT FOUND"
-        # Keep order, avoid duplicate spans.
-        out = []
-        seen = set()
-        for c in candidates:
-            key = c.strip()
-            if key and key not in seen:
-                out.append(key)
-                seen.add(key)
-        return "\n".join(out) if out else "NOT FOUND"
     
     for i, example in enumerate(testset):
         try:
@@ -81,12 +56,11 @@ def detailed_evaluation(module, testset, model_name="Model", use_llm_judge=True)
                 clause_type=example.clause_type
             )
             
-            gold_candidates = _gold_candidates(example)
-            gold_text = _compose_gold_clause(gold_candidates)
+            gold_text = example.clause_text
             pred_text = pred.clause_text
             
             # Check NOT FOUND cases
-            gold_not_found = all(normalize_text(x) == "not found" for x in gold_candidates)
+            gold_not_found = normalize_text(gold_text) == "not found"
             pred_not_found = normalize_text(pred_text) == "not found"
             
             if gold_not_found:
@@ -99,31 +73,10 @@ def detailed_evaluation(module, testset, model_name="Model", use_llm_judge=True)
             elif pred_not_found:
                 precision, recall, f1 = 0.0, 0.0, 0.0
             else:
-                # Default lexical score.
-                best_precision, best_recall, best_f1 = 0.0, 0.0, 0.0
-                for candidate in gold_candidates:
-                    p_i, r_i, f_i = compute_word_overlap_f1(pred_text, candidate)
-                    if f_i > best_f1:
-                        best_precision, best_recall, best_f1 = p_i, r_i, f_i
-
-                # Optional LLM judge score for semantic/date-format equivalence.
-                if use_llm_judge:
-                    llm_score = llm_semantic_match_score(
-                        pred_text=pred_text,
-                        gold_candidates=gold_candidates,
-                        clause_type=example.clause_type,
-                    )
-                    if llm_score is not None:
-                        precision = llm_score
-                        recall = llm_score
-                        f1 = llm_score
-                    else:
-                        precision, recall, f1 = best_precision, best_recall, best_f1
-                else:
-                    precision, recall, f1 = best_precision, best_recall, best_f1
+                precision, recall, f1 = compute_word_overlap_f1(pred_text, gold_text)
             
             # Track exact matches
-            if any(compute_exact_match(pred_text, candidate) for candidate in gold_candidates):
+            if compute_exact_match(pred_text, gold_text):
                 exact_matches += 1
             
             all_precision.append(precision)
@@ -141,10 +94,8 @@ def detailed_evaluation(module, testset, model_name="Model", use_llm_judge=True)
             results.append({
                 'index': i,
                 'clause_type': clause_type,
-                'gold_clause': gold_text,
-                'gold_clauses': gold_candidates,
-                'gold_clause_count': len(gold_candidates),
-                'pred_clause': pred_text,
+                'gold_clause': gold_text[:200] + "..." if len(gold_text) > 200 else gold_text,
+                'pred_clause': pred_text[:200] + "..." if len(pred_text) > 200 else pred_text,
                 'precision': precision,
                 'recall': recall,
                 'f1': f1,
@@ -156,9 +107,7 @@ def detailed_evaluation(module, testset, model_name="Model", use_llm_judge=True)
                 'index': i,
                 'clause_type': example.clause_type,
                 'error': str(e),
-                'gold_clause': example.clause_text,
-                'gold_clauses': _gold_candidates(example),
-                'gold_clause_count': len(_gold_candidates(example)),
+                'gold_clause': example.clause_text[:100],
                 'pred_clause': '',
                 'precision': 0.0,
                 'recall': 0.0,
@@ -196,8 +145,7 @@ def detailed_evaluation(module, testset, model_name="Model", use_llm_judge=True)
             'f1_score': avg_f1,
             'exact_match_rate': exact_match_rate,
             'not_found_accuracy': not_found_accuracy,
-            'per_clause_type': per_clause_avg,
-            'llm_eval_used': bool(use_llm_judge),
+            'per_clause_type': per_clause_avg
         }
     )
     

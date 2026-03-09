@@ -29,19 +29,9 @@ CLAUSE_TYPES = [
     "Confidentiality"
 ]
 
-# Weak fields to target with specialized per-clause optimization runs.
-WEAK_CLAUSE_TYPES = [
-    "Parties",
-    "Effective Date",
-    "Expiration Date",
-    "Governing Law",
-]
-
 # Data Split Config
-TRAIN_SIZE = 200
-TEST_SIZE = 200
-PER_CLAUSE_TRAIN_SIZE = 120
-PER_CLAUSE_TEST_SIZE = 80
+TRAIN_SIZE = 40
+TEST_SIZE = 40
 
 # Fields to extract (single field per example: the clause text for the asked clause type)
 EXTRACTION_FIELDS = ['clause_text']

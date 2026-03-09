@@ -21,11 +21,6 @@ Rules:
 3. If multiple instances exist, extract the most complete/primary one
 4. Be precise - include complete sentences that form the clause
 5. Do NOT paraphrase or summarize - extract verbatim
-6. For "Parties", extract full legal party names with role context; never return only generic labels like "Company" or "Distributor"
-7. For "Effective Date", extract only start/commencement language; do not return expiration/termination text
-8. For "Expiration Date", extract only term-end/expiry language; do not return effective/start language
-9. For "Governing Law", extract exactly one governing-law sentence naming the applicable law (state/country); if text is only forum/jurisdiction without governing law, return "NOT FOUND"
-10. If you cannot find an exact supporting span for the requested clause type, return "NOT FOUND"
 
 Clause Type to Extract: {{clause_type}}
 
@@ -63,11 +58,6 @@ Rules:
 3. If multiple instances exist, extract the most complete/primary one
 4. Be precise - include complete sentences that form the clause
 5. Do NOT paraphrase or summarize - extract verbatim
-6. For "Parties", extract full legal party names with role context; never return only generic labels like "Company" or "Distributor"
-7. For "Effective Date", extract only start/commencement language; do not return expiration/termination text
-8. For "Expiration Date", extract only term-end/expiry language; do not return effective/start language
-9. For "Governing Law", extract exactly one governing-law sentence naming the applicable law (state/country); if text is only forum/jurisdiction without governing law, return "NOT FOUND"
-10. If you cannot find an exact supporting span for the requested clause type, return "NOT FOUND"
 
 Clause Type to Extract: {{clause_type}}
 
@@ -88,30 +78,30 @@ Provide detailed legal reasoning for your extraction.
 
 ## Few-Shot Examples
 
-Total examples: **8**
+Total examples: **20**
 
 ### Example 1
 
 **Reasoning:**
-> The clause identifying the parties to the agreement is located at the beginning of the contract. It explicitly states that the agreement is made between "Electric City Corp., a Delaware corporation ('Company')" and "Electric City of Illinois LLC ('Distributor')." This section clearly defines the leg...
+> The "Parties" clause in a contract identifies the entities entering into the agreement. This contract clearly names Electric City Corp., a Delaware corporation, referred to as "Company," and Electric City of Illinois LLC, referred to as "Distributor," as the parties to the agreement. The information...
 
 **Output:**
 
 ### Example 2
 
 **Reasoning:**
-> The clause identifying the parties to the agreement is located at the beginning of the contract. It explicitly states that the agreement is made between "Electric City Corp., a Delaware corporation ('Company')" and "Electric City of Illinois LLC ('Distributor')." This section clearly defines the leg...
+> The "Parties" clause in a contract identifies the entities entering into the agreement. This contract clearly names Electric City Corp., a Delaware corporation, referred to as "Company," and Electric City of Illinois LLC, referred to as "Distributor," as the parties to the agreement. The information...
 
 **Output:**
 
 ### Example 3
 
 **Reasoning:**
-> The clause identifying the parties to the agreement is located at the beginning of the contract. It explicitly states that the agreement is made between "Electric City Corp., a Delaware corporation ('Company')" and "Electric City of Illinois LLC ('Distributor')." This section clearly defines the leg...
+> The clause type "Parties" refers to identifying the specific names of the entities involved in the agreement. In the provided text, Electric City Corp., referred to as the "Company," and Electric City of Illinois LLC, referred to as the "Distributor," are explicitly named in the opening paragraph of...
 
 **Output:**
 
-... and **5** more examples
+... and **17** more examples
 
 ## Reasoning Strategy
 
