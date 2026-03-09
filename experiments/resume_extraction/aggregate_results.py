@@ -23,10 +23,6 @@ from shared.evaluation.statistics import (
 from . import config
 
 
-def _mean(values):
-    return sum(values) / len(values) if values else 0.0
-
-
 def aggregate_trial_results(num_trials=None, results_dir=None):
     """
     Aggregate results from multiple trials.
@@ -118,41 +114,8 @@ def aggregate_trial_results(num_trials=None, results_dir=None):
             'mean': optimized_agg.overall_accuracy.mean - baseline_agg.overall_accuracy.mean,
             'significant': significance['significant']
         },
-        'field_comparison': {},
-        'skills_prf': {}
+        'field_comparison': {}
     }
-
-    baseline_skill_micro_p = []
-    baseline_skill_micro_r = []
-    baseline_skill_micro_f1 = []
-    optimized_skill_micro_p = []
-    optimized_skill_micro_r = []
-    optimized_skill_micro_f1 = []
-
-    for run in baseline_runs:
-        skills_meta = (run.metadata or {}).get('skills_metrics', {})
-        if 'micro_precision' in skills_meta:
-            baseline_skill_micro_p.append(skills_meta['micro_precision'])
-            baseline_skill_micro_r.append(skills_meta['micro_recall'])
-            baseline_skill_micro_f1.append(skills_meta['micro_f1'])
-
-    for run in optimized_runs:
-        skills_meta = (run.metadata or {}).get('skills_metrics', {})
-        if 'micro_precision' in skills_meta:
-            optimized_skill_micro_p.append(skills_meta['micro_precision'])
-            optimized_skill_micro_r.append(skills_meta['micro_recall'])
-            optimized_skill_micro_f1.append(skills_meta['micro_f1'])
-
-    if baseline_skill_micro_f1 and optimized_skill_micro_f1:
-        comparison['skills_prf'] = {
-            'baseline_micro_precision_mean': _mean(baseline_skill_micro_p),
-            'baseline_micro_recall_mean': _mean(baseline_skill_micro_r),
-            'baseline_micro_f1_mean': _mean(baseline_skill_micro_f1),
-            'optimized_micro_precision_mean': _mean(optimized_skill_micro_p),
-            'optimized_micro_recall_mean': _mean(optimized_skill_micro_r),
-            'optimized_micro_f1_mean': _mean(optimized_skill_micro_f1),
-            'micro_f1_improvement': _mean(optimized_skill_micro_f1) - _mean(baseline_skill_micro_f1),
-        }
 
     # Field-level comparison
     for field_name in config.EXTRACTION_FIELDS:
@@ -170,7 +133,7 @@ def aggregate_trial_results(num_trials=None, results_dir=None):
 
     import json
     with open(aggregated_dir / "comparison_aggregated.json", 'w') as f:
-        json.dump(comparison, f, indent=2, default=str)
+        json.dump(comparison, f, indent=2)
 
     print(f"\nAggregated results saved to {aggregated_dir}/")
 
@@ -202,17 +165,6 @@ def aggregate_trial_results(num_trials=None, results_dir=None):
             print(f"    Baseline:  {baseline_field.mean:.2%} ± {baseline_field.std_dev:.2%}")
             print(f"    Optimized: {optimized_field.mean:.2%} ± {optimized_field.std_dev:.2%}")
             print(f"    Improvement: {optimized_field.mean - baseline_field.mean:+.2%}")
-
-    if comparison['skills_prf']:
-        print("\nSkills Micro PR/F1 (Mean across runs):")
-        print("-" * 60)
-        print(f"  Baseline Precision:  {comparison['skills_prf']['baseline_micro_precision_mean']:.2%}")
-        print(f"  Baseline Recall:     {comparison['skills_prf']['baseline_micro_recall_mean']:.2%}")
-        print(f"  Baseline F1:         {comparison['skills_prf']['baseline_micro_f1_mean']:.2%}")
-        print(f"  Optimized Precision: {comparison['skills_prf']['optimized_micro_precision_mean']:.2%}")
-        print(f"  Optimized Recall:    {comparison['skills_prf']['optimized_micro_recall_mean']:.2%}")
-        print(f"  Optimized F1:        {comparison['skills_prf']['optimized_micro_f1_mean']:.2%}")
-        print(f"  F1 Improvement:      {comparison['skills_prf']['micro_f1_improvement']:+.2%}")
 
     return {
         'baseline_aggregated': baseline_agg,

@@ -3,17 +3,17 @@
 ## Baseline Prompt (Handcrafted)
 
 ```
-﻿You are an expert Resume Parsing Assistant specialized in implicit information extraction.
+You are an expert Resume Parsing Assistant specialized in implicit information extraction.
 Your goal is to extract structured data from messy, unstructured resume text.
 
 Output Task:
 Extract the following keys into a JSON object. Information may be scattered and implicit.
 
 Fields:
-1. "job_role": Infer the job role from work activities described (example: "built predictive models" -> Data Scientist).
-2. "skills": Infer canonical technical and professional skills from work activities as a comma-separated list.
+1. "job_role": Infer the job role from work activities described (e.g., "built predictive models" → Data Scientist).
+2. "skills": Infer skills from work activities (e.g., "analyzed datasets" → Data Analysis, Python, SQL).
 3. "education": Extract education background (look for "Education background includes").
-4. "experience_years": Calculate total work experience from timeline dates in decimal years.
+4. "experience_years": Calculate experience from timeline dates in DECIMAL YEARS (e.g., Mar 2019 - Oct 2020 = 1.58 years).
 
 Constraints:
 - Output only valid JSON.
@@ -21,10 +21,6 @@ Constraints:
 - No explanations.
 - Infer job roles and skills from work descriptions, not explicit titles.
 - Parse scattered timeline information carefully.
-- For "skills": output 4-8 items max, prefer exact technologies and domain skills, avoid vague soft skills like "communication", "coordination", or "reporting" unless explicitly stated as required skills.
-- For "skills": normalize to canonical names and deduplicate.
-- Alias mapping examples: "ml" -> "machine learning", "mysql/postgresql/dbms" -> "sql", "nlp" -> "natural language processing".
-- For "experience_years": count only explicit employment date ranges, do not count education-only periods, and do not infer missing durations.
 
 Resume Text:
 {{resume_text}}
@@ -39,137 +35,14 @@ JSON Output:
 # Optimized DSPy Prompt
 ============================================================
 
-## Instructions
-
-```
-You are a highly skilled Resume Parsing AI Assistant with expertise in extracting and structuring implicit information from messy resumes. Your task is to transform unstructured resume text into a structured JSON object, effectively inferring job roles, technical skills, education background, and total years of work experience. Your responses must strictly conform to the following specifications:
-
-1. **Inference and Normalization:**
-   - Use job tasks and descriptions to deduce the most relevant "job_role" (e.g., "developed software solutions" -> "Software Engineer").
-   - Extract "skills" from text as a comma-separated list of 4-8 canonical technical/professional terms. Normalize aliased terms (e.g., "tensorflow/pytorch" -> "deep learning") and avoid soft skills unless explicitly required.
-   - Include only explicit educational qualifications or mentions in the "education" section.
-
-2. **Experience Calculations:**
-   - Accurately calculate "experience_years" based on explicit employment date ranges, displayed in decimal years. Exclude any assumptions about unspecified gaps or overlaps.
-
-3. **Output Formatting:**
-   - Respond exclusively with valid JSON containing fields {"job_role", "skills", "education", "experience_years"}.
-   - Do not include additional explanations, reasoning, or markdown formatting in your response.
-
-4. **Parsing Guidance:**
-   - Carefully analyze unstructured text to derive accurate insights.
-   - Ensure output data is summarized, normalized, and precise, while adhering to constraints outlined.
-
-Input Example:
-You will receive messy resume text in the placeholder {{resume_text}}.
-
-Output:
-Your response should directly output the JSON object with the relevant structured data.
-```
-
-## Field Definitions
-
-- **Unstructured Text:** Resume text to analyze
-- **Reasoning:** Step-by-step analysis of work experience, skills inference, and role determination
-- **Job Role:** Primary job role/title based on work experience and activities
-- **Skills:** Technical and professional skills inferred from work descriptions, projects, and activities
-- **Education:** Highest educational qualification or degree
-- **JSON Output:** Total years of professional experience as decimal number
-
-## Few-Shot Examples
-
-Total examples: **20**
-
-### Example 1
-
-**Input (truncated):**
-```
-Background
-
-Started career with exposure to operational and analytical responsibilities.
-
-
-
-Professional Experience
-
-Between Jun 2018 and Dec 2019, responsibilities included:
-
-- screened profiles and ...
-```
-
-**Reasoning:**
-> The professional experience spans from June 2018 to December 2019, which is 1.5 years. The responsibilities include screening profiles, coordinating interview cycles, and managing hiring pipelines, which are typical tasks associated with HR roles. The education background of BA Psychology aligns wit...
-
-**Output:**
-- job_role: `HR Coordinator`
-- skills: `Recruitment, Interview Coordination, Pipeline Management, Communication`
-- education: `BA Psychology`
-- experience_years: `1.5`
-
-### Example 2
-
-**Input (truncated):**
-```
-Background
-
-Started career with exposure to operational and analytical responsibilities.
-
-
-
-Professional Experience
-
-Between Nov 2021 and Sep 2026, responsibilities included:
-
-- optimized application ...
-```
-
-**Reasoning:**
-> The professional experience spans from November 2021 to September 2026, which is approximately 4.83 years. The responsibilities described include optimizing application performance, implementing APIs, and working on backend services, which align with the role of a Software Engineer. The education ba...
-
-**Output:**
-- job_role: `Software Engineer`
-- skills: `Java, Python, C++, DBMS, Web Programming`
-- education: `BTech CSE`
-- experience_years: `4.83`
-
-### Example 3
-
-**Input (truncated):**
-```
-Background
-
-Started career with exposure to operational and analytical responsibilities.
-
-
-
-Professional Experience
-
-Between Jan 2021 and Jun 2024, responsibilities included:
-
-- handled onboarding doc...
-```
-
-**Reasoning:**
-> The professional experience spans from January 2021 to June 2024, which is 3.42 years. The responsibilities include handling onboarding documentation and compliance, managing hiring pipelines, and supporting ad-hoc requests, which align with HR-related roles. The education background of MBA HR furth...
-
-**Output:**
-- job_role: `HR Executive`
-- skills: `Recruitment, Onboarding, Compliance, Documentation`
-- education: `MBA HR`
-- experience_years: `3.42`
-
-... and **17** more examples
-
 ## Reasoning Strategy
-
-Uses **Chain-of-Thought** reasoning with intermediate rationale steps.
-Each example includes explicit reasoning to guide the model's inference process.
+Uses Chain-of-Thought reasoning with intermediate rationale steps
 
 ```
 
 ## Key Differences
 
-- **Few-shot examples**: 0 (baseline) vs 3 (optimized)
+- **Few-shot examples**: 0 (baseline) vs 0 (optimized)
 - **Reasoning**: Implicit (baseline) vs Explicit Chain-of-Thought (optimized)
 - **Optimization**: Manual (baseline) vs Automatic via DSPy (optimized)
 

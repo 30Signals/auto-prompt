@@ -26,7 +26,7 @@ from .modules import BaselineModule, StudentModule
 from .metrics import validate_resume_output
 from .evaluation import detailed_evaluation
 
-# The run_experiment function orchestrates the entire workflow of the resume extraction experiment, including setting up the LLM, loading data, evaluating the baseline model, optimizing with DSPy, evaluating the optimized model, comparing results, and saving outputs for analysis and reproducibility.
+
 def run_experiment(data_path=None, save_results=True, seed=None, results_dir=None):
     """
     Run the full resume extraction experiment.
