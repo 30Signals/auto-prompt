@@ -4,10 +4,17 @@ Medical NER Validation Metrics
 Custom metrics for evaluating disease entity extraction with F1 scoring.
 """
 
+import re
+
 
 def normalize_entity(entity):
     """Normalize entity string for comparison."""
-    return entity.strip().lower()
+    text = entity.strip().lower()
+    # Canonicalize hyphen spacing so "a - t" and "a-t" match.
+    text = re.sub(r"\s*-\s*", "-", text)
+    # Collapse repeated whitespace after punctuation normalization.
+    text = re.sub(r"\s+", " ", text).strip()
+    return text
 
 
 def parse_diseases(diseases_str):
@@ -63,7 +70,7 @@ def fuzzy_match(pred_entity, gold_entities):
             return 1.0
         # Substring match
         if pred_entity in gold or gold in pred_entity:
-            return 0.8
+            return 0.4
         # Word overlap
         pred_words = set(pred_entity.split())
         gold_words = set(gold.split())
@@ -140,6 +147,53 @@ def compute_exact_f1(example, pred):
     
     _, _, f1 = compute_f1(pred_diseases, gold_diseases)
     return f1
+
+
+def compute_fbeta(precision, recall, beta=1.0):
+    """Compute F-beta score from precision and recall."""
+    beta_sq = beta * beta
+    denom = beta_sq * precision + recall
+    if denom == 0:
+        return 0.0
+    return (1 + beta_sq) * precision * recall / denom
+
+
+def compute_exact_fbeta(example, pred, beta=2.0):
+    """Compute exact-match entity-set F-beta (beta > 1 emphasizes recall)."""
+    gold_diseases = parse_diseases(example.diseases)
+    pred_diseases = parse_diseases(pred.diseases)
+
+    if not pred_diseases and not gold_diseases:
+        return 1.0
+
+    if gold_diseases and not pred_diseases:
+        return 0.0
+    if not gold_diseases and pred_diseases:
+        # Softer penalty than exact F1 to reduce overly conservative behavior.
+        return 0.2
+
+    true_positives = len(pred_diseases & gold_diseases)
+    precision = true_positives / len(pred_diseases)
+    recall = true_positives / len(gold_diseases)
+    return compute_fbeta(precision, recall, beta=beta)
+
+
+def validate_disease_output_exact(example, pred, trace=None):
+    """
+    Validation metric for DSPy optimization aligned with final evaluation.
+
+    Uses exact entity-set F1 (same objective as evaluation pipeline).
+    """
+    return compute_exact_f1(example, pred)
+
+
+def validate_disease_output_exact_recall(example, pred, trace=None):
+    """
+    Validation metric for optimization with stronger recall emphasis.
+
+    Uses exact entity-set F2 score.
+    """
+    return compute_exact_fbeta(example, pred, beta=2.0)
 
 
 # Alias for backward compatibility
