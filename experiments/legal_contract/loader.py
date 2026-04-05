@@ -107,9 +107,9 @@ def _build_example(contract_text, clause_type, answer_texts):
     answers = [str(a).strip() for a in (answer_texts or []) if str(a).strip()]
     clause_text = _compose_gold_clause_text(answers)
 
-    # Truncate context for model limits
-    if len(context) > 4000:
-        context = context[:4000] + "..."
+    # Keep the full contract text here and let the module build a clause-specific
+    # excerpt later. Front-loading a blind truncation is one of the biggest token
+    # waste / accuracy risks for long contracts.
 
     return dspy.Example(
         contract_text=context,

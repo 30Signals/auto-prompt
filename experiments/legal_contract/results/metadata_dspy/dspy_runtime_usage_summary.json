@@ -1,0 +1,13 @@
+{
+  "provider": "azure",
+  "model": "azure/gpt-5.4-nano",
+  "calls": 125,
+  "prompt_tokens": 952185,
+  "completion_tokens": 26929,
+  "total_tokens": 979114,
+  "cache_hits": 0,
+  "cache_enabled": true,
+  "estimated_cost": 0.0,
+  "input_cost_per_1m": 0.0,
+  "output_cost_per_1m": 0.0
+}

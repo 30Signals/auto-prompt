@@ -8,6 +8,8 @@ import argparse
 import json
 from pathlib import Path
 
+from .replay_logging import build_default_labels
+
 
 def _normalize_risk(value):
     text = str(value or "").strip().upper()
@@ -58,6 +60,10 @@ def prefill_labels(filepath, force=False):
 
     for case in cases:
         labels = case.setdefault("labels", {})
+        default_labels = build_default_labels()
+        for key, value in default_labels.items():
+            if key not in labels:
+                labels[key] = value
         model_output = case.get("model_output", {})
 
         has_risk = bool(str(labels.get("risk_level", "")).strip())

@@ -74,8 +74,7 @@ def run_two_stage_optimization(
     # Default configs
     if bootstrap_config is None:
         bootstrap_config = {}
-    if copro_config is None:
-        copro_config = {}
+    run_copro = copro_config is not None
 
     bootstrap_defaults = {
         'max_bootstrapped_demos': 20,
@@ -90,7 +89,7 @@ def run_two_stage_optimization(
     }
 
     bootstrap_config = {**bootstrap_defaults, **bootstrap_config}
-    copro_config = {**copro_defaults, **copro_config}
+    copro_config = {**copro_defaults, **(copro_config or {})} if run_copro else None
 
     # Stage 1: BootstrapFewShot
     print("  Stage 1: BootstrapFewShot...")
@@ -102,6 +101,11 @@ def run_two_stage_optimization(
     print(f"  Stage 1 complete. Bootstrapped demos collected.")
 
     # Stage 2: COPRO (prompt optimization)
+    if not run_copro:
+        print("  Stage 2: COPRO prompt optimization skipped by config.")
+        print("  Returning Stage 1 (BootstrapFewShot) result only.")
+        return stage1_optimized
+
     print("  Stage 2: COPRO prompt optimization...")
     try:
         copro_teleprompter = COPRO(

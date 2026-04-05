@@ -12,7 +12,7 @@ from pathlib import Path
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from shared.llm_providers import setup_dspy_lm
+from shared.llm_providers import enforce_usage_budget, save_lm_history_artifacts, setup_dspy_lm
 from shared.optimization import run_bootstrap_optimization, run_two_stage_optimization
 from shared.evaluation import compare_results, save_results_json
 from shared.evaluation.prompt_utils import (
@@ -26,6 +26,12 @@ from .loader import load_data
 from .modules import BaselineModule, StudentModule
 from .metrics import parse_diseases, validate_disease_output_exact, validate_disease_output_exact_recall
 from .evaluation import detailed_evaluation, print_evaluation_summary
+
+
+def _resolve_run_sizes(smoke_run=False):
+    if smoke_run:
+        return 24, 12
+    return None, None
 
 
 def _split_train_validation(trainset, validation_size=24, seed=None):
@@ -220,7 +226,7 @@ def _select_best_optimized_module(trainset, seed=None):
     return best
 
 
-def run_experiment(save_results=True, seed=None, results_dir=None):
+def run_experiment(save_results=True, seed=None, results_dir=None, smoke_run=False):
     """
     Run the full medical NER experiment.
 
@@ -235,6 +241,8 @@ def run_experiment(save_results=True, seed=None, results_dir=None):
     print("=" * 60)
     print("MEDICAL NER EXPERIMENT - NCBI Disease Corpus")
     print("Baseline (Handcrafted Prompt) vs DSPy (Optimized)")
+    if smoke_run:
+        print("Smoke Run: enabled")
     if seed is not None:
         print(f"Seed: {seed}")
     print("=" * 60)
@@ -245,7 +253,8 @@ def run_experiment(save_results=True, seed=None, results_dir=None):
 
     # 2. Load Data
     print("[2/5] Loading NCBI Disease Corpus...")
-    trainset, testset = load_data(seed=seed)
+    train_size, test_size = _resolve_run_sizes(smoke_run=smoke_run)
+    trainset, testset = load_data(train_size=train_size, test_size=test_size, seed=seed)
     print(f"      Train: {len(trainset)} samples, Test: {len(testset)} samples")
 
     # 3. Baseline Evaluation
@@ -305,6 +314,15 @@ def run_experiment(save_results=True, seed=None, results_dir=None):
         save_baseline_prompt(baseline_prompt_path, output_dir)
         extract_optimized_prompt(optimized_student, output_dir)
         generate_prompt_comparison(output_dir)
+        usage_summary = save_lm_history_artifacts(output_dir)
+        if usage_summary:
+            print(
+                "      LM usage:"
+                f" calls={usage_summary['calls']},"
+                f" total_tokens={usage_summary['total_tokens']},"
+                f" estimated_cost={usage_summary['estimated_cost']:.6f}"
+            )
+            enforce_usage_budget(usage_summary)
 
         print(f"\nResults saved to {output_dir}/")
 
@@ -316,7 +334,7 @@ def run_experiment(save_results=True, seed=None, results_dir=None):
     }
 
 
-def run_multiple_trials(num_runs=None, seeds=None):
+def run_multiple_trials(num_runs=None, seeds=None, smoke_run=False):
     """
     Run multiple trials of the experiment with different seeds.
 
@@ -354,7 +372,8 @@ def run_multiple_trials(num_runs=None, seeds=None):
         result = run_experiment(
             save_results=True,
             seed=seed,
-            results_dir=trial_dir
+            results_dir=trial_dir,
+            smoke_run=smoke_run
         )
 
         trial_results.append({
@@ -379,13 +398,14 @@ def run_multiple_trials(num_runs=None, seeds=None):
 
 
 if __name__ == "__main__":
-    import sys
+    import argparse
 
-    # Check if user wants multi-run mode
-    if len(sys.argv) > 1 and sys.argv[1] == "--multi-run":
-        # Multi-run mode
-        num_runs = int(sys.argv[2]) if len(sys.argv) > 2 else None
-        run_multiple_trials(num_runs=num_runs)
+    parser = argparse.ArgumentParser(description="Run medical_ner experiments")
+    parser.add_argument("--multi-run", type=int, default=None, help="Run N trials instead of a single run")
+    parser.add_argument("--smoke-run", action="store_true", help="Run a tiny low-cost dataset slice for debugging")
+    args = parser.parse_args()
+
+    if args.multi_run is not None:
+        run_multiple_trials(num_runs=args.multi_run, smoke_run=args.smoke_run)
     else:
-        # Single run mode (backward compatible)
-        run_experiment()
+        run_experiment(smoke_run=args.smoke_run)

@@ -107,7 +107,21 @@ def _enforce_clause_constraints(clause_type, clause_text):
     return text
 
 
-def _targeted_contract_context(contract_text, clause_type, max_chars=3200):
+CLAUSE_MAX_CHARS = {
+    "Parties": 2200,
+    "Agreement Date": 1200,
+    "Effective Date": 1400,
+    "Expiration Date": 1600,
+    "Governing Law": 1400,
+    "Termination For Convenience": 1800,
+    "Limitation Of Liability": 1800,
+    "Indemnification": 1800,
+    "Non-Compete": 1800,
+    "Confidentiality": 1800,
+}
+
+
+def _targeted_contract_context(contract_text, clause_type, max_chars=1800):
     """
     Select the most relevant contract segments for the requested clause type.
     This reduces noise for long contracts and improves exact span extraction.
@@ -115,9 +129,7 @@ def _targeted_contract_context(contract_text, clause_type, max_chars=3200):
     if not contract_text:
         return ""
     ct = str(clause_type or "").strip()
-    effective_max_chars = max_chars
-    if ct in {"Parties", "Governing Law", "Expiration Date"}:
-        effective_max_chars = max(max_chars, 4200)
+    effective_max_chars = CLAUSE_MAX_CHARS.get(ct, max_chars)
 
     if len(contract_text) <= effective_max_chars:
         return contract_text
@@ -137,7 +149,8 @@ def _targeted_contract_context(contract_text, clause_type, max_chars=3200):
         score = hits + header_bonus
         scored.append((score, idx, chunk))
 
-    # Pick top chunks with any keyword hits. If none, use leading context fallback.
+    # Pick top chunks with any keyword hits. If none, fall back to the document
+    # opening because many contracts introduce parties / dates near the start.
     hit_chunks = [x for x in scored if x[0] > 0]
     if not hit_chunks:
         return contract_text[:effective_max_chars]
@@ -194,9 +207,10 @@ class BaselineModule(dspy.Module):
     def forward(self, contract_text, clause_type):
         focused_context = _targeted_contract_context(contract_text, clause_type)
 
-        # Prepare prompt from file
-        prompt = BASELINE_PROMPT.replace("{{contract_text}}", focused_context)
-        prompt = prompt.replace("{{clause_type}}", clause_type)
+        # Keep all dynamic content at the bottom so provider-side prompt caching
+        # can reuse the long static instruction prefix.
+        prompt = BASELINE_PROMPT.replace("{{clause_type}}", clause_type)
+        prompt = prompt.replace("{{contract_text}}", focused_context)
 
         # Call LLM directly (raw generation, no DSPy optimizations)
         response = dspy.settings.lm(prompt)

@@ -13,9 +13,13 @@ from pathlib import Path
 from shared.llm_providers import setup_dspy_lm
 from experiments.legal_contract.metrics import llm_semantic_match_score, normalize_text
 from experiments.legal_contract.metadata_normalization import (
+    date_match_score,
+    expiration_match_score,
     governing_law_match_score,
     indemnification_match_score,
-    expiration_match_score,
+    limitation_of_liability_match_score,
+    parties_match_score,
+    termination_for_convenience_match_score,
 )
 
 
@@ -220,6 +224,9 @@ def _field_specific_match(field: str, pred_value: str, gold_value: str):
     if pred_norm == gold_norm:
         return 1.0
 
+    if field in {"Agreement Date", "Effective Date"}:
+        return date_match_score(pred_value, gold_value)
+
     if field == "Expiration Date":
         return expiration_match_score(pred_value, gold_value)
 
@@ -229,12 +236,14 @@ def _field_specific_match(field: str, pred_value: str, gold_value: str):
     if field == "Indemnification":
         return indemnification_match_score(pred_value, gold_value)
 
+    if field == "Parties":
+        return parties_match_score(pred_value, gold_value)
+
     if field == "Termination For Convenience":
-        p_cls = _classify_termination_for_convenience(pred_value)
-        g_cls = _classify_termination_for_convenience(gold_value)
-        if p_cls == g_cls and p_cls in {"positive", "negative", "not_found"}:
-            return 1.0
-        return lexical_match(pred_value, gold_value)
+        return termination_for_convenience_match_score(pred_value, gold_value)
+
+    if field == "Limitation Of Liability":
+        return limitation_of_liability_match_score(pred_value, gold_value)
 
     return lexical_match(pred_value, gold_value)
 
@@ -270,7 +279,17 @@ def evaluate_metadata(gold_csv: Path, pred_csv: Path, id_col: str, fields, use_l
             pval = str(p.get(field, "")).strip()
 
             if field in {"Indemnification", "Expiration Date", "Termination For Convenience", "Governing Law"}:
-                score = _field_specific_match(field, pval, gval)
+                if field == "Expiration Date":
+                    score = expiration_match_score(
+                        pval,
+                        gval,
+                        pred_agreement_date=str(p.get("Agreement Date", "")).strip(),
+                        pred_effective_date=str(p.get("Effective Date", "")).strip(),
+                        gold_agreement_date=str(g.get("Agreement Date", "")).strip(),
+                        gold_effective_date=str(g.get("Effective Date", "")).strip(),
+                    )
+                else:
+                    score = _field_specific_match(field, pval, gval)
                 method = "field_specific_rules"
                 # For Governing Law/Expiration Date, use LLM fallback when rule-based match is inconclusive.
                 if field in {"Governing Law", "Expiration Date"} and score < 1.0 and use_llm:

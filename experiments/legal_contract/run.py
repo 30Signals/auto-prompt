@@ -12,8 +12,8 @@ from typing import Iterable
 PROJECT_ROOT = Path(__file__).parent.parent.parent
 sys.path.insert(0, str(PROJECT_ROOT))
 
-from shared.llm_providers import setup_dspy_lm
-from shared.optimization import run_two_stage_optimization
+from shared.llm_providers import enforce_usage_budget, save_lm_history_artifacts, setup_dspy_lm
+from shared.optimization import run_bootstrap_optimization, run_two_stage_optimization
 from shared.evaluation import compare_results, save_results_json, EvaluationResult
 from shared.evaluation.prompt_utils import (
     save_baseline_prompt,
@@ -57,6 +57,11 @@ def _normalize_clause_types(clause_types):
         return None
     return [str(x).strip() for x in clause_types if str(x).strip()]
 
+def _resolve_run_sizes(train_size=None, test_size=None, smoke_run=False, per_clause=False):
+    if smoke_run:
+        return (24, 8) if per_clause else (40, 12)
+    return train_size, test_size
+
 
 def run_experiment(
     save_results=True,
@@ -70,6 +75,7 @@ def run_experiment(
     clause_types=None,
     train_size=None,
     test_size=None,
+    smoke_run=False,
 ):
     """
     Run the full legal contract analysis experiment.
@@ -88,6 +94,8 @@ def run_experiment(
     print("=" * 60)
     print("LEGAL CONTRACT ANALYSIS EXPERIMENT - CUAD Dataset")
     print("Baseline (Handcrafted Prompt) vs DSPy (Optimized)")
+    if smoke_run:
+        print("Smoke Run: enabled")
     if seed is not None:
         print(f"Seed: {seed}")
     clause_types = _normalize_clause_types(clause_types)
@@ -151,6 +159,8 @@ def run_experiment(
 
     # 2. Load Data
     print("[2/5] Loading dataset...")
+    train_size, test_size = _resolve_run_sizes(train_size=train_size, test_size=test_size, smoke_run=smoke_run, per_clause=bool(clause_types and len(clause_types) == 1))
+
     if train_reviewed_file and test_reviewed_file:
         selected_clause_types = clause_types or config.CLAUSE_TYPES
         trainset = load_reviewed_examples_file(
@@ -202,11 +212,21 @@ def run_experiment(
     # 4. Optimization
     print("[4/5] Optimizing with DSPy...")
     student = StudentModule()
-    optimized_student = run_two_stage_optimization(
-        student_module=student,
-        trainset=trainset,
-        metric=validate_clause_extraction
-    )
+    if config.USE_COPRO:
+        optimized_student = run_two_stage_optimization(
+            student_module=student,
+            trainset=trainset,
+            metric=validate_clause_extraction,
+            bootstrap_config=config.BOOTSTRAP_CONFIG,
+            copro_config=config.COPRO_CONFIG,
+        )
+    else:
+        optimized_student = run_bootstrap_optimization(
+            student_module=student,
+            trainset=trainset,
+            metric=validate_clause_extraction,
+            **config.BOOTSTRAP_CONFIG,
+        )
 
     # 5. Optimized Evaluation
     print("[5/5] Evaluating optimized model...")
@@ -240,6 +260,15 @@ def run_experiment(
         save_baseline_prompt(baseline_prompt_path, output_dir)
         extract_optimized_prompt(optimized_student, output_dir)
         generate_prompt_comparison(output_dir)
+        usage_summary = save_lm_history_artifacts(output_dir)
+        if usage_summary:
+            print(
+                "      LM usage:"
+                f" calls={usage_summary['calls']},"
+                f" total_tokens={usage_summary['total_tokens']},"
+                f" estimated_cost={usage_summary['estimated_cost']:.6f}"
+            )
+            enforce_usage_budget(usage_summary)
 
         print(f"\nResults saved to {output_dir}/")
 
@@ -263,6 +292,7 @@ def run_multiple_trials(
     base_results_dir=None,
     train_size=None,
     test_size=None,
+    smoke_run=False,
 ):
     """
     Run multiple trials of the experiment with different seeds.
@@ -310,6 +340,7 @@ def run_multiple_trials(
             clause_types=clause_types,
             train_size=train_size,
             test_size=test_size,
+            smoke_run=smoke_run,
         )
 
         trial_results.append({
@@ -343,6 +374,7 @@ def run_per_clause_experiments(
     allow_source_gold=False,
     train_size=None,
     test_size=None,
+    smoke_run=False,
 ):
     """
     Run specialized experiments independently for each clause type.
@@ -375,6 +407,7 @@ def run_per_clause_experiments(
                 base_results_dir=clause_dir,
                 train_size=train_size or config.PER_CLAUSE_TRAIN_SIZE,
                 test_size=test_size or config.PER_CLAUSE_TEST_SIZE,
+                smoke_run=smoke_run,
             )
         else:
             outputs[clause_type] = run_experiment(
@@ -387,6 +420,7 @@ def run_per_clause_experiments(
                 results_dir=clause_dir,
                 train_size=train_size or config.PER_CLAUSE_TRAIN_SIZE,
                 test_size=test_size or config.PER_CLAUSE_TEST_SIZE,
+                smoke_run=smoke_run,
             )
 
     return outputs
@@ -434,7 +468,7 @@ def run_metadata_evaluation(
 if __name__ == "__main__":
     import argparse
 
-    parser = argparse.ArgumentParser(description="Run legal_contract experiments")
+    parser = argparse.ArgumentParser(description="Run legal_contract clause-extraction experiments. For cleaned metadata CSVs, use: python -m experiments.legal_contract.run_metadata_dspy")
     parser.add_argument(
         "--multi-run",
         type=int,
@@ -444,7 +478,7 @@ if __name__ == "__main__":
     parser.add_argument(
         "--reviewed-file",
         default=None,
-        help="Optional reviewed JSONL file for curated labels",
+        help="Optional reviewed JSONL file for clause-extraction labels. Cleaned metadata CSVs should be used with run_metadata_dspy.",
     )
     parser.add_argument(
         "--train-reviewed-file",
@@ -493,6 +527,11 @@ if __name__ == "__main__":
         type=int,
         default=None,
         help="Optional test size override",
+    )
+    parser.add_argument(
+        "--smoke-run",
+        action="store_true",
+        help="Run a tiny low-cost dataset slice for debugging",
     )
     parser.add_argument(
         "--metadata-gold-csv",
@@ -556,6 +595,7 @@ if __name__ == "__main__":
             allow_source_gold=args.allow_source_gold,
             train_size=args.train_size,
             test_size=args.test_size,
+            smoke_run=args.smoke_run,
         )
         raise SystemExit(0)
 
@@ -570,6 +610,7 @@ if __name__ == "__main__":
             clause_types=selected_clause_types,
             train_size=args.train_size,
             test_size=args.test_size,
+            smoke_run=args.smoke_run,
         )
     else:
         run_experiment(
@@ -581,4 +622,5 @@ if __name__ == "__main__":
             clause_types=selected_clause_types,
             train_size=args.train_size,
             test_size=args.test_size,
+            smoke_run=args.smoke_run,
         )

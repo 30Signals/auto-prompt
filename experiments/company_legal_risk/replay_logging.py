@@ -7,6 +7,18 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 
+RISK_DIMENSIONS = [
+    "regulatory_enforcement",
+    "litigation_exposure",
+    "fraud_corruption",
+    "data_privacy_cybersecurity",
+    "labor_employment",
+    "environmental_safety",
+    "sanctions_trade",
+    "governance_ethics",
+]
+
+
 def utc_now_iso():
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
@@ -36,6 +48,33 @@ def load_jsonl(filepath):
     return rows
 
 
+def build_empty_risk_dimensions():
+    return {
+        name: {
+            "severity": None,
+            "confidence": None,
+            "evidence_refs": [],
+            "notes": "",
+        }
+        for name in RISK_DIMENSIONS
+    }
+
+
+def build_default_labels():
+    return {
+        "risk_level": "",
+        "should_work_with_company": "",
+        "key_findings": [],
+        "risk_dimensions": build_empty_risk_dimensions(),
+        "retrieval_quality": {
+            "source_credibility": None,
+            "relevance": None,
+            "recency": None,
+        },
+        "reviewer_notes": "",
+    }
+
+
 def build_labeling_queue(records, max_records=None, dedupe_by_company=True):
     seen = set()
     queue = []
@@ -57,11 +96,7 @@ def build_labeling_queue(records, max_records=None, dedupe_by_company=True):
                 "query_log": rec.get("query_log", []),
                 "retrieved_results": rec.get("retrieved_docs", []),
                 "model_output": rec.get("model_output", {}),
-                "labels": {
-                    "risk_level": "",
-                    "should_work_with_company": "",
-                    "key_findings": []
-                }
+                "labels": build_default_labels(),
             }
         )
 

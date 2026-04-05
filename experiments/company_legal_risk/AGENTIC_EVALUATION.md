@@ -50,6 +50,12 @@ python -m experiments.company_legal_risk.build_labeling_queue --input-log experi
 Schema for labels:
 - `experiments/company_legal_risk/data/replay_labeling_schema.json`
 
+Pattern-based scoring schema for richer annotation:
+- `experiments/company_legal_risk/data/replay_labeling_schema_v2.json`
+
+Pattern-scoring design note:
+- `experiments/company_legal_risk/PATTERN_SCORING_DATASET.md`
+
 ## Strict Agentic Evaluation (Retrieval Replay)
 Use fixed retrieved evidence and gold labels.
 
