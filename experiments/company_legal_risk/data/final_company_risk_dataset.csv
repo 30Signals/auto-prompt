@@ -1,0 +1,195 @@
+company_name,risk_level,should_work_with_company,risk_score,derived_recommendation,requires_review,cleaning_flags,regulatory_enforcement_severity,litigation_exposure_severity,fraud_corruption_severity,data_privacy_cybersecurity_severity,labor_employment_severity,environmental_safety_severity,sanctions_trade_severity,governance_ethics_severity
+3M,MEDIUM,NO,0.5802,ESCALATE,True,doc_generic_news_noise,3,3,3,0,0,3,1,3
+ABB,MEDIUM,NO,0.356,WORK_WITH_GUARDRAILS,False,,3,1,3,0,0,1,0,1
+AbbVie,LOW,YES,0.1145,WORK,True,doc_company_mismatch | litigation_may_be_plaintiff_side_not_risk,0,3,0,0,0,0,0,0
+Accenture,MEDIUM,NO,0.3552,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,2,2,0,3,1,0,0
+Adobe,MEDIUM,NO,0.3505,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,3,0,0,0,0,0
+Adyen,LOW,NO,0.1933,WORK,False,,2,0,3,0,0,0,0,0
+Affirm,MEDIUM,NO,0.4096,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | doc_generic_news_noise | high_noise_retrieval_mix,3,3,3,0,1,2,0,0
+Airbnb,MEDIUM,NO,0.507,ESCALATE,True,doc_company_mismatch,3,3,3,0,1,3,0,0
+Alibaba,MEDIUM,NO,0.4628,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,2,0,0,0,2
+Alphabet,MEDIUM,NO,0.4368,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,3,2,1,0,0
+Amazon,MEDIUM,NO,0.4336,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,1,0,3,1,1,1
+AMD,LOW,NO,0.2183,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,0,0,0,0
+American Airlines,MEDIUM,YES,0.3014,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,2,3,0,0,2,2,0,1
+American Express,LOW,NO,0.2482,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,0,0,0,0
+Amgen,LOW,YES,0.1012,WORK,True,doc_company_mismatch,0,3,0,0,0,0,0,0
+Apple,MEDIUM,NO,0.5006,ESCALATE,True,doc_company_mismatch,3,3,3,0,1,3,0,0
+ArcelorMittal,MEDIUM,NO,0.4746,WORK_WITH_GUARDRAILS,False,,3,2,3,0,3,3,0,0
+AstraZeneca,MEDIUM,NO,0.4392,WORK_WITH_GUARDRAILS,False,,3,3,3,0,1,0,0,1
+AT&T,MEDIUM,NO,0.4313,WORK_WITH_GUARDRAILS,False,,3,3,2,2,0,0,1,1
+Baidu,LOW,NO,0.2861,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,0,3,0,0,0,0,0
+Bank of America,MEDIUM,NO,0.3301,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,2,0,0,0,0,0
+Barclays,MEDIUM,NO,0.4414,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,0,0,0,2
+Bayer,LOW,YES,0.1677,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,2,3,0,0,0,0,0,1
+BHP,LOW,YES,0.2422,WORK,True,doc_company_mismatch,2,3,2,0,0,0,0,0
+Binance,MEDIUM,NO,0.5736,ESCALATE,True,doc_company_mismatch,3,3,3,0,0,2,3,1
+Biogen,MEDIUM,NO,0.359,WORK_WITH_GUARDRAILS,False,,3,3,2,0,0,1,0,1
+BlackRock,MEDIUM,NO,0.4308,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | doc_generic_news_noise | high_noise_retrieval_mix,3,3,3,0,1,0,0,1
+Block,MEDIUM,NO,0.4342,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,3,0,0,2,0,0
+BMW,LOW,NO,0.2855,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,2,0,0,0,3,0,0
+BNP Paribas,LOW,YES,0.1528,WORK,True,doc_company_mismatch | high_dimensions_despite_low_risk_narrative | high_noise_retrieval_mix,3,0,1,0,0,0,0,0
+Boeing,MEDIUM,NO,0.3892,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,0,0,0,3,1,1
+Booking Holdings,LOW,YES,0.053,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,1,1,0,0,0,0,0,0
+Bosch,LOW,YES,0.201,WORK,True,doc_company_mismatch,3,2,0,0,0,2,0,0
+BP,MEDIUM,NO,0.4559,WORK_WITH_GUARDRAILS,False,,3,3,0,0,2,3,0,2
+Capgemini,MEDIUM,NO,0.4347,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,2,2,0,0,0
+Caterpillar,MEDIUM,NO,0.3901,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,2,0,2,2,0,0
+Charter,MEDIUM,NO,0.3916,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,0,1,0,1
+Chevron,LOW,NO,0.2759,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,1,0,0,0,3,0,0
+Cisco,MEDIUM,NO,0.4282,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,2,3,3,2,1,0,0,2
+Citigroup,MEDIUM,NO,0.3301,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,2,0,0,0,0,0
+Cloudflare,MEDIUM,NO,0.3704,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,0,0,0,0
+Coca-Cola,MEDIUM,NO,0.3925,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,2,0,1,0,0,2
+Cognizant,MEDIUM,NO,0.3539,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,2,3,3,2,0,0,0,1
+Coinbase,MEDIUM,NO,0.359,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,3,0,1,0,0,0
+Colgate-Palmolive,LOW,YES,0.1313,WORK,False,,0,3,0,0,1,0,0,0
+Comcast,LOW,YES,0.1378,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,2,2,0,0,1,0,0,0
+ConocoPhillips,LOW,NO,0.288,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,2,0,0,0,3,0,0
+Costco,LOW,YES,0.272,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | doc_generic_news_noise | high_noise_retrieval_mix | litigation_may_be_plaintiff_side_not_risk,2,3,1,0,0,2,0,0
+Credit Suisse,LOW,NO,0.201,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,0,0,0,0
+CrowdStrike,MEDIUM,NO,0.4036,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,0,3,0,2,0,0
+CSL,MEDIUM,YES,0.3255,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,2,3,0,2,2,1,0,1
+CSX,MEDIUM,NO,0.3959,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,0,0,0,0
+Danone,MEDIUM,NO,0.4465,WORK_WITH_GUARDRAILS,False,,3,3,3,0,0,2,0,0
+Datadog,LOW,YES,0.0607,WORK,False,,2,0,0,0,0,0,0,0
+Deere,MEDIUM,YES,0.3623,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,2,2,0,2,2,0,0
+Delta Air Lines,LOW,YES,0.1566,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,1,2,0,0,1,2,0,0
+Deutsche Bank,LOW,NO,0.2518,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,0,0,0,0
+Deutsche Telekom,LOW,YES,0.2002,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,2,2,0,3,0,0,0,1
+DHL,MEDIUM,NO,0.3005,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,0,3,0,1,1,0,0
+DoorDash,MEDIUM,YES,0.3084,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,1,3,2,1,2,0,0,1
+Duke Energy,LOW,YES,0.0831,WORK,False,,0,0,2,0,0,0,0,1
+eBay,MEDIUM,NO,0.3284,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,2,0,0,1,0,0
+Eli Lilly,LOW,YES,0.1665,WORK,True,doc_company_mismatch,2,3,0,0,0,0,0,0
+Emerson,LOW,YES,0.0945,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,2,1,0,0,0,0,0,0
+EPAM,MEDIUM,NO,0.4164,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,1,3,0,0,3,0,0
+Expedia,LOW,YES,0.1145,WORK,False,,0,3,0,0,0,0,0,0
+ExxonMobil,MEDIUM,NO,0.3843,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,1,0,0,3,0,0
+FedEx,MEDIUM,NO,0.4404,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,2,0,2,2,0,0
+Ford,MEDIUM,NO,0.4566,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,0,0,2,0
+Freeport-McMoRan,MEDIUM,NO,0.418,WORK_WITH_GUARDRAILS,False,,3,3,3,0,0,0,0,1
+Fujitsu,LOW,YES,0.1145,WORK,False,,0,3,0,0,0,0,0,0
+General Dynamics,LOW,YES,0.0627,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,0,1,0,0,1,0,0,1
+General Electric,LOW,YES,0.1764,WORK,True,doc_company_mismatch | high_dimensions_despite_low_risk_narrative | high_noise_retrieval_mix,2,2,1,0,0,1,0,0
+General Mills,LOW,YES,0.1773,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,2,0,1,0,0,2,0,0
+General Motors,MEDIUM,NO,0.4012,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,1,2,1,2,0,0
+Glencore,MEDIUM,NO,0.3558,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,0,3,0,0,1,0,2
+Goldman Sachs,LOW,NO,0.2518,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,0,0,0,0
+Grab,MEDIUM,NO,0.3253,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | doc_generic_news_noise | high_noise_retrieval_mix,3,3,0,2,1,0,0,0
+Halliburton,MEDIUM,NO,0.3431,WORK_WITH_GUARDRAILS,False,,3,3,2,0,2,1,0,0
+HCLTech,LOW,YES,0.1113,WORK,False,,2,0,0,0,0,2,0,0
+Hilton,MEDIUM,YES,0.354,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,2,3,1,0,2,2,1,0
+Hitachi,MEDIUM,YES,0.3487,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,2,3,2,0,0,2,0,1
+Home Depot,MEDIUM,NO,0.3702,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,1,3,0,1,3,0,0
+Honda,LOW,NO,0.2742,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,0,2,0,0
+Honeywell,MEDIUM,NO,0.3942,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,0,0,0,3,2,0
+HSBC,MEDIUM,NO,0.4128,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,1,0,0,0
+Huawei,MEDIUM,NO,0.4723,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,2,3,1,1,2,0
+Hyatt,MEDIUM,NO,0.3439,WORK_WITH_GUARDRAILS,False,,1,3,3,0,0,0,0,2
+Hyundai,LOW,NO,0.2954,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,0,0,2,1,0,0
+IBM,MEDIUM,NO,0.514,ESCALATE,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,2,3,1,2,1,0
+Infosys,MEDIUM,NO,0.5467,ESCALATE,False,,3,3,3,3,1,1,0,1
+ING,LOW,YES,0.1157,WORK,True,doc_company_mismatch,2,1,0,0,0,1,0,0
+Intel,LOW,NO,0.2672,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,1,0,0,0,0,0
+JD.com,LOW,YES,0.1547,WORK,True,doc_company_mismatch | high_dimensions_despite_low_risk_narrative | high_noise_retrieval_mix,3,0,0,0,0,0,0,1
+Johnson & Johnson,LOW,YES,0.1699,WORK,True,doc_company_mismatch,2,3,0,0,0,0,0,0
+JPMorgan Chase,LOW,NO,0.2518,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,0,0,0,0
+Kia,LOW,YES,0.2137,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,2,3,0,0,0,1,0,0
+Kimberly-Clark,LOW,YES,0.2046,WORK,False,,2,3,0,0,0,2,0,0
+Klarna,MEDIUM,NO,0.3913,WORK_WITH_GUARDRAILS,False,,3,3,3,0,0,0,0,1
+Kraft Heinz,LOW,YES,0.0492,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,2,0,0,0,0,0,0,0
+Kraken,MEDIUM,NO,0.3361,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,1,1,0,0,1,0
+Lowe's,MEDIUM,NO,0.3048,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,0,1,1,0
+Lyft,LOW,NO,0.2759,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,0,0,1,1,0,0
+Maersk,LOW,NO,0.2663,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,0,0,0,1,0,1
+Marriott,MEDIUM,NO,0.3201,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,3,0,0,0
+Mastercard,LOW,YES,0.2583,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,2,3,2,0,0,1,0,1
+McDonald's,LOW,NO,0.2551,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | doc_generic_news_noise | high_noise_retrieval_mix,2,3,0,0,3,0,0,0
+Meituan,LOW,YES,0.1407,WORK,False,,3,0,0,0,0,1,0,0
+MercadoLibre,LOW,YES,0.0,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,0,0,0,0,0,0,0,0
+Mercedes-Benz,MEDIUM,NO,0.5116,ESCALATE,True,doc_company_mismatch | high_noise_retrieval_mix,2,3,3,1,2,3,0,0
+Merck,MEDIUM,NO,0.4,WORK_WITH_GUARDRAILS,False,,3,3,3,0,0,0,0,1
+Meta,MEDIUM,NO,0.3747,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,2,1,3,1,1,0,0
+Microsoft,MEDIUM,NO,0.3814,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,1,1,2,1,0,0
+Moderna,LOW,YES,0.1012,WORK,False,,0,3,0,0,0,0,0,0
+Mondelez,LOW,NO,0.2687,WORK_WITH_GUARDRAILS,False,,3,3,0,0,1,0,0,0
+Morgan Stanley,LOW,YES,0.241,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,3,2,0,1,1,0,0,0
+Nestle,LOW,NO,0.2518,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,0,0,0,0
+Netflix,LOW,YES,0.2,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,3,2,0,0,0,0,0,0
+Newmont,LOW,YES,0.2111,WORK,False,,2,3,0,0,2,0,0,1
+NextEra Energy,LOW,YES,0.1648,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,2,3,0,0,0,0,0,0
+Nike,MEDIUM,NO,0.4981,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,3,0,0,1
+Norfolk Southern,LOW,YES,0.2335,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,2,3,0,0,1,2,0,1
+Northrop Grumman,LOW,YES,0.1118,WORK,False,,0,3,0,0,2,0,0,0
+Novartis,MEDIUM,NO,0.3269,WORK_WITH_GUARDRAILS,False,,2,3,3,0,0,0,0,0
+Novo Nordisk,LOW,YES,0.1145,WORK,True,doc_company_mismatch | doc_generic_news_noise | high_dimensions_despite_low_risk_narrative | high_noise_retrieval_mix,0,3,0,0,0,0,0,0
+Nucor,MEDIUM,NO,0.4082,WORK_WITH_GUARDRAILS,False,,3,2,0,2,2,3,0,1
+NVIDIA,MEDIUM,NO,0.3877,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,2,0,0,0,1,2
+Oracle,MEDIUM,NO,0.4686,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,2,0,0,0,1
+Orange,MEDIUM,NO,0.38,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,0,3,0,1
+Palantir,MEDIUM,YES,0.3005,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,2,3,2,0,2,0,0,0
+Panasonic,MEDIUM,NO,0.3782,WORK_WITH_GUARDRAILS,False,,3,2,3,0,0,1,0,1
+PayPal,MEDIUM,NO,0.4223,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,3,0,0,0,0,1
+Paytm,MEDIUM,NO,0.3637,WORK_WITH_GUARDRAILS,False,,3,1,3,1,1,0,0,1
+PepsiCo,LOW,YES,0.0867,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,0,3,0,0,0,0,0,0
+Pfizer,LOW,YES,0.1752,WORK,True,doc_company_mismatch,2,3,0,0,0,0,0,0
+Philips,MEDIUM,NO,0.3969,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,0,2,0,0
+Pinduoduo,MEDIUM,NO,0.4337,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,2,3,0,0,0,1
+Pinterest,LOW,NO,0.2653,WORK_WITH_GUARDRAILS,False,,3,0,3,0,0,0,0,1
+Qualcomm,MEDIUM,NO,0.4717,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,2,3,0,2,2,0,2
+Raytheon,MEDIUM,NO,0.4437,WORK_WITH_GUARDRAILS,False,,3,2,3,0,1,0,2,1
+Reckitt,MEDIUM,NO,0.4133,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,0,0,0,1
+Reddit,MEDIUM,NO,0.4586,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,3,2,0,0,0,0
+Regeneron,MEDIUM,NO,0.3306,WORK_WITH_GUARDRAILS,False,,3,3,2,0,0,0,0,1
+Revolut,MEDIUM,NO,0.4461,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,0,0,0,2
+Robinhood,LOW,NO,0.2735,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,0,0,0,0,0,1
+Roche,MEDIUM,NO,0.3873,WORK_WITH_GUARDRAILS,False,,3,3,3,0,0,0,0,0
+Ryanair,MEDIUM,YES,0.3318,WORK_WITH_GUARDRAILS,False,,3,2,2,2,0,0,1,0
+Salesforce,MEDIUM,NO,0.3814,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,1,0,0,0
+Samsung,LOW,YES,0.2039,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,3,2,0,0,0,1,0,0
+Sanofi,MEDIUM,NO,0.42,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,0,1,0,0
+Santander,MEDIUM,NO,0.4414,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,0,0,0,2
+Schlumberger,MEDIUM,NO,0.5069,ESCALATE,True,doc_company_mismatch,3,3,3,0,1,1,3,0
+Schneider Electric,LOW,YES,0.0193,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,0,1,0,0,0,0,0,0
+Sea Limited,LOW,YES,0.0723,WORK,True,doc_company_mismatch | high_dimensions_despite_low_risk_narrative | high_noise_retrieval_mix,2,0,0,0,0,0,0,0
+ServiceNow,MEDIUM,NO,0.3577,WORK_WITH_GUARDRAILS,False,,3,3,3,0,0,1,0,0
+Shell,MEDIUM,NO,0.4757,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,1,0,3,1,2
+Shopify,MEDIUM,NO,0.3786,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,1,3,2,2,3,0,0,1
+Siemens,MEDIUM,NO,0.4289,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,2,3,0,0,1,2,0
+Snap,MEDIUM,NO,0.3638,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,2,1,2,0,0,0
+Snowflake,MEDIUM,NO,0.4643,WORK_WITH_GUARDRAILS,False,,3,3,2,3,0,0,0,2
+Societe Generale,LOW,YES,0.0949,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,2,0,1,0,0,0,0,0
+SoFi,LOW,NO,0.253,WORK_WITH_GUARDRAILS,False,,3,3,2,0,0,0,0,0
+Southwest Airlines,MEDIUM,NO,0.3205,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,0,0,0,2,0,1
+Spotify,MEDIUM,NO,0.3742,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,2,0,1,1,0,0
+Starbucks,MEDIUM,NO,0.3283,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,0,3,0,0,0
+Stellantis,MEDIUM,NO,0.3576,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,1,0,3,0,0
+Stripe,LOW,YES,0.0458,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,1,0,0,0,1,0,0,0
+T-Mobile,MEDIUM,NO,0.4135,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,0,3,1,1,0,3
+Takeda,MEDIUM,NO,0.4575,WORK_WITH_GUARDRAILS,False,,2,3,3,0,3,1,0,1
+Target,MEDIUM,NO,0.4431,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,1,0,3,2,1,0
+TCS,MEDIUM,NO,0.3365,WORK_WITH_GUARDRAILS,False,,3,1,3,0,2,0,0,1
+Telefonica,LOW,NO,0.2537,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,1,0,0,1,0,0
+Tencent,LOW,YES,0.1802,WORK,False,,0,3,2,0,0,0,0,0
+Tesla,MEDIUM,NO,0.3506,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | doc_generic_news_noise | high_noise_retrieval_mix,3,3,1,0,0,2,0,1
+TotalEnergies,MEDIUM,NO,0.3494,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,0,0,0,3,0,0
+Toyota,MEDIUM,NO,0.4848,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,3,0,0,3,0,0
+U.S. Steel,MEDIUM,NO,0.3145,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | doc_generic_news_noise | high_dimensions_despite_low_risk_narrative | high_noise_retrieval_mix,3,1,0,0,2,3,0,0
+Uber,MEDIUM,NO,0.5602,ESCALATE,True,doc_company_mismatch,3,3,3,2,3,2,0,0
+UBS,LOW,NO,0.2933,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,0,0,0,1,0,1
+UniCredit,MEDIUM,NO,0.4289,WORK_WITH_GUARDRAILS,False,,3,1,3,2,1,0,2,0
+Unilever,MEDIUM,YES,0.38,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix | litigation_may_be_plaintiff_side_not_risk,2,3,2,0,0,2,1,1
+Union Pacific,LOW,YES,0.0631,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,0,1,0,0,2,0,0,0
+United Airlines,MEDIUM,NO,0.3598,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,1,0,0,3,3,0,2
+UPS,MEDIUM,NO,0.4916,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,1,0,0,3,2,1
+Vale,LOW,NO,0.2443,WORK,True,doc_company_mismatch,2,3,0,0,0,3,0,1
+Verizon,MEDIUM,NO,0.5408,ESCALATE,True,doc_company_mismatch,3,3,3,3,0,2,0,0
+Visa,MEDIUM,NO,0.3157,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | doc_generic_news_noise | high_noise_retrieval_mix,3,3,0,0,1,2,0,0
+Vodafone,LOW,YES,0.0506,WORK,False,,0,2,0,0,0,0,0,0
+Volkswagen,MEDIUM,NO,0.5686,ESCALATE,True,doc_company_mismatch,3,3,3,0,3,3,0,0
+Walmart,MEDIUM,NO,0.4837,WORK_WITH_GUARDRAILS,True,doc_company_mismatch | high_noise_retrieval_mix,3,3,3,0,0,2,0,2
+Wells Fargo,MEDIUM,NO,0.3176,WORK_WITH_GUARDRAILS,True,doc_company_mismatch,3,3,2,0,0,0,0,0
+Wipro,MEDIUM,NO,0.4284,WORK_WITH_GUARDRAILS,False,,2,3,3,3,1,1,0,0
+Wise,LOW,YES,0.2294,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,3,2,0,1,0,0,0,1
+Workday,LOW,NO,0.2172,WORK,True,doc_company_mismatch | high_noise_retrieval_mix,0,3,0,1,3,1,0,0

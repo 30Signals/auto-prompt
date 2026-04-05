@@ -25,6 +25,11 @@ live_demo_results.json
 
 # Cached datasets (downloaded, not committed)
 experiments/*/data/
+!experiments/company_legal_risk/data/
+experiments/company_legal_risk/data/*
+!experiments/company_legal_risk/data/replay_labeling_schema.json
+!experiments/company_legal_risk/data/replay_labeling_schema_v2.json
+!experiments/company_legal_risk/data/final_company_risk_dataset.csv
 
 # Jupyter
 .ipynb_checkpoints/
