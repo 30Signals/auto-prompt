@@ -43,6 +43,61 @@ TEST_SIZE = 200
 PER_CLAUSE_TRAIN_SIZE = 120
 PER_CLAUSE_TEST_SIZE = 80
 
+# Keep optimization cheap by default while prompts/data are still stabilizing.
+USE_COPRO = False
+BOOTSTRAP_CONFIG = {
+    "max_bootstrapped_demos": 6,
+    "max_labeled_demos": 6,
+    "max_rounds": 2,
+    "max_errors": 4,
+}
+COPRO_CONFIG = {
+    "breadth": 3,
+    "depth": 1,
+    "init_temperature": 0.2,
+}
+
+
+# Metadata DSPy optimization config. Kept config-driven to match other experiments.
+METADATA_USE_COPRO = False
+METADATA_BOOTSTRAP_CONFIGS = {
+    "smoke": {
+        "max_bootstrapped_demos": 2,
+        "max_labeled_demos": 2,
+        "max_rounds": 1,
+        "max_errors": 2,
+    },
+    "medium": {
+        "max_bootstrapped_demos": 4,
+        "max_labeled_demos": 4,
+        "max_rounds": 1,
+        "max_errors": 4,
+    },
+    "full": {
+        "max_bootstrapped_demos": 8,
+        "max_labeled_demos": 8,
+        "max_rounds": 2,
+        "max_errors": 6,
+    },
+}
+METADATA_COPRO_CONFIGS = {
+    "smoke": {
+        "breadth": 2,
+        "depth": 1,
+        "init_temperature": 1.0,
+    },
+    "medium": {
+        "breadth": 2,
+        "depth": 1,
+        "init_temperature": 1.0,
+    },
+    "full": {
+        "breadth": 2,
+        "depth": 1,
+        "init_temperature": 1.0,
+    },
+}
+
 # Fields to extract (single field per example: the clause text for the asked clause type)
 EXTRACTION_FIELDS = ['clause_text']
 
