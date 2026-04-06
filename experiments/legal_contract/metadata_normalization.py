@@ -1,4 +1,4 @@
-"""Shared normalization and matching helpers for legal contract metadata eval."""
+﻿"""Shared normalization and matching helpers for legal contract metadata eval."""
 
 import re
 from typing import Dict
@@ -18,6 +18,10 @@ _GOV_LAW_ALIASES = {
     "people's republic of china": "china",
     "prc": "china",
     "hong kong sar": "hong kong",
+    "england and wales": "united kingdom",
+    "laws of england and wales": "united kingdom",
+    "laws of england": "united kingdom",
+    "laws of wales": "united kingdom",
 }
 
 _GOV_LAW_CANDIDATES = [
@@ -70,12 +74,14 @@ def normalize_governing_law(value: str) -> str:
 def governing_law_match_score(pred_value: str, gold_value: str) -> float:
     p = normalize_governing_law(pred_value)
     g = normalize_governing_law(gold_value)
+    uk_family = {"united kingdom", "england and wales", "england", "wales", "scotland", "uk"}
     if p == g:
+        return 1.0
+    if p in uk_family and g in uk_family:
         return 1.0
     if p in g or g in p:
         return 1.0
 
-    # Treat a US state as a full match when the cleaned gold is normalized to United States.
     if g == "united states" and p in _US_STATE_LAWS:
         return 1.0
     if p == "united states" and g in _US_STATE_LAWS:
@@ -151,6 +157,8 @@ def normalize_expiration(value: str) -> str:
         return "perpetual"
     if "until terminated" in t:
         return "until terminated"
+    if "until completion" in t or "completion of the services" in t or "completion of the program" in t or "completion of the development program" in t:
+        return "until completion"
     if "co-terminous" in t or "coterminous" in t:
         return "coterminous"
 
@@ -350,7 +358,7 @@ def _extract_term_period(text: str):
         word_map = {
             'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9,
             'ten': 10, 'twelve': 12, 'fifteen': 15, 'eighteen': 18, 'twenty': 20, 'twenty four': 24,
-            'twenty-five': 25, 'thirty': 30, 'thirty-six': 36, 'forty-five': 45, 'sixty': 60, 'ninety': 90,
+            'twenty-five': 25, 'twenty five': 25, 'thirty': 30, 'thirty-six': 36, 'thirty six': 36, 'forty-five': 45, 'forty five': 45, 'sixty': 60, 'ninety': 90,
             'one hundred eighty': 180, 'fifth': 5,
         }
         return word_map.get(word.replace('  ', ' '))
@@ -361,8 +369,10 @@ def _extract_term_period(text: str):
     years = _pick(y)
     months = _pick(m)
     days = _pick(d)
-    if months is None and years is not None:
-        months = years * 12
+    if years is not None:
+        expected_months = years * 12
+        if months is None or months != expected_months:
+            months = expected_months
     if years is None and months is not None and months % 12 == 0:
         years = months // 12
     if years is None and months is None and days is None:
@@ -413,7 +423,7 @@ def derive_expiration_date(value: str, agreement_date: str | None = None, effect
     t = _norm(value)
     if not t or t == 'not found':
         return None
-    if any(k in t for k in ['terminate on', 'shall terminate on', 'shall expire on', 'expires on', 'effective through', 'through and including', 'ending on', 'end date', 'scheduled expiration date', 'continue until']):
+    if any(k in t for k in ['terminate on', 'shall terminate on', 'shall expire on', 'expires on', 'effective through', 'through and including', 'ending on', 'end date', 'scheduled expiration date', 'continue until', 'term ending on', 'term ending', 'shall end on', 'end on']):
         dates = _extract_all_dates_like(value)
         if dates:
             return dates[-1]
@@ -437,11 +447,17 @@ def derive_expiration_date(value: str, agreement_date: str | None = None, effect
 
 
 def date_match_score(pred_value: str, gold_value: str) -> float:
+    p_norm = _norm(pred_value)
+    g_norm = _norm(gold_value)
+    if p_norm == "not found" and g_norm.startswith("not found"):
+        return 1.0
+    if g_norm == "not found" and p_norm.startswith("not found"):
+        return 1.0
     p = _parse_date_like(pred_value)
     g = _parse_date_like(gold_value)
     if p and g:
         return 1.0 if p == g else 0.0
-    return 1.0 if _norm(pred_value) == _norm(gold_value) else 0.0
+    return 1.0 if p_norm == g_norm else 0.0
 
 
 def _normalize_party_name(text: str) -> str:
@@ -511,7 +527,7 @@ def _extract_notice_period(text: str):
         'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10, 'twelve': 12,
         'fifteen': 15, 'thirty': 30, 'forty-five': 45, 'forty': 40,
         'sixty': 60, 'ninety': 90, 'one hundred twenty': 120,
-        'one hundred eighty': 180, 'twenty four': 24,
+        'one hundred eighty': 180, 'twenty four': 24, 'twenty-five': 25, 'twenty five': 25, 'thirty-six': 36, 'thirty six': 36, 'forty-five': 45, 'forty five': 45,
     }
     m2 = re.search(r"([a-z][a-z -]+)\s*(business\s+days|calendar\s+days|day|days|month|months|year|years)", t)
     if m2:
@@ -672,3 +688,8 @@ def non_compete_match_score(pred_value: str, gold_value: str) -> float:
     if overlap >= 1:
         return 0.6
     return 0.0
+
+
+
+
+

@@ -84,7 +84,7 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Lost Profits | Exceptions: Willful Misconduct, Confidentiality Breach, IP Infringement",
-          "pred": "NOT FOUND",
+          "pred": "Yes | Exceptions: Mandatory Law, Personal Injury/Death",
           "score": 0.0
         },
         "Non-Compete": {
@@ -121,7 +121,7 @@
         },
         "Expiration Date": {
           "gold": "Event-Based Termination",
-          "pred": "NOT FOUND",
+          "pred": "January 13, 2005",
           "score": 0.0
         },
         "Governing Law": {
@@ -245,8 +245,8 @@
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
-          "pred": "Yes | Restricted Party: Company | Duration: during the term | Scope: Exclusivity, Non-Competition",
-          "score": 0.0
+          "pred": "NOT FOUND",
+          "score": 1.0
         },
         "Parties": {
           "gold": "Hanover Direct, Inc",
@@ -259,7 +259,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.7722222222222223
+      "overall_score": 0.8833333333333333
     },
     {
       "index": 5,
@@ -292,8 +292,8 @@
         },
         "Limitation Of Liability": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Exceptions: Willful Misconduct, Confidentiality Breach, IP Infringement, Indemnification",
+          "score": 0.0
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
@@ -311,7 +311,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 0.7777777777777778
     },
     {
       "index": 6,
@@ -376,8 +376,8 @@
         },
         "Effective Date": {
           "gold": "NOT FOUND",
-          "pred": "May 20, 1992",
-          "score": 0.0
+          "pred": "NOT FOUND",
+          "score": 1.0
         },
         "Expiration Date": {
           "gold": "10-Year (120 months) Initial Term",
@@ -415,7 +415,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 1.0
     },
     {
       "index": 8,
@@ -443,8 +443,8 @@
         },
         "Indemnification": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 0.0
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Indirect, Lost Profits | Exceptions: Confidentiality Breach, Indemnification",
@@ -467,7 +467,7 @@
           "score": 0.3
         }
       },
-      "overall_score": 0.5888888888888889
+      "overall_score": 0.47777777777777775
     },
     {
       "index": 9,
@@ -485,8 +485,8 @@
         },
         "Expiration Date": {
           "gold": "3-Year (36 months) Initial Term",
-          "pred": "3-Year (0 months) Initial Term",
-          "score": 0.0
+          "pred": "3-Year (36 months) Initial Term",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -519,7 +519,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.6166666666666667
+      "overall_score": 0.7277777777777777
     },
     {
       "index": 10,
@@ -703,8 +703,8 @@
         },
         "Indemnification": {
           "gold": "NOT FOUND",
-          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
-          "score": 0.0
+          "pred": "NOT FOUND",
+          "score": 1.0
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive | Exceptions: Confidentiality Breach, IP Infringement, Indemnification",
@@ -727,7 +727,7 @@
           "score": 0.0
         }
       },
-      "overall_score": 0.5
+      "overall_score": 0.6111111111111112
     },
     {
       "index": 14,
@@ -792,8 +792,8 @@
         },
         "Effective Date": {
           "gold": "January 06, 2016",
-          "pred": "January 06, 2016",
-          "score": 1.0
+          "pred": "NOT FOUND",
+          "score": 0.0
         },
         "Expiration Date": {
           "gold": "Until Terminated",
@@ -831,7 +831,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 0.7777777777777778
     },
     {
       "index": 16,
@@ -849,8 +849,8 @@
         },
         "Expiration Date": {
           "gold": "February 28, 2006",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "1-Year (12 months) Initial Term",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "not found",
@@ -883,7 +883,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.7777777777777778
+      "overall_score": 0.8888888888888888
     },
     {
       "index": 17,
@@ -901,8 +901,8 @@
         },
         "Expiration Date": {
           "gold": "10-Year (120 months) Initial Term",
-          "pred": "10-Year (120 months) Initial Term, Auto-Renewal",
-          "score": 1.0
+          "pred": "March 27, 2019",
+          "score": 0.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -916,7 +916,7 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect, Lost Profits | Exceptions: Willful Misconduct, Gross Negligence, Confidentiality Breach, IP Infringement",
-          "pred": "Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect, Special, Lost Profits, Goodwill | Exceptions: Willful Misconduct, Gross Negligence, Confidentiality Breach, IP Infringement | Remedy: Sole Obligation",
+          "pred": "Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect, Special, Lost Profits, Goodwill | Exceptions: Willful Misconduct, Gross Negligence, Confidentiality Breach, IP Infringement | Remedy: Sole Remedy, Exclusive Remedy, Sole Obligation",
           "score": 1.0
         },
         "Non-Compete": {
@@ -935,7 +935,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 0.7777777777777778
     },
     {
       "index": 18,
@@ -968,8 +968,8 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Exceptions: Confidentiality Breach",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "Yes | Exceptions: Gross Negligence, Confidentiality Breach, Indemnification",
+          "score": 1.0
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
@@ -987,7 +987,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.7777777777777778
+      "overall_score": 0.8888888888888888
     },
     {
       "index": 19,
@@ -1010,12 +1010,12 @@
         },
         "Governing Law": {
           "gold": "united kingdom",
-          "pred": "england and wales",
-          "score": 0.0
+          "pred": "united kingdom",
+          "score": 1.0
         },
         "Indemnification": {
           "gold": "Moral Rights Waiver (not indemnification)",
-          "pred": "Moral Rights Waiver (not indemnification)",
+          "pred": "NOT FOUND",
           "score": 1.0
         },
         "Limitation Of Liability": {
@@ -1025,7 +1025,7 @@
         },
         "Non-Compete": {
           "gold": "Yes | Scope: Non-Solicitation, No-Hire",
-          "pred": "Yes | Restricted Party: Customer | Duration: during the restricted period | Scope: Non-Competition, Territorial Restriction",
+          "pred": "Yes | Duration: during the restricted period | Scope: Non-Competition, Territorial Restriction",
           "score": 0.0
         },
         "Parties": {
@@ -1039,7 +1039,7 @@
           "score": 0.3
         }
       },
-      "overall_score": 0.5888888888888889
+      "overall_score": 0.7
     },
     {
       "index": 20,
@@ -1057,8 +1057,8 @@
         },
         "Expiration Date": {
           "gold": "3-Year (36 months) Initial Term",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "3-Year (36 months) Initial Term, Auto-Renewal",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -1067,8 +1067,8 @@
         },
         "Indemnification": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 0.0
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive | Exceptions: Confidentiality Breach, Indemnification",
@@ -1124,8 +1124,8 @@
         },
         "Limitation Of Liability": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Exceptions: Willful Misconduct, Gross Negligence",
+          "score": 0.0
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
@@ -1143,7 +1143,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 0.7777777777777778
     },
     {
       "index": 22,
@@ -1446,8 +1446,8 @@
         },
         "Parties": {
           "gold": "Bank of America, N.A | Counterparty Name Redacted",
-          "pred": "<<enter Company Name>> | Bank of America, N.A",
-          "score": 0.6
+          "pred": "NOT FOUND",
+          "score": 0.0
         },
         "Termination For Convenience": {
           "gold": "NOT FOUND",
@@ -1455,7 +1455,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.9555555555555555
+      "overall_score": 0.8888888888888888
     },
     {
       "index": 28,
@@ -1540,8 +1540,8 @@
         },
         "Limitation Of Liability": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Exceptions: Third Party Claims",
+          "score": 0.0
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
@@ -1550,8 +1550,8 @@
         },
         "Parties": {
           "gold": "Beijing SINA Internet Information Service Co., Ltd | Beijing Yisheng Leju Information Services Co., Ltd",
-          "pred": "Beijing SINA Internet Information Service Co., Ltd | Beijing Yisheng Leju Information Services Co., Ltd",
-          "score": 1.0
+          "pred": "Beijing SINA Internet Information Service Co., Ltd",
+          "score": 0.95
         },
         "Termination For Convenience": {
           "gold": "NOT FOUND",
@@ -1559,7 +1559,7 @@
           "score": 0.0
         }
       },
-      "overall_score": 0.5555555555555556
+      "overall_score": 0.4388888888888889
     },
     {
       "index": 30,
@@ -1748,8 +1748,8 @@
         },
         "Limitation Of Liability": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Exceptions: Gross Negligence",
+          "score": 0.0
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
@@ -1767,7 +1767,7 @@
           "score": 0.3
         }
       },
-      "overall_score": 0.8111111111111111
+      "overall_score": 0.7
     },
     {
       "index": 34,
@@ -1966,8 +1966,8 @@
         },
         "Parties": {
           "gold": "BANK OF SOUTH PACIFIC LIMITED | Bank of South Pacific Ltd | DATEC (PNG) LIMITED",
-          "pred": "b) work with BSP to establish and manage new and existing contractual relationships between BSP and MTP as needed to provide the Services | c) escalate MTP performance failures to MTP management as necessary to achieve timely resolution as per the SLA | d) monitor and Manage the MTP's efforts to remedy a failure",
-          "score": 0.0
+          "pred": "Bank of South Pacific Ltd | Datec PNG Ltd",
+          "score": 0.95
         },
         "Termination For Convenience": {
           "gold": "Yes | Notice: 6 months | Without Cause",
@@ -1975,7 +1975,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.3333333333333333
+      "overall_score": 0.4388888888888889
     },
     {
       "index": 38,
@@ -2003,8 +2003,8 @@
         },
         "Indemnification": {
           "gold": "Yes | Explicit indemnification / defense / hold harmless obligations",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 1.0
         },
         "Limitation Of Liability": {
           "gold": "NOT FOUND",
@@ -2027,7 +2027,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 1.0
     },
     {
       "index": 39,
@@ -2055,8 +2055,8 @@
         },
         "Indemnification": {
           "gold": "NOT FOUND",
-          "pred": "Trademark Non-Disparagement Clause (not indemnification)",
-          "score": 1.0
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 0.0
         },
         "Limitation Of Liability": {
           "gold": "NOT FOUND",
@@ -2079,7 +2079,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.7722222222222223
+      "overall_score": 0.6611111111111111
     },
     {
       "index": 40,
@@ -2206,7 +2206,7 @@
         },
         "Governing Law": {
           "gold": "canada",
-          "pred": "england",
+          "pred": "united kingdom",
           "score": 0.0
         },
         "Indemnification": {
@@ -2273,8 +2273,8 @@
         },
         "Non-Compete": {
           "gold": "Yes | Duration: During The Term | Scope: Non-Competition (no endorsement of competing products)",
-          "pred": "Yes | Restricted Party: Talent | Duration: during the term | Scope: Non-Endorsement",
-          "score": 0.6
+          "pred": "Yes | Restricted Party: Talent | Duration: during the term | Scope: Non-Competition, Competitive Products Restriction, Non-Endorsement",
+          "score": 1.0
         },
         "Parties": {
           "gold": "Eco Science Solutions, Inc | Stephen Marley",
@@ -2287,7 +2287,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.6222222222222222
+      "overall_score": 0.6666666666666666
     },
     {
       "index": 44,
@@ -2357,7 +2357,7 @@
         },
         "Expiration Date": {
           "gold": "September 02, 2019",
-          "pred": "NOT FOUND",
+          "pred": "2-Year (24 months) Initial Term",
           "score": 0.0
         },
         "Governing Law": {
@@ -2367,8 +2367,8 @@
         },
         "Indemnification": {
           "gold": "NOT FOUND",
-          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
-          "score": 0.0
+          "pred": "NOT FOUND",
+          "score": 1.0
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Exemplary, Indirect | Remedy: Direct Damages Only",
@@ -2391,7 +2391,7 @@
           "score": 0.3
         }
       },
-      "overall_score": 0.36666666666666664
+      "overall_score": 0.47777777777777775
     },
     {
       "index": 46,
@@ -2409,8 +2409,8 @@
         },
         "Expiration Date": {
           "gold": "Co-terminous with Related Agreement",
-          "pred": "Co-terminous with Related Agreement",
-          "score": 1.0
+          "pred": "Until Terminated",
+          "score": 0.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -2434,8 +2434,8 @@
         },
         "Parties": {
           "gold": "FEDERATED ADVISORY SERVICES COMPANY | FEDERATED INVESTMENT MANAGEMENT COMPANY",
-          "pred": "FEDERATED ADVISORY SERVICES COMPANY | FEDERATED INVESTMENT MANAGEMENT COMPANY",
-          "score": 1.0
+          "pred": "FEDERATED INVESTMENT MANAGEMENT COMPANY",
+          "score": 0.95
         },
         "Termination For Convenience": {
           "gold": "NOT FOUND",
@@ -2443,7 +2443,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 0.7722222222222223
     },
     {
       "index": 47,
@@ -2486,8 +2486,8 @@
         },
         "Parties": {
           "gold": "FEDERATED ADVISORY SERVICES COMPANY | FEDERATED INVESTMENT MANAGEMENT COMPANY",
-          "pred": "FEDERATED ADVISORY SERVICES COMPANY | FEDERATED INVESTMENT MANAGEMENT COMPANY",
-          "score": 1.0
+          "pred": "FEDERATED INVESTMENT MANAGEMENT COMPANY",
+          "score": 0.95
         },
         "Termination For Convenience": {
           "gold": "NOT FOUND",
@@ -2495,7 +2495,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 1.0
+      "overall_score": 0.9944444444444444
     },
     {
       "index": 48,
@@ -2840,8 +2840,8 @@
         },
         "Limitation Of Liability": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Exceptions: Indemnification",
+          "score": 0.0
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
@@ -2859,7 +2859,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 0.7777777777777778
     },
     {
       "index": 55,
@@ -2929,8 +2929,8 @@
         },
         "Expiration Date": {
           "gold": "1-Year (12 months) Initial Term",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "12-Month Initial Term",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -2963,7 +2963,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 1.0
     },
     {
       "index": 57,
@@ -2981,8 +2981,8 @@
         },
         "Expiration Date": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "3-Year (36 months) Initial Term",
+          "score": 0.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -3015,7 +3015,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8833333333333333
+      "overall_score": 0.7722222222222223
     },
     {
       "index": 58,
@@ -3152,7 +3152,7 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Exceptions: Willful Misconduct",
-          "pred": "NOT FOUND",
+          "pred": "Yes | Exceptions: Indemnification, Personal Injury/Death",
           "score": 0.0
         },
         "Non-Compete": {
@@ -3256,7 +3256,7 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Indirect, Lost Profits",
-          "pred": "Yes | Excludes: Consequential, Incidental, Punitive, Indirect, Special, Lost Profits, Lost Revenue, Goodwill",
+          "pred": "Yes | Excludes: Consequential, Incidental, Punitive, Indirect, Special, Lost Profits, Lost Revenue, Goodwill | Exceptions: Indemnification",
           "score": 1.0
         },
         "Non-Compete": {
@@ -3345,7 +3345,7 @@
         },
         "Expiration Date": {
           "gold": "Perpetual",
-          "pred": "15-Day Initial Term",
+          "pred": "12-Month Initial Term",
           "score": 0.0
         },
         "Governing Law": {
@@ -3449,8 +3449,8 @@
         },
         "Expiration Date": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Until Terminated",
+          "score": 0.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -3483,7 +3483,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.9333333333333333
+      "overall_score": 0.8222222222222223
     },
     {
       "index": 67,
@@ -3501,8 +3501,8 @@
         },
         "Expiration Date": {
           "gold": "5-Year (60 months) Initial Term",
-          "pred": "5-Year (5 months) Initial Term",
-          "score": 0.0
+          "pred": "5-Year (60 months) Initial Term",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "australia",
@@ -3535,7 +3535,7 @@
           "score": 0.3
         }
       },
-      "overall_score": 0.47777777777777775
+      "overall_score": 0.5888888888888889
     },
     {
       "index": 68,
@@ -3605,7 +3605,7 @@
         },
         "Expiration Date": {
           "gold": "15-Month Initial Term",
-          "pred": "NOT FOUND",
+          "pred": "3-Year (36 months) Initial Term",
           "score": 0.0
         },
         "Governing Law": {
@@ -3615,8 +3615,8 @@
         },
         "Indemnification": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 0.0
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Exemplary, Indirect | Exceptions: Fraud, Indemnification | Remedy: Direct Damages Only",
@@ -3639,7 +3639,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 0.7777777777777778
     },
     {
       "index": 70,
@@ -3672,7 +3672,7 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive",
-          "pred": "Yes | Excludes: Consequential, Incidental, Punitive, Special | Exceptions: IP Infringement",
+          "pred": "Yes | Excludes: Consequential, Incidental, Punitive, Indirect, Special | Exceptions: IP Infringement",
           "score": 1.0
         },
         "Non-Compete": {
@@ -3756,13 +3756,13 @@
         },
         "Effective Date": {
           "gold": "February 08, 2007",
-          "pred": "February 08, 2007",
-          "score": 1.0
+          "pred": "NOT FOUND",
+          "score": 0.0
         },
         "Expiration Date": {
           "gold": "5-Year (60 months) Initial Term",
-          "pred": "5-Year (5 months) Initial Term",
-          "score": 0.0
+          "pred": "5-Year (60 months) Initial Term",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "china",
@@ -3833,8 +3833,8 @@
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
-          "pred": "Yes | Restricted Party: Consultant | Duration: during the term | Scope: Non-Competition",
-          "score": 0.0
+          "pred": "NOT FOUND",
+          "score": 1.0
         },
         "Parties": {
           "gold": "Gianluca Rotino | Kiromic, Inc",
@@ -3847,7 +3847,7 @@
           "score": 0.0
         }
       },
-      "overall_score": 0.5555555555555556
+      "overall_score": 0.6666666666666666
     },
     {
       "index": 74,
@@ -3932,8 +3932,8 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect, Lost Profits",
-          "pred": "Yes | Excludes: Indirect | Exceptions: Willful Misconduct, Fraud",
-          "score": 0.5
+          "pred": "Yes | Excludes: Exemplary, Indirect, Lost Profits | Exceptions: Willful Misconduct, Fraud",
+          "score": 0.85
         },
         "Non-Compete": {
           "gold": "Yes | Scope: Exclusivity",
@@ -3951,7 +3951,7 @@
           "score": 0.0
         }
       },
-      "overall_score": 0.7222222222222222
+      "overall_score": 0.7611111111111111
     },
     {
       "index": 76,
@@ -4041,7 +4041,7 @@
         },
         "Non-Compete": {
           "gold": "Yes | Duration: during the term | Scope: Exclusivity",
-          "pred": "Yes | Restricted Party: Party A | Duration: during the term | Scope: Non-Endorsement, Non-Solicitation",
+          "pred": "Yes | Restricted Party: Customer | Duration: during the term | Scope: Non-Competition, Non-Solicitation",
           "score": 0.0
         },
         "Parties": {
@@ -4073,8 +4073,8 @@
         },
         "Expiration Date": {
           "gold": "Until Completion of Program/Milestones",
-          "pred": "Perpetual",
-          "score": 0.0
+          "pred": "Until Completion of Program/Milestones",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "not found",
@@ -4107,7 +4107,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.3333333333333333
+      "overall_score": 0.4444444444444444
     },
     {
       "index": 79,
@@ -4291,8 +4291,8 @@
         },
         "Indemnification": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 0.0
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect | Exceptions: Gross Negligence, Indemnification | Remedy: Direct Damages Only",
@@ -4315,7 +4315,7 @@
           "score": 0.4
         }
       },
-      "overall_score": 0.7111111111111111
+      "overall_score": 0.6000000000000001
     },
     {
       "index": 83,
@@ -4348,8 +4348,8 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Indirect | Exceptions: Willful Misconduct, Gross Negligence, IP Infringement, Indemnification | Remedy: Direct Damages Only",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "Yes | Exceptions: Willful Misconduct, Gross Negligence, Confidentiality Breach",
+          "score": 0.5
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
@@ -4367,7 +4367,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.7777777777777778
+      "overall_score": 0.8333333333333334
     },
     {
       "index": 84,
@@ -4400,7 +4400,7 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes",
-          "pred": "NOT FOUND",
+          "pred": "Yes | Exceptions: Indemnification",
           "score": 0.0
         },
         "Non-Compete": {
@@ -4428,7 +4428,7 @@
         "Agreement Date": {
           "gold": "NOT FOUND (2019, day/month redacted",
           "pred": "NOT FOUND",
-          "score": 0.0
+          "score": 1.0
         },
         "Effective Date": {
           "gold": "NOT FOUND",
@@ -4471,7 +4471,7 @@
           "score": 0.4
         }
       },
-      "overall_score": 0.6000000000000001
+      "overall_score": 0.7111111111111111
     },
     {
       "index": 86,
@@ -4489,8 +4489,8 @@
         },
         "Expiration Date": {
           "gold": "5-Year (60 months) Initial Term, Auto-Renewal",
-          "pred": "5-Year (60 months) Initial Term, Auto-Renewal",
-          "score": 1.0
+          "pred": "3-Year (36 months) Initial Term, Auto-Renewal",
+          "score": 0.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -4523,7 +4523,7 @@
           "score": 0.3
         }
       },
-      "overall_score": 0.9166666666666666
+      "overall_score": 0.8055555555555556
     },
     {
       "index": 87,
@@ -4910,8 +4910,8 @@
         },
         "Governing Law": {
           "gold": "united kingdom",
-          "pred": "england and wales",
-          "score": 0.0
+          "pred": "united kingdom",
+          "score": 1.0
         },
         "Indemnification": {
           "gold": "NOT FOUND",
@@ -4920,8 +4920,8 @@
         },
         "Limitation Of Liability": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Exceptions: Willful Misconduct, Indemnification",
+          "score": 0.0
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
@@ -5061,7 +5061,7 @@
         },
         "Expiration Date": {
           "gold": "March 28, 2020",
-          "pred": "NOT FOUND",
+          "pred": "Until Completion of Program/Milestones",
           "score": 0.0
         },
         "Governing Law": {
@@ -5086,8 +5086,8 @@
         },
         "Parties": {
           "gold": "Mobimagic Co., Ltd | PC Financial Services Private Limited",
-          "pred": "Mobimagic Co., Ltd | PC Financial Services Private Limited",
-          "score": 1.0
+          "pred": "Mobimagic Co., Ltd",
+          "score": 0.95
         },
         "Termination For Convenience": {
           "gold": "NOT FOUND",
@@ -5095,7 +5095,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.3333333333333333
+      "overall_score": 0.3277777777777778
     },
     {
       "index": 98,
@@ -5284,8 +5284,8 @@
         },
         "Limitation Of Liability": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Exceptions: Confidentiality Breach, IP Infringement, Indemnification",
+          "score": 0.0
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
@@ -5303,7 +5303,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.6666666666666666
+      "overall_score": 0.5555555555555556
     },
     {
       "index": 102,
@@ -5341,8 +5341,8 @@
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
-          "pred": "Yes | Restricted Party: Licensee | Scope: Non-Competition",
-          "score": 0.0
+          "pred": "NOT FOUND",
+          "score": 1.0
         },
         "Parties": {
           "gold": "Palmer Square Capital BDC Inc | Palmer Square Capital Management LLC",
@@ -5355,7 +5355,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.7777777777777778
+      "overall_score": 0.8888888888888888
     },
     {
       "index": 103,
@@ -5373,8 +5373,8 @@
         },
         "Expiration Date": {
           "gold": "March 15, 2022",
-          "pred": "Perpetual",
-          "score": 0.0
+          "pred": "March 15, 2022",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -5407,7 +5407,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.6666666666666666
+      "overall_score": 0.7777777777777778
     },
     {
       "index": 104,
@@ -5653,7 +5653,7 @@
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
-          "pred": "Yes | Restricted Party: Franchisee | Duration: during the term | Scope: Non-Competition, Competitive Products Restriction, Non-Solicitation",
+          "pred": "Yes | Restricted Party: Member | Duration: within 3-mile | Scope: Non-Competition",
           "score": 0.0
         },
         "Parties": {
@@ -5705,7 +5705,7 @@
         },
         "Non-Compete": {
           "gold": "Yes | Restricted Party: Distributor | Duration: during the term of this agreement | Scope: Competitive Products Restriction",
-          "pred": "Yes | Restricted Party: Distributor | Duration: during the term | Scope: Non-Competition",
+          "pred": "Yes | Restricted Party: Distributor | Duration: during the term | Scope: Non-Competition, Competitive Products Restriction",
           "score": 1.0
         },
         "Parties": {
@@ -5762,8 +5762,8 @@
         },
         "Parties": {
           "gold": "ABC Company | Principal Life Insurance Company | Princor Financial Services Corporation",
-          "pred": "Broker Dealer | Principal Life Insurance Company | Princor Financial Services Corporation",
-          "score": 0.8
+          "pred": "Principal Life Insurance Company",
+          "score": 0.4
         },
         "Termination For Convenience": {
           "gold": "NOT FOUND",
@@ -5771,7 +5771,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.6444444444444444
+      "overall_score": 0.6000000000000001
     },
     {
       "index": 111,
@@ -5841,8 +5841,8 @@
         },
         "Expiration Date": {
           "gold": "October 28, 2008",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "October 31, 2008",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -5875,7 +5875,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.4388888888888889
+      "overall_score": 0.55
     },
     {
       "index": 113,
@@ -5997,7 +5997,7 @@
         },
         "Expiration Date": {
           "gold": "Co-terminous with Related Agreement",
-          "pred": "Event-Based Termination",
+          "pred": "November 15, 2019",
           "score": 0.0
         },
         "Governing Law": {
@@ -6012,8 +6012,8 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect | Exceptions: IP Infringement, Indemnification | Remedy: Direct Damages Only",
-          "pred": "Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect | Remedy: Direct Damages Only",
-          "score": 1.0
+          "pred": "NOT FOUND",
+          "score": 0.0
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
@@ -6022,8 +6022,8 @@
         },
         "Parties": {
           "gold": "PACTIV LLC | REYNOLDS CONSUMER PRODUCTS LLC",
-          "pred": "ii) Confidential Information (as defined in Section 10 of this Agreement) disclosed or received by a Party during the Term | iii) breach of this Agreement by a Party | iv) any other statement, decision, act or omission of a Party concerning or related to this Agreement | v) any Dispute (as defined in Section 11 of this Agreement) between the Parties concerning or related to this Agreement",
-          "score": 0.0
+          "pred": "PACTIV LLC | REYNOLDS CONSUMER PRODUCTS LLC",
+          "score": 1.0
         },
         "Termination For Convenience": {
           "gold": "NOT FOUND",
@@ -6101,8 +6101,8 @@
         },
         "Expiration Date": {
           "gold": "1-Year (12 months) Initial Term",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "1-Year (12 months) Initial Term, Auto-Renewal",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "not found",
@@ -6135,7 +6135,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.7722222222222223
+      "overall_score": 0.8833333333333333
     },
     {
       "index": 118,
@@ -6168,8 +6168,8 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Punitive, Indirect, Lost Profits, Loss of Data | Exceptions: Confidentiality Breach",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "Yes | Exceptions: Confidentiality Breach",
+          "score": 0.5
         },
         "Non-Compete": {
           "gold": "Yes",
@@ -6187,7 +6187,7 @@
           "score": 0.3
         }
       },
-      "overall_score": 0.5888888888888889
+      "overall_score": 0.6444444444444444
     },
     {
       "index": 119,
@@ -6569,8 +6569,8 @@
         },
         "Expiration Date": {
           "gold": "2-Year (24 months) Initial Term",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "2-Year (24 months) Initial Term",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -6603,7 +6603,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.41111111111111115
+      "overall_score": 0.5222222222222223
     },
     {
       "index": 127,
@@ -6740,7 +6740,7 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Lost Profits",
-          "pred": "Yes | Excludes: Loss of Data",
+          "pred": "Yes | Excludes: Special, Loss of Data",
           "score": 0.0
         },
         "Non-Compete": {
@@ -6985,8 +6985,8 @@
         },
         "Expiration Date": {
           "gold": "4-Year (48 months) Initial Term",
-          "pred": "4-Year (48 months) Initial Term",
-          "score": 1.0
+          "pred": "Until Terminated",
+          "score": 0.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -7000,8 +7000,8 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect, Special, Lost Profits | Exceptions: Willful Misconduct, Gross Negligence, Fraud, Confidentiality Breach, IP Infringement, Indemnification",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "Yes | Exceptions: Confidentiality Breach",
+          "score": 0.5
         },
         "Non-Compete": {
           "gold": "Yes | Scope: Exclusivity, Non-Solicitation, No-Hire",
@@ -7019,7 +7019,7 @@
           "score": 0.0
         }
       },
-      "overall_score": 0.6222222222222222
+      "overall_score": 0.5666666666666667
     },
     {
       "index": 135,
@@ -7511,7 +7511,7 @@
         "Governing Law": {
           "gold": "united kingdom",
           "pred": "england",
-          "score": 0.0
+          "score": 1.0
         },
         "Indemnification": {
           "gold": "NOT FOUND",
@@ -7520,7 +7520,7 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Indirect, Lost Profits | Exceptions: Fraud, IP Infringement, Personal Injury, Personal Injury/Death",
-          "pred": "NOT FOUND",
+          "pred": "Yes | Exceptions: Confidentiality Breach, Indemnification",
           "score": 0.0
         },
         "Non-Compete": {
@@ -7539,7 +7539,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.4444444444444444
+      "overall_score": 0.5555555555555556
     },
     {
       "index": 145,
@@ -7557,7 +7557,7 @@
         },
         "Expiration Date": {
           "gold": "1-Year (12 months) Initial Term",
-          "pred": "Perpetual",
+          "pred": "NOT FOUND",
           "score": 0.0
         },
         "Governing Law": {
@@ -7614,12 +7614,12 @@
         },
         "Governing Law": {
           "gold": "united kingdom",
-          "pred": "england and wales",
-          "score": 0.0
+          "pred": "united kingdom",
+          "score": 1.0
         },
         "Indemnification": {
           "gold": "NOT FOUND",
-          "pred": "Moral Rights Waiver (not indemnification)",
+          "pred": "NOT FOUND",
           "score": 1.0
         },
         "Limitation Of Liability": {
@@ -7643,7 +7643,7 @@
           "score": 0.3
         }
       },
-      "overall_score": 0.47777777777777775
+      "overall_score": 0.5888888888888889
     },
     {
       "index": 147,
@@ -7780,7 +7780,7 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Special, Cover Damages",
-          "pred": "Yes | Remedy: Sole Remedy, Exclusive Remedy",
+          "pred": "NOT FOUND",
           "score": 0.0
         },
         "Non-Compete": {
@@ -7803,28 +7803,28 @@
     }
   ],
   "field_accuracies": {
-    "Agreement Date": 0.8066666666666666,
-    "Effective Date": 0.6933333333333334,
-    "Expiration Date": 0.4866666666666667,
-    "Governing Law": 0.8466666666666667,
-    "Indemnification": 0.6466666666666666,
-    "Limitation Of Liability": 0.691,
-    "Non-Compete": 0.7,
-    "Parties": 0.9486666666666669,
+    "Agreement Date": 0.8133333333333334,
+    "Effective Date": 0.6866666666666666,
+    "Expiration Date": 0.52,
+    "Governing Law": 0.8733333333333333,
+    "Indemnification": 0.6333333333333333,
+    "Limitation Of Liability": 0.6566666666666666,
+    "Non-Compete": 0.7226666666666666,
+    "Parties": 0.9536666666666669,
     "Termination For Convenience": 0.8126666666666665
   },
-  "overall_accuracy": 0.7369259259259253,
+  "overall_accuracy": 0.7413703703703699,
   "total_samples": 150,
   "metadata": {
     "per_field_accuracy": {
-      "Agreement Date": 0.8066666666666666,
-      "Effective Date": 0.6933333333333334,
-      "Expiration Date": 0.4866666666666667,
-      "Governing Law": 0.8466666666666667,
-      "Indemnification": 0.6466666666666666,
-      "Limitation Of Liability": 0.691,
-      "Non-Compete": 0.7,
-      "Parties": 0.9486666666666669,
+      "Agreement Date": 0.8133333333333334,
+      "Effective Date": 0.6866666666666666,
+      "Expiration Date": 0.52,
+      "Governing Law": 0.8733333333333333,
+      "Indemnification": 0.6333333333333333,
+      "Limitation Of Liability": 0.6566666666666666,
+      "Non-Compete": 0.7226666666666666,
+      "Parties": 0.9536666666666669,
       "Termination For Convenience": 0.8126666666666665
     },
     "llm_eval_used": false

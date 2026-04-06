@@ -1,5 +1,12 @@
 {
-  "improvements": [],
+  "improvements": [
+    {
+      "sample_id": 27,
+      "baseline_score": 0.9555555555555555,
+      "optimized_score": 1.0,
+      "difference": 0.04444444444444451
+    }
+  ],
   "degradations": [],
   "unchanged": [
     {
@@ -22,14 +29,14 @@
     },
     {
       "sample_id": 4,
-      "baseline_score": 0.6222222222222222,
-      "optimized_score": 0.6222222222222222,
+      "baseline_score": 0.5666666666666667,
+      "optimized_score": 0.5666666666666667,
       "difference": 0.0
     },
     {
       "sample_id": 5,
-      "baseline_score": 0.7222222222222222,
-      "optimized_score": 0.7222222222222222,
+      "baseline_score": 0.7611111111111111,
+      "optimized_score": 0.7611111111111111,
       "difference": 0.0
     },
     {
@@ -46,8 +53,8 @@
     },
     {
       "sample_id": 8,
-      "baseline_score": 0.7722222222222223,
-      "optimized_score": 0.7722222222222223,
+      "baseline_score": 0.6611111111111111,
+      "optimized_score": 0.6611111111111111,
       "difference": 0.0
     },
     {
@@ -58,8 +65,8 @@
     },
     {
       "sample_id": 10,
-      "baseline_score": 0.8888888888888888,
-      "optimized_score": 0.8888888888888888,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
       "difference": 0.0
     },
     {
@@ -70,8 +77,8 @@
     },
     {
       "sample_id": 12,
-      "baseline_score": 0.6000000000000001,
-      "optimized_score": 0.6000000000000001,
+      "baseline_score": 0.7111111111111111,
+      "optimized_score": 0.7111111111111111,
       "difference": 0.0
     },
     {
@@ -97,62 +104,140 @@
       "baseline_score": 0.7,
       "optimized_score": 0.7,
       "difference": 0.0
+    },
+    {
+      "sample_id": 17,
+      "baseline_score": 0.8888888888888888,
+      "optimized_score": 0.8888888888888888,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 18,
+      "baseline_score": 0.8888888888888888,
+      "optimized_score": 0.8888888888888888,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 19,
+      "baseline_score": 0.8333333333333334,
+      "optimized_score": 0.8333333333333334,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 20,
+      "baseline_score": 0.7777777777777778,
+      "optimized_score": 0.7777777777777778,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 21,
+      "baseline_score": 0.8888888888888888,
+      "optimized_score": 0.8888888888888888,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 22,
+      "baseline_score": 0.8888888888888888,
+      "optimized_score": 0.8888888888888888,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 23,
+      "baseline_score": 0.8888888888888888,
+      "optimized_score": 0.8888888888888888,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 24,
+      "baseline_score": 0.8111111111111111,
+      "optimized_score": 0.8111111111111111,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 25,
+      "baseline_score": 0.47777777777777775,
+      "optimized_score": 0.47777777777777775,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 26,
+      "baseline_score": 0.8888888888888888,
+      "optimized_score": 0.8888888888888888,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 28,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 29,
+      "baseline_score": 0.9833333333333333,
+      "optimized_score": 0.9833333333333333,
+      "difference": 0.0
+    },
+    {
+      "sample_id": 30,
+      "baseline_score": 1.0,
+      "optimized_score": 1.0,
+      "difference": 0.0
     }
   ],
   "field_comparison": {
     "Agreement Date": {
-      "baseline": 0.8125,
-      "optimized": 0.8125,
+      "baseline": 0.8333333333333334,
+      "optimized": 0.8333333333333334,
       "improvement": 0.0
     },
     "Effective Date": {
-      "baseline": 0.75,
-      "optimized": 0.75,
+      "baseline": 0.8,
+      "optimized": 0.8,
       "improvement": 0.0
     },
     "Expiration Date": {
-      "baseline": 0.625,
-      "optimized": 0.625,
+      "baseline": 0.6,
+      "optimized": 0.6,
       "improvement": 0.0
     },
     "Governing Law": {
-      "baseline": 0.875,
-      "optimized": 0.875,
+      "baseline": 0.9,
+      "optimized": 0.9,
       "improvement": 0.0
     },
     "Indemnification": {
-      "baseline": 0.9375,
-      "optimized": 0.9375,
+      "baseline": 0.9666666666666667,
+      "optimized": 0.9666666666666667,
       "improvement": 0.0
     },
     "Limitation Of Liability": {
-      "baseline": 0.690625,
-      "optimized": 0.690625,
+      "baseline": 0.775,
+      "optimized": 0.775,
       "improvement": 0.0
     },
     "Non-Compete": {
-      "baseline": 0.85,
-      "optimized": 0.85,
-      "improvement": 0.0
+      "baseline": 0.8733333333333334,
+      "optimized": 0.8866666666666667,
+      "improvement": 0.013333333333333308
     },
     "Parties": {
-      "baseline": 0.93125,
-      "optimized": 0.93125,
+      "baseline": 0.9633333333333333,
+      "optimized": 0.9633333333333333,
       "improvement": 0.0
     },
     "Termination For Convenience": {
-      "baseline": 0.6625000000000001,
-      "optimized": 0.6625000000000001,
+      "baseline": 0.7733333333333334,
+      "optimized": 0.7733333333333334,
       "improvement": 0.0
     }
   },
   "summary": {
-    "total_samples": 16,
-    "total_improvements": 0,
+    "total_samples": 30,
+    "total_improvements": 1,
     "total_degradations": 0,
-    "total_unchanged": 16,
-    "overall_improvement": 0.0,
-    "baseline_accuracy": 0.7927083333333333,
-    "optimized_accuracy": 0.7927083333333333
+    "total_unchanged": 29,
+    "overall_improvement": 0.001481481481481417,
+    "baseline_accuracy": 0.8316666666666668,
+    "optimized_accuracy": 0.8331481481481482
   }
 }

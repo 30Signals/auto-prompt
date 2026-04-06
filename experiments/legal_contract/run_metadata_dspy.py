@@ -325,6 +325,11 @@ _EXPIRATION_FOCUS_PATTERNS = [
     r"earliest to occur",
     r"if any public authority cancels",
     r"terminate automatically one year after",
+    r"unless sooner terminated",
+    r"for a period of",
+    r"for a term of",
+    r"term ending on",
+    r"shall end on",
 ]
 
 _WEAK_FIELD_CONTEXT_CONFIG = {
@@ -518,7 +523,9 @@ def _looks_like_expiration_term_text(low: str) -> bool:
         'annual renewal', 'automatically renew', 'auto-renew', 'notice of non-renewal', 'expire on', 'expires on',
         'shall expire on', 'terminate on', 'shall terminate on', 'royalty term', 'service period', 'duration of the lease',
         'until completion of', 'last addendum to expire', 'for the term of', 'continue indefinitely',
-        'until the expiration or earlier termination of', 'continue until the termination of'
+        'until the expiration or earlier termination of', 'continue until the termination of', 'term ending on',
+        'term ending', 'ending on', 'shall end on', 'end on', 'for a period of', 'for a term of',
+        'unless sooner terminated'
     ]
     return any(marker in low for marker in strong_markers)
 
@@ -540,16 +547,23 @@ def _normalize_expiration_prediction(value: str, agreement_date: str = "NOT FOUN
     if not _looks_like_expiration_term_text(low) and not any(k in low for k in ["earlier of", "earliest of", "termination election"]):
         return "NOT FOUND"
 
-    if "co-termin" in low or "cotermin" in low:
+    if ("co-termin" in low or "cotermin" in low) and "until terminated" not in low and "unless sooner terminated" not in low:
         return "Co-terminous with Related Agreement"
-    if "until terminated" in low:
+    if "until terminated" in low or "unless sooner terminated" in low:
         return "Until Terminated"
     if 'annual meeting' in low and not any(k in low for k in ['initial term', 'term of this agreement', 'term of the agreement', 'shall continue for', 'shall have a term of']):
         return "NOT FOUND"
     if 'expiry of the cooperation period' in low or 'expiration of the cooperation period' in low:
         return "NOT FOUND"
-    if any(k in low for k in ["earlier of", "earliest of", "termination election", "earlier of the occurrence", "earliest to occur", "successful remarketing"]):
+    if any(k in low for k in ["earlier of", "earliest of", "termination election", "earlier of the occurrence", "earliest to occur", "successful remarketing", "upon the earlier of", "upon the later of", "shall expire if", "automatically terminate in the event of", "upon the occurrence of", "termination event"]):
         return "Event-Based Termination"
+
+    if any(k in low for k in [
+        "until completion of", "upon completion of", "upon the completion of", "completion of the services",
+        "completion of the program", "completion of the development program", "completion of the work",
+        "completion of performance", "until the project is completed"
+    ]):
+        return "Until Completion of Program/Milestones"
 
     if 'notice' in low and not any(k in low for k in ['initial term', 'term of this agreement', 'term of the agreement', 'shall have a term of', 'shall continue for', 'shall be valid for', 'remain in effect for']):
         return "NOT FOUND"
@@ -563,8 +577,9 @@ def _normalize_expiration_prediction(value: str, agreement_date: str = "NOT FOUN
     explicit_end_markers = any(k in low for k in [
         "terminate on", "shall terminate on", "shall expire on", "expires on", "effective through",
         "through and including", "ending on", "end date", "scheduled expiration date", "continue until",
-        "expiration date", "term shall end", "shall end on", "continue for a period", "initial term",
-        "renewal term", "commence on", "commencing on"
+        "expiration date", "term shall end", "shall end on", "end on", "term ending on", "term ending",
+        "continue for a period", "initial term", "renewal term", "upon completion of", "completion of the services",
+        "completion of the program", "completion of the development program"
     ])
 
     year_count = int(years.group(1)) if years else None
@@ -572,7 +587,7 @@ def _normalize_expiration_prediction(value: str, agreement_date: str = "NOT FOUN
     day_count = int(days.group(1)) if days else None
     if year_count is None and month_count and month_count % 12 == 0:
         year_count = month_count // 12
-    if month_count is None and year_count is not None:
+    if year_count is not None and (month_count is None or month_count != year_count * 12):
         month_count = year_count * 12
 
     if year_count is not None:
@@ -588,7 +603,16 @@ def _normalize_expiration_prediction(value: str, agreement_date: str = "NOT FOUN
         return f"{day_count}-Day Initial Term"
 
     if parsed_date and explicit_end_markers:
+        date_candidates = extract_dates(raw)
+        if date_candidates:
+            non_start_dates = [d for d in date_candidates if d not in {agreement_date, effective_date}]
+            chosen = non_start_dates[-1] if non_start_dates else date_candidates[-1]
+            if chosen not in {agreement_date, effective_date} or len(date_candidates) == 1:
+                return chosen
         return parsed_date.strftime("%B %d, %Y")
+
+    if parsed_date and any(k in low for k in ["commence on", "commencing on", "effective as of", "effective on"]) and not explicit_end_markers:
+        return "NOT FOUND"
 
     return "NOT FOUND"
 
@@ -598,6 +622,8 @@ def _normalize_date_prediction(value: str) -> str:
     if not raw:
         return "NOT FOUND"
     low = " ".join(raw.lower().split())
+    if low.startswith("not found"):
+        return "NOT FOUND"
     if any(k in low for k in ["not specified", "tbd", "to be determined", "unknown"]):
         return "NOT FOUND"
     if len(raw) < 6 and not re.search(r'\d{4}', raw):
@@ -617,9 +643,11 @@ def _normalize_date_prediction(value: str) -> str:
         parsed = _parse_date_like(raw)
         return parsed.strftime("%B %d, %Y") if parsed else "NOT FOUND"
     if normalized == raw:
-        if re.search(r'\b(?:inc\.?|corp\.?|corporation|llc|ltd\.?|limited|company|agreement|affiliate|vendor|licensee|licensor)\b', low):
+        if re.search(r'\b(?:inc\.?|corp\.?|corporation|llc|ltd\.?|limited|company|agreement|affiliate|vendor|licensee|licensor|pte|gmbh|plc)\b', low):
             return "NOT FOUND"
         if re.fullmatch(r'\d{4}[^\n]*[A-Za-z][^\n]*', raw):
+            return "NOT FOUND"
+        if re.match(r'^\d{4}\b', raw) and re.search(r'\b(?:and|llc|inc\.?|ltd\.?|limited|corporation|company)\b', low):
             return "NOT FOUND"
     if not re.search(r'\d{4}|__|\d{1,2}[/-]\d{1,2}[/-]\d{2,4}', normalized):
         return "NOT FOUND"
@@ -629,6 +657,11 @@ def _normalize_date_prediction(value: str) -> str:
 def _normalize_parties_prediction(value: str) -> str:
     raw = str(value or "").strip()
     if not raw:
+        return "NOT FOUND"
+    low = " ".join(raw.lower().split())
+    if '<<' in raw or '>>' in raw or 'enter company name' in low or 'name not specified' in low:
+        return "NOT FOUND"
+    if len(raw) > 220 and any(marker in low for marker in [" shall ", " agrees ", " monitor ", " manage ", " services ", " obligations ", " section ", " written notice ", " failure ", " remedy "]):
         return "NOT FOUND"
     normalized = clean_parties(raw)
     return normalized if normalized else "NOT FOUND"
@@ -663,7 +696,6 @@ def _extract_effective_date_from_contract(contract_text: str) -> str:
         r"effective this\s+([^.;\n]{5,80})",
         r"made effective this\s+([^.;\n]{5,80})",
         r"executed as of\s+([^.;\n]{5,80})",
-        r"entered into(?: in [^.;\n]{0,40})? on\s+([^.;\n]{5,80})",
         r"entered into as of\s+([^.;\n]{5,80})",
         r"present agreement is effective as from\s+([^.;\n]{5,80})",
         r"commence on\s+([^.;\n]{5,80})",
@@ -689,7 +721,7 @@ def _extract_effective_date_from_contract(contract_text: str) -> str:
             if len(date_candidates) >= 2:
                 return date_candidates[-1]
         if agreement_date := _extract_agreement_date_from_contract(source):
-            if agreement_date != "NOT FOUND" and any(k in low_source for k in ["date of this agreement", "on the date of this agreement", "date hereof", "made and entered into this", "entered into this", "entered into on", "executed as of", "made as of", "effective on the later of the dates that it is executed", "later of the dates that it is executed"]):
+            if agreement_date != "NOT FOUND" and any(k in low_source for k in ["date of this agreement", "on the date of this agreement", "date hereof", "made and entered into this", "entered into this", "executed as of", "made as of", "effective on the later of the dates that it is executed", "later of the dates that it is executed"]):
                 return agreement_date
     return "NOT FOUND"
 
@@ -699,9 +731,9 @@ def _extract_limitation_from_contract(contract_text: str) -> str:
         return "NOT FOUND"
     focused = _excerpt_for_patterns(
         text,
-        [r"limitation of liability", r"liable for", r"consequential", r"incidental", r"lost profits", r"cap on liability", r"exclusive remedy", r"shall not exceed", r"aggregate liability", r"in no event shall", r"not be liable"],
-        window=500,
-        max_chars=2600,
+        [r"limitation of liability", r"liable for", r"consequential", r"incidental", r"lost profits", r"special damages", r"indirect damages", r"cap on liability", r"exclusive remedy", r"direct damages", r"shall not exceed", r"aggregate liability", r"in no event shall", r"not be liable"],
+        window=540,
+        max_chars=2800,
     )
     normalized = _normalize_limitation_prediction(focused or text)
     return normalized if normalized else "NOT FOUND"
@@ -851,21 +883,26 @@ def _extract_expiration_from_contract(contract_text: str, agreement_date: str = 
     low_text = text.lower()
     if "Perpetual" in normalized_candidates and "continue indefinitely" in low_text and "terminate automatically one year after" not in low_text and "terminate automatically 1 year after" not in low_text:
         return "Perpetual"
-
     def _expiration_rank(value: str) -> int:
         if re.fullmatch(r"[A-Z][a-z]+ \d{2}, \d{4}", value or ""):
             return 5
         if "Initial Term" in (value or ""):
             return 4
         if value in {"Co-terminous with Related Agreement", "Until Completion of Program/Milestones"}:
-            return 3
+            return 4
         if value in {"Perpetual", "Until Terminated"}:
-            return 2
+            return 3
         if value == "Event-Based Termination":
-            return 1
-        return 0
+            return 2
+        if value == "NOT FOUND":
+            return 0
+        if value in {agreement_date, effective_date}:
+            return 0
+        return 1
 
     return max(normalized_candidates, key=_expiration_rank)
+
+
 
 
 def _extract_indemnification_from_contract(contract_text: str) -> str:
@@ -875,9 +912,9 @@ def _extract_indemnification_from_contract(contract_text: str) -> str:
 
     focused = _excerpt_for_patterns(
         text,
-        [r"indemnif(?:y|ies|ication)", r"hold harmless", r"save harmless", r"defend .* against", r"release,? defend,? indemnif", r"reimburse .* (?:claims|losses|damages|liabilities|costs)", r"not challenge", r"contest the validity", r"moral rights", r"not to sue", r"non-petition"],
-        window=500,
-        max_chars=2600,
+        [r"indemnif(?:y|ies|ied)", r"hold harmless", r"save harmless", r"defend .* against", r"release,? defend,? indemnif", r"reimburse .* (?:claims|losses|damages|liabilities|costs|expenses)", r"not challenge", r"contest the validity", r"moral rights", r"not to sue", r"non-petition"],
+        window=420,
+        max_chars=2200,
     )
     normalized = _normalize_indemnification_prediction(focused or text)
     return normalized if normalized else "NOT FOUND"
@@ -1142,9 +1179,9 @@ def _contract_has_strong_expiration_support(contract_text: str) -> bool:
         'term of this agreement', 'term of the agreement', 'initial term', 'renewal term', 'expiration date',
         'shall continue for', 'continue for a period', 'remain in effect for', 'shall remain in effect for',
         'shall continue in force', 'will be in effect for', 'shall have a term of', 'shall be valid for',
-        'co-termin', 'cotermin', 'until terminated', 'perpetual', 'perpetually thereafter', 'expire on',
+        'co-termin', 'cotermin', 'until terminated', 'unless sooner terminated', 'perpetual', 'perpetually thereafter', 'expire on',
         'expires on', 'shall expire on', 'terminate on', 'shall terminate on', 'scheduled expiration date',
-        'contract end', 'end date', 'until completion of', 'royalty term', 'service period', 'duration of the lease'
+        'contract end', 'end date', 'term ending on', 'term ending', 'shall end on', 'for a period of', 'for a term of', 'until completion of', 'upon completion of', 'upon the completion of', 'completion of the services', 'completion of the program', 'royalty term', 'service period', 'duration of the lease'
     ]
     return any(m in low for m in markers)
 
@@ -1183,7 +1220,7 @@ def _postprocess_metadata_prediction(pred, contract_text: str = ""):
         pred.effective_date = heuristic_effective_date
     elif heuristic_effective_date == "NOT FOUND" and model_effective_date != "NOT FOUND" and (model_effective_date not in contract_dates or not _contract_has_strong_effective_support(contract_text)):
         pred.effective_date = "NOT FOUND"
-    elif heuristic_effective_date == "NOT FOUND" and model_effective_date == "NOT FOUND" and pred.agreement_date != "NOT FOUND" and any(k in low_contract for k in ["on the date of this agreement", "signed and effective this", "entered into on", "entered into as of", "later of the dates that it is executed", "effective on the later of the dates that it is executed"]):
+    elif heuristic_effective_date == "NOT FOUND" and model_effective_date == "NOT FOUND" and pred.agreement_date != "NOT FOUND" and any(k in low_contract for k in ["on the date of this agreement", "signed and effective this", "entered into as of", "later of the dates that it is executed", "effective on the later of the dates that it is executed"]):
         pred.effective_date = pred.agreement_date
     else:
         pred.effective_date = model_effective_date
@@ -1211,6 +1248,12 @@ def _postprocess_metadata_prediction(pred, contract_text: str = ""):
     elif heuristic_exp != "NOT FOUND" and 'Initial Term' in heuristic_exp and model_exp in {pred.agreement_date, pred.effective_date}:
         pred.expiration_date = heuristic_exp
     elif heuristic_exp != "NOT FOUND" and re.fullmatch(r"[A-Z][a-z]+ \d{2}, \d{4}", model_exp or "") and any(tag in heuristic_exp for tag in ["Initial Term", "Co-terminous with Related Agreement", "Until Completion of Program/Milestones", "Until Terminated", "Perpetual"]):
+        pred.expiration_date = heuristic_exp
+    elif heuristic_exp != "NOT FOUND" and heuristic_exp in {"Until Completion of Program/Milestones", "Co-terminous with Related Agreement", "Until Terminated"} and model_exp in {"Perpetual", "Until Terminated", "Co-terminous with Related Agreement", "NOT FOUND"} and heuristic_exp != model_exp:
+        pred.expiration_date = heuristic_exp
+    elif heuristic_exp == "Until Terminated" and model_exp == "Co-terminous with Related Agreement":
+        pred.expiration_date = heuristic_exp
+    elif heuristic_exp != "NOT FOUND" and re.fullmatch(r"[A-Z][a-z]+ \d{2}, \d{4}", heuristic_exp or "") and model_exp in {"Co-terminous with Related Agreement", "Until Terminated", "Perpetual", "Event-Based Termination", "NOT FOUND"}:
         pred.expiration_date = heuristic_exp
     elif heuristic_exp == "NOT FOUND" and model_exp != "NOT FOUND":
         if model_exp in {pred.agreement_date, pred.effective_date}:
@@ -1908,3 +1951,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

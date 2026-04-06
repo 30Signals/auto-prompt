@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 import argparse
 import re
@@ -396,11 +396,11 @@ def clean_expiration(value, agreement_date=None, effective_date=None) -> str:
     if _looks_like_expiration_noise(lower) and not _looks_like_term_clause(lower):
         return 'NOT FOUND'
 
-    if any(k in lower for k in ['until completion of the research program', 'until completion of', 'completion of milestone', 'completion of milestones', 'through the completion or termination of developer', 'service period', 'duration of the lease', 'royalty term', 'last addendum to expire', 'last to expire of the patents', 'until all of the intellectual property licensed', 'until the end of the fifteenth']):
+    if any(k in lower for k in ['until completion of the research program', 'until completion of', 'until the completion of', 'completion of milestone', 'completion of milestones', 'completion of the development program', 'completion of the development activities', 'completion of the services', 'completion of the project', 'project completion', 'through the completion or termination of developer', 'service period', 'duration of the lease', 'royalty term', 'last addendum to expire', 'last to expire of the patents', 'until all of the intellectual property licensed', 'until the end of the fifteenth']):
         return 'Until Completion of Program/Milestones'
     if any(k in lower for k in ['co-termin', 'cotermin', 'co termin', 'for the term of the referenced', 'for the term of the lease', 'until the expiration or earlier termination of', 'until the termination of the strategic alliance agreement', 'until the expiration or earlier termination of the development and license agreement', 'continue until the termination of']):
-        return 'Co-terminous with Related Agreement'
-
+        if 'until terminated' not in lower and 'unless sooner terminated' not in lower:
+            return 'Co-terminous with Related Agreement'
     # Prefer clause-shaped exact end dates and paired date ranges before later notice/termination language.
     m = re.search(
         r'\bterm\s*:\s*('
@@ -411,7 +411,7 @@ def clean_expiration(value, agreement_date=None, effective_date=None) -> str:
     )
     if m:
         return format_date(m.group(2))
-    m = re.search(r'(?:shall be in effect until|shall terminate on|shall expire on|effective through(?: and including)?|continue until)\s+((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:,|\.)?\s+\d{4}|\d{1,2}[/-]\d{1,2}[/-]\d{2,4})', text, flags=re.I)
+    m = re.search(r'(?:shall be in effect until|shall terminate on|shall expire on|effective through(?: and including)?|continue until|term ending on|term ending|ending on|shall end on|end on|through)\s+((?:January|February|March|April|May|June|July|August|September|October|November|December)\s+\d{1,2}(?:,|\.)?\s+\d{4}|\d{1,2}[/-]\d{1,2}[/-]\d{2,4})', text, flags=re.I)
     if m:
         candidate = m.group(1)
         normalized = format_date(candidate)
@@ -430,12 +430,12 @@ def clean_expiration(value, agreement_date=None, effective_date=None) -> str:
     )
     if m:
         return format_date(m.group(2))
-    if dates and any(k in lower for k in ['terminate on', 'shall terminate on', 'shall expire on', 'expires on', 'effective through', 'through and including', 'scheduled expiration date', 'termination date']):
+    if dates and any(k in lower for k in ['terminate on', 'shall terminate on', 'shall expire on', 'expires on', 'effective through', 'through and including', 'scheduled expiration date', 'termination date', 'ending on', 'term ending', 'shall end on', 'end on']):
         return dates[-1]
 
     if 'terminate automatically one year after' in lower or 'terminate automatically 1 year after' in lower:
         return '1-Year (12 months) Initial Term'
-    if 'until terminated' in lower or 'when terminated by either party' in lower or 'remain effective until terminated' in lower or 'remain in effect until terminated' in lower:
+    if 'until terminated' in lower or 'unless sooner terminated' in lower or 'when terminated by either party' in lower or 'remain effective until terminated' in lower or 'remain in effect until terminated' in lower:
         return 'Until Terminated'
     if 'perpetual' in lower or 'perpetually thereafter' in lower or 'continue indefinitely' in lower or 'indefinite period' in lower or 'unlimited period of time' in lower or 'remain in effect perpetually' in lower or 'as long as fees are paid' in lower:
         return 'Perpetual'
@@ -444,20 +444,31 @@ def clean_expiration(value, agreement_date=None, effective_date=None) -> str:
 
     auto = any(k in lower for k in ['automatically renew', 'automatically renewing', 'successive annual periods', 'renew for additional', 'renewal term', 'auto renew', 'auto-renew'])
     explicit_duration_patterns = [
-        r'shall continue for a period of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?',
-        r'shall have an initial term of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?',
-        r'shall have a term of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?',
-        r'initial period of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?',
-        r'continue in operation for at least an initial period of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?',
+        (r'shall continue for a period of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?', 'year'),
+        (r'shall have an initial term of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?', 'year'),
+        (r'shall have a term of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?', 'year'),
+        (r'for a period of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?', 'year'),
+        (r'for a term of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?', 'year'),
+        (r'initial period of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?', 'year'),
+        (r'continue in operation for at least an initial period of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+years?', 'year'),
+        (r'shall continue for a period of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+months?', 'month'),
+        (r'shall have an initial term of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+months?', 'month'),
+        (r'shall have a term of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+months?', 'month'),
+        (r'for a period of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+months?', 'month'),
+        (r'for a term of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+months?', 'month'),
+        (r'initial period of\s+([a-z -]+\s*\(\d{1,3}\)|\d{1,3}|[a-z -]+)\s+months?', 'month'),
     ]
-    for pat in explicit_duration_patterns:
+    for pat, unit in explicit_duration_patterns:
         dm = re.search(pat, lower, flags=re.I)
         if dm:
             raw_n = dm.group(1)
             num_match = re.search(r'(\d{1,3})', raw_n)
-            years_val = int(num_match.group(1)) if num_match else _number_word_to_int(raw_n.strip())
-            if years_val:
-                label = f'{years_val}-Year ({years_val * 12} months) Initial Term'
+            value = int(num_match.group(1)) if num_match else _number_word_to_int(raw_n.strip())
+            if value:
+                if unit == 'year':
+                    label = f'{value}-Year ({value * 12} months) Initial Term'
+                else:
+                    label = f'{value}-Month Initial Term'
                 return label + ', Auto-Renewal' if auto else label
 
     y, m, d = _extract_duration_numbers(lower)
@@ -474,7 +485,7 @@ def clean_expiration(value, agreement_date=None, effective_date=None) -> str:
             label = f'{d}-Day Initial Term'
             return label + ', Auto-Renewal' if auto else label
 
-    if any(k in lower for k in ['earlier to occur', 'later of', 'upon the earlier of', 'upon the later of', 'earliest to occur', 'the earlier of', 'the later of', 'earlier of the occurrence', 'successful remarketing', 'event that', 'if any public authority cancels', 'effective upon the occurrence', 'terminate if', 'automatically terminate in the event of', 'shall expire if']):
+    if any(k in lower for k in ['earlier to occur', 'later of', 'upon the earlier of', 'upon the later of', 'earliest to occur', 'the earlier of', 'the later of', 'earlier of the occurrence', 'successful remarketing', 'event that', 'if any public authority cancels', 'effective upon the occurrence', 'terminate if', 'automatically terminate in the event of', 'shall expire if', 'upon the occurrence of', 'termination event']):
         return 'Event-Based Termination'
     if any(k in lower for k in ['public domain', 'fund no longer owns', 'term of such fund', 'removed as general partner']):
         return 'Event-Based Termination'
@@ -555,6 +566,13 @@ def clean_parties(value) -> str:
     if is_not_found(text):
         return 'NOT FOUND'
 
+    clause_noise_markers = [
+        ' shall ', ' agrees ', ' agree ', ' provided that ', ' monitor ', ' manage ', ' establish ', ' remedy ',
+        ' failure ', ' perform ', ' services ', ' obligations ', ' deliverables ', ' written notice ', ' section ',
+        ' whereas ', ' witnesseth ', ' now therefore ', ' recitals ', ' the following terms', ' to achieve ',
+        ' escalate ', ' monitor and manage ' 
+    ]
+
     between_match = re.search(
         r'(?:between|by and between|among)[:\s]+(.+?)(?:recitals|whereas|witnesseth|the parties agree|now therefore|now, therefore|it is agreed as follows|1\.)',
         text,
@@ -590,7 +608,8 @@ def clean_parties(value) -> str:
         'party a', 'party b', 'notes trustee', 'remarketing agent', 'stock purchase contract agent',
         'co-trustee', 'underwriter', 'investment adviser', 'the event', 'fund', 'trust', 'company', 'consultant',
         'contractor', 'customer', 'supplier', 'vendor', 'shipper', 'transporter', 'reseller', 'licensee',
-        'licensor', 'recipient', 'provider', 'manufacturer', 'member', 'employee', 'executive', 'franchisee'
+        'licensor', 'recipient', 'provider', 'manufacturer', 'member', 'employee', 'executive', 'franchisee',
+        'broker dealer', 'franchisee name not specified', 'company name not specified'
     }
 
     entities: list[str] = []
@@ -605,6 +624,8 @@ def clean_parties(value) -> str:
         lower = token.lower()
         if not token or lower in exact_drop_tokens or lower in role_only_tokens:
             continue
+        if '<<' in token or '>>' in token or 'enter company name' in lower or 'name not specified' in lower:
+            continue
         if any(lower.startswith(prefix) for prefix in role_prefixes):
             continue
         if any(phrase in lower for phrase in ['referred to herein', 'collectively as', 'individually as', 'hereinafter', 'together as', 'each a party', 'collectively the parties']):
@@ -614,6 +635,12 @@ def clean_parties(value) -> str:
         if 'schedule 1' in lower or 'attached hereto' in lower or 'collectively as the parties' in lower:
             continue
         if token.upper() == 'NOT FOUND' or len(token) > 140:
+            continue
+        low_padded = f' {lower} '
+        if any(marker in low_padded for marker in clause_noise_markers):
+            continue
+        words = [w for w in re.findall(r'[A-Za-z][A-Za-z&.-]*', token)]
+        if len(words) > 12 and sum(1 for w in words if w[:1].isupper()) < max(2, len(words) // 2):
             continue
         if not is_entity_like(token):
             continue
@@ -816,7 +843,6 @@ def clean_non_compete(value) -> str:
         'exclusive artistic and editorial control'
     ])
 
-    # Pure customer/employee solicitation language is too broad to call non-compete unless tied to competitive or exclusive restrictions.
     if nonsolicit_signal and not any([noncomp_signal, product_signal, endorse_signal, territory_signal, exclusivity_signal]):
         return 'NOT FOUND'
     if nohire_signal and not any([noncomp_signal, product_signal, endorse_signal, territory_signal, exclusivity_signal, nonsolicit_signal]):
@@ -901,14 +927,28 @@ def clean_indemnification(value) -> str:
     explicit_obligation = any(re.search(pat, lower) for pat in obligation_patterns)
     explicit_reimburse = re.search(reimburse_pattern, lower) is not None
     warranty_noise = any(k in lower for k in ['warranty', 'disclaimer', 'liable for', 'limitation of liability', 'exclusive remedy'])
+    procedural_reference = any(k in lower for k in [
+        'notice of claim', 'claim notice', 'procedure for indemnification', 'indemnification procedure',
+        'claims for indemnification', 'claim for indemnification', 'indemnification and contribution',
+        'survive termination', 'survival of indemnification', 'section entitled indemnification',
+        'article entitled indemnification', 'right to indemnification'
+    ]) and not explicit_obligation and not explicit_reimburse
+    carveout_only_reference = any(k in lower for k in [
+        'except for indemnification claims', 'except with respect to indemnification', 'excluding indemnification claims',
+        'subject to indemnification', 'indemnification claims under section', 'pursuant to the indemnification provisions',
+        'except as provided in the indemnification provisions', 'limitation of liability for indemnification claims'
+    ]) and not explicit_obligation and not explicit_reimburse
     mere_reference = any(k in lower for k in [
         'indemnification obligations', 'rights or obligations under section', 'subject to the indemnification obligations',
-        'indemnification claims under section', 'table of contents', 'article 11 indemnification', 'section 11 indemnification'
+        'indemnification claims under section', 'table of contents', 'article 11 indemnification', 'section 11 indemnification',
+        'claims for indemnification', 'indemnification provisions of this agreement', 'rights to indemnification',
+        'including any indemnification obligations', 'indemnification and contribution', 'survive termination'
     ]) and not explicit_obligation and not explicit_reimburse
 
+    weak_heading_only = 'indemnification' in lower and not any(k in lower for k in ['indemnify', 'indemnifies', 'indemnified', 'hold harmless', 'save harmless', 'defend against', 'reimburse'])
     if explicit_obligation or explicit_reimburse:
         return 'Yes | Explicit indemnification / defense / hold harmless obligations'
-    if warranty_noise or mere_reference:
+    if weak_heading_only or warranty_noise or mere_reference or carveout_only_reference or procedural_reference:
         return 'NOT FOUND'
     return 'NOT FOUND'
 
@@ -1007,6 +1047,8 @@ def clean_limitation(value) -> str:
     has_remedy = any(part.startswith('Remedy:') for part in parts[1:])
     has_exceptions = any(part.startswith('Exceptions:') for part in parts[1:])
     if has_exceptions and not any([has_excludes, has_cap, has_remedy]):
+        if any(k in lower for k in ['shall not exceed', 'limited to', 'aggregate liability', 'maximum liability', 'in no event shall', 'not be liable']):
+            return ' | '.join(parts)
         return 'NOT FOUND'
     if has_remedy and not any([has_excludes, has_cap]) and not any(k in lower for k in ['liability', 'liable', 'damages']):
         return 'NOT FOUND'

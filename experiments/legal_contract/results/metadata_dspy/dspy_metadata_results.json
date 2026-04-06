@@ -1,5 +1,5 @@
 {
-  "name": "DSPyMetadata(FallbackBaseline)",
+  "name": "DSPyMetadata(HybridWeakFields)",
   "results": [
     {
       "index": 0,
@@ -12,7 +12,7 @@
         },
         "Effective Date": {
           "gold": "March 03, 2003",
-          "pred": "April 05, 2026",
+          "pred": "March 18, 2003",
           "score": 0.0
         },
         "Expiration Date": {
@@ -64,7 +64,7 @@
         },
         "Effective Date": {
           "gold": "NOT FOUND",
-          "pred": "March 27, 2014",
+          "pred": "March 13, 2014",
           "score": 0.0
         },
         "Expiration Date": {
@@ -141,7 +141,7 @@
         },
         "Non-Compete": {
           "gold": "Yes | Restricted Party: Distributor | Duration: during the term of this agreement | Scope: Competitive Products Restriction",
-          "pred": "Yes | Restricted Party: Distributor | Duration: during the term of the agreement | Scope: Non-Competition, Competitive Products Restriction",
+          "pred": "Yes | Restricted Party: Distributor | Duration: during the term | Scope: Non-Competition, Competitive Products Restriction",
           "score": 1.0
         },
         "Parties": {
@@ -173,8 +173,8 @@
         },
         "Expiration Date": {
           "gold": "4-Year (48 months) Initial Term",
-          "pred": "4-Year (48 months) Initial Term",
-          "score": 1.0
+          "pred": "Until Terminated",
+          "score": 0.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -188,8 +188,8 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect, Special, Lost Profits | Exceptions: Willful Misconduct, Gross Negligence, Fraud, Confidentiality Breach, IP Infringement, Indemnification",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "Yes | Exceptions: Confidentiality Breach",
+          "score": 0.5
         },
         "Non-Compete": {
           "gold": "Yes | Scope: Exclusivity, Non-Solicitation, No-Hire",
@@ -207,7 +207,7 @@
           "score": 0.0
         }
       },
-      "overall_score": 0.6222222222222222
+      "overall_score": 0.5666666666666667
     },
     {
       "index": 4,
@@ -240,8 +240,8 @@
         },
         "Limitation Of Liability": {
           "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect, Lost Profits",
-          "pred": "Yes | Excludes: Indirect | Exceptions: Willful Misconduct, Fraud",
-          "score": 0.5
+          "pred": "Yes | Excludes: Exemplary, Indirect, Lost Profits | Exceptions: Willful Misconduct, Fraud",
+          "score": 0.85
         },
         "Non-Compete": {
           "gold": "Yes | Scope: Exclusivity",
@@ -259,7 +259,7 @@
           "score": 0.0
         }
       },
-      "overall_score": 0.7222222222222222
+      "overall_score": 0.7611111111111111
     },
     {
       "index": 5,
@@ -391,8 +391,8 @@
         },
         "Indemnification": {
           "gold": "NOT FOUND",
-          "pred": "Trademark Non-Disparagement Clause (not indemnification)",
-          "score": 1.0
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 0.0
         },
         "Limitation Of Liability": {
           "gold": "NOT FOUND",
@@ -415,7 +415,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.7722222222222223
+      "overall_score": 0.6611111111111111
     },
     {
       "index": 8,
@@ -495,8 +495,8 @@
         },
         "Indemnification": {
           "gold": "Yes | Explicit indemnification / defense / hold harmless obligations",
-          "pred": "NOT FOUND",
-          "score": 0.0
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 1.0
         },
         "Limitation Of Liability": {
           "gold": "NOT FOUND",
@@ -519,7 +519,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 1.0
     },
     {
       "index": 10,
@@ -580,7 +580,7 @@
         "Agreement Date": {
           "gold": "NOT FOUND (2019, day/month redacted",
           "pred": "NOT FOUND",
-          "score": 0.0
+          "score": 1.0
         },
         "Effective Date": {
           "gold": "NOT FOUND",
@@ -623,7 +623,7 @@
           "score": 0.4
         }
       },
-      "overall_score": 0.6000000000000001
+      "overall_score": 0.7111111111111111
     },
     {
       "index": 12,
@@ -832,32 +832,760 @@
         }
       },
       "overall_score": 0.7
+    },
+    {
+      "index": 16,
+      "contract_id": "TcPipelinesLp_20160226_10-K_EX-99.12_9454048_EX-99.12_Transportation Agreement",
+      "details": {
+        "Agreement Date": {
+          "gold": "December 14, 2015",
+          "pred": "November 01, 2015",
+          "score": 0.0
+        },
+        "Effective Date": {
+          "gold": "November 01, 2016",
+          "pred": "November 01, 2016",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "October 28, 2017",
+          "pred": "October 31, 2017",
+          "score": 1.0
+        },
+        "Governing Law": {
+          "gold": "united states",
+          "pred": "michigan",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Non-Compete": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "ANR PIPELINE COMPANY | Great Lakes Gas Transmission Limited Partnership",
+          "pred": "ANR PIPELINE COMPANY | Great Lakes Gas Transmission Limited Partnership",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        }
+      },
+      "overall_score": 0.8888888888888888
+    },
+    {
+      "index": 17,
+      "contract_id": "BELLRINGBRANDS,INC_02_07_2020-EX-10.18-MASTER SUPPLY AGREEMENT",
+      "details": {
+        "Agreement Date": {
+          "gold": "October 31, 2019",
+          "pred": "NOT FOUND",
+          "score": 0.0
+        },
+        "Effective Date": {
+          "gold": "October 31, 2019",
+          "pred": "October 31, 2019",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "5-Year (60 months) Initial Term, Auto-Renewal",
+          "pred": "5-Year (60 months) Initial Term, Auto-Renewal",
+          "score": 1.0
+        },
+        "Governing Law": {
+          "gold": "united states",
+          "pred": "delaware",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "Yes | Exceptions: Confidentiality Breach",
+          "pred": "Yes | Exceptions: Gross Negligence, Confidentiality Breach, Indemnification",
+          "score": 1.0
+        },
+        "Non-Compete": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "Fonterra (USA) Inc | Premier Nutrition Company, LLC",
+          "pred": "Fonterra (USA) Inc | Premier Nutrition Company, LLC",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        }
+      },
+      "overall_score": 0.8888888888888888
+    },
+    {
+      "index": 18,
+      "contract_id": "Magenta Therapeutics, Inc. - Master Development and Manufacturing Agreement",
+      "details": {
+        "Agreement Date": {
+          "gold": "February 13, 2018",
+          "pred": "February 13, 2018",
+          "score": 1.0
+        },
+        "Effective Date": {
+          "gold": "February 13, 2018",
+          "pred": "February 13, 2018",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "5-Year (60 months) Initial Term",
+          "pred": "Perpetual",
+          "score": 0.0
+        },
+        "Governing Law": {
+          "gold": "united states",
+          "pred": "new york",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "Yes | Excludes: Consequential, Incidental, Indirect | Exceptions: Willful Misconduct, Gross Negligence, IP Infringement, Indemnification | Remedy: Direct Damages Only",
+          "pred": "Yes | Exceptions: Willful Misconduct, Gross Negligence, Confidentiality Breach",
+          "score": 0.5
+        },
+        "Non-Compete": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "Bachem Americas, Inc | Magenta Therapeutics, Inc",
+          "pred": "Bachem Americas, Inc | Magenta Therapeutics, Inc",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "Yes | Without Cause",
+          "pred": "Yes | Notice: 5 years | Either Party | Without Cause",
+          "score": 1.0
+        }
+      },
+      "overall_score": 0.8333333333333334
+    },
+    {
+      "index": 19,
+      "contract_id": "ConformisInc_20191101_10-Q_EX-10.6_11861402_EX-10.6_Development Agreement",
+      "details": {
+        "Agreement Date": {
+          "gold": "September 30, 2019",
+          "pred": "September 30, 2019",
+          "score": 1.0
+        },
+        "Effective Date": {
+          "gold": "September 30, 2019",
+          "pred": "September 30, 2019",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "Until Completion of Program/Milestones",
+          "pred": "NOT FOUND",
+          "score": 0.0
+        },
+        "Governing Law": {
+          "gold": "united states",
+          "pred": "united states",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "Yes | Cap: THE GREATER OF (I) $[**] AND (II) THE AMOUNT OF INSURANCE COVERAGE ACTUALLY PAID TO CONFORMIS UNDER THEN-CURRENT INSURANCE POLICIES OF CONFO | Exceptions: Willful Misconduct",
+          "pred": "Yes | Exceptions: IP Infringement, Indemnification | Remedy: Exclusive Remedy",
+          "score": 0.0
+        },
+        "Non-Compete": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "Conformis, Inc | Howmedica Osteonics Corp. (Stryker",
+          "pred": "Conformis, Inc | Howmedica Osteonics Corp",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        }
+      },
+      "overall_score": 0.7777777777777778
+    },
+    {
+      "index": 20,
+      "contract_id": "SEPARATEACCOUNTIIOFAGL_05_02_2011-EX-99.(J)(4)-UNCONDITIONAL CAPITAL MAINTENANCE AGREEMENT",
+      "details": {
+        "Agreement Date": {
+          "gold": "March 30, 2011",
+          "pred": "March 30, 2011",
+          "score": 1.0
+        },
+        "Effective Date": {
+          "gold": "March 30, 2011",
+          "pred": "March 30, 2011",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "1-Year (12 months) Initial Term",
+          "pred": "Perpetual",
+          "score": 0.0
+        },
+        "Governing Law": {
+          "gold": "united states",
+          "pred": "new york",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Non-Compete": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "American General Life Insurance Company | American International Group, Inc",
+          "pred": "AMERICAN GENERAL LIFE INSURANCE COMPANY OF DELAWARE | AMERICAN INTERNATIONAL GROUP, INC",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        }
+      },
+      "overall_score": 0.8888888888888888
+    },
+    {
+      "index": 21,
+      "contract_id": "TodosMedicalLtd_20190328_20-F_EX-4.10_11587157_EX-4.10_Marketing Agreement_ Reseller Agreement",
+      "details": {
+        "Agreement Date": {
+          "gold": "December 20, 2018",
+          "pred": "December 20, 2018",
+          "score": 1.0
+        },
+        "Effective Date": {
+          "gold": "December 20, 2018",
+          "pred": "December 20, 2018",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "5-Year (60 months) Initial Term",
+          "pred": "5-Year (60 months) Initial Term",
+          "score": 1.0
+        },
+        "Governing Law": {
+          "gold": "israel",
+          "pred": "israel",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Indirect, Lost Profits | Exceptions: Confidentiality Breach, IP Infringement, Indemnification",
+          "pred": "Yes | Excludes: Consequential, Incidental, Punitive, Indirect, Special, Lost Profits, Business Interruption | Exceptions: Confidentiality Breach, IP Infringement, Indemnification",
+          "score": 1.0
+        },
+        "Non-Compete": {
+          "gold": "Yes | Scope: Exclusivity",
+          "pred": "NOT FOUND",
+          "score": 0.0
+        },
+        "Parties": {
+          "gold": "Care G. B. Plus Ltd | Todos Medical Ltd",
+          "pred": "Care G. B. Plus Ltd | Todos Medical Ltd",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        }
+      },
+      "overall_score": 0.8888888888888888
+    },
+    {
+      "index": 22,
+      "contract_id": "JINGWEIINTERNATIONALLTD_10_04_2007-EX-10.7-INTELLECTUAL PROPERTY AGREEMENT",
+      "details": {
+        "Agreement Date": {
+          "gold": "February 08, 2007",
+          "pred": "February 08, 2007",
+          "score": 1.0
+        },
+        "Effective Date": {
+          "gold": "February 08, 2007",
+          "pred": "NOT FOUND",
+          "score": 0.0
+        },
+        "Expiration Date": {
+          "gold": "5-Year (60 months) Initial Term",
+          "pred": "5-Year (60 months) Initial Term",
+          "score": 1.0
+        },
+        "Governing Law": {
+          "gold": "china",
+          "pred": "china",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Non-Compete": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "JingWei HengTong Technology | ShenZhen JingWei Communication Co., Ltd",
+          "pred": "JingWei HengTong Technology (ShenZhen) Co., Ltd | ShenZhen JingWei Communication Co., Ltd",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        }
+      },
+      "overall_score": 0.8888888888888888
+    },
+    {
+      "index": 23,
+      "contract_id": "SPARKLINGSPRINGWATERHOLDINGSLTD_07_03_2002-EX-10.13-SOFTWARE LICENSE AND MAINTENANCE AGREEMENT",
+      "details": {
+        "Agreement Date": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Effective Date": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "Perpetual",
+          "pred": "Perpetual",
+          "score": 1.0
+        },
+        "Governing Law": {
+          "gold": "canada",
+          "pred": "nova scotia",
+          "score": 0.0
+        },
+        "Indemnification": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "Yes | Excludes: Consequential, Indirect, Lost Profits, Lost Revenue, Loss of Data, Loss of Use",
+          "pred": "Yes | Excludes: Consequential, Indirect, Special, Lost Profits, Lost Revenue, Loss of Data, Loss of Use | Exceptions: Confidentiality Breach | Remedy: Exclusive Remedy, Direct Damages Only",
+          "score": 1.0
+        },
+        "Non-Compete": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "GARMAN ROUTING SYSTEMS, INC | SPARKLING SPRING WATER GROUP LIMITED",
+          "pred": "GARMAN ROUTING SYSTEMS, INC | SPARKLING SPRING WATER GROUP LIMITED",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "Yes | Notice: 90 calendar days | Initiating Party: Sparkling",
+          "pred": "NOT FOUND",
+          "score": 0.3
+        }
+      },
+      "overall_score": 0.8111111111111111
+    },
+    {
+      "index": 24,
+      "contract_id": "SightLife Surgical, Inc. - STRATEGIC SALES _ MARKETING AGREEMENT",
+      "details": {
+        "Agreement Date": {
+          "gold": "April 28, 2017",
+          "pred": "NOT FOUND",
+          "score": 0.0
+        },
+        "Effective Date": {
+          "gold": "April 28, 2017",
+          "pred": "NOT FOUND",
+          "score": 0.0
+        },
+        "Expiration Date": {
+          "gold": "3-Year (36 months) Initial Term",
+          "pred": "Co-terminous with Related Agreement",
+          "score": 0.0
+        },
+        "Governing Law": {
+          "gold": "united states",
+          "pred": "california",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "pred": "Yes | Explicit indemnification / defense / hold harmless obligations",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "NOT FOUND",
+          "pred": "Yes | Excludes: Indirect | Exceptions: Confidentiality Breach, IP Infringement, Indemnification",
+          "score": 0.0
+        },
+        "Non-Compete": {
+          "gold": "Yes | Duration: during the term | Scope: Non-Competition, Competitive Products Restriction",
+          "pred": "Yes | Restricted Party: Agency | Duration: during the term of this agreement | Scope: Exclusivity, Non-Competition, Competitive Products Restriction",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "Imprimis Pharmaceuticals, Inc | SightLife Surgical, Inc",
+          "pred": "Imprimis Pharmaceuticals, Inc | SightLife Surgical, Inc",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "Yes | Either Party | Without Cause",
+          "pred": "NOT FOUND",
+          "score": 0.3
+        }
+      },
+      "overall_score": 0.47777777777777775
+    },
+    {
+      "index": 25,
+      "contract_id": "VARIABLESEPARATEACCOUNT_04_30_2014-EX-13.C-UNCONDITIONAL CAPITAL MAINTENANCE AGREEMENT",
+      "details": {
+        "Agreement Date": {
+          "gold": "February 18, 2014",
+          "pred": "February 18, 2014",
+          "score": 1.0
+        },
+        "Effective Date": {
+          "gold": "February 18, 2014",
+          "pred": "February 18, 2014",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "Perpetual",
+          "pred": "1-Year (12 months) Initial Term",
+          "score": 0.0
+        },
+        "Governing Law": {
+          "gold": "united states",
+          "pred": "new york",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Non-Compete": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "American General Life Insurance Company | American International Group, Inc",
+          "pred": "American General Life Insurance Company | American International Group, Inc",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        }
+      },
+      "overall_score": 0.8888888888888888
+    },
+    {
+      "index": 26,
+      "contract_id": "AMERICANPHYSICIANSCAPITALINC_03_31_2003-EX-10.26-AGENCY AGREEMENT",
+      "details": {
+        "Agreement Date": {
+          "gold": "May 25, 1999",
+          "pred": "May 25, 1999",
+          "score": 1.0
+        },
+        "Effective Date": {
+          "gold": "May 25, 1999",
+          "pred": "May 25, 1999",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "Event-Based Termination",
+          "pred": "Event-Based Termination",
+          "score": 1.0
+        },
+        "Governing Law": {
+          "gold": "united states",
+          "pred": "michigan",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Non-Compete": {
+          "gold": "Yes | Restricted Party: Agency | Duration: for a two-year period following | Scope: Exclusivity, Competitive Products Restriction",
+          "pred": "Yes | Restricted Party: Agency | Scope: Exclusivity, Competitive Products Restriction, Non-Solicitation",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "Mutual Insurance Corporation of America | Stratton, Cheeseman & Walsh-Nevada, Inc",
+          "pred": "Mutual Insurance Corporation of America (MICOA | Stratton, Cheeseman & Walsh-Nevada, Inc",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        }
+      },
+      "overall_score": 1.0
+    },
+    {
+      "index": 27,
+      "contract_id": "GALACTICOMMTECHNOLOGIESINC_11_07_1997-EX-10.46-WEB HOSTING AGREEMENT",
+      "details": {
+        "Agreement Date": {
+          "gold": "September 09, 1997",
+          "pred": "September 09, 1997",
+          "score": 1.0
+        },
+        "Effective Date": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Governing Law": {
+          "gold": "not found",
+          "pred": "not found",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Non-Compete": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "Horst Entertainment Inc",
+          "pred": "Horst Entertainment Inc",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        }
+      },
+      "overall_score": 1.0
+    },
+    {
+      "index": 28,
+      "contract_id": "ScansourceInc_20190822_10-K_EX-10.38_11793958_EX-10.38_Distributor Agreement2",
+      "details": {
+        "Agreement Date": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Effective Date": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "Until Terminated",
+          "pred": "Until Terminated",
+          "score": 1.0
+        },
+        "Governing Law": {
+          "gold": "united states",
+          "pred": "california",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "Yes | Excludes: Consequential, Incidental, Punitive, Indirect | Remedy: Direct Damages Only",
+          "pred": "Yes | Excludes: Consequential, Incidental, Punitive, Indirect, Special, Lost Revenue",
+          "score": 0.85
+        },
+        "Non-Compete": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "Cisco Systems, Inc",
+          "pred": "Cisco Systems, Inc",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        }
+      },
+      "overall_score": 0.9833333333333333
+    },
+    {
+      "index": 29,
+      "contract_id": "NUVEEN - REMARKETING AGREEMENT",
+      "details": {
+        "Agreement Date": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Effective Date": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Expiration Date": {
+          "gold": "Event-Based Termination",
+          "pred": "Event-Based Termination",
+          "score": 1.0
+        },
+        "Governing Law": {
+          "gold": "united states",
+          "pred": "new york",
+          "score": 1.0
+        },
+        "Indemnification": {
+          "gold": "Bankruptcy Non-Petition Covenant (not indemnification)",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Limitation Of Liability": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Non-Compete": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        },
+        "Parties": {
+          "gold": "Nuveen AMT-Free Municipal Credit Income Fund | Nuveen Fund Advisors, LLC",
+          "pred": "Nuveen AMT-Free Municipal Credit Income Fund | Nuveen Fund Advisors, LLC",
+          "score": 1.0
+        },
+        "Termination For Convenience": {
+          "gold": "NOT FOUND",
+          "pred": "NOT FOUND",
+          "score": 1.0
+        }
+      },
+      "overall_score": 1.0
     }
   ],
   "field_accuracies": {
-    "Agreement Date": 0.8125,
-    "Effective Date": 0.75,
-    "Expiration Date": 0.625,
-    "Governing Law": 0.875,
-    "Indemnification": 0.9375,
-    "Limitation Of Liability": 0.690625,
-    "Non-Compete": 0.85,
-    "Parties": 0.93125,
-    "Termination For Convenience": 0.6625000000000001
+    "Agreement Date": 0.8333333333333334,
+    "Effective Date": 0.8,
+    "Expiration Date": 0.6,
+    "Governing Law": 0.9,
+    "Indemnification": 0.9666666666666667,
+    "Limitation Of Liability": 0.775,
+    "Non-Compete": 0.8866666666666667,
+    "Parties": 0.9633333333333333,
+    "Termination For Convenience": 0.7733333333333334
   },
-  "overall_accuracy": 0.7927083333333333,
-  "total_samples": 16,
+  "overall_accuracy": 0.8331481481481482,
+  "total_samples": 30,
   "metadata": {
     "per_field_accuracy": {
-      "Agreement Date": 0.8125,
-      "Effective Date": 0.75,
-      "Expiration Date": 0.625,
-      "Governing Law": 0.875,
-      "Indemnification": 0.9375,
-      "Limitation Of Liability": 0.690625,
-      "Non-Compete": 0.85,
-      "Parties": 0.93125,
-      "Termination For Convenience": 0.6625000000000001
+      "Agreement Date": 0.8333333333333334,
+      "Effective Date": 0.8,
+      "Expiration Date": 0.6,
+      "Governing Law": 0.9,
+      "Indemnification": 0.9666666666666667,
+      "Limitation Of Liability": 0.775,
+      "Non-Compete": 0.8866666666666667,
+      "Parties": 0.9633333333333333,
+      "Termination For Convenience": 0.7733333333333334
     },
     "llm_eval_used": false
   }
