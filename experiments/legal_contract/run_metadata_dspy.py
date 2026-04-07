@@ -17,7 +17,7 @@ from datasets import load_dataset
 
 from shared.llm_providers import get_llm_config, setup_dspy_lm
 from shared.llm_providers.provider import save_lm_history_artifacts, enforce_usage_budget
-from shared.evaluation.prompt_utils import count_examples
+from shared.evaluation.prompt_utils import count_examples, extract_optimized_prompt, generate_prompt_comparison
 from shared.optimization import run_two_stage_optimization
 from shared.evaluation import compare_results, save_results_json, EvaluationResult
 from experiments.legal_contract.metrics import llm_semantic_match_score, normalize_text
@@ -1539,10 +1539,6 @@ def print_summary(result: EvaluationResult):
 
 
 def _render_signature_prompt_text() -> str:
-    prompt_path = Path(__file__).resolve().parent / "prompts" / "baseline.txt"
-    if prompt_path.exists():
-        return prompt_path.read_text(encoding="utf-8")
-
     sig = ContractMetadataSignature
     lines = [
         "# Baseline Metadata Prompt (Signature)",
@@ -1631,25 +1627,131 @@ def _extract_optimized_prompt_text(optimized_module: dspy.Module) -> str:
     return "\n".join(parts).strip() + "\n"
 
 
+def _truncate_for_markdown(text: str, limit: int = 1800) -> str:
+    value = str(text or "").strip()
+    if len(value) <= limit:
+        return value
+    return value[:limit].rstrip() + "\n... [truncated]"
+
+
+def _extract_runtime_demo_examples(max_examples: int = 3) -> list[dict]:
+    lm = dspy.settings.lm
+    history = getattr(lm, "history", None)
+    if not isinstance(history, list) or not history:
+        return []
+
+    demos = []
+    seen_pairs = set()
+
+    for item in history:
+        if not isinstance(item, dict):
+            continue
+        messages = item.get("messages")
+        outputs = item.get("outputs")
+        if not isinstance(messages, list) or len(messages) < 2 or not outputs:
+            continue
+
+        system_msg = messages[0] if isinstance(messages[0], dict) else {}
+        user_msg = messages[1] if isinstance(messages[1], dict) else {}
+        system_text = str(system_msg.get("content") or "").strip()
+        user_text = str(user_msg.get("content") or "").strip()
+        output_text = str(outputs[0] or "").strip()
+
+        if "[[ ## contract_text ## ]]" not in user_text or "[[ ## agreement_date ## ]]" not in output_text:
+            continue
+
+        pair_key = (user_text[:400], output_text[:400])
+        if pair_key in seen_pairs:
+            continue
+        seen_pairs.add(pair_key)
+
+        demos.append(
+            {
+                "system": system_text,
+                "input": user_text,
+                "output": output_text,
+            }
+        )
+        if len(demos) >= max_examples:
+            break
+
+    return demos
+
+
+def _render_runtime_demo_markdown(demos: list[dict]) -> list[str]:
+    parts = [f"## Runtime Demonstrations ({len(demos)})", ""]
+    parts.append(
+        "These examples were captured from the actual DSPy runtime prompt history. "
+        "They make the optimized behavior visible even when the compiled DSPy object "
+        "does not expose a rewritten instruction string directly."
+    )
+    parts.append("")
+
+    first_system = demos[0].get("system", "").strip()
+    if first_system:
+        parts.append("### Runtime System Instructions")
+        parts.append("")
+        parts.append("```text")
+        parts.append(_truncate_for_markdown(first_system, limit=2600))
+        parts.append("```")
+        parts.append("")
+
+    for idx, demo in enumerate(demos, start=1):
+        parts.append(f"### Runtime Example {idx}")
+        parts.append("")
+        parts.append("**User Input**")
+        parts.append("```text")
+        parts.append(_truncate_for_markdown(demo.get("input", "")))
+        parts.append("```")
+        parts.append("")
+        parts.append("**Assistant Output**")
+        parts.append("```text")
+        parts.append(_truncate_for_markdown(demo.get("output", ""), limit=1200))
+        parts.append("```")
+        parts.append("")
+
+    return parts
+
+
 def _save_prompt_artifacts(output_dir: Path, baseline_module: dspy.Module, optimized_module: dspy.Module):
     baseline_prompt = _render_signature_prompt_text()
-    optimized_prompt = _extract_optimized_prompt_text(optimized_module)
 
-    baseline_path = output_dir / "baseline_prompt.txt"
-    optimized_path = output_dir / "optimized_prompt.txt"
-    compare_path = output_dir / "prompt_comparison.md"
+    prompts_dir = output_dir / "prompts"
+    prompts_dir.mkdir(parents=True, exist_ok=True)
 
+    # Keep a plain baseline artifact for direct inspection.
+    baseline_path = prompts_dir / "baseline_prompt.txt"
     baseline_path.write_text(baseline_prompt, encoding="utf-8")
-    optimized_path.write_text(optimized_prompt, encoding="utf-8")
+
+    # Use the shared extractor so metadata prompt artifacts match the structure
+    # used by the other experiments as closely as possible.
+    optimized_prompt = extract_optimized_prompt(optimized_module, output_dir)
+    if not optimized_prompt:
+        optimized_prompt = _extract_optimized_prompt_text(optimized_module)
+        (prompts_dir / "optimized_prompt.txt").write_text(optimized_prompt, encoding="utf-8")
+
+    # Keep richer runtime-derived artifacts for debugging/explainability.
+    runtime_demos = _extract_runtime_demo_examples(max_examples=3)
+    debug_prompt = optimized_prompt.rstrip() if optimized_prompt else _extract_optimized_prompt_text(optimized_module).rstrip()
+    if runtime_demos:
+        debug_prompt = debug_prompt + "\n\n" + "\n".join(_render_runtime_demo_markdown(runtime_demos))
+    debug_prompt = debug_prompt.rstrip() + "\n"
+
+    # Backward-compatible locations used in the metadata workflow.
+    (output_dir / "baseline_prompt.txt").write_text(baseline_prompt, encoding="utf-8")
+    (output_dir / "optimized_prompt.txt").write_text(debug_prompt, encoding="utf-8")
+    (output_dir / "optimized_prompt_with_examples.md").write_text(debug_prompt, encoding="utf-8")
+
+    generate_prompt_comparison(output_dir)
 
     comparison = (
         "# Prompt Comparison\n\n"
         "## Baseline Prompt\n\n"
         f"```text\n{baseline_prompt}\n```\n\n"
         "## Optimized Prompt\n\n"
-        f"```text\n{optimized_prompt}\n```\n"
+        f"{debug_prompt}\n"
     )
-    compare_path.write_text(comparison, encoding="utf-8")
+    (output_dir / "prompt_comparison.md").write_text(comparison, encoding="utf-8")
 
 def _save_runtime_prompt_history(output_dir: Path):
     """Save actual LM prompt history captured during the run."""
@@ -1763,6 +1865,8 @@ def run_metadata_dspy(
     # Validation anchor for safer model selection.
     baseline_val = evaluate_module(baseline, valset, "BaselineValidation", use_llm=False) if valset else None
 
+    optimized_student = None
+
     if baseline_only:
         print("[4/5] Skipping DSPy optimization (--baseline-only)...")
         final_module = baseline
@@ -1823,7 +1927,13 @@ def run_metadata_dspy(
         print_summary(all_rows_results)
         save_results_json(all_rows_results, output_dir / "all_rows_metadata_results.json")
 
-    _save_prompt_artifacts(output_dir, baseline, final_module if not baseline_only else baseline)
+    prompt_module = optimized_student if optimized_student is not None else baseline
+    if optimized_student is not None and hasattr(optimized_student, 'save'):
+        try:
+            optimized_student.save(str(output_dir / "optimized_module.json"))
+        except Exception:
+            pass
+    _save_prompt_artifacts(output_dir, baseline, prompt_module)
 
     print("\n" + "=" * 70)
     print("RESULTS SUMMARY")

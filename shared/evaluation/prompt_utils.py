@@ -10,6 +10,55 @@ from pathlib import Path
 from typing import Dict, Any, Optional
 
 
+def _clean_prompt_text(text: str) -> str:
+    value = str(text or "")
+
+    # Repair common mojibake patterns from UTF-8 text that was decoded as cp1252/latin1.
+    if any(token in value for token in ("??", "???", "???", "???", "???", "???", "?", "�")):
+        try:
+            repaired = value.encode("latin1", errors="ignore").decode("utf-8", errors="ignore")
+            if repaired:
+                value = repaired
+        except Exception:
+            pass
+
+    replacements = {
+        "?": '"',
+        "?": '"',
+        "?": "'",
+        "?": "'",
+        "?": '-',
+        "?": '-',
+        "?": '...',
+        "�": '"',
+    }
+    for bad, good in replacements.items():
+        value = value.replace(bad, good)
+    return value
+
+
+def _format_signature_fields(fields):
+    lines = []
+    for field in fields:
+        prefix = _clean_prompt_text(field.get('prefix', 'Unknown')).strip()
+        desc = _clean_prompt_text(field.get('description', '')).strip()
+        prefix = prefix.rstrip(':').strip()
+
+        if not prefix and not desc:
+            continue
+
+        low_prefix = prefix.lower()
+        if '${reasoning}' in desc or low_prefix.startswith('reasoning'):
+            lines.append('- **Reasoning:** Step-by-step extraction rationale')
+            continue
+        if '{{contract_text}}' in prefix.lower() or 'now extract the requested metadata fields' in prefix.lower():
+            lines.append('- **Termination For Convenience:** ' + (desc or 'Normalized termination-for-convenience summary'))
+            continue
+
+        lines.append(f"- **{prefix}:** {desc}" if desc else f"- **{prefix}:**")
+    return lines
+
+
 def save_baseline_prompt(baseline_prompt_path: Path, results_dir: Path):
     """
     Copy baseline prompt to results directory.
@@ -42,7 +91,7 @@ def extract_optimized_prompt(optimized_module, results_dir: Path) -> Optional[st
         # First, load from the saved JSON file which has the full structure
         module_json_path = results_dir / "optimized_module.json"
         if module_json_path.exists():
-            with open(module_json_path, 'r') as f:
+            with open(module_json_path, 'r', encoding='utf-8') as f:
                 module_dict = json.load(f)
             prompt_text = format_dspy_prompt_from_json(module_dict)
         else:
@@ -52,7 +101,7 @@ def extract_optimized_prompt(optimized_module, results_dir: Path) -> Optional[st
         # Save to file
         dst = results_dir / "prompts" / "optimized_prompt.txt"
         dst.parent.mkdir(parents=True, exist_ok=True)
-        dst.write_text(prompt_text)
+        dst.write_text(prompt_text, encoding='utf-8')
 
         return prompt_text
     except Exception as e:
@@ -96,7 +145,7 @@ def format_dspy_prompt_from_json(module_dict: Dict[str, Any]) -> str:
                 lines.append("## Instructions")
                 lines.append("")
                 lines.append("```")
-                lines.append(sig['instructions'])
+                lines.append(_clean_prompt_text(sig['instructions']))
                 lines.append("```")
                 lines.append("")
 
@@ -104,10 +153,7 @@ def format_dspy_prompt_from_json(module_dict: Dict[str, Any]) -> str:
             if 'fields' in sig and sig['fields']:
                 lines.append("## Field Definitions")
                 lines.append("")
-                for field in sig['fields']:
-                    prefix = field.get('prefix', 'Unknown')
-                    desc = field.get('description', '')
-                    lines.append(f"- **{prefix}** {desc}")
+                lines.extend(_format_signature_fields(sig['fields']))
                 lines.append("")
 
         # Few-shot demonstrations
@@ -125,7 +171,7 @@ def format_dspy_prompt_from_json(module_dict: Dict[str, Any]) -> str:
 
                 # Input text
                 if 'unstructured_text' in demo:
-                    text = demo['unstructured_text']
+                    text = _clean_prompt_text(demo['unstructured_text'])
                     if len(text) > 200:
                         text = text[:200] + "..."
                     lines.append(f"**Input (truncated):**")
@@ -136,7 +182,7 @@ def format_dspy_prompt_from_json(module_dict: Dict[str, Any]) -> str:
 
                 # Reasoning (Chain-of-Thought)
                 if 'reasoning' in demo:
-                    reasoning = demo['reasoning']
+                    reasoning = _clean_prompt_text(demo['reasoning'])
                     if len(reasoning) > 300:
                         reasoning = reasoning[:300] + "..."
                     lines.append(f"**Reasoning:**")
@@ -145,10 +191,12 @@ def format_dspy_prompt_from_json(module_dict: Dict[str, Any]) -> str:
 
                 # Output fields
                 lines.append("**Output:**")
-                output_fields = ['job_role', 'skills', 'education', 'experience_years']
-                for field in output_fields:
-                    if field in demo:
-                        lines.append(f"- {field}: `{demo[field]}`")
+                skip_fields = {"augmented", "contract_text", "unstructured_text", "reasoning"}
+                for field, value in demo.items():
+                    if field in skip_fields:
+                        continue
+                    cleaned_value = _clean_prompt_text(value)
+                    lines.append(f"- {field}: `{cleaned_value}`")
                 lines.append("")
 
             if len(demos) > 3:
@@ -191,7 +239,6 @@ def format_dspy_prompt_from_module(optimized_module) -> str:
         # Signature
         if hasattr(predictor, 'signature'):
             sig = predictor.signature
-            lines.append("## Signature")
 
             if hasattr(sig, 'input_fields'):
                 lines.append(f"Input: {', '.join(sig.input_fields.keys())}")
@@ -204,7 +251,7 @@ def format_dspy_prompt_from_module(optimized_module) -> str:
                 lines.append("## Instructions")
                 lines.append("")
                 lines.append("```")
-                lines.append(sig.instructions)
+                lines.append(_clean_prompt_text(sig.instructions))
                 lines.append("```")
                 lines.append("")
 
@@ -235,16 +282,18 @@ def format_dspy_prompt_from_module(optimized_module) -> str:
 
 
 def count_examples(prompt_text: str) -> int:
-    """
-    Count number of examples in a prompt.
-
-    Args:
-        prompt_text: Prompt text to analyze
-
-    Returns:
-        Number of examples
-    """
+    """Count rendered examples in a prompt artifact."""
     return prompt_text.count("### Example")
+
+
+def _extract_total_examples(prompt_text: str) -> int | None:
+    import re
+    m = re.search(r"Total examples:\s*\*\*(\d+)\*\*", prompt_text)
+    return int(m.group(1)) if m else None
+
+
+def _wrap_code_fence(text: str) -> str:
+    return "```text\n" + text.rstrip() + "\n```"
 
 
 def generate_prompt_comparison(results_dir: Path):
@@ -261,36 +310,38 @@ def generate_prompt_comparison(results_dir: Path):
     optimized_text = ""
 
     if baseline_path.exists():
-        baseline_text = baseline_path.read_text()
+        baseline_text = baseline_path.read_text(encoding='utf-8')
     else:
         baseline_text = "Baseline prompt not found"
 
     if optimized_path.exists():
-        optimized_text = optimized_path.read_text()
+        optimized_text = optimized_path.read_text(encoding='utf-8')
         num_examples = count_examples(optimized_text)
     else:
         optimized_text = "Optimized prompt not found"
         num_examples = 0
 
+    total_examples = _extract_total_examples(optimized_text)
+    shown_examples = num_examples
+    example_note = (
+        f"{shown_examples} shown / {total_examples} total" if total_examples is not None else str(shown_examples)
+    )
+
     comparison = f"""# Prompt Comparison
 
-## Baseline Prompt (Handcrafted)
+## Baseline Prompt
 
-```
-{baseline_text}
-```
+{_wrap_code_fence(baseline_text)}
 
-## Optimized Prompt (DSPy)
+## Optimized Prompt
 
-```
 {optimized_text}
-```
 
 ## Key Differences
 
-- **Few-shot examples**: 0 (baseline) vs {num_examples} (optimized)
-- **Reasoning**: Implicit (baseline) vs Explicit Chain-of-Thought (optimized)
-- **Optimization**: Manual (baseline) vs Automatic via DSPy (optimized)
+- **Few-shot examples**: 0 (baseline) vs {example_note} (optimized)
+- **Reasoning**: Implicit baseline extraction vs explicit Chain-of-Thought in optimized DSPy prompt
+- **Optimization**: Baseline metadata signature vs automatic DSPy optimization (BootstrapFewShot + COPRO)
 
 ## Notes
 
@@ -298,9 +349,9 @@ The optimized prompt is generated through DSPy's two-stage optimization:
 1. BootstrapFewShot: Selects effective few-shot examples from training data
 2. COPRO: Refines instructions and example selection
 
-The baseline prompt is handcrafted based on domain knowledge and best practices.
+The baseline prompt shown here is the metadata baseline signature used by `run_metadata_dspy.py`.
 """
 
     dst = results_dir / "prompts" / "prompt_comparison.md"
     dst.parent.mkdir(parents=True, exist_ok=True)
-    dst.write_text(comparison)
+    dst.write_text(comparison, encoding='utf-8')
