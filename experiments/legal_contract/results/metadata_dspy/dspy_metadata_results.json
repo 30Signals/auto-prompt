@@ -12,7 +12,7 @@
         },
         "Effective Date": {
           "gold": "March 03, 2003",
-          "pred": "March 18, 2003",
+          "pred": "April 07, 2026",
           "score": 0.0
         },
         "Expiration Date": {
@@ -37,7 +37,7 @@
         },
         "Non-Compete": {
           "gold": "Yes | Restricted Party: Company | Scope: Exclusivity",
-          "pred": "Yes | Restricted Party: Member | Scope: Exclusivity",
+          "pred": "Yes | Restricted Party: Member | Scope: Exclusivity, Non-Competition",
           "score": 1.0
         },
         "Parties": {
@@ -89,8 +89,8 @@
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Restricted Party: Executive | Duration: until the 2015 annual meeting | Scope: Non-Competition, Non-Solicitation",
+          "score": 0.0
         },
         "Parties": {
           "gold": "JANA Partners LLC | URS Corporation",
@@ -103,7 +103,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.7777777777777778
+      "overall_score": 0.6666666666666666
     },
     {
       "index": 2,
@@ -203,7 +203,7 @@
         },
         "Termination For Convenience": {
           "gold": "NOT FOUND",
-          "pred": "Yes | Notice: 12 months | Either Party | Without Cause",
+          "pred": "Yes | Without Cause",
           "score": 0.0
         }
       },
@@ -255,7 +255,7 @@
         },
         "Termination For Convenience": {
           "gold": "NOT FOUND",
-          "pred": "Yes | Notice: Not specified | Either Party | Without Cause",
+          "pred": "Yes | Notice: Not specified | Without Cause",
           "score": 0.0
         }
       },
@@ -282,7 +282,7 @@
         },
         "Governing Law": {
           "gold": "united states",
-          "pred": "nevada",
+          "pred": "united states",
           "score": 1.0
         },
         "Indemnification": {
@@ -433,8 +433,8 @@
         },
         "Expiration Date": {
           "gold": "7-Year (84 months) Initial Term, Auto-Renewal",
-          "pred": "7-Year (84 months) Initial Term, Auto-Renewal",
-          "score": 1.0
+          "pred": "3-Year (36 months) Initial Term",
+          "score": 0.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -463,11 +463,11 @@
         },
         "Termination For Convenience": {
           "gold": "Yes | Notice: 180 days | Without Cause",
-          "pred": "Yes | Notice: 180 days | Either Party | Without Cause",
+          "pred": "Yes | Notice: 180 days | Without Cause",
           "score": 1.0
         }
       },
-      "overall_score": 0.7777777777777778
+      "overall_score": 0.6666666666666666
     },
     {
       "index": 9,
@@ -537,7 +537,7 @@
         },
         "Expiration Date": {
           "gold": "NOT FOUND",
-          "pred": "Co-terminous with Related Agreement",
+          "pred": "5-Year (60 months) Initial Term, Auto-Renewal",
           "score": 0.0
         },
         "Governing Law": {
@@ -619,11 +619,11 @@
         },
         "Termination For Convenience": {
           "gold": "Yes | Notice: Immediate | Without Cause",
-          "pred": "Yes | Notice: 15 days | Either Party | Without Cause",
-          "score": 0.4
+          "pred": "Yes | Without Cause",
+          "score": 1.0
         }
       },
-      "overall_score": 0.7111111111111111
+      "overall_score": 0.7777777777777778
     },
     {
       "index": 12,
@@ -797,8 +797,8 @@
         },
         "Expiration Date": {
           "gold": "Until Completion of Program/Milestones",
-          "pred": "6-Year (72 months) Initial Term",
-          "score": 0.0
+          "pred": "Until Completion of Program/Milestones",
+          "score": 1.0
         },
         "Governing Law": {
           "gold": "united states",
@@ -827,11 +827,11 @@
         },
         "Termination For Convenience": {
           "gold": "Yes | Notice: 180 days | Without Cause",
-          "pred": "NOT FOUND",
-          "score": 0.3
+          "pred": "Yes | Notice: 180 days | Without Cause",
+          "score": 1.0
         }
       },
-      "overall_score": 0.7
+      "overall_score": 0.8888888888888888
     },
     {
       "index": 16,
@@ -921,8 +921,8 @@
         },
         "Non-Compete": {
           "gold": "NOT FOUND",
-          "pred": "NOT FOUND",
-          "score": 1.0
+          "pred": "Yes | Restricted Party: Contractor | Scope: Non-Competition",
+          "score": 0.0
         },
         "Parties": {
           "gold": "Fonterra (USA) Inc | Premier Nutrition Company, LLC",
@@ -935,7 +935,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.8888888888888888
+      "overall_score": 0.7777777777777778
     },
     {
       "index": 18,
@@ -983,7 +983,7 @@
         },
         "Termination For Convenience": {
           "gold": "Yes | Without Cause",
-          "pred": "Yes | Notice: 5 years | Either Party | Without Cause",
+          "pred": "Yes | Notice: Not specified | Either Party | Without Cause",
           "score": 1.0
         }
       },
@@ -1082,7 +1082,7 @@
         },
         "Parties": {
           "gold": "American General Life Insurance Company | American International Group, Inc",
-          "pred": "AMERICAN GENERAL LIFE INSURANCE COMPANY OF DELAWARE | AMERICAN INTERNATIONAL GROUP, INC",
+          "pred": "American General Life Insurance Company of Delaware | American International Group, Inc",
           "score": 1.0
         },
         "Termination For Convenience": {
@@ -1109,7 +1109,7 @@
         },
         "Expiration Date": {
           "gold": "5-Year (60 months) Initial Term",
-          "pred": "5-Year (60 months) Initial Term",
+          "pred": "5-Year (60 months) Initial Term, Auto-Renewal",
           "score": 1.0
         },
         "Governing Law": {
@@ -1218,8 +1218,8 @@
         },
         "Governing Law": {
           "gold": "canada",
-          "pred": "nova scotia",
-          "score": 0.0
+          "pred": "canada",
+          "score": 1.0
         },
         "Indemnification": {
           "gold": "NOT FOUND",
@@ -1247,7 +1247,7 @@
           "score": 0.3
         }
       },
-      "overall_score": 0.8111111111111111
+      "overall_score": 0.9222222222222223
     },
     {
       "index": 24,
@@ -1295,11 +1295,11 @@
         },
         "Termination For Convenience": {
           "gold": "Yes | Either Party | Without Cause",
-          "pred": "NOT FOUND",
-          "score": 0.3
+          "pred": "Yes | Either Party | Without Cause",
+          "score": 1.0
         }
       },
-      "overall_score": 0.47777777777777775
+      "overall_score": 0.5555555555555556
     },
     {
       "index": 25,
@@ -1498,8 +1498,8 @@
         },
         "Parties": {
           "gold": "Cisco Systems, Inc",
-          "pred": "Cisco Systems, Inc",
-          "score": 1.0
+          "pred": "Cisco Systems, Inc | SCANSOURCE, INC",
+          "score": 0.95
         },
         "Termination For Convenience": {
           "gold": "NOT FOUND",
@@ -1507,7 +1507,7 @@
           "score": 1.0
         }
       },
-      "overall_score": 0.9833333333333333
+      "overall_score": 0.9777777777777779
     },
     {
       "index": 29,
@@ -1566,26 +1566,26 @@
     "Agreement Date": 0.8333333333333334,
     "Effective Date": 0.8,
     "Expiration Date": 0.6,
-    "Governing Law": 0.9,
+    "Governing Law": 0.9333333333333333,
     "Indemnification": 0.9666666666666667,
     "Limitation Of Liability": 0.775,
-    "Non-Compete": 0.8866666666666667,
-    "Parties": 0.9633333333333333,
-    "Termination For Convenience": 0.7733333333333334
+    "Non-Compete": 0.8200000000000001,
+    "Parties": 0.9616666666666666,
+    "Termination For Convenience": 0.84
   },
-  "overall_accuracy": 0.8331481481481482,
+  "overall_accuracy": 0.8366666666666668,
   "total_samples": 30,
   "metadata": {
     "per_field_accuracy": {
       "Agreement Date": 0.8333333333333334,
       "Effective Date": 0.8,
       "Expiration Date": 0.6,
-      "Governing Law": 0.9,
+      "Governing Law": 0.9333333333333333,
       "Indemnification": 0.9666666666666667,
       "Limitation Of Liability": 0.775,
-      "Non-Compete": 0.8866666666666667,
-      "Parties": 0.9633333333333333,
-      "Termination For Convenience": 0.7733333333333334
+      "Non-Compete": 0.8200000000000001,
+      "Parties": 0.9616666666666666,
+      "Termination For Convenience": 0.84
     },
     "llm_eval_used": false
   }

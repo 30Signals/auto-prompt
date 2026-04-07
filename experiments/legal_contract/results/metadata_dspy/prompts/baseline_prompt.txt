@@ -13,6 +13,8 @@ Extract contract metadata fields from contract text.
     - Non-Compete: return a concise normalized summary like "Yes | Restricted Party: ... | Duration: ... | Scope: ..." or "NOT FOUND".
     - Parties: this field is always expected; return the principal signatory/legal-entity names only, separated by " | ". Exclude role labels like Provider, Recipient, Customer, Distributor, Party, and exclude descriptive prose.
     - Termination For Convenience: return only a normalized summary like "Yes | Notice: 30 days | Either Party | Without Cause" or "NOT FOUND".
+      - Only mark this field present when the contract expressly permits termination for convenience, without cause, or for any reason.
+      - Do NOT treat breach, default, insolvency, bankruptcy, force majeure, or failure-to-cure termination rights as termination for convenience.
 
 ## Fields
 - Agreement Date

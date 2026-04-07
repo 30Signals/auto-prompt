@@ -745,9 +745,15 @@ def _extract_non_compete_from_contract(contract_text: str) -> str:
         return "NOT FOUND"
     focused = _excerpt_for_patterns(
         text,
-        _METADATA_FIELD_PATTERNS["non_compete"] + [r"non-solicit", r"no-hire", r"not sell any competing", r"competitive product", r"products competitive with", r"competitive business", r"direct or indirect interest", r"own, manage, engage in, be employed by", r"divert or attempt to divert", r"exclusive appointment", r"exclusive purchase"],
-        window=550,
-        max_chars=2600,
+        _METADATA_FIELD_PATTERNS["non_compete"] + [
+            r"non-solicit", r"no-hire", r"not sell any competing", r"competitive product", r"products competitive with",
+            r"competitive business", r"direct or indirect interest", r"own, manage, engage in, be employed by",
+            r"divert or attempt to divert", r"exclusive appointment", r"exclusive purchase",
+            r"directly competing retailer", r"competing retailer", r"substantially similar", r"similar hosted",
+            r"provide[^\n.;]{0,80}similar[^\n.;]{0,80}services"
+        ],
+        window=650,
+        max_chars=3000,
     )
     normalized = _normalize_non_compete_prediction(focused or text)
     return normalized if normalized else "NOT FOUND"
@@ -932,15 +938,11 @@ def _extract_termination_for_convenience_from_contract(contract_text: str) -> st
         r"without cause[^\n.;]{0,40}terminate",
         r"for any reason or no reason",
         r"for any reason upon",
-        r"reserves the right to terminate",
-        r"any party may terminate its participation",
-        r"(?:either party|each party|both parties)[^\n.;]{0,40}?(?:may|shall have the right to|can)[^\n.;]{0,20}?terminate(?: this agreement| the agreement)?[^\n.;]{0,160}?(?:written notice|prior written notice|notice)",
-        r"may be terminated by either party[^\n.;]{0,160}?(?:written notice|prior written notice|notice)",
-        r"(?:customer|company|consultant|distributor|licensor|licensee|provider|recipient|contractor|vendor|reseller|manufacturer|buyer|seller|agency|affiliate|sparkling|principal|distributor)[^\n.;]{0,80}?may[^\n.;]{0,20}?terminate(?: this agreement| the agreement)?[^\n.;]{0,160}?(?:written notice|prior written notice|notice)",
-        r"is terminating this agreement",
         r"terminate this agreement immediately upon written notice for any reason",
-        r"upon one hundred eighty \(180\) days' written notice",
-        r"upon \[\*\*\*\] written notice",
+        r"any party may terminate its participation[^\n.;]{0,120}(?:for convenience|without cause|for any reason)",
+        r"(?:either party|each party|both parties)[^\n.;]{0,40}?(?:may|shall have the right to|can)[^\n.;]{0,20}?terminate(?: this agreement| the agreement)?[^\n.;]{0,160}?(?:for convenience|without cause|for any reason|for any reason or no reason)",
+        r"may be terminated by either party[^\n.;]{0,160}?(?:for convenience|without cause|for any reason|for any reason or no reason)",
+        r"(?:customer|company|consultant|distributor|licensor|licensee|provider|recipient|contractor|vendor|reseller|manufacturer|buyer|seller|agency|affiliate|sparkling|principal|distributor)[^\n.;]{0,80}?may[^\n.;]{0,20}?terminate(?: this agreement| the agreement)?[^\n.;]{0,160}?(?:for convenience|without cause|for any reason|for any reason or no reason)",
     ]
     focused = _excerpt_for_patterns(
         text,
@@ -951,16 +953,12 @@ def _extract_termination_for_convenience_from_contract(contract_text: str) -> st
     normalized = _normalize_termination_prediction(focused or "")
     return normalized if normalized else "NOT FOUND"
 
-
 def _contract_has_strong_tfc_support(contract_text: str) -> bool:
     low = str(contract_text or '').lower()
     strong_markers = [
         'termination for convenience', 'with or without cause',
         'for any reason or no reason', 'for any reason upon', 'for any reason upon written notice',
-        'terminate this agreement immediately upon written notice for any reason',
-        'any party may terminate its participation', 'upon 180 days written notice',
-        "one hundred eighty (180) days' written notice", 'is terminating this agreement',
-        'may be terminated by either party', 'either party may terminate', 'unless sooner terminated by either party'
+        'terminate this agreement immediately upon written notice for any reason'
     ]
     if 'for convenience of reference only' in low or 'headings are for convenience' in low:
         return False
@@ -1324,6 +1322,8 @@ class ContractMetadataSignature(dspy.Signature):
     - Non-Compete: return a concise normalized summary like "Yes | Restricted Party: ... | Duration: ... | Scope: ..." or "NOT FOUND".
     - Parties: this field is always expected; return the principal signatory/legal-entity names only, separated by " | ". Exclude role labels like Provider, Recipient, Customer, Distributor, Party, and exclude descriptive prose.
     - Termination For Convenience: return only a normalized summary like "Yes | Notice: 30 days | Either Party | Without Cause" or "NOT FOUND".
+      - Only mark this field present when the contract expressly permits termination for convenience, without cause, or for any reason.
+      - Do NOT treat breach, default, insolvency, bankruptcy, force majeure, or failure-to-cure termination rights as termination for convenience.
     """
 
     contract_text = dspy.InputField(desc="Full contract text")

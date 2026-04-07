@@ -102,6 +102,29 @@ def _extract_notice_phrase(lower: str):
     return None
 
 
+def _extract_tfc_clause_window(lower: str) -> str:
+    marker = re.search(r'for convenience|without cause|for any reason(?: or no reason)?', lower)
+    if marker:
+        start = max(0, marker.start() - 120)
+        end = min(len(lower), marker.end() + 220)
+        window = lower[start:end]
+        sentence_match = re.search(r'[^.]*?(?:for convenience|without cause|for any reason(?: or no reason)?)[^.]*', window)
+        if sentence_match:
+            return collapse_ws(sentence_match.group(0))
+        return collapse_ws(window)
+
+    patterns = [
+        r'(?:either party|each party|both parties|any party)[^.;]{0,260}?(?:for convenience|without cause|for any reason(?: or no reason)?)[^.;]{0,220}',
+        r'(?:for convenience|without cause|for any reason(?: or no reason)?)[^.;]{0,260}?(?:either party|each party|both parties|any party|may terminate|terminate)[^.;]{0,220}',
+        r'(?:customer|company|consultant|distributor|licensor|licensee|provider|recipient|contractor|vendor|reseller|manufacturer|buyer|seller|agency|affiliate)[^.;]{0,120}?may[^.;]{0,40}?terminate[^.;]{0,260}?(?:for convenience|without cause|for any reason(?: or no reason)?)[^.;]{0,220}',
+    ]
+    for pat in patterns:
+        m = re.search(pat, lower)
+        if m:
+            return collapse_ws(m.group(0))
+    return lower
+
+
 def _extract_tfc_initiator(lower: str):
     either_markers = ['either party', 'each party', 'both parties', 'any party']
     if any(m in lower for m in either_markers):
@@ -680,8 +703,8 @@ def clean_termination(value) -> str:
     lower = text.lower()
 
     explicit_convenience = any(k in lower for k in [
-        'for convenience', 'with or without cause'
-    ]) or bool(re.search(r'terminat(?:e|ed|ion)[^.;]{0,40}without cause|without cause[^.;]{0,40}terminat', lower)) or bool(re.search(r'terminat(?:e|ed|ion)[^.;]{0,60}for any reason|for any reason[^.;]{0,60}terminat', lower))
+        'for convenience', 'with or without cause', 'for any reason or no reason'
+    ]) or bool(re.search(r'terminat(?:e|ed|ion)[^.;]{0,40}without cause|without cause[^.;]{0,40}terminat', lower)) or bool(re.search(r'terminat(?:e|ed|ion)[^.;]{0,60}for any reason(?: or no reason)?|for any reason(?: or no reason)?[^.;]{0,60}terminat', lower))
     bilateral_notice_pattern = bool(re.search(
         r'\b(?:either party|each party|both parties)\b[^.;]{0,40}?\b(?:may|shall have the right to|can)\b[^.;]{0,20}?\bterminate\b[^.;]{0,160}?\b(?:written notice|prior written notice|notice)\b',
         lower,
@@ -690,7 +713,8 @@ def clean_termination(value) -> str:
         r'\b(?:customer|company|consultant|distributor|licensor|licensee|provider|recipient|contractor|vendor|reseller|manufacturer|buyer|seller|agency|affiliate|sparkling|chase|bank of america)\b[^.;]{0,80}?\bmay\b[^.;]{0,20}?\bterminate(?: this agreement| the agreement)?\b[^.;]{0,120}?\b(?:written notice|prior written notice|notice)\b',
         lower,
     ))
-    at_will_notice = bilateral_notice_pattern or named_party_notice_pattern
+    # Notice-only termination language is not enough; require explicit without-cause / convenience wording.
+    at_will_notice = (bilateral_notice_pattern or named_party_notice_pattern) and explicit_convenience
 
     notice_only_markers = [
         'notice of non-renewal', 'intention not to renew', 'annual meeting', 'cooperation period',
@@ -717,12 +741,14 @@ def clean_termination(value) -> str:
     if not explicit_convenience and not at_will_notice:
         return 'NOT FOUND'
 
+    tfc_window = _extract_tfc_clause_window(lower)
+
     parts = ['Yes']
-    notice = _extract_notice_phrase(lower)
+    notice = _extract_notice_phrase(tfc_window)
     if notice:
         parts.append(notice)
 
-    initiator = _extract_tfc_initiator(lower)
+    initiator = _extract_tfc_initiator(tfc_window)
     if initiator:
         parts.append(initiator)
 
@@ -810,7 +836,8 @@ def clean_non_compete(value) -> str:
         'non-compete', 'non compete', 'noncompetition', 'compete with', 'competitive business',
         'competitive product', 'competitive products', 'products competitive with', 'handle no products competitive',
         'competing product', 'competitor', 'competitive retailer', 'not compete', 'shall not compete',
-        'not engage', 'not participate', 'shall be prohibited', 'prohibited from', 'engage in any business'
+        'not engage', 'not participate', 'shall be prohibited', 'prohibited from', 'engage in any business',
+        'directly competing retailer', 'competing retailer', 'similar services to', 'substantially similar'
     ]
     product_restriction_markers = [
         'not directly or indirectly sell', 'not directly or indirectly handle', 'shall handle no products',
@@ -818,7 +845,9 @@ def clean_non_compete(value) -> str:
         'not commercialize', 'not promote', 'not supply', 'not exploit', 'develop or commercialize any competing product',
         'discover, research, develop, manufacture or commercialize', 'will discover, research, develop, manufacture or commercialize',
         'not authorize', 'may not sell or license', 'direct or indirect interest in any competitive business',
-        'own, manage, engage in, be employed by', 'have any direct or indirect interest', 'divert or attempt to divert'
+        'own, manage, engage in, be employed by', 'have any direct or indirect interest', 'divert or attempt to divert',
+        'shall not provide substantially similar', 'shall not provide similar', 'not provide substantially similar',
+        'not provide similar', 'services to any directly competing retailer', 'services to any competing retailer'
     ]
     nonsolicit_markers = [
         'non-solicit', 'solicit', 'entice away', 'divert', 'induce any employee', 'contact any customer',

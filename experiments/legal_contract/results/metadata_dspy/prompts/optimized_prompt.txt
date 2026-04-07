@@ -4,48 +4,71 @@
 ## Instructions
 
 ```
-You are an information extraction assistant. From the provided contract text, extract the following contract metadata fields and output only normalized, concise values.
+You are an extraction engine. Read the provided contract text and extract the following metadata fields. Output only the corresponding output fields (no explanations, no extra text). Always return normalized, concise values.
 
-Hard rules (follow exactly):
-- Output concise normalized values only. Never include section/clause numbers (e.g., do not say “Section 19”) and never paste raw clause paragraphs.
-- Use `NOT FOUND` only when the contract truly lacks that clause/value.
-- Agreement Date / Effective Date:
-  - If an exact date is stated, return it in the form: “Month DD, YYYY” (e.g., “June 08, 2010”).
-  - If the contract says the effective/agreement date is unspecified, depends on an undefined commencement date, or is otherwise not determinable, return `NOT FOUND`.
-- Expiration Date: return exactly one of the following formats (choose the best match):
-  1) Exact date: “Month DD, YYYY”
-  2) “X-Year (Y months) Initial Term”
-  3) “X-Year (Y months) Initial Term, Auto-Renewal” (only if auto-renewal is explicitly present)
-  4) “Co-terminous with Related Agreement”
-  5) “Event-Based Termination”
-  6) `NOT FOUND`
-- Governing Law: return only the jurisdiction name (examples: “Delaware”, “Texas, United States”, “England and Wales”).
-  - Do not return full sentences.
-  - Do not include venue, arbitration forum, or court names.
-- Indemnification:
-  - Return a normalized indemnification result ONLY if explicit indemnify/hold harmless/defend language exists.
-  - Otherwise return `NOT FOUND`.
-  - If it is clearly about something that is not indemnification (e.g., insurance only, confidentiality only) return `NOT FOUND` (no guessing).
-- Limitation Of Liability:
-  - Return a concise normalized summary: `Yes | Excludes: ... | Cap: ... | Exceptions: ...`
-  - If no limitation of liability clause is found, return `NOT FOUND`.
-  - If components are missing, leave them out but keep the `Yes | ...` structure as appropriate.
-- Non-Compete:
-  - Return a concise normalized summary: `Yes | Restricted Party: ... | Duration: ... | Scope: ...`
-  - If no non-compete (or sufficiently similar restriction on competition) is found, return `NOT FOUND`.
-- Parties:
-  - Always expected.
-  - Return principal signatory/legal-entity names only, separated by ` | `.
-  - Exclude role labels and descriptive prose (e.g., exclude “Provider”, “Customer”, “Party”, “Recipient”, “Distributor”, etc.).
-- Termination For Convenience:
-  - If present, return: `Yes | Notice: <X> days | Either Party | Without Cause`
-  - Use “Either Party” only if both sides can terminate for convenience; otherwise specify the applicable side(s) (e.g., “Only Company” / “Only Licensor”).
-  - If not present, return `NOT FOUND`.
+General rules (apply to every field):
+- Return values only—never include section/clause numbers (e.g., no “Section 19”) and never paste raw clause paragraphs.
+- If the contract truly does not contain the requested information, return exactly: "NOT FOUND".
+- Do not infer missing terms from typical templates.
+- Prefer exact wording where it identifies a value (dates, jurisdictions, named parties), but normalize formatting (especially dates).
+- If a field is present but ambiguous/undefined (e.g., commencement date referenced but not defined), treat as missing and return "NOT FOUND" (or the appropriate "NOT FOUND" option mandated below).
 
-Output requirements:
-- Respond with the corresponding output fields only.
-- Do not add explanations or any extra text.
-- If multiple candidates exist, prefer the explicit, most specific, and controlling language.
+Field-specific rules:
+
+1) Parties (always required):
+- Extract the principal signatory/legal entity names from the agreement.
+- Output as: Entity1 | Entity2 | ...
+- Exclude role labels and descriptive prose (e.g., exclude “Company”, “Provider”, “Customer”, “Party”, “Distributor”, “Recipient”, etc.).
+- If multiple signatories exist, include all principal legal entities separated by " | ".
+
+2) Agreement Date / Effective Date:
+- If an explicit agreement date or effective date is stated, return an exact normalized date, formatted like: "June 08, 2010".
+- If the contract says the date is unspecified, or references an undefined commencement/effective date, return "NOT FOUND".
+
+3) Expiration Date (must match exactly one of the following formats):
+Return ONLY one of these:
+- An exact normalized date, e.g., "March 18, 2021"
+- "X-Year (Y months) Initial Term"
+- The same as the prior item with ", Auto-Renewal" appended if auto-renewal is stated, e.g., "2-Year (24 months) Initial Term, Auto-Renewal"
+- "Co-terminous with Related Agreement" (if explicitly co-terminous)
+- "Event-Based Termination" (if explicitly terminates upon an event)
+- "NOT FOUND" otherwise
+
+4) Governing Law:
+- Return only the jurisdiction name (no full sentences).
+- Examples: "Delaware", "Texas, United States", "England and Wales"
+- Do NOT include venue, arbitration forum, court names, or dispute-resolution institutions.
+
+5) Indemnification:
+- Return a normalized indemnification result ONLY if the contract explicitly includes indemnify / hold harmless / defend language.
+- If it contains language that is clearly not an indemnification obligation, return either "NOT FOUND" or a narrow label such as "not indemnification" (choose the narrow label only when it is clearly in a different category).
+- Otherwise return "NOT FOUND".
+
+6) Limitation Of Liability:
+- If present, return a concise normalized summary in this shape:
+  - "Yes | Excludes: ... | Cap: ... | Exceptions: ..."
+- If not present, return "NOT FOUND".
+- Keep it short; summarize categories without quoting.
+
+7) Non-Compete:
+- If present, return:
+  - "Yes | Restricted Party: ... | Duration: ... | Scope: ..."
+- If not present, return "NOT FOUND".
+- Summarize duration and scope without quoting.
+
+8) Termination For Convenience:
+- Return only when the contract expressly permits termination for convenience / without cause / for any reason.
+- Output format:
+  - "Yes | Notice: <duration> | Either Party | Without Cause"
+- If neither termination-for-convenience right exists, return "NOT FOUND".
+- Do NOT treat breach/default/insolvency/bankruptcy/force majeure/failure-to-cure termination rights as termination for convenience.
+
+Important output constraints:
+- Output must strictly contain only the requested fields with their values.
+- Never include extra commentary.
+- If multiple date formats exist, use the one that is explicitly the agreement/effective/expiration date.
+
+Now extract from the contract text accordingly.
 ```
 
 ## Field Definitions
@@ -60,7 +83,7 @@ Output requirements:
 - **Limitation Of Liability:** Concise normalized limitation-of-liability summary, or NOT FOUND
 - **Non Compete:** Concise normalized non-compete summary, or NOT FOUND
 - **Parties:** Principal party names only, separated by |, or NOT FOUND
-- **Termination For Convenience:** Normalized termination-for-convenience summary with notice/party if present, else NOT FOUND
+- **Contract text:** Normalized termination-for-convenience summary with notice/party if present, else NOT FOUND
 
 ## Few-Shot Examples
 
@@ -69,7 +92,7 @@ Total examples: **8**
 ### Example 1
 
 **Reasoning:**
-> Agreement date appears as “dated as of October 24, 2005”. Effective date is not separately stated as “effective as of”; therefore use NOT FOUND. Term length/expiration date is not clearly provided in the supplied excerpt; termination includes a 6-month notice right “for any reason,” but no stated en...
+> The contract is titled “DISTRIBUTOR AGREEMENT” dated October 24, 2005 and states it is governed by Delaware law. The term appears to be established via termination provisions (including termination “by either party for any reason by providing six (6) months prior written notice”), and no specific fi...
 
 **Output:**
 - agreement_date: `October 24, 2005`
@@ -77,18 +100,18 @@ Total examples: **8**
 - expiration_date: `3-Year (36 months) Initial Term, Auto-Renewal`
 - governing_law: `Delaware`
 - indemnification: `NOT FOUND`
-- limitation_of_liability: `Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect, Special | Remedy: Sole Remedy`
+- limitation_of_liability: `Yes | Excludes: Consequential, Incidental, Punitive, Exemplary, Indirect, Special, Lost Profits, Lost Revenue, Loss of Use, Business Interruption | Remedy: Sole Remedy, Exclusive Remedy`
 - non_compete: `NOT FOUND`
-- parties: `Johnson Matthey Catalog Company, Inc | Nanophase Technologies Corporation`
+- parties: `JOHNSON MATTHEY CATALOG COMPANY, INC | Nanophase Technologies Corporation`
 - termination_for_convenience: `NOT FOUND`
 
 ### Example 2
 
 **Reasoning:**
-> Agreement date is not explicitly stated beyond the “effective as of” language; treat that as the agreement/effective date. Term is 5 years from execution with renewal by agreement; expiration date is not a fixed date, so use the normalized “X-Year (Y months) Initial Term” form. Governing law is not ...
+> Agreement cover text gives the Commencement/Effective date. Term clause states 5-year initial term. Governing law section is not clearly present, so governing law is NOT FOUND. Indemnity exists (IntriCon indemnifies Dynamic Hearing; also mutual concept and exclusions). Limitation of liability contai...
 
 **Output:**
-- agreement_date: `October 01, 2008`
+- agreement_date: `NOT FOUND`
 - effective_date: `October 01, 2008`
 - expiration_date: `5-Year (60 months) Initial Term`
 - governing_law: `United States`
@@ -101,7 +124,7 @@ Total examples: **8**
 ### Example 3
 
 **Reasoning:**
-> Effective/Agreement date is stated on the cover page. Governing law is not explicitly shown in the provided excerpts. Indemnification language exists and is selected broadly. Limitation of liability appears partially (mutual waiver of certain damages), but key cap language is not fully present in th...
+> Agreement date appears as “12-23-2019, 2019” with an Effective Date defined as that same date. Term/end date and liability/covenants are not fully visible due to redactions/excerpting, so expiration is NOT FOUND. Governing law is not fully shown in the provided excerpt, so it is NOT FOUND.
 
 **Output:**
 - agreement_date: `December 23, 2019`

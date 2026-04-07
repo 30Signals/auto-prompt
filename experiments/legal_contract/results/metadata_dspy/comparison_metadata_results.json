@@ -17,8 +17,8 @@
     },
     {
       "sample_id": 2,
-      "baseline_score": 0.7777777777777778,
-      "optimized_score": 0.7777777777777778,
+      "baseline_score": 0.6666666666666666,
+      "optimized_score": 0.6666666666666666,
       "difference": 0.0
     },
     {
@@ -59,8 +59,8 @@
     },
     {
       "sample_id": 9,
-      "baseline_score": 0.7777777777777778,
-      "optimized_score": 0.7777777777777778,
+      "baseline_score": 0.6666666666666666,
+      "optimized_score": 0.6666666666666666,
       "difference": 0.0
     },
     {
@@ -77,8 +77,8 @@
     },
     {
       "sample_id": 12,
-      "baseline_score": 0.7111111111111111,
-      "optimized_score": 0.7111111111111111,
+      "baseline_score": 0.7777777777777778,
+      "optimized_score": 0.7777777777777778,
       "difference": 0.0
     },
     {
@@ -101,8 +101,8 @@
     },
     {
       "sample_id": 16,
-      "baseline_score": 0.7,
-      "optimized_score": 0.7,
+      "baseline_score": 0.8888888888888888,
+      "optimized_score": 0.8888888888888888,
       "difference": 0.0
     },
     {
@@ -113,8 +113,8 @@
     },
     {
       "sample_id": 18,
-      "baseline_score": 0.8888888888888888,
-      "optimized_score": 0.8888888888888888,
+      "baseline_score": 0.7777777777777778,
+      "optimized_score": 0.7777777777777778,
       "difference": 0.0
     },
     {
@@ -149,14 +149,14 @@
     },
     {
       "sample_id": 24,
-      "baseline_score": 0.8111111111111111,
-      "optimized_score": 0.8111111111111111,
+      "baseline_score": 0.9222222222222223,
+      "optimized_score": 0.9222222222222223,
       "difference": 0.0
     },
     {
       "sample_id": 25,
-      "baseline_score": 0.47777777777777775,
-      "optimized_score": 0.47777777777777775,
+      "baseline_score": 0.5555555555555556,
+      "optimized_score": 0.5555555555555556,
       "difference": 0.0
     },
     {
@@ -173,8 +173,8 @@
     },
     {
       "sample_id": 29,
-      "baseline_score": 0.9833333333333333,
-      "optimized_score": 0.9833333333333333,
+      "baseline_score": 0.9777777777777779,
+      "optimized_score": 0.9777777777777779,
       "difference": 0.0
     },
     {
@@ -201,8 +201,8 @@
       "improvement": 0.0
     },
     "Governing Law": {
-      "baseline": 0.9,
-      "optimized": 0.9,
+      "baseline": 0.9333333333333333,
+      "optimized": 0.9333333333333333,
       "improvement": 0.0
     },
     "Indemnification": {
@@ -216,18 +216,18 @@
       "improvement": 0.0
     },
     "Non-Compete": {
-      "baseline": 0.8733333333333334,
-      "optimized": 0.8866666666666667,
+      "baseline": 0.8066666666666668,
+      "optimized": 0.8200000000000001,
       "improvement": 0.013333333333333308
     },
     "Parties": {
-      "baseline": 0.9633333333333333,
-      "optimized": 0.9633333333333333,
+      "baseline": 0.9616666666666666,
+      "optimized": 0.9616666666666666,
       "improvement": 0.0
     },
     "Termination For Convenience": {
-      "baseline": 0.7733333333333334,
-      "optimized": 0.7733333333333334,
+      "baseline": 0.84,
+      "optimized": 0.84,
       "improvement": 0.0
     }
   },
@@ -237,7 +237,7 @@
     "total_degradations": 0,
     "total_unchanged": 29,
     "overall_improvement": 0.001481481481481417,
-    "baseline_accuracy": 0.8316666666666668,
-    "optimized_accuracy": 0.8331481481481482
+    "baseline_accuracy": 0.8351851851851854,
+    "optimized_accuracy": 0.8366666666666668
   }
 }
