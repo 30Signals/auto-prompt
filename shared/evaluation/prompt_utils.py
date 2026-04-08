@@ -13,26 +13,40 @@ from typing import Dict, Any, Optional
 def _clean_prompt_text(text: str) -> str:
     value = str(text or "")
 
-    # Repair common mojibake patterns from UTF-8 text that was decoded as cp1252/latin1.
-    if any(token in value for token in ("??", "???", "???", "???", "???", "???", "?", "�")):
-        try:
-            repaired = value.encode("latin1", errors="ignore").decode("utf-8", errors="ignore")
-            if repaired:
-                value = repaired
-        except Exception:
-            pass
-
-    replacements = {
-        "?": '"',
-        "?": '"',
-        "?": "'",
-        "?": "'",
-        "?": '-',
-        "?": '-',
-        "?": '...',
-        "�": '"',
+    # First repair common mojibake patterns directly.
+    direct_replacements = {
+        "???": '"',
+        "??": '"',
+        "??": '"',
+        "???": "'",
+        "???": "'",
+        "???": '-',
+        "???": '-',
+        "???": '...',
+        "???": '"',
     }
-    for bad, good in replacements.items():
+    for bad, good in direct_replacements.items():
+        value = value.replace(bad, good)
+
+    # Then try round-tripping if mojibake markers remain.
+    suspicious_tokens = ("??", "?", "???")
+    if any(token in value for token in suspicious_tokens):
+        repaired_candidates = []
+        for src in ("cp1252", "latin1"):
+            try:
+                repaired = value.encode(src, errors="ignore").decode("utf-8", errors="ignore")
+                if repaired and repaired != value:
+                    repaired_candidates.append(repaired)
+            except Exception:
+                pass
+        if repaired_candidates:
+            value = min(
+                repaired_candidates,
+                key=lambda s: sum(s.count(tok) for tok in ("??", "?", "???"))
+            )
+
+    # Final cleanup pass in case round-tripping reintroduced artifacts.
+    for bad, good in direct_replacements.items():
         value = value.replace(bad, good)
     return value
 
@@ -48,12 +62,24 @@ def _format_signature_fields(fields):
             continue
 
         low_prefix = prefix.lower()
+        low_desc = desc.lower()
+
         if '${reasoning}' in desc or low_prefix.startswith('reasoning'):
             lines.append('- **Reasoning:** Step-by-step extraction rationale')
             continue
-        if '{{contract_text}}' in prefix.lower() or 'now extract the requested metadata fields' in prefix.lower():
+
+        # Some DSPy exports leak the final output field with a malformed "Contract text"
+        # prefix instead of the real termination-for-convenience label.
+        if (
+            '{{contract_text}}' in low_prefix
+            or 'now extract the requested metadata fields' in low_prefix
+            or (low_prefix == 'contract text' and 'termination-for-convenience' in low_desc)
+        ):
             lines.append('- **Termination For Convenience:** ' + (desc or 'Normalized termination-for-convenience summary'))
             continue
+
+        if low_prefix == 'non compete':
+            prefix = 'Non-Compete'
 
         lines.append(f"- **{prefix}:** {desc}" if desc else f"- **{prefix}:**")
     return lines

@@ -1550,16 +1550,25 @@ def _render_signature_prompt_text() -> str:
     for field in FIELDS:
         lines.append(f"- {field}")
 
-    model_fields = getattr(sig, "model_fields", {}) or {}
-    if model_fields:
-        lines.append("")
-        lines.append("## Field Metadata")
-        for fname, fobj in model_fields.items():
-            desc = getattr(fobj, "description", "") or ""
-            if desc:
-                lines.append(f"- {fname}: {desc}")
+    lines.append("")
+    lines.append("## Field Metadata")
+    field_metadata = [
+        ("Contract Text", "Full contract text"),
+        ("Agreement Date", "Agreement Date as normalized exact date like June 08, 2010, or NOT FOUND"),
+        ("Effective Date", "Effective Date as normalized exact date like June 08, 2010, or NOT FOUND"),
+        ("Expiration Date", "Expiration Date only in normalized schema: exact date, X-Year (Y months) Initial Term, optional Auto-Renewal, Co-terminous with Related Agreement, Event-Based Termination, or NOT FOUND"),
+        ("Governing Law", "Governing Law jurisdiction only in normalized form, or NOT FOUND"),
+        ("Indemnification", "Normalized indemnification result only, else NOT FOUND"),
+        ("Limitation Of Liability", "Concise normalized limitation-of-liability summary, or NOT FOUND"),
+        ("Non-Compete", "Concise normalized non-compete summary, or NOT FOUND"),
+        ("Parties", "Principal party names only, separated by |, or NOT FOUND"),
+        ("Termination For Convenience", "Normalized termination-for-convenience summary with notice/party if present, else NOT FOUND"),
+    ]
+    for label, desc in field_metadata:
+        lines.append(f"- {label}: {desc}")
 
     return "\n".join(lines).strip() + "\n"
+
 
 
 def _extract_optimized_prompt_text(optimized_module: dspy.Module) -> str:

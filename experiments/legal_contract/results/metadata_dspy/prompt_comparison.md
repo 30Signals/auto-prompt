@@ -33,6 +33,16 @@ Extract contract metadata fields from contract text.
 - Termination For Convenience
 
 ## Field Metadata
+- Contract Text: Full contract text
+- Agreement Date: Agreement Date as normalized exact date like June 08, 2010, or NOT FOUND
+- Effective Date: Effective Date as normalized exact date like June 08, 2010, or NOT FOUND
+- Expiration Date: Expiration Date only in normalized schema: exact date, X-Year (Y months) Initial Term, optional Auto-Renewal, Co-terminous with Related Agreement, Event-Based Termination, or NOT FOUND
+- Governing Law: Governing Law jurisdiction only in normalized form, or NOT FOUND
+- Indemnification: Normalized indemnification result only, else NOT FOUND
+- Limitation Of Liability: Concise normalized limitation-of-liability summary, or NOT FOUND
+- Non-Compete: Concise normalized non-compete summary, or NOT FOUND
+- Parties: Principal party names only, separated by |, or NOT FOUND
+- Termination For Convenience: Normalized termination-for-convenience summary with notice/party if present, else NOT FOUND
 
 ```
 
@@ -121,9 +131,9 @@ Now extract from the contract text accordingly.
 - **Governing Law:** Governing Law jurisdiction only in normalized form, or NOT FOUND
 - **Indemnification:** Normalized indemnification result only, else NOT FOUND
 - **Limitation Of Liability:** Concise normalized limitation-of-liability summary, or NOT FOUND
-- **Non Compete:** Concise normalized non-compete summary, or NOT FOUND
+- **Non-Compete:** Concise normalized non-compete summary, or NOT FOUND
 - **Parties:** Principal party names only, separated by |, or NOT FOUND
-- **Contract text:** Normalized termination-for-convenience summary with notice/party if present, else NOT FOUND
+- **Termination For Convenience:** Normalized termination-for-convenience summary with notice/party if present, else NOT FOUND
 
 ## Few-Shot Examples
 
